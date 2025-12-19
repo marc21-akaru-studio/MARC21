@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<meta name="robots" content="noindex, nofollow">
+		<title>書標小工具(HTML版)</title>
+
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="shortcut icon" href="favicon.ico"/>
+		<link rel="bookmark" href="favicon.ico"/>
+	</head>
+
+	<body style="overflow:hidden;">
+		<!--載入時預設 / LabelOnload-->
+		<script src="js/LabelOnload.js"></script>
+	<div class="box" id="divmain" style="width:500px;left:0px;height:100vh;padding:0px;">
+		<div class="zi_box_1" id="Group084" style="width:96%;max-width:490px;"><span class="zi_box_2">書標設定</span><br>
+		<div class="box" style="width:96%;">
+			<form>
+				<fieldset class="zi_box_1" onchange="toolChangeBrowser();">
+				<legend class="labeltext">資料來源：</legend>
+				<div>
+				<input type="radio" id="chkBrowserCH" name="contact" value="CH" checked />
+				<label for="chkBrowserCH" class="labeltext">Google Chrome</label>
+
+				<input type="radio" id="chkBrowserED" name="contact" value="ED" />
+				<label for="chkBrowserED" class="labeltext">Edge</label>
+
+				<input type="radio" id="chkBrowserFX" name="contact" value="FXOld" />
+				<label for="chkBrowserFX" class="labeltext">FireFox(toRead)</label>
+
+				<input type="radio" id="chkBrowserFXM" name="contact" value="FXMiracle" />
+				<label for="chkBrowserFXM" class="labeltext">FireFox(Miracle)</label>
+				</div>
+				</fieldset>
+			</form>
+		</div>
+
+		<div class="box" style="width:41%;">
+		<span class="labeltext">每行欄數：</span>
+				<input type="text" class="inputbox" id="boxCols" style="width:calc(98% - 6.5em);text-align:center;" value="6">
+		</div><br>
+		<div class="box" style="width:51%;">
+			<span class="labeltext">每頁行數：</span>
+			<select class="selectBox" id="boxRaws" style="width:calc(98% - 7em);">
+				<option value="12" selected>12行(新標籤紙)</option>
+				<option value="18">18行(舊標籤紙只印半格書名頁用)</option>
+				<option value="9">9行(舊標籤紙一般)</option>
+				<option value="6">6行(舊標籤紙一半側標、一半書名頁)</option>
+			</select><br>
+		</div><br>
+		<div class="box" style="width:98%;">
+			<span class="labeltext">每格字數：</span>
+			<input type="text" class="inputbox" id="boxWords" style="width:calc(41% - 6.5em);text-align:center;" value="11">
+		</div>
+	</div><br>
+	<div class="zi_box_1" style="width:96%;max-width:490px;height:calc(100vh - 15.5em);"><span class="zi_box_2">貼上館藏段</span><br>
+		<div class="box" style="width:96%;">
+		<textarea id="lblCollections" class="inputbox" style="height:calc(100vh - 21.5em);max-height:35em;width:98%;overflow:x-scroll;white-space:pre-wrap;"></textarea></div><br>
+			<div id="btnFivePen" class="button" style="width:4em;float:right;" onclick="ButtLabel();">轉置</div><br>
+	</div><br>
+	<div class="box" id="divright" style="position:fixed;width:calc(96vw - 500px);right:1%;top:1%;height:100vh;padding:0px;">
+		<div class="button" style="width:6em;float:right;" onclick="toolDisplay('toolTheme5');">切換主題</div>
+		<div class="zi_box_1" style="width:98%;height:calc(100% - 6em);top:1em;"><span class="zi_box_2">轉出書標</span><br>
+			<div class="box" style="width:96%;height:calc(96% - 5em);">
+			<div class="inputbox" id="divOutput" style="width:100%;height:calc(100vh - 9.5em);overflow-Y: scroll;"></div>
+			</div><br>
+		</div><br>
+	</div>
+	<!--切換主題 / ShowTools-->
+	<div class="toolstyle" id="toolTheme5" style="width:10em;height:3.6em;top:4%;left:calc(100vw - 12em);display:none;">
+		<table class="bibTable" style="width:88%;align:center;">
+			<tr>
+				<td style="width:1%;"></td>
+				<td style="width:30%;">
+					<div class="button" id="toolThemeLight" style="height:90%;weight:90%;" onclick="switchTo('light');"><svg viewBox="0 0 333.33334 333.33334" height="80%" width="80%" >
+					<g transform="matrix(1.3333333,0,0,-1.3333333,0,333.33333)" id="g0">
+							<g transform="translate(0,125)" id="g1">
+							  <path id="path1" style="fill:#FFF;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 C 0,-69.035 55.964,-125 125,-125 V 125 C 55.964,125 0,69.036 0,0"/>
+							</g>
+							<g transform="translate(125,250)" id="g2">
+							  <path id="path2" style="fill:#9cb85c;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 V -125 H 125 C 125,-55.964 69.035,0 0,0"/>
+							</g>
+							<g transform="translate(250,125)" id="g3">
+							  <path id="path3" style="fill:#5cb89c;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 H -125 V -125 C -55.965,-125 0,-69.035 0,0"/>
+							</g>
+					</g>
+					</svg></div></td>
+				<td style="width:4%;"></td>
+				<td style="width:30%;">
+					<div class="button" id="toolThemeDark" style="height:90%;weight:90%;" onclick="switchTo('dark');"><svg viewBox="0 0 333.33334 333.33334" height="80%" width="80%" >
+						<g transform="matrix(1.3333333,0,0,-1.3333333,0,333.33333)" id="g0">
+							<g transform="translate(0,125)" id="g1">
+							<path id="path1" style="fill:#000;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 C 0,-69.035 55.964,-125 125,-125 V 125 C 55.964,125 0,69.036 0,0"/>
+							</g>
+							<g transform="translate(125,250)" id="g2">
+							<path id="path2" style="fill:#895B2E;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 V -125 H 125 C 125,-55.964 69.035,0 0,0"/>
+							</g>
+							<g transform="translate(250,125)" id="g3">
+							<path id="path3" style="fill:#492711;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 H -125 V -125 C -55.965,-125 0,-69.035 0,0"/>
+							</g>
+						</g>
+					</svg></div></td>
+				<td style="width:4%;"></td>
+				<td style="width:30%;">
+					<div class="button" id="toolThemeBisque" style="height:90%;weight:90%;" onclick="switchTo('bisque');"><svg viewBox="0 0 333.33334 333.33334" height="80%" width="80%" >
+						<g transform="matrix(1.3333333,0,0,-1.3333333,0,333.33333)" id="g0">
+							<g transform="translate(0,125)" id="g1">
+							<path id="path1" style="fill:#f7e3af;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 C 0,-69.035 55.964,-125 125,-125 V 125 C 55.964,125 0,69.036 0,0"/>
+							</g>
+							<g transform="translate(125,250)" id="g2">
+							<path id="path2" style="fill:#5e2f00;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 V -125 H 125 C 125,-55.964 69.035,0 0,0"/>
+							</g>
+							<g transform="translate(250,125)" id="g3">
+							<path id="path3" style="fill:#a78664;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 H -125 V -125 C -55.965,-125 0,-69.035 0,0"/>
+							</g>
+						</g>
+					</svg></div></td>
+				<td style="width:1%;"></td>
+			</tr>
+		</table>
+		</div>
+	</div>
+
+	</body>
+</html>

@@ -1,0 +1,2297 @@
+小工具自訂選單
+
+##box008a06
+b 未註明日期；時間為西元前
+c 繼續刊行之連續性出版品
+d 已停刊之連續性出版品
+e 詳細之出版日期
+i 合集涵蓋日期
+k 整套合集起訖年
+m 多出版年
+n 出版年未知
+p 經銷、發行及製造日期
+q 出版年不確定
+r 重印和原版日期
+s 單一出版年或可能的出版年
+t 出版日期和版權日期
+u 連續性出版品出版現狀不詳
+| 不選用
+##box008a06.End||s||
+
+##sel008a15
+ch 臺灣
+cc 中國
+cc 香港
+ja 日本
+fr 法國
+nyu 美國紐約
+wau 美國華盛頓
+enk 英國
+ko 韓國(南韓)
+kn 朝鮮(北韓)
+vm 越南
+gw 德國
+it 義大利
+sp 西班牙
+hu 匈牙利
+po 葡萄牙
+ne 荷蘭
+be 比利時
+no 挪威
+xr 捷克
+ru 俄羅斯
+sw 瑞典
+fi 芬蘭
+dk 丹麥
+rm 羅馬尼亞
+th 泰國
+my 馬來西亞
+io 印尼
+ii 印度
+br 緬甸
+ph 菲律賓
+cb 柬埔寨
+ts 阿拉伯聯合大公國
+ls 寮國
+xx# 無出版地或出版地不確定
+vp# 多個出版區
+##sel008a15.End||ch||
+
+##bib008aIll1
+# 無插圖
+a 圖 (Illustrations)
+b 地圖 (Maps)
+c 肖像 (Portraits)
+d 圖表 (Charts)
+e 設計圖 (Plans)
+f 圖版 (Plates)
+g 樂諎 (Music)
+h 影鈔 (Facsimiles)
+h 書影 (Facsimiles)
+i 盾徽 (Coats of arms)
+i 徽章 (Coats of arms)
+j 譜系表 (Genealogical tables)
+k 表格 (Forms)
+l 樣品 (Samples)
+l 樣本 (Samples)
+m 錄音資料 (Phonodisc, phonowire etc.)
+o 相片 (Photographs)
+p 文稿上的修飾圖案 (Illuminations)
+| 不選用 (No Attempt to code)
+##bib008aIll1.End||#||
+
+##bib008aIll2
+# 無插圖
+a 圖 (Illustrations)
+b 地圖 (Maps)
+c 肖像 (Portraits)
+d 圖表 (Charts)
+e 設計圖 (Plans)
+f 圖版 (Plates)
+g 樂諎 (Music)
+h 影鈔 (Facsimiles)
+h 書影 (Facsimiles)
+i 盾徽 (Coats of arms)
+i 徽章 (Coats of arms)
+j 譜系表 (Genealogical tables)
+k 表格 (Forms)
+l 樣品 (Samples)
+l 樣本 (Samples)
+m 錄音資料 (Phonodisc, phonowire etc.)
+o 相片 (Photographs)
+p 文稿上的修飾圖案 (Illuminations)
+| 不選用 (No Attempt to code)
+##bib008aIll2.End||#||
+
+##bib008aIll3
+# 無插圖
+a 圖 (Illustrations)
+b 地圖 (Maps)
+c 肖像 (Portraits)
+d 圖表 (Charts)
+e 設計圖 (Plans)
+f 圖版 (Plates)
+g 樂諎 (Music)
+h 影鈔 (Facsimiles)
+h 書影 (Facsimiles)
+i 盾徽 (Coats of arms)
+i 徽章 (Coats of arms)
+j 譜系表 (Genealogical tables)
+k 表格 (Forms)
+l 樣品 (Samples)
+l 樣本 (Samples)
+m 錄音資料 (Phonodisc, phonowire etc.)
+o 相片 (Photographs)
+p 文稿上的修飾圖案 (Illuminations)
+| 不選用 (No Attempt to code)
+##bib008aIll3.End||#||
+
+##bib008aIll4
+# 無插圖
+a 圖 (Illustrations)
+b 地圖 (Maps)
+c 肖像 (Portraits)
+d 圖表 (Charts)
+e 設計圖 (Plans)
+f 圖版 (Plates)
+g 樂諎 (Music)
+h 影鈔 (Facsimiles)
+h 書影 (Facsimiles)
+i 盾徽 (Coats of arms)
+i 徽章 (Coats of arms)
+j 譜系表 (Genealogical tables)
+k 表格 (Forms)
+l 樣品 (Samples)
+l 樣本 (Samples)
+m 錄音資料 (Phonodisc, phonowire etc.)
+o 相片 (Photographs)
+p 文稿上的修飾圖案 (Illuminations)
+| 不選用 (No Attempt to code)
+##bib008aIll4.End||#||
+
+##bib008a22
+# 不詳或未說明
+a 學前兒童，0-5歲
+b 學齡兒童，6-8歲
+c 學齡兒童，9-13歲
+d 青少年，14-17歲
+e 成人
+f 特殊使用者
+| 不選用
+##bib008a22.End||e||
+
+##bib008a23
+# 非下列形式
+a 微縮捲片
+b 微縮單片
+c 不透明微縮片
+d 大字體印刷資料
+f 點字資料
+o 線上資源
+q 直接存取電子資源
+r 一般印刷重製資料
+s 電子資源
+| 不選用
+##bib008a23.End||#||
+
+##bib008a24
+# 內容無特殊特性
+a 摘要 (專指作品本身為摘要)
+b 書目 (參考書目、研究書目、專題書目等)
+c 目錄 (器物目錄、藏書目錄、出版目錄、展覽目錄等)
+d 字典、辭彙
+e 百科全書、類書
+f 手冊
+g 法學論文
+i 索引
+j 專利文件
+k 錄音資料作品目錄
+l 法規
+m 學位論文
+n 調查報告
+o 評論
+p 編序教材
+q 影片目錄
+r 名錄、指南
+s 統計資料
+t 技術報告
+u 標準/規範
+v 法律案例及案例注解
+w 判決報告及文摘
+y 年鑑、年報
+z 條約、協定
+2 抽印本
+5 日曆、月曆
+6 漫畫/連環圖畫
+| 不選用
+##bib008a24.End||#||
+
+##bib008a25
+# 內容無特殊特性
+a 摘要 (專指作品本身為摘要)
+b 書目 (參考書目、研究書目、專題書目等)
+c 目錄 (器物目錄、藏書目錄、出版目錄、展覽目錄等)
+d 字典、辭彙
+e 百科全書、類書
+f 手冊
+g 法學論文
+i 索引
+j 專利文件
+k 錄音資料作品目錄
+l 法規
+m 學位論文
+n 調查報告
+o 評論
+p 編序教材
+q 影片目錄
+r 名錄、指南
+s 統計資料
+t 技術報告
+u 標準/規範
+v 法律案例及案例注解
+w 判決報告及文摘
+y 年鑑、年報
+z 條約、協定
+2 抽印本
+5 日曆、月曆
+6 漫畫/連環圖畫
+| 不選用
+##bib008a25.End||#||
+
+##bib008a26
+# 內容無特殊特性
+a 摘要 (專指作品本身為摘要)
+b 書目 (參考書目、研究書目、專題書目等)
+c 目錄 (器物目錄、藏書目錄、出版目錄、展覽目錄等)
+d 字典、辭彙
+e 百科全書、類書
+f 手冊
+g 法學論文
+i 索引
+j 專利文件
+k 錄音資料作品目錄
+l 法規
+m 學位論文
+n 調查報告
+o 評論
+p 編序教材
+q 影片目錄
+r 名錄、指南
+s 統計資料
+t 技術報告
+u 標準/規範
+v 法律案例及案例注解
+w 判決報告及文摘
+y 年鑑、年報
+z 條約、協定
+2 抽印本
+5 日曆、月曆
+6 漫畫/連環圖畫
+| 不選用
+##bib008a26.End||#||
+
+##bib008a27
+# 內容無特殊特性
+a 摘要 (專指作品本身為摘要)
+b 書目 (參考書目、研究書目、專題書目等)
+c 目錄 (器物目錄、藏書目錄、出版目錄、展覽目錄等)
+d 字典、辭彙
+e 百科全書、類書
+f 手冊
+g 法學論文
+i 索引
+j 專利文件
+k 錄音資料作品目錄
+l 法規
+m 學位論文
+n 調查報告
+o 評論
+p 編序教材
+q 影片目錄
+r 名錄、指南
+s 統計資料
+t 技術報告
+u 標準/規範
+v 法律案例及案例注解
+w 判決報告及文摘
+y 年鑑、年報
+z 條約、協定
+2 抽印本
+5 日曆、月曆
+6 漫畫/連環圖畫
+| 不選用
+##bib008a27.End||#||
+
+##bib008a28
+# 非政府出版品
+a 自治區或半自治區
+c 多地方政府
+f 聯邦/國家/中央政府
+i 國際機構 (如聯合國)
+l 地方政府 (縣級、省轄市、鄉、鎮、縣轄市及其他地方機構)
+m 多州或多省聯合機構
+o 所屬層級無法確定
+s 州級、省級、院轄市政府
+u 不詳
+z 其他
+| 不選用
+##bib008a28.End||#||
+
+##bib008a29
+0 非會議出版品
+1 會議出版品
+| 不選用
+##bib008a29.End||0||
+
+##bib008a30
+0 非紀念文集
+1 紀念文集
+| 不選用
+##bib008a30.End||0||
+
+##bib008a31
+0 不含索引
+1 含索引
+| 不選用
+##bib008a31.End||0||
+
+##bib008a33
+0 非小說 (不再細分)
+1 小說 (不再細分)
+d 戲劇 (包括電視劇、電影劇本)
+e 散文 (小品、雜文、駢文)
+f 小說 (長篇、中篇、短篇、極短篇)
+h 幽默及諷刺小品 (不包括漫畫)
+i 書信
+j 短篇故事、民間故事、寓言、神話、童話、傳說
+m 混合性作品
+p 詩詞、曲、賦、歌謠
+s 演說稿、對話錄
+u 不詳
+| 不選用
+##bib008a33.End||0||
+
+##bib008a34
+# 非傳記作品
+a 自傳
+b 分傳
+c 合傳，總傳
+d 含傳記資料
+| 不選用
+##bib008a34.End||#||
+
+##sel008a35
+chi 中文
+chi 簡體中文
+eng 英語
+fre 法語
+ger 德語
+kor 韓語
+jpn 日語
+ita 義大利文
+spa 西班牙文
+hun 匈牙利文
+por 葡萄牙文
+dut 荷蘭文
+nor 挪威文
+ces 捷克文
+rus 俄文
+swe 瑞典文
+dan 丹麥文
+rum 羅馬尼亞文
+tha 泰文
+mas 馬來文
+ind 印尼文
+vie 越南文
+bur 緬甸文
+hin 印度文
+phi 菲律賓文
+cam 柬埔寨文
+ara 阿拉伯文
+lao 寮文
+### 未提供資料
+zxx 非語文內容
+mul 多語文
+sgn 手語
+und 未定
+##sel008a35.End||chi||
+
+##sel041b
+chi 中文
+chi 簡體中文
+eng 英語
+fre 法語
+ger 德語
+kor 韓語
+jpn 日語
+ita 義大利文
+spa 西班牙文
+hun 匈牙利文
+por 葡萄牙文
+dut 荷蘭文
+nor 挪威文
+ces 捷克文
+rus 俄文
+swe 瑞典文
+dan 丹麥文
+rum 羅馬尼亞文
+tha 泰文
+mas 馬來文
+ind 印尼文
+vie 越南文
+bur 緬甸文
+hin 印度文
+phi 菲律賓文
+cam 柬埔寨文
+ara 阿拉伯文
+lao 寮文
+### 未提供資料
+zxx 非語文內容
+mul 多語文
+sgn 手語
+und 未定
+##sel041b.End||eng||
+
+##sel041h
+chi 中文
+chi 簡體中文
+eng 英語
+fre 法語
+ger 德語
+kor 韓語
+jpn 日語
+ita 義大利文
+spa 西班牙文
+hun 匈牙利文
+por 葡萄牙文
+dut 荷蘭文
+nor 挪威文
+ces 捷克文
+rus 俄文
+swe 瑞典文
+dan 丹麥文
+rum 羅馬尼亞文
+tha 泰文
+mas 馬來文
+ind 印尼文
+vie 越南文
+bur 緬甸文
+hin 印度文
+phi 菲律賓文
+cam 柬埔寨文
+ara 阿拉伯文
+lao 寮文
+### 未提供資料
+zxx 非語文內容
+mul 多語文
+sgn 手語
+und 未定
+##sel041h.End||eng||
+
+##box008s18
+# 不定期
+a 年刊
+b 雙月刊
+c 半週刊
+d 日刊
+e 雙週刊
+f 半年刊
+g 雙年刊
+h 三年刊
+i 一週三次
+j 一月三次 (旬刊)
+k 持續更新 (刊期頻繁於日刊)
+m 月刊
+q 季刊
+s 半月刊
+t 一年三次
+u 不詳
+w 週刊
+z 其他
+| 不選用
+##box008s18.End||m||
+
+##box008s19
+n 定期性的不規則
+r 有規則
+u 不詳
+x 不規則
+| 不選用
+##box008s19.End||r||
+
+##box008s21
+# 非下列形式
+d 持續更新資料庫
+l 持續更新活頁
+m 集叢
+n 報紙
+p 期刊
+w 持續更新之網站
+| 不選用
+##box008s21.End||p||
+
+##box008s22
+# 非下列形式
+a 微縮捲片
+b 微縮單片
+c 不透明微縮片
+d 大字體印刷資料
+e 報紙形式資料
+f 點字資料
+o 線上資源
+q 直接存取電子資源
+s 電子資源
+| 不選用
+##box008s22.End||#||
+
+##box008s23
+# 非下列形式
+a 微縮捲片
+b 微縮單片
+c 不透明微縮片
+d 大字體印刷資料
+f 點字資料
+o 線上資源
+q 直接存取電子資源
+r 一般性印刷重製資料
+s 電子資源
+| 不選用
+##box008s23.End||#||
+
+##box008s24
+# 未說明
+a 摘要 (專指作品本身為摘要)
+b 書目 (參考書目、研究書目、專題書目等)
+c 目錄 (器物目錄、藏書目錄、出版目錄、展覽目錄等)
+d 字典、辭彙
+e 百科全書、類書
+f 手冊
+g 法學論文
+i 索引
+k 錄音資料作品目錄
+l 法規
+m 學位論文
+n 調查報告
+o 評論
+p 編序教材
+q 影片目錄
+r 名錄、指南
+s 統計資料
+t 技術報告
+u 標準/規範
+v 法律案例及案例注解
+w 判決報告及文摘
+y 年鑑、年報
+z 條約、協定
+5 日曆、月曆
+6 漫畫/連環圖畫
+| 不選用
+##box008s24.End||#||
+
+##box008s25
+# 未說明
+a 摘要 (專指作品本身為摘要)
+b 書目 (參考書目、研究書目、專題書目等)
+c 目錄 (器物目錄、藏書目錄、出版目錄、展覽目錄等)
+d 字典、辭彙
+e 百科全書、類書
+f 手冊
+g 法學論文
+i 索引
+k 錄音資料作品目錄
+l 法規
+m 學位論文
+n 調查報告
+o 評論
+p 編序教材
+q 影片目錄
+r 名錄、指南
+s 統計資料
+t 技術報告
+u 標準/規範
+v 法律案例及案例注解
+w 判決報告及文摘
+y 年鑑、年報
+z 條約、協定
+5 日曆、月曆
+6 漫畫/連環圖畫
+| 不選用
+##box008s25.End||#||
+
+##box008s26
+# 未說明
+a 摘要 (專指作品本身為摘要)
+b 書目 (參考書目、研究書目、專題書目等)
+c 目錄 (器物目錄、藏書目錄、出版目錄、展覽目錄等)
+d 字典、辭彙
+e 百科全書、類書
+f 手冊
+g 法學論文
+i 索引
+k 錄音資料作品目錄
+l 法規
+m 學位論文
+n 調查報告
+o 評論
+p 編序教材
+q 影片目錄
+r 名錄、指南
+s 統計資料
+t 技術報告
+u 標準/規範
+v 法律案例及案例注解
+w 判決報告及文摘
+y 年鑑、年報
+z 條約、協定
+5 日曆、月曆
+6 漫畫/連環圖畫
+| 不選用
+##box008s26.End||#||
+
+##box008s27
+# 未說明
+a 摘要 (專指作品本身為摘要)
+b 書目 (參考書目、研究書目、專題書目等)
+c 目錄 (器物目錄、藏書目錄、出版目錄、展覽目錄等)
+d 字典、辭彙
+e 百科全書、類書
+f 手冊
+g 法學論文
+i 索引
+k 錄音資料作品目錄
+l 法規
+m 學位論文
+n 調查報告
+o 評論
+p 編序教材
+q 影片目錄
+r 名錄、指南
+s 統計資料
+t 技術報告
+u 標準/規範
+v 法律案例及案例注解
+w 判決報告及文摘
+y 年鑑、年報
+z 條約、協定
+5 日曆、月曆
+6 漫畫/連環圖畫
+| 不選用
+##box008s27.End||#||
+
+##box008s28
+# 非政府出版品
+a 自治區或半自治區
+c 多地方政府
+f 聯邦/國家/中央政府
+i 國際機構 (如聯合國)
+l 地方政府 (縣級、省轄市、鄉、鎮、縣轄市及其他地方機構)
+m 多州或多省聯合機構
+o 所屬層級無法確定
+s 州級、省級、院轄市政府
+u 不詳
+z 其他
+| 不選用
+##box008s28.End||#||
+
+##box008s29
+0 非會議出版品
+1 會議出版品
+| 不選用
+##box008s29.End||0||
+
+##box008s33
+# 出版品文字語系不詳或期刊無識別題名
+a 基本拉丁語系 (English, Latin, Welsh, etc)
+b 其他拉丁語系 (字母含讀音符或特殊字符之語文入此)
+c 古斯拉夫語
+d 日文
+e 中文
+f 阿拉伯文
+g 希臘文
+h 希伯來文
+i 泰文
+j 梵文
+k 韓文
+l 塔米爾文
+u 不詳
+z 其他
+| 不選用
+##box008s33.End||e||
+
+##box008s34
+0 連續著錄模式
+1 最近題名著錄模式
+2 整合著錄模式
+| 不選用
+##box008s34.End||0||
+
+##box008e05
+# 不詳或未說明
+a 學前兒童，0-5歲
+b 學齡兒童，6-8歲
+c 學齡兒童，9-13歲
+d 青少年，14-17歲
+e 成人
+f 特殊使用者
+g 一般性
+j 兒童青少年，0-15歲
+| 不選用
+##box008e05.End||e||
+
+##box008e09
+a 數字
+b 電腦程式
+c 圖像
+d 文字
+e 書目資料
+f 字型
+g 電腦遊戲軟體
+h 音效
+i 互動式多媒體
+j 線上系統或服務
+m 混合類型
+u 不詳
+z 其他
+| 無代碼
+##box008e09.End||d||
+
+##box008e11
+# 非政府出版品
+a 自治區或半自治區
+c 多地方政府
+f 聯邦/國家/中央政府
+i 國際機構 (如聯合國)
+l 地方政府 (縣級、省轄市、鄉、鎮、縣轄市及其他地方機構)
+m 多州或多省聯合機構
+o 所屬層級無法確定
+s 州級、省級、院轄市政府
+u 不詳
+z 其他
+| 不選用
+##box008e11.End||#||
+
+##box008f19
+st 教學與練習(Studies and exercises)
+uu 不詳(Unknown)
+nn 不適用(Not applicable)
+zz 其他(Other)
+mu 含一種以上之形式(Multiple forms)
+an 聖歌(Anthems)
+bd 敘事歌(不同於民謠 Ballads)
+bg 鄉村民謠(Bluegrass music)
+bl 藍調歌曲(Blues)
+bt 芭蕾舞曲(Ballets)
+ca 夏康舞曲(Chaconnes)
+cb 聖歌, 其他宗教(Chants, Other religions)
+cc 聖歌, 基督教(Chant, Christian)
+cg 協奏曲(Concerti grossi)
+ch 讚美詩, 合唱聖歌(Chorales)
+cl 眾讚歌前奏曲(Chorale preludes)
+cn 卡農曲(Canons and rounds)
+co 協奏曲(Concertos)
+cp 香頌, 和弦(Chansons, polyphonic)
+cr 節慶頌歌(Carols)
+cs 機遇音樂(Chance compositions)
+ct 清唱劇(Cantatas)
+cy 鄉村音樂(Country music)
+cz 器樂曲(Canzonas)
+df 舞曲(Dance forms)
+dv 嬉遊或輕組曲(Divertimentos, serenades, cassations, divertissements, notturni)
+fg 賦格曲(Fugues)
+fm 民間音樂, 包括民歌. 敘事曲(Folk music) 
+ft 幻想曲(Fantasias)
+gm 福音頌歌(Gospel music)
+hy 讚美詩歌(Hymns)
+jz 爵士樂(Jazz)
+mc 音樂諷刺喜劇(Musical revues and comedies)
+md 牧歌(Madrigals)
+mi 小步舞曲(Minuets)
+mo 經文歌(Motets)
+mp 電影音樂(Motion picture music)
+mr 進行曲(Marches)
+ms 彌撒曲(Masses)
+mz 馬厝卡舞曲(Mazurkas)
+nc 夜曲(Nocturnes)
+op 歌劇(Operas)
+or 神劇(Oratorios)
+ov 序曲(Overtures)
+pg 標題音樂(Program music)
+pm 受難曲(Passion music)
+po 波羅奈思舞曲(Polonaises)
+pp 流行音樂(Popular music)
+pr 前奏曲(Preludes)
+ps 巴沙加牙舞曲(Passacaglias)
+pt 和聲歌曲(Part-songs)
+pv 巴望舞曲, 孔雀舞(Pavans)
+rc 搖滾樂(Rock music)
+rd 輪旋曲(Rondos)
+rg 繁音拍子(Ragtime music)
+ri 主題模倣(Ricercars)
+rp 狂想曲(Rhapsodies)
+rq 安魂曲(Requiems)
+sd 方塊舞曲(Square dance music)
+sg 歌曲(Songs)
+sn 奏鳴曲(Sonatas)
+sp 交響詩(Symphonic poems)
+su 組曲(Suites)
+sy 交響曲(Symphonies)
+tc 觸技曲(Toccatas)
+ts 三重奏鳴曲(Trio-sonatas)
+vr 變奏曲(Variations)
+wz 華爾滋舞曲(Waltzes)
+##box008f19.End||zz||
+
+##box008f21
+a 總譜(Full score)
+b 縮印或研究用之總譜(Full score，miniature or study size)
+c 有鋼琴伴奏之聲樂譜(Accompaniment reduced for keyboard)
+d 聲樂樂譜(Voice score)
+e 精簡總譜, 指揮用(Condenced score or piano-conductor score)
+m 含一種以上形式之樂譜(Multiple score formats)
+n 不適用(Not applicable)
+u 不詳(Unknown)
+z 其他(Other than score format)
+##box008f21.End||z||
+
+##box008f22
+# 任何部分, 或沒有指定
+d 器樂和聲樂部分
+e 器樂部分
+f 聲樂部分
+n 不適用
+u 未知
+| 不選用
+##box008f22.End||#||
+
+##box008f23
+# 不詳或未說明
+a 學前兒童，0-5歲
+b 學齡兒童，6-8歲
+c 學齡兒童，9-13歲
+d 青少年，14-17歲
+e 成人
+f 特殊使用者
+g 一般性
+j 兒童青少年，0-15歲
+##box008f23.End||e||
+
+##box008f24
+# 不詳或未說明
+a 微縮影捲片(Microfilm)
+b 微縮影單片(Microfiche)
+c 不透明微縮影片(Microopaque)
+d 大字體印刷資料(Large print)
+f 點字書資料(Braille)
+r 一般印刷資料(Regular print reproduction)
+s 電子資源(Electronic)
+##box008f24.End||#||
+
+##box008f25
+# 內容無特殊特性
+a 錄音資料書目(Discography)
+b 書目(Bibliography)
+c 主旋律索引, 作曲家作品一覽表(Thematic index)
+d 歌劇劇本或歌詞(Libretto or text)
+e 作曲者介紹(Biography of composer or author)
+f 演奏人傳記或表演史(Biography of performer or history of ensemble)
+g 樂器資料或史料(Technical and/or historical information on instruments)
+h 音樂作品之技術資料(Technical information on music)
+i 音樂作品之史料(Historical information)
+k 民族音樂資料(Ethnological information)
+r 教學資料(Instructional materials)
+s 樂譜(Music)
+z 其他(Other accompanying matter)
+##box008f25.End||#||
+
+##box008f26
+# 內容無特殊特性
+a 錄音資料書目(Discography)
+b 書目(Bibliography)
+c 主旋律索引, 作曲家作品一覽表(Thematic index)
+d 歌劇劇本或歌詞(Libretto or text)
+e 作曲者介紹(Biography of composer or author)
+f 演奏人傳記或表演史(Biography of performer or history of ensemble)
+g 樂器資料或史料(Technical and/or historical information on instruments)
+h 音樂作品之技術資料(Technical information on music)
+i 音樂作品之史料(Historical information)
+k 民族音樂資料(Ethnological information)
+r 教學資料(Instructional materials)
+s 樂譜(Music)
+z 其他(Other accompanying matter)
+##box008f26.End||#||
+
+##box008f27
+# 內容無特殊特性
+a 錄音資料書目(Discography)
+b 書目(Bibliography)
+c 主旋律索引, 作曲家作品一覽表(Thematic index)
+d 歌劇劇本或歌詞(Libretto or text)
+e 作曲者介紹(Biography of composer or author)
+f 演奏人傳記或表演史(Biography of performer or history of ensemble)
+g 樂器資料或史料(Technical and/or historical information on instruments)
+h 音樂作品之技術資料(Technical information on music)
+i 音樂作品之史料(Historical information)
+k 民族音樂資料(Ethnological information)
+r 教學資料(Instructional materials)
+s 樂譜(Music)
+z 其他(Other accompanying matter)
+##box008f27.End||#||
+
+##box008f28
+# 內容無特殊特性
+a 錄音資料書目(Discography)
+b 書目(Bibliography)
+c 主旋律索引, 作曲家作品一覽表(Thematic index)
+d 歌劇劇本或歌詞(Libretto or text)
+e 作曲者介紹(Biography of composer or author)
+f 演奏人傳記或表演史(Biography of performer or history of ensemble)
+g 樂器資料或史料(Technical and/or historical information on instruments)
+h 音樂作品之技術資料(Technical information on music)
+i 音樂作品之史料(Historical information)
+k 民族音樂資料(Ethnological information)
+r 教學資料(Instructional materials)
+s 樂譜(Music)
+z 其他(Other accompanying matter)
+##box008f28.End||#||
+
+##box008f29
+# 內容無特殊特性
+a 錄音資料書目(Discography)
+b 書目(Bibliography)
+c 主旋律索引, 作曲家作品一覽表(Thematic index)
+d 歌劇劇本或歌詞(Libretto or text)
+e 作曲者介紹(Biography of composer or author)
+f 演奏人傳記或表演史(Biography of performer or history of ensemble)
+g 樂器資料或史料(Technical and/or historical information on instruments)
+h 音樂作品之技術資料(Technical information on music)
+i 音樂作品之史料(Historical information)
+k 民族音樂資料(Ethnological information)
+r 教學資料(Instructional materials)
+s 樂譜(Music)
+z 其他(Other accompanying matter)
+##box008f29.End||#||
+
+##box008f30
+# 內容無特殊特性
+a 錄音資料書目(Discography)
+b 書目(Bibliography)
+c 主旋律索引, 作曲家作品一覽表(Thematic index)
+d 歌劇劇本或歌詞(Libretto or text)
+e 作曲者介紹(Biography of composer or author)
+f 演奏人傳記或表演史(Biography of performer or history of ensemble)
+g 樂器資料或史料(Technical and/or historical information on instruments)
+h 音樂作品之技術資料(Technical information on music)
+i 音樂作品之史料(Historical information)
+k 民族音樂資料(Ethnological information)
+r 教學資料(Instructional materials)
+s 樂譜(Music)
+z 其他(Other accompanying matter)
+##box008f30.End||#||
+
+##box008f31
+# 不詳或未說明
+a 自傳(Autobiography)
+b 傳記(Biography)
+c 會議紀錄(Conference proceedings)
+d 戲劇(Drama)
+e 散文(Essays)
+f 小說(Fiction)
+g 報導(Reporting)
+h 歷史(History)
+i 解說(Instruction)
+j 語言教學(Language instruction)
+k 喜劇(Comedy)
+l 演講(Lectures, speeches)
+m 回憶錄(Memoirs)
+o 民間故事(Folktales)
+p 詩(Poetry)
+r 彩排, 預演(Rehearsals)
+s 聲音(Sounds)
+t 訪談(Interviews)
+n 不適用(Not applicable)
+z 其他(Other types of literary text)
+##box008f31.End||#||
+
+##box008f32
+# 不排列或移調或不指定
+a 移調
+b 排列
+c 同時移調和排列
+n 不適用
+u 未知
+##box008f32.End||#||
+
+##box007v01
+v 錄影資料
+##box007v01.End||v||
+
+##box007v02
+c 匣式錄影帶
+d 影碟
+f 卡式錄影帶
+r 盤式錄影帶
+u 未指定
+z 其他
+| 不選用
+##box007v02.End||d||
+
+##box007v04
+a 單色
+b 黑白
+c 彩色
+m 混合
+n 不適用
+u 不詳
+z 其他
+| 不選用
+##box007v04.End||c||
+
+##box007v05
+a 測試版(1/2英寸,錄影帶)
+b VHS (1/2英寸,錄影帶)
+c U-matic (3/4英寸,錄影帶)
+d EIAJ (1/2英寸,捲軸)
+e Type C (1英寸,捲軸)
+f 四鏈體(1英寸或2英寸,捲軸)
+g 影碟
+h CED (電容電子盤) 影碟
+i 磁帶 (1/2英寸,錄影帶)
+j 磁帶SP (1/2英寸,錄影帶)
+k Super-VHS (1/2英寸,錄影帶)
+m M-II (1/2英寸,錄影帶)
+o D-2 (3/4英寸,錄影帶)
+p 8毫米
+q Hi-8毫米
+u 不詳
+v DVD
+z 其他
+| 不選用
+##box007v05.End||v||
+
+##box007v06
+# 無聲
+a 聲音在媒體上
+b 聲音和媒體分開
+u 不詳
+| 不選用
+##box007v06.End||a||
+
+##box007v07
+# 無聲
+a 光學發聲影片
+b 磁性發聲影片
+c 匣式磁性錄音帶
+d 唱片
+e 盤式磁性錄音帶
+f 卡式磁性錄音帶
+g 具有光學和磁性發聲影片
+h 錄影帶
+i 影碟
+u 不詳
+z 其他
+| 不選用
+##box007v07.End||i||
+
+##box007v08
+a 8毫米
+m 1/4英寸
+o 1/2英寸
+p 1英寸
+q 2英寸
+r 3/4英寸
+u 不詳
+z 其他
+| 不選用
+##box007v08.End||z||
+
+##box007v09
+k 混合
+m 單聲
+n 不適用
+q 四聲道、多聲道或環聲系統
+s 立體聲道
+u 不詳
+z 其他
+| 不選用
+##box007v09.End||q||
+
+##box008v05
+# 不詳或未說明
+a 學前兒童，0-5歲
+b 學齡兒童，6-8歲
+c 學齡兒童，9-13歲
+d 青少年，14-17歲
+e 成人
+f 特殊使用者
+g 一般性
+j 兒童青少年，0-15歲
+| 不選用
+##box008v05.End||e||
+
+##box008v11
+# 非政府出版品
+a 自治區或半自治區
+c 多地方政府
+f 聯邦/國家/中央政府
+i 國際機構 (如聯合國)
+l 地方政府 (縣級、省轄市、鄉、鎮、縣轄市及其他地方機構)
+m 多州或多省聯合機構
+o 所屬層級無法確定
+s 州級、省級、院轄市政府
+u 不詳
+z 其他
+| 不選用
+##box008v11.End||#||
+
+##box008v12
+# 非下列形式
+a 微縮捲片
+b 微縮單片
+c 不透明微縮片
+d 大字體印刷資料
+f 點字資料
+o 線上資源
+q 直接存取電子資源
+r 一般印刷重製資料
+s 電子資源
+| 不選用
+##box008v12.End||#||
+
+##box008v16
+a 藝術品原件
+b 多媒體組件
+c 藝術品複製
+d 生態立體圖
+f 幻燈捲片
+g 遊戲用品
+i 繪畫
+k 圖片
+l 工程圖
+m 電影片
+n 圖表
+o 閃示卡
+p 顯微鏡切片
+q 模型
+r 實物
+s 幻燈片
+t 透明圖片
+v 錄影資料
+w 玩具
+z 其他
+| 不選用
+##box008v16.End||v||
+
+##box008v17
+a 動畫 (漫畫)
+c 動畫與實景
+l 實景
+n 不適用
+u 不詳
+z 其他技術
+| 不選用
+##box008v17.End||l||
+
+##box008t05
+# 不詳或未說明
+a 學前兒童，0-5歲
+b 學齡兒童，6-8歲
+c 學齡兒童，9-13歲
+d 青少年，14-17歲
+e 成人
+f 特殊使用者
+g 一般性
+j 兒童青少年，0-15歲
+| 不選用
+##box008t05.End||b||
+
+##box008t11
+# 非政府出版品
+a 自治區或半自治區
+c 多地方政府
+f 聯邦/國家/中央政府
+i 國際機構 (如聯合國)
+l 地方政府 (縣級、省轄市、鄉、鎮、縣轄市及其他地方機構)
+m 多州或多省聯合機構
+o 所屬層級無法確定
+s 州級、省級、院轄市政府
+u 不詳
+z 其他
+| 不選用
+##box008t11.End||#||
+
+##box008t12
+# 非下列形式
+a 微縮捲片
+b 微縮單片
+c 不透明微縮片
+d 大字體印刷資料
+f 點字資料
+o 線上資源
+q 直接存取電子資源
+r 一般印刷重製資料
+s 電子資源
+| 不選用
+##box008t12.End||#||
+
+##box008t16
+a 藝術品原件
+b 多媒體組件
+c 藝術品複製
+d 生態立體圖
+f 幻燈捲片
+g 遊戲用品
+i 繪畫
+k 圖片
+l 工程圖
+m 電影片
+n 圖表
+o 閃示卡
+p 顯微鏡切片
+q 模型
+r 實物
+s 幻燈片
+t 透明圖片
+v 錄影資料
+w 玩具
+z 其他
+| 不選用
+##box008t16.End||g||
+
+##box008t17
+a 動畫 (漫畫)
+c 動畫與實景
+l 實景
+n 不適用
+u 不詳
+z 其他技術
+| 不選用
+##box008t17.End||n||
+
+##cbx041aAV
+chi 中文
+chi 簡體中文
+eng 英語
+fre 法語
+ger 德語
+kor 韓語
+jpn 日語
+ita 義大利文
+spa 西班牙文
+hun 匈牙利文
+por 葡萄牙文
+dut 荷蘭文
+nor 挪威文
+ces 捷克文
+rus 俄文
+swe 瑞典文
+dan 丹麥文
+rum 羅馬尼亞文
+tha 泰文
+mas 馬來文
+ind 印尼文
+vie 越南文
+bur 緬甸文
+hin 印度文
+phi 菲律賓文
+cam 柬埔寨文
+ara 阿拉伯文
+lao 寮文
+mul 多語文
+sgn 手語
+##cbx041aAV.End|| ||
+
+##cbx041j
+chi 中文
+chi 簡體中文
+eng 英語
+fre 法語
+ger 德語
+kor 韓語
+jpn 日語
+ita 義大利文
+spa 西班牙文
+hun 匈牙利文
+por 葡萄牙文
+dut 荷蘭文
+nor 挪威文
+ces 捷克文
+rus 俄文
+swe 瑞典文
+dan 丹麥文
+rum 羅馬尼亞文
+tha 泰文
+mas 馬來文
+ind 印尼文
+vie 越南文
+bur 緬甸文
+hin 印度文
+phi 菲律賓文
+cam 柬埔寨文
+ara 阿拉伯文
+lao 寮文
+mul 多語文
+sgn 手語
+##cbx041j.End|| ||
+
+##bib00838
+# 未修正
+d 省略破折號款目
+o 完全羅馬拼音/印刷卡
+r 完全在腳本中的羅馬拼音/印刷卡
+s 簡化款目
+x 遺失字元
+| 不選用
+##bib00838.End||#||
+
+##bib00839
+# 國家編目機構
+c 合作編目計劃
+d 其他
+u 不詳
+| 不選用
+##bib00839.End||d||
+
+##sel020q
+平裝
+精裝
+軟精裝
+線裝
+線圈裝
+經摺裝
+平裝附光碟
+平裝附紙型
+平裝附地圖
+平裝附手冊
+精裝附光碟
+精裝附紙型
+精裝附地圖
+精裝附手冊
+軟精裝附光碟
+軟精裝附紙型
+軟精裝附地圖
+軟精裝附手冊
+硬頁書
+合訂本
+##sel020q.End||0||
+
+##sel020Hvl
+第?冊
+第?卷
+第?集
+?冊
+?卷
+卷?
+?編
+編?
+?套
+?年
+volume ?
+##sel020Hvl.End|| ||
+
+##sel020Nvl
+上
+中
+下
+前
+後
+##sel020Nvl.End|| ||
+
+##sel100a
+著
+文
+撰文
+編著
+文. 圖
+繪者
+攝影
+導演
+編劇
+主演
+演唱
+製作
+編曲
+主編
+總編輯
+執行編輯
+編輯
+譯者
+##sel100a.End
+
+##sel700D
+繪
+圖
+插畫
+主編
+總編輯
+文. 圖
+攝影
+譯
+翻譯
+導演
+編劇
+主演
+演唱
+製作
+編曲
+##sel700D.End
+
+##sel700T
+譯
+翻譯
+主編
+總編輯
+繪
+圖
+攝影
+導演
+編劇
+主演
+演唱
+製作
+編曲
+##sel700T.End
+
+##selAV700
+主演
+攝影
+導演
+編劇
+##selAV700.End
+
+##sel240l
+中文
+英文
+日文
+韓文
+簡體中文
+##sel240l.End
+
+##box246A
+0 有附註，無附加款目
+1 有附註，有附加款目
+2 無附註，無附加款目
+3 無附註，有附加款目
+##box246A.End|| ||
+
+##box246B
+# 未標示題名類型
+0 部份題名
+1 並列題名
+2 區別題名
+3 其他題名
+4 封面題名
+5 附加書名頁題名
+6 卷端題名
+7 逐頁題名
+8 書背題名
+##box246B.End|| ||
+
+##sel246i
+版權頁英文題名
+版權頁題名
+書名頁題名
+原書名
+原文副題名
+封面其他題名
+另有譯名
+題名誤印
+書背題名
+部份題名
+並列題名
+合訂本一題名
+合訂本二題名
+##sel246i.End|| ||
+
+##sel250a
+初版
+第一版
+再版
+第二版
+新增二版
+家用版
+公播版
+##sel250a.End|| ||
+
+##sel250b
+電影書衣版
+典藏版
+[精裝]
+[含光碟]
+[立體書]
+##sel250b.End|| ||
+
+##sel260a
+臺北市
+新北市
+桃園市
+臺中市
+臺南市
+高雄市
+日本東京都
+美國紐約
+英國倫敦
+香港
+[出版地不詳]
+##sel260a.End|| ||
+
+##sel260b
+股份有限公司
+事業有限公司
+實業有限公司
+出版有限公司
+出版社
+工作室
+財團法人
+社團法人
+國際股份有限公司
+英屬蓋曼群島商
+英屬維京群島商
+文化局
+圖書館
+株式会社
+[出版者不詳]
+##sel260b.End|| ||
+
+##sel260a2
+臺北市
+新北市
+桃園市
+臺中市
+臺南市
+高雄市
+日本東京都
+美國紐約
+英國倫敦
+香港
+##sel260a2.End|| ||
+
+##sel260b2
+股份有限公司
+事業有限公司
+實業有限公司
+出版有限公司
+有限公司
+出版社
+工作室
+財團法人
+社團法人
+國際股份有限公司
+英屬蓋曼群島商
+英屬維京群島商
+文化局
+圖書館
+株式会社
+大和書報圖書股份有限公司
+家庭傳媒股份有限公司城邦分公司
+英屬蓋曼群島商家庭傳媒股份有限公司城邦分公司 尖端出版行銷業務部
+聯合發行股份有限公司
+高見文化行銷公司
+知遠文化事業有限公司
+時報文化出版企業股份有限公司
+紅螞蟻圖書有限公司
+永續圖書有限公司
+聯寶國際文化事業有限公司
+商流文化事業有限公司
+朝日文化出版
+旭昇圖書有限公司
+吳氏圖書有限公司
+昶景文化事業有限公司
+幼福文化事業股份有限公司
+邦聯文化事業有限公司
+叩應股份有限公司
+遠足文化事業股份有限公司
+遠足文化事業股份有限公司(讀書共和國出版集團)
+大雁文化事業股份有限公司
+楨德圖書事業有限公司
+白象文化事業有限公司
+眾悅圖書出版股份有限公司
+##sel260b2.End|| ||
+
+##sel260a3
+臺北市
+新北市
+桃園市
+臺中市
+臺南市
+高雄市
+日本東京都
+美國紐約
+英國倫敦
+香港
+##sel260a3.End|| ||
+
+##sel260b3
+凌網科技股份有限公司
+聯合線上股份有限公司
+##sel260b3.End|| ||
+
+##sel538a
+系統需求 : HyRead Library ; 檢索型式 : 電子書服務平台 ; 資料型式 : 文字
+系統需求 : Adobe Reader ; 檢索形式 : 電子書服務平台 ; 資料型式 : 文字
+系統需求 : 網頁瀏覽器IE7以上或iRead eBook
+取得方式 : World Wide Web
+##sel538a.End|| ||
+
+##sel260cb
+二
+三
+四
+五
+六
+七
+八
+九
+十
+印
+##sel260cb.End|| ||
+
+##cbxYearT
+西元年
+民國年
+令和
+平成
+昭和
+大正
+明治
+主體曆
+宣統
+光緒
+同治
+咸豐
+道光
+嘉慶
+乾隆
+##cbxYearT.End||西元年||
+
+##sel300a
+冊
+片
+圖版[], 
+##sel300a.End|| ||
+
+##sel300c
+21
+23
+19
+4 3/4吋
+10吋
+12吋
+##sel300c.End|| ||
+
+##sel300e
+1片CD
+1片MP3
+1片DVD
+1片CD-ROM
+1張紙型
+1張地圖
+1本手冊
+1本歌詞本
+##sel300e.End|| ||
+
+##cbx336
+txt text/文字
+cri cartographic image/地圖影像
+cop computer program/電腦程式
+ntm notated music/記譜音樂
+prm performed music/演奏音樂
+spw spoken word/話語
+tdi two-dimensional moving image/平面動態影像
+crd cartographic dataset/地圖數位資料集
+crm cartographic moving image/地圖動態影像
+crt cartographic tactile image/地圖觸感影像
+crn cartographic tactile three-dimensional form/地圖觸感立體形式
+crf cartographic three-dimensional form/地圖立體形式
+cod computer dataset/電腦資料集
+ntv notated movement/記譜動作
+snd sounds/聲音
+sti still image/靜態影像
+tci tactile image/觸態影像
+tcm tactile notated music/觸態記譜動作
+tcn tactile notated movement/觸態記譜動作
+tct tactile text/觸感文字
+tcf tactile three-dimensional form/觸感立體形式
+tdf three-dimensional form/立體形式
+tdm three-dimensional moving image/立體動態影像
+xxx other/其他
+zzz unspecified/未定
+##cbx336.End||txt||
+
+##cbx337
+n unmediated/無媒介
+v video/錄影
+s audio/錄音
+c computer/電腦
+h microform/微縮
+p microscopic/顯微
+g projected/投影
+e stereographic/立體
+x other/其他
+z unspecified/未定
+##cbx337.End||n||
+
+##cbx338
+nc volume/成冊
+nb sheet/單張
+no card/卡片
+nn flipchart/掛圖
+na roll/捲軸
+nr object/實物
+nz other/其他
+##cbx338.End||nc||
+
+##cbx336b
+txt text/文字
+cri cartographic image/地圖影像
+cop computer program/電腦程式
+ntm notated music/記譜音樂
+prm performed music/演奏音樂
+spw spoken word/話語
+tdi two-dimensional moving image/平面動態影像
+crd cartographic dataset/地圖數位資料集
+crm cartographic moving image/地圖動態影像
+crt cartographic tactile image/地圖觸感影像
+crn cartographic tactile three-dimensional form/地圖觸感立體形式
+crf cartographic three-dimensional form/地圖立體形式
+cod computer dataset/電腦資料集
+ntv notated movement/記譜動作
+snd sounds/聲音
+sti still image/靜態影像
+tci tactile image/觸態影像
+tcm tactile notated music/觸態記譜動作
+tcn tactile notated movement/觸態記譜動作
+tct tactile text/觸感文字
+tcf tactile three-dimensional form/觸感立體形式
+tdf three-dimensional form/立體形式
+tdm three-dimensional moving image/立體動態影像
+xxx other/其他
+zzz unspecified/未定
+##cbx336b.End|| ||
+
+##cbx337b
+n unmediated/無媒介
+v video/錄影
+s audio/錄音
+c computer/電腦
+h microform/微縮
+p microscopic/顯微
+g projected/投影
+e stereographic/立體
+x other/其他
+z unspecified/未定
+##cbx337b.End|| ||
+
+##cbx338b
+nc volume/成冊
+nb sheet/單張
+no card/卡片
+nn flipchart/掛圖
+na roll/捲軸
+nr object/實物
+nz other/其他
+##cbx338b.End|| ||
+
+##cbxCDs
+
+CD(演講、語言)/片
+CD(音樂、歌曲)/片
+MP3(演講、語言)/片
+MP3(音樂、歌曲)/片
+VCD/片
+DVD/片
+CD-ROM(CD、MP3混合)/片
+CD-ROM(程式)/片
+CD-ROM(PDF電子書)/片
+紙型/張
+地圖/本
+地圖/張
+手冊/本
+卡片/張
+捲軸/張
+歌詞本/本
+歌詞/張
+隨身碟(程式)/個
+隨身碟(PDF電子書)/個
+隨身碟(影片)/個
+點讀筆/支 
+##cbxCDs.End|| ||
+
+##sel650a
+小說
+古典小說
+武俠小說
+長篇小說
+科幻小說
+推理小說
+短篇小說
+歷史小說
+青少年讀物
+兒童故事
+繪本
+##sel650a.End|| ||
+
+##sel651a
+臺灣
+日本
+韓國
+英國
+美國
+德國
+法國
+比利時
+##sel651a.End|| ||
+
+##sel500a
+含索引
+著者另譯為
+著者本名
+作者號取自[第1作者]
+作者號取自[第2作者]
+作者號取自[第3作者]
+作者號取自題名
+附錄 : 1, aaa--2, bbb--3, ccc
+附錄 : 等x種
+含附錄
+題名取自封面
+題名取自書背
+第x冊附光碟
+各x片MP3
+本書和<aaa>、<bbb>、<ccc>共用1片光碟
+內容譯自原文第x版
+試題本, 解析本合訂為一冊
+譯自 : [自動帶入]
+##sel500a.End|| ||
+
+##sel504a
+含參考書目
+含參考書目及索引
+參考書目 : 面
+##sel504a.End|| ||
+
+##sel521a
+限制級
+學齡前兒童適讀
+大學用書
+3-6歲適用
+3歲以上親子共讀, 6歲以上自己閱讀
+國小低年級適讀
+中年級以上適讀
+國小高年級跨國中適讀
+適讀年齡 : 歲以上
+輔導級
+輔12級
+輔15級
+保護級
+普遍級
+##sel521a.End|| ||
+
+##sel546a
+國語注音
+中英對照
+中日對照
+簡體字本
+漢語拼音
+內容為英文
+內容為日文
+部份內容中英對照
+內容以臺文及羅馬拼音撰寫
+國語發音
+英語發音
+##sel546a.End|| ||
+
+##cbx594a1
+DB 贈書有目無書
+AC 採編課
+NR 國圖北區資源
+##cbx594a1.End|| ||
+
+##cbx594a3
+C1 中文聯合發行
+C0 中文純購
+MF 西文圖書
+AV 視聽資料
+JP 日文圖書
+MAS 馬來西亞
+THA 泰國
+VIE 越南
+BUR 緬甸
+CAM 柬埔寨
+IND 印尼
+PHI 菲律賓
+OB 原住民
+AC 採編贈書
+B 其他特殊
+##cbx594a3.End|| ||
+
+##cbx594a4
+01
+02
+03
+04
+05
+06
+07
+08
+09
+10
+11
+12
+13
+14
+15 
+##cbx594a4.End|| ||
+
+##cbx653a
+Book 中文圖書
+CB 漫畫書
+KCB 兒童漫畫
+D 附件
+K 兒童書
+KB 兒童幼兒
+KR 兒童參考
+KT 橋樑書
+KI 兒童大書
+KF 兒童外文
+L 大本書
+R 參考書
+G 政府出版品
+T 新北市文獻
+AV 視聽資料
+CD 音樂資料
+SB 有聲書
+LP 黑膠唱片
+BOX 書箱
+E 親子教養
+Y 青少年資料
+S 樂齡資料
+EBook 電子資源
+M 地圖
+SC 簡體字圖書
+TAI 閩南語圖書
+KTAI 兒童閩南語圖書
+HAK 客家語圖書
+KHAK 兒童客家語圖書
+ABO 原住民圖書
+KABO 兒童原住民圖書
+BB 點字書
+VS 雙視圖書
+RF 外文參考
+F 西文書
+JPN 日文圖書
+KJPN 兒童日文圖書
+THA 泰文圖書
+KTHA 兒童泰文圖書
+MAS 馬來文圖書
+KMAS 兒童馬來文圖書
+KOR 韓文圖書
+KKOR 兒童韓文圖書
+IND 印尼文圖書
+KIND 兒童印尼圖書
+VIE 越文圖書
+KVIE 兒童越文圖書
+BUR 緬甸文圖書
+KBUR 兒童緬甸文圖書
+FRE 法文圖書
+KFRE 兒童法文圖書
+GER 德文圖書
+KGER 兒童德文圖書
+HIN 印度文圖書
+KHIN 兒童印度文圖書
+SPA 西班牙文圖書
+KSPA 兒童西班牙文圖書
+HUN 匈牙利文圖書
+KHUN 兒童匈牙利文圖書
+PHI 菲律賓文圖書
+KPHI 兒童菲律賓文圖書
+CAM 柬埔寨文圖書
+KCAM 兒童柬埔寨文圖書
+LAO 寮文圖書
+KLAO 兒童寮文圖書
+AFR 非洲圖書
+KAFR 兒童非洲圖書
+ARA 阿拉伯文圖書
+KARA 兒童阿拉伯文圖書
+POR 葡萄牙文圖書
+KPOR 兒童葡萄牙文圖書
+DUT 荷蘭文圖書
+KDUT 兒童荷蘭文圖書
+CZE 捷克文圖書
+KCZE 兒童捷克文圖書
+TOY 玩具
+P 期刊
+RP 期刊合訂本
+J 學報
+##cbx653a.End|| ||
+
+##以下是『加入館藏段』功能中的下拉式選單、及可勾選館別
+
+##BoxDataType
+Book 中文圖書
+CB 漫畫書
+KCB 兒童漫畫
+D 附件
+K 兒童書
+KB 兒童幼兒
+KR 兒童參考
+KT 橋樑書
+KI 兒童大書
+KF 兒童外文
+L 大本書
+R 參考書
+G 政府出版品
+T 新北市文獻
+AV 視聽資料
+CD 音樂資料
+SB 有聲書
+LP 黑膠唱片
+BOX 書箱
+E 親子教養
+Y 青少年資料
+S 樂齡資料
+EBook 電子資源
+M 地圖
+SC 簡體字圖書
+TAI 閩南語圖書
+KTAI 兒童閩南語圖書
+HAK 客家語圖書
+KHAK 兒童客家語圖書
+ABO 原住民圖書
+KABO 兒童原住民圖書
+BB 點字書
+VS 雙視圖書
+RF 外文參考
+F 西文書
+JPN 日文圖書
+KJPN 兒童日文圖書
+THA 泰文圖書
+KTHA 兒童泰文圖書
+MAS 馬來文圖書
+KMAS 兒童馬來文圖書
+KOR 韓文圖書
+KKOR 兒童韓文圖書
+IND 印尼文圖書
+KIND 兒童印尼圖書
+VIE 越文圖書
+KVIE 兒童越文圖書
+BUR 緬甸文圖書
+KBUR 兒童緬甸文圖書
+FRE 法文圖書
+KFRE 兒童法文圖書
+GER 德文圖書
+KGER 兒童德文圖書
+HIN 印度文圖書
+KHIN 兒童印度文圖書
+SPA 西班牙文圖書
+KSPA 兒童西班牙文圖書
+HUN 匈牙利文圖書
+KHUN 兒童匈牙利文圖書
+PHI 菲律賓文圖書
+KPHI 兒童菲律賓文圖書
+CAM 柬埔寨文圖書
+KCAM 兒童柬埔寨文圖書
+LAO 寮文圖書
+KLAO 兒童寮文圖書
+AFR 非洲圖書
+KAFR 兒童非洲圖書
+ARA 阿拉伯文圖書
+KARA 兒童阿拉伯文圖書
+POR 葡萄牙文圖書
+KPOR 兒童葡萄牙文圖書
+DUT 荷蘭文圖書
+KDUT 兒童荷蘭文圖書
+CZE 捷克文圖書
+KCZE 兒童捷克文圖書
+TOY 玩具
+P 期刊
+RP 期刊合訂本
+J 學報
+##BoxDataType.End||Book||
+
+##BoxBroType
+L30 可借30天
+D30 附件可借30天
+L7 可借7天
+D7 附件可借7天
+AVL7 視聽資料可借7天
+R 不外借
+OL 線上連結
+##BoxBroType.End||L30||
+
+##BoxArea
+BK 開架閱覽
+JUN 兒童室
+AV 視聽室
+CIR 借書櫃檯
+SP 特色專區
+G 政府出版品專區
+HS 閉架書庫
+ABO 全球原住民專區
+MUL 多元文化專區
+NAT 本土語言專區
+PER 期刊室
+REF 參考書區
+S 樂齡專區
+SC 簡體字圖書專區
+T 地方文獻專區
+VIP 辦公室
+X 限制級
+VS 視障專區
+Y 青少年專區
+FM 幸福家庭專區
+##BoxArea.End||BK||
+
+##TBArea
+BK 開架閱覽
+BK6 6樓開架閱覽(8-9類)
+BK7 7樓開架閱覽(4-7類)
+BK8 8樓開架閱覽(0-3類)
+CIR 借書櫃檯
+JUN 兒童室
+ABO 全球原住民專區
+AV 視聽室
+CB 漫畫區
+DIS 展示區
+DIS1 1樓展示區
+DIS2 7F主題書展區
+DIS3 8F主題書展區
+DIS4 3樓展示區
+G 政府出版品專區
+HS4 4樓閉架書庫
+HS6 6樓閉架書庫
+HS7 7樓閉架書庫
+HS8 8樓閉架書庫
+BB 大本書區
+MUL 多元文化專區
+NAT 本土語言專區
+PER 期刊室
+PER3 3樓兒童期刊區
+PER4 4樓期刊區
+R 新北分區資源中心
+REF 參考書區
+RP 2樓期刊合訂本專區
+S 樂齡專區
+SC 簡體字圖書專區
+T 地方文獻專區
+VIP 辦公室
+VS 視障專區
+X 限制級
+Y 青少年專區
+BL 6樓悅讀角(峇里島風)
+JPN 8樓悅讀角(日式禪風)
+MS 7樓悅讀角(地中海風)
+NE 5樓悅讀角(北歐簡約風)
+SF 6樓悅讀角(南法鄉村風)
+UK 6樓悅讀角(英國古典風)
+US 8樓悅讀角(復古美式風)
+LP 黑膠唱片主題專區
+##TBArea.End
+
+##BoxForC
+中文書 Five strokes
+西文書 Cutter
+##BoxForC.End||中文書||
+
+##BoxLibrary
+BA 五股
+BASRT 守讓堂
+BB 五股成州
+BC 五股水碓
+BD 五股更新
+BE 五股成功
+CA 三峽
+CB 三峽北大
+DA 三芝
+EA 鶯歌
+EB 鶯歌二甲
+FA 永和
+FC 永和民權
+FD 永和忠孝
+FE 永和保生
+GA 林口
+GC 林口西林
+GD 林口李科永
+HA 三重
+HB 三重田中
+HC 三重五常
+HD 三重崇德
+HE 三重東區
+HF 三重南區
+HG 三重培德
+HI 三重兒童
+IA 新莊福營
+IC 新莊中港
+ID 新莊
+IE 新莊西盛
+IF 新莊聯合
+IG 新莊裕民
+IH 頭前智圖
+JA 土城
+JB 土城清水
+JC 土城柑林埤
+JD 土城祖田
+JE 土城親子
+KA 蘆洲長安
+KC 蘆洲永平
+KD 蘆洲永安
+KE 蘆洲集賢
+KF 蘆洲親子
+KG 蘆洲智圖
+KH 蘆洲湧蓮
+LA 泰山
+LB 泰山貴子
+LC 泰山親子
+MA 平溪
+NA 樹林
+NB 樹林大安
+NC 樹林柑園
+ND 樹林三多
+NE 樹林樂山
+NG 樹林彭厝
+NH 樹林東昇
+OA 中和員山
+OB 中和大同
+OC 中和
+PAL 八里
+PB 八里龍形
+QA 新店
+QB 新店寶興
+QC 新店北新
+QD 新店中央
+QE 新店碧潭
+QH 新店福民
+QJ 新店仁愛
+QK 新店柴埕
+QM 新店大鵬
+QN 新店龜山
+QO 新店三民
+QP 青少年
+RA 深坑
+SA 石碇
+TA 板橋
+TB 總館
+TC 板橋江子翠
+TD 板橋國光
+TE 板橋四維
+TF 板橋民生
+TG 板橋忠孝
+TH 板橋溪北
+TI 板橋浮洲
+TJ 板橋萬板
+TW 總館書車
+UA 淡水
+UB 淡水竹圍
+UC 淡水水碓
+UD 淡水書車
+UU 淡水小書房
+VA 石門
+WA 金山
+XA 雙溪
+YC 汐止北峰
+YD 汐止茄苳
+YE 汐止江北
+YF 汐止
+YG 汐止長安
+YH 汐止橫科
+YI 汐止大同
+ZA 萬里
+ZB 坪林
+ZC 瑞芳
+ZD 貢寮
+ZG 瑞芳東和
+HH 三重借書站
+TT 總館借書站
+TK 市府借書站
+##BoxLibrary.End
+
+##selNRRC653
+知識性
+青少年
+人文藝術
+多元學習
+科技創新
+樂活環保
+文化創意
+文創
+地方創生
+English Learning
+##selNRRC653.End

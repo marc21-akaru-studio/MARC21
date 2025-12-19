@@ -1,0 +1,2586 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>中日文圖書RDA分類編目規範[館員版]-1120910修正</title>
+<style>
+	table{
+		width:calc(100% - 140px);
+	}
+	table,th,td{
+	}
+	th
+	{
+		height:50px;
+	}
+	.MsoNormalTable{
+		width:calc(98% - 140px);
+		border-collapse:collapse;
+		border:1px solid #000;
+	}
+	.MsoNormalTable th{
+		border-bottom:1px solid #000;
+		border-left:1px solid #000;
+		border-right:1px solid #000;
+	}
+	.MsoNormalTable tr{
+		border-bottom:1px solid #000;
+		border-left:1px solid #000;
+		border-right:1px solid #000;
+	}
+	.MsoNormalTable td{
+		border-bottom:1px solid #000;
+		border-left:1px solid #000;
+		border-right:1px solid #000;
+	}
+	.MsoNormal{
+		font-family:monospace;
+		line-height:1.4em;
+	}
+	p{
+		padding:0px;
+		margin:0.4em;
+		padding-right:140px;
+	}
+	.paragraph_other{
+		line-height:1.2em;
+		morgin-top:0px;
+		morgin-bottom:0px;
+		padding-right:140px;
+	}
+
+		.tableAA{
+			text-align:center;
+			position:fixed;
+			top:20px;
+			right:20px;
+			width:120px;
+			border:0px solid #EFE;
+			border-cellspacing:collpase;
+			background-color:#FFE1C8;
+			border-radius:10px;
+		}
+		.tableAA th,tr,td{
+			border-bottom:0px solid #EFE;
+			border-left:0px solid #EFE;
+			border-right:0px solid #EFE;
+		}
+		.tableAA td:hover
+		{background-color:#FFC387;}
+</style>
+</head>
+<body lang=ZH-TW>
+<div class="paragraph_other">
+<table class="tableAA">
+	<tr>
+	<th colspan=4 style="background-color:#FFC387;color:black;">快速前往</th>
+	</tr>
+	<tr>
+	<td colspan=4><a href="#000a" style="text-decoration:none;color:black;">一般編目注意事項</a></td>
+	</tr>
+	<tr>
+	<td colspan=4><a href="#000b" style="text-decoration:none;color:black;">館員其他注意事項</a></td>
+	</tr>
+	<tr>
+	<td colspan=2><a href="#000c" style="text-decoration:none;color:black;">定長欄</a></td>
+	<td colspan=2><a href="#000d" style="text-decoration:none;color:black;">Leader</a></td>
+	</tr>
+	<tr>
+	<td><a href="#008a" style="text-decoration:none;color:black;">008</a></td>
+	<td><a href="#100a" style="text-decoration:none;color:black;">100</a></td>
+	<td><a href="#336a" style="text-decoration:none;color:black;">336</a></td>
+	<td><a href="#546a" style="text-decoration:none;color:black;">546</a></td>
+	</tr>
+	<tr>
+	<td><a href="#017a" style="text-decoration:none;color:black;">017</a></td>
+	<td><a href="#110a" style="text-decoration:none;color:black;">110</a></td>
+	<td><a href="#337a" style="text-decoration:none;color:black;">337</a></td>
+	<td><a href="#586a" style="text-decoration:none;color:black;">586</a></td>
+	</tr>
+	<tr>
+	<td><a href="#020a" style="text-decoration:none;color:black;">020</a></td>
+	<td><a href="#111a" style="text-decoration:none;color:black;">111</a></td>
+	<td><a href="#338a" style="text-decoration:none;color:black;">338</a></td>
+	<td><a href="#594a" style="text-decoration:none;color:black;">594</a></td>
+	</tr>
+	<tr>
+	<td><a href="#024a" style="text-decoration:none;color:black;">024</a></td>
+	<td><a href="#240a" style="text-decoration:none;color:black;">240</a></td>
+	<td><a href="#490a" style="text-decoration:none;color:black;">490</a></td>
+	<td><a href="#600a" style="text-decoration:none;color:black;">600-630</a></td>
+	</tr>
+	<tr>
+	<td><a href="#040a" style="text-decoration:none;color:black;">040</a></td>
+	<td><a href="#245a" style="text-decoration:none;color:black;">245</a></td>
+	<td><a href="#500a" style="text-decoration:none;color:black;">500</a></td>
+	<td><a href="#650a" style="text-decoration:none;color:black;">650</a></td>
+	</tr>
+	<tr>
+	<td><a href="#041a" style="text-decoration:none;color:black;">041</a></td>
+	<td><a href="#246a" style="text-decoration:none;color:black;">246</a></td>
+	<td><a href="#504a" style="text-decoration:none;color:black;">504</a></td>
+	<td><a href="#651a" style="text-decoration:none;color:black;">651</a></td>
+	</tr>
+	<tr>
+	<td><a href="#084a" style="text-decoration:none;color:black;">084</a></td>
+	<td><a href="#250a" style="text-decoration:none;color:black;">250</a></td>
+	<td><a href="#505a" style="text-decoration:none;color:black;">505</a></td>
+	<td><a href="#700a" style="text-decoration:none;color:black;">700-730</a></td>
+	</tr>
+	<tr>
+	<td><a href="#095a" style="text-decoration:none;color:black;">095</a></td>
+	<td><a href="#264a" style="text-decoration:none;color:black;">264</a></td>
+	<td><a href="#520a" style="text-decoration:none;color:black;">520</a></td>
+	<td><a href="#740a" style="text-decoration:none;color:black;">740</a></td>
+	</tr>
+	<tr>
+	<td><a href="#096a" style="text-decoration:none;color:black;">096</a></td>
+	<td><a href="#300a" style="text-decoration:none;color:black;">300</a></td>
+	<td><a href="#521a" style="text-decoration:none;color:black;">521</a></td>
+	<td><a href="#830a" style="text-decoration:none;color:black;">830-856</a></td>
+	</tr>
+	<tr>
+	<td colspan=4><a href="#999a" style="text-decoration:none;color:black;">資料類型代碼表</a></td>
+	</tr>
+	<tr>
+	<td colspan=2><a href="#999b" style="text-decoration:none;color:black;">取分類號</a></td>
+	<td colspan=2><a href="#999c" style="text-decoration:none;color:black;">取著者號</a></td>
+	</tr>
+</table></div>
+
+<div class=WordSection1>
+<p class=MsoNormal align=center><b>新北市立圖書館中文(</b><b>日文)</b><b>圖書RDA</b><b>分類編目規範[</b><b>館員版]</b></p><a name="000a">&nbsp;</a>
+<p class=MsoNormal><b>【一般編目注意事項】</b></p>
+<p class=MsoNormal>★圖書主要著錄來源：書名頁，若無書名頁，依序為：封面→版權頁→書背，以記載最完備著錄資料者替代之，並將來源記於附註項。<br>
+★「#」於本規範中代表半形空格。<br>
+★機讀編目格式<br>
+－採用《MARC21 Bibliographic Format》，記錄結構需符合ISO2709標準。<br>
+－字集採Unicode(UTF-8)格式<br>
+★書標內容順序<br>
+－資料類型→分類號→作者號→西元年代號→冊次號<br>
+補充：若為分傳類傳記作品，「作者號」應給予兩個，順序為「被傳者→傳者」<br>
+★編目語言<br>
+－日文資料依該書原文編目，而其餘原文未提及部分(如稽核項、附註項、標題等)以中文編目<br>
+★標點符號一律以「半形」輸入，並依循英式標點符號使用習慣<br>
+1)「,」、「.」後面空<br>
+2)「:」、「;」、「=」、「/」、「×」、「＋」、「...」前後均空<br>
+3)「( )」、「[ ]」、「--」前後均不空<br>
+4) 「.」做為音界號使用時前後不空(例：人名「哈利.波特」、出版年月「2019.06」)<br>
+★精裝、平裝<br>
+－同書名但不同精裝、平裝，需分別編兩個書目檔，精裝版需於250|b加註[精裝]，平裝版不需加註<br>
+★含附件<br>
+－同一書分別含有不同類型之附件，則分為兩個書目檔，並於250|b加註<br>
+－套編書籍若其中單冊含有附件，該冊另編一個書目，不與其他冊套編<br>
+－若有共用光碟，加工貼紙（本書含附件貼紙）僅貼在附光碟的書籍（通常為第1冊）圖書即可<br>
+★語言書<br>
+－含有學習本及解析本之語言書，須將學習本及解析本裝訂在一起，視為一本書，貼一張條碼號即可，解析本不另作附件。<br></p>
+<p class=MsoNormal>★連續出版作品第1集冊次號著錄方式：<br>
+－遇到第1集時，按照書籍給予冊次（書上原本有標冊次，就給v.1；書上沒編就不用加）<br>
+－遇到採購時即為連續集數購入的，無論書上是否有寫第1集，都要加上v.1<br>
+★相同書名的書第1本出版時是單行本，但後續又出版續集的狀況：<br>
+－再出版第2集時，<br>
+　第1集有編v.1 -> 合在同一筆書目套編<br>
+　第1集沒編v.1 -> 分出另一個書目，若有繼續再出就依次單編<br>
+－遇到採購時即為連續集數購入的，無論書上是否有寫第1集，都要加上v.1套編<br><br></p><a name="000b">&nbsp;</a>
+<p class=MsoNormal><b>【館員其他注意事項】</b></p>
+<p class=MsoNormal>★遇到西洋譯名時：<br>
+1. 先用英文全名查詢權威檔，若系統內已有該名字權威，100、700段請依系統內名字，並於500段加註「改譯」。<br>
+2. 若權威內沒有英文全名，但有英文姓氏，依系統內姓氏著錄100、700段，並於500段加註「改譯」。<br>
+3. 若權威檔內無英文全名、英文姓氏，依書上譯名著錄。<br>
+★套書同書目資料但020段資料不同<br>
+－同一套漫畫若冊數及書目資料皆與原資料相同，只差在購置前後之價格不同，020段價格修正為較貴之價格→館藏段依購置當時的價格鍵入，分館賠書則依「館藏段」之價格為依據<br>
+－同一套漫畫(書目資料相同)但有新增冊數時，書目資料需從頭補齊至新增冊數後再進行轉檔(分館同仁即可不需自行增加館藏段)；轉檔後由採編課同仁自行至系統進行二校及合併書目作業<br>
+★幣值非新臺幣，依編目當日「前1日臺灣銀行收盤即期賣出匯率」換算為新臺幣價格。<br>
+★圖書只寫【基價〇元】、【基本定價〇元】時，以該基價乘以50倍計價。<br>
+★中文贈書若無價格時，需細數面數，以1面1元計價（含空白頁）；無法取得面數者，以每冊400元計價。<br>
+★外文贈書若無價格時，需細數面數，以1面2元計價（含空白頁）；無法取得面數者，以每冊800元計價。<br>
+★若在不同批次購入同一本書，請用半形逗號分隔(逗號後不空)，依序加上批次號<br>
+範例：<br>
+594&nbsp;##&nbsp;|aAC-107-C2-03,AC-108-B-07,AC-108-C1-12<br>
+★純購書(中、外文)如有附件(地圖、光碟、紙型)，加工時請記得將附件另外拆下，光碟放於光碟盒，地圖、紙型放於夾鏈袋，並在書上貼附件貼紙<br>
+★書標內容順序：特藏→分類號→作者號→西元年代號→冊次號→複本號<br>
+&emsp;年代號，適用如年鑑、旅遊書、法律書、參考類書，EX：旅遊書、地圖的書名有XXXX年版<br>
+&nbsp;</p><a name="000c">&nbsp;</a>
+<p class=MsoNormal>【定長欄位】</p>
+<p class=MsoNormal>定長欄位是指機讀目錄格式中長度固定的欄位。只有已定義的資料碼可鍵入定長欄位。定長欄位的目的在於協助系統檢索及資料處理。包括：紀錄標示(Leader)、006、007、008。</p><a name="000d">&nbsp;</a>
+<p class=MsoNormal>★紀錄標示(Leader)
+(NR)</p>
+<p class=MsoNormal>紀錄標示(Leader)出現在每一紀錄的最前面，不含欄號、指標及分欄。固定長度24位，包括紀錄長度、紀錄性質、紀錄類型、書目性質、著錄依據及著錄層次、記述編目格式、層次等級等項目。此欄位由數字或字母組成，屬於MARC機讀紀錄結構的一部分，提供對紀錄處理的必要參數。<br>
+例如：某本書的紀錄標示(Leader)為<br>
+00902nam a2200241Ii 450 <br>
+位址0~4：由程式自動產生。(如：00902)<br>
+位址 8 ：空格<br>
+位址 9 ：此位址之資料由CMARC之100/26-29轉入。<br>
+位址10：指標長度，內容為”2”。<br>
+位址11：分欄識別長度，內容為”2”。<br>
+位址12~16：資料基位，佔5位址，由程式自動產生。(如：00241)<br>
+位址19：空格。<br>
+位址20：欄長位數，內容為”4”。<br>
+位址21：首字位址，內容為”5”。<br>
+位址22：執行定義部分長度，內容為”0”。<br>
+位址23：空格。</p>
+<table class=MsoNormalTable>
+ <tr> <td valign=top><p class=MsoNormal>Leader/05紀錄性質(Record status)<br>用來指明此書目紀錄與相關書目檔案的關係。在做原始編目時，書目紀錄應是”n”。若將一新書目紀錄做更新、修訂，此欄位則改為”c”。</p></td>
+ </tr>
+ <tr> <td valign=top><p class=MsoNormal>c 修正過之紀錄(Corrected or revised)<br>n 新紀錄(New)</p></td>
+ </tr>
+ </table>
+ <p class=MsoNormal>&nbsp;</p>
+<table class=MsoNormalTable>
+ <tr> <td><p class=MsoNormal>Leader/06紀錄類型(Type of record)<br>◎用來定義書目紀錄的特性與內涵，由英文字母組成(長度1位址)。此代碼用來決定書目紀錄中資料單元的適用性與有效性。<br>◎Leader/06與Leader/07兩者聯合決定應使用何種定長欄位。</p></td>
+ </tr>
+ <tr> <td><p class=MsoNormal>a 文字資料(Language material)</p></td>
+ </tr>
+ </table>
+ <p class=MsoNormal>&nbsp;</p>
+<table class=MsoNormalTable>
+ <tr> <td colspan=2 valign=top><p class=MsoNormal>Leader/07書目性質(Bibliographic level)<br>◎用來指明一編目項目的性質，長度1位址，若是圖書資料(單冊或多冊)用”m”，若是連續性出版品(包括期刊)則用”s”。</p></td>
+ </tr>
+ <tr> <td valign=top><p class=MsoNormal>m 圖書式資料(單行本)(Monograph / Item)</p></td>
+ </tr>
+ </table>
+ <p class=MsoNormal>&nbsp;</p>
+<table class=MsoNormalTable>
+ <tr> <td valign=top><p class=MsoNormal>Leader/17著錄依據及層次(Encoding level)</p></td>
+ </tr>
+ <tr> <td valign=top><p class=MsoNormal>I OCLC完整紀錄(線上上傳)(Full-level input by OCLC participants)</p></td>
+ </tr>
+ </table>
+ <p class=MsoNormal>OCLC書目紀錄代碼&quot;I&quot;和&quot;K&quot;，由OCLC會員鍵入，一般是以線上方式單筆鍵入或批次轉入。&quot;I&quot;是指此書目紀錄完整(full level)符合OCLC規定。</p>
+<p class=MsoNormal>&nbsp;</p>
+<table class=MsoNormalTable>
+ <tr> <td><p class=MsoNormal>Leader/18記述編目格式(Descriptive cataloging form)<br>◎用來說明此書目紀錄的編目規範依據。</p></td>
+ </tr>
+ <tr> <td><p class=MsoNormal>i 包含ISBD標點符號(ISBD Punctuation included)</p></td>
+ </tr>
+ </table>
+ <p class=MsoNormal>&nbsp;</p>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>001 照錄訂購明細清單的MID</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>編目時須將「有訂購明細清單MID」的檔案與「無訂購明細清單MID」的檔案分開儲存</p>
+</td>
+ </tr>
+</table><a name="008a">&nbsp;</a>
+<p class=MsoNormal>★008定長資料—一般性資料（NR）</p>
+<p class=MsoNormal>欄位008，共40位址(0~39)，用來描述書目資源的內容特性。欄位008的資料單元和結構由書目紀錄類型(Leader/06)和書目性質(Leader/07)來決定。</p>
+<p class=MsoNormal>例如：某一本書008如右：201013s2020 &nbsp;&nbsp;&nbsp;ch ab&nbsp;
+b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 000 j chi d<br>
+位址0~5：資料輸入日期，如：201013表示2020年10月13日。<br>
+位址6：出版情況，佔1位址。<br>
+位址7~14：出版年，佔8位址。<br>
+位址15~17：出版地區或出版國別，佔3位址。<br>
+位址18~34：依據Leader06與07之內容加以判斷而分類的紀錄類型。<br>
+位址35~37：作品語文，如chi代表中文。<br>
+位址38：修正紀錄代碼，空白表示未修正。<br>
+位址39：編目來源，說明書目紀錄原始編目機構。</p>
+<p class=MsoNormal>&nbsp;</p>
+<table class=MsoNormalTable>
+ <tr> <td><p class=MsoNormal>008/00-05輸入日期(Date entered on file)</p></td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>共六碼，如121005，指2012年10月5日</p>
+</td>
+ </tr>
+ </table>
+ <p class=MsoNormal>★著錄機關給定的轉檔時間</p>
+ <p class=MsoNormal>&nbsp;</p>
+<table class=MsoNormalTable> <td><p class=MsoNormal>008/06出版情況(Type of Date / Publication Status)</p></td>
+ </tr>
+ <tr> <td><p class=MsoNormal>m 多出版年(Multiple dates)<br>◎指出版起訖年，出版過程中的第一年和最後一年著錄於出版年1(008/7-10)和出版年2(008/11-14)。<br>s 單一出版年或可能的出版年(Single known date / probable date)</p></td>
+ </tr>
+ </table>
+ <p class=MsoNormal>★多冊圖書仍繼續出版或經數年才出版完畢（如不同時間出版的成套漫畫、小說）選用ｍ</p>
+<p class=MsoNormal>★其他皆選用ｓ</p>
+<p class=MsoNormal>&nbsp;</p>
+<table class=MsoNormalTable>
+ <tr> <td><p class=MsoNormal>008/07-10出版年1(Date l)</p></td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>◎著錄西元出版年，若不確定年份，不確定之部分用「u」取代，如20uu</p>
+<p class=MsoNormal>◎需與264段之分欄c對應。</p>
+</td>
+ </tr>
+ </table>
+ <p class=MsoNormal>&nbsp;</p>
+<table class=MsoNormalTable>
+ <tr> <td><p class=MsoNormal>008/11-14出版年2(Date 2)</p></td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>若多冊圖書仍繼續出版，著錄「9999」，已完結則著錄完結西元年</p>
+<p class=MsoNormal>其餘狀況空白</p>
+</td>
+</table>
+<p class=MsoNormal>&nbsp;</p>
+<table class=MsoNormalTable>
+ <tr> <td><p class=MsoNormal>008/15-17出版地區(Place of publication, production, or execution)</p></td>
+ </tr>
+ <tr> <td><p class=MsoNormal>[xx#]無出版地或出版地不確定(No place, unknown, or undetermined)<br>[aaa]三碼出版地(Three-character alphabetic code)<br>[aa#]兩碼出版地(Two-character alphabetic code)</p></td>
+ </tr>
+ </table>
+ <p class=MsoNormal>例：ch 中華民國；cc 中華人民共和國(包括香港及澳門)；ja 日本</p>
+<p class=MsoNormal>&nbsp;</p>
+<table class=MsoNormalTable>
+ <tr> <td><p class=MsoNormal>008/18-21插圖(Illustrations)<br>◎需與300之分欄b對應，本欄最多選4種，依字母順序排列。</p></td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>依書籍內容選用：</p>
+<p class=MsoNormal># 無插圖(No illustrations)<br>a 圖(Illustrations)<br>b 地圖(Maps)<br>c 肖像(Portraits)<br>d 圖表(Charts)<br>f 圖版(Plates)<br>k 表格(Forms)<br>o 照片(Photographs)</p></td>
+ </tr>
+ </table>
+ <p class=MsoNormal>&nbsp;</p>
+<table class=MsoNormalTable> <tr><td><p class=MsoNormal>008/22適用對象(Target audience)</p></td>
+ </tr>
+ <tr> <td><p class=MsoNormal>a 學前兒童，0-5歲(Preschool)<br>b 學齡兒童，6-8歲(Primary)<br>c 學齡兒童，9-13歲(Pre-adolescent)<br>d 青少年，14-17歲(Adolescent)<br>e 成人(Adult)</p></td>
+ </tr>
+ </table>
+ <p class=MsoNormal>★若書上有適讀年齡，依年齡段選用</p>
+<p class=MsoNormal>★若書上無建議，依內容判斷給予</p>
+<p class=MsoNormal>&nbsp;</p>
+<table class=MsoNormalTable>
+ <tr> <td><p class=MsoNormal>008/23載體形式(Form of item)<br>◎用來指明出版品的載體形式。</p></td>
+ </tr>
+ <tr> <td><p class=MsoNormal># 非下列形式(None of the following)</p></td>
+ </tr>
+ </table>
+ <p class=MsoNormal>&nbsp;</p>
+<table class=MsoNormalTable> <td><p class=MsoNormal>008/24-27內容特性(Nature of contents)<br>◎最多著錄4位代碼，依字母順序排列。</p></td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>依書籍內容選用：</p>
+<p class=MsoNormal># 內容無特殊特性(No specified nature of contents)<br>a 摘要(專指作品本身為摘要)(Abstracts/summaries)<br>b 書目(參考書目、研究書目、專題書目等)(Bibliographies)<br>c 目錄(物目錄、藏書目錄、出版目錄、展覽目錄等)(Catalogs)<br>d 字典、辭彙(Dictionaries)<br>e 百科全書、類書(Encyclopedias)<br>f 手冊(Handbooks)<br>g 法學論文(Legal articles)<br>i 索引(專指作品本身為索引)(Indexes)<br>j 專利文件(Patent document)<br>k 錄音資料作品目錄(Discographies)<br>l 法規(Legislation)<br>m 學位論文(Theses)<br>n 文獻調查報告(surveys of literature in a subject area)<br>o 評論(Reviews)<br>p 編序教材(Programmed texts)<br>q 影片目錄(Filmographies)<br>r 名錄、指南(Directories)<br>s 統計資料(Statistics)<br>t 技術報告(Technical reports)<br>u 標準/規範(Standards/specifications)<br>v 法律案例及案例注解(Legal cases and case notes)<br>w 判決報告及文摘(Law reports and digests)<br>y 年鑑、年報(Yearbooks)<br>z 條約、協定(Treaties)<br>2 抽印本(Offprints)<br>5 日曆、月曆(Calendars)<br>6 漫畫/連環圖畫(Comics/graphic novels)</p></td>
+ </tr>
+ </table>
+ <p class=MsoNormal>★若圖書內含參考書目資料，須著錄b，需與504參考書目對照。</p>
+<p class=MsoNormal>&nbsp;</p>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>008/28政府出版品(Government publication)</p></td>
+ </tr>
+ <tr> <td><p class=MsoNormal>依書籍出版者選用：<br># 非政府出版品(Not a government publication)<br>f 聯邦/國家/中央政府(Federal/national)<br>i 國際機構(如聯合國)(International intergovernmental)<br>l 地方政府(縣級、省轄市、鄉、鎮、縣轄市及其他地方機構)(Local)<br>o 所屬層級無法確定(Government publication – level undetermined)<br>s 州級、省級&#20022;院轄巿政府(State, provincial, territorial, dependent, etc.)</p></td>
+ </tr>
+ </table>
+ <p class=MsoNormal>★有政府出版品號碼（GPN）的書籍請依出版單位選用（公立大學出版社之作品應視為政府出版品）</p>
+<p class=MsoNormal>&nbsp;</p>
+<table class=MsoNormalTable>
+ <tr> <td><p class=MsoNormal>008/29會議出版品(Conference publication)</p></td>
+ </tr>
+ <tr> <td><p class=MsoNormal>0 非會議出版品(Not a conference publication)<br>1 會議出版品(Conference publication)</p></td>
+ </tr>
+ </table>
+ <p class=MsoNormal>&nbsp;</p>
+<table class=MsoNormalTable>
+ <tr> <td><p class=MsoNormal>008/30紀念文集(Festschrift)</p></td>
+ </tr>
+ <tr> <td><p class=MsoNormal>0 非紀念文集(Not a festschrift)<br>1 紀念文集(Festschrift)</p></td>
+ </tr>
+ </table>
+ <p class=MsoNormal>&nbsp;</p>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>008/31索引(Index)</p>
+</td>
+ </tr>
+ <tr> <td><p class=MsoNormal>0 不含索引(No index)<br>1 含索引(Index present)</p></td>
+ </tr>
+ </table>
+ <p class=MsoNormal>◎指作品本身之索引，需與500一般註對照。</p>
+<p class=MsoNormal>&nbsp;</p>
+<table class=MsoNormalTable>
+ <tr> <td><p class=MsoNormal>008/33文學體裁(Literary form)</p></td>
+ </tr>
+ <tr> <td><p class=MsoNormal>0 非小說(不再細分)(Not fiction (not further specified))<br>1 小說(不再細分)(Fiction(not further specified)<br>j 短篇故事、民間故事、寓言、神話、童話、傳說(Short stories)</p></td>
+ </tr>
+ </table>
+ <p class=MsoNormal>★先區分是否為文學作品，非文學作品皆選0</p>
+<p class=MsoNormal>★文學作品只分出短篇故事j，其他文學作品都入1</p>
+<p class=MsoNormal>&nbsp;</p>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>008/34傳記(Biography)</p></td>
+ </tr>
+ <tr> <td><p class=MsoNormal># 非傳記作品(No biographical material)<br>a 自傳(Autobiography)<br>b 分傳(Individual biography)<br>c 合傳，總傳(collective biography)<br>d 含傳記資料(Contains biographical information)</p></td>
+ </tr>
+ </table>
+ <p class=MsoNormal>&nbsp;</p>
+<table class=MsoNormalTable>
+ <tr> <td><p class=MsoNormal>008/35-37作品語文(Language)</p></td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>chi 中文<br> eng 英文<br> jpn 日文</p>
+</td>
+ </tr>
+ </table>
+ <p class=MsoNormal>★出版品主要使用何種語言呈現</p>
+<p class=MsoNormal>&nbsp;</p>
+<table class=MsoNormalTable>
+ <tr> <td><p class=MsoNormal>008/39編目來源(Catalogingsource)</p></td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>d 其他(Other)</p>
+</td>
+ </tr>
+</table>
+<p class=MsoNormal>&nbsp;</p><a name="017a">&nbsp;</a>
+<p class=MsoNormal>【變長欄】</p>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>017版權或送存號(Copyright or Legal Deposit Number)(R)</p></td>
+ </tr>
+ <tr> <td><p class=MsoNormal>指標1<br>
+ # 未定義，以空格表示(Undefined)</p>
+ <p class=MsoNormal>指標2前導用語顯示(Display constant controller)<br>
+ 8 不產生前導用語(No display constant generated)</p></td>
+ </tr>
+ <tr> <td><p class=MsoNormal>分欄<br>
+ |a版權或送存號(Copyright or legal deposit number)(R)<br>
+ |2來源(Source)(NR)</p></td>
+ </tr>
+ </table>
+ <p class=MsoNormal>◎中華民國政府出版品統一編號原12碼，自民國90年起改為10碼。<br>◎同時有一套及單本之政府出版品統一編號，則各單本及整套之統一編號「均須著錄」。<br>★政府出版品統一編號(GPN)著錄於此，來源代碼為rocgpt<br> <p class=MsoNormal>例：017&nbsp;#8&nbsp;|aGPN編號|2rocgpt</p>
+ 
+<p class=MsoNormal>&nbsp;</p><a name="020a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>020國際標準書號(International Standard Book Number)(R)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1<br>
+# 未定義，以空格表示(Undefined)</p>
+<p class=MsoNormal>指標2<br>
+# 未定義，以空格表示(Undefined)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|a國際標準書號(International Standard Book Number)(NR)<br>
+|c價格與相關資訊(Terms of availability)(NR)<br>
+|q限定資訊(Qualifying information)(R)<br>
+|z取消或無效的ISBN(Canceled/invalid ISBN)(R)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>例：<br>
+單行本<br>
+020&nbsp;##&nbsp;|a9789863873419|q(平裝)&nbsp;:&nbsp;|cNT$380</p>
+<p class=MsoNormal>套書，每冊有ISBN<br>
+020&nbsp;##&nbsp;|a9789571102382|q(一套&nbsp;;&nbsp;|q精裝)&nbsp;:&nbsp;|cNT$700<br>
+020&nbsp;##&nbsp;|a9789571102399|q(上冊&nbsp;;&nbsp;|q精裝)&nbsp;:&nbsp;|cNT$500<br>
+020&nbsp;##&nbsp;|a9789571102405|q(下冊&nbsp;;&nbsp;|q精裝)&nbsp;:&nbsp;|cNT$200</p>
+<p class=MsoNormal>套書，單組ISBN<br>
+020&nbsp;##&nbsp;|a9786267376621|q(一套&nbsp;;&nbsp;|q平裝)&nbsp;:&nbsp;|cNT$1850<br>
+020&nbsp;##&nbsp;|q(上冊&nbsp;;&nbsp;|q平裝)&nbsp;:&nbsp;|cNT$617<br>
+020&nbsp;##&nbsp;|q(中冊&nbsp;;&nbsp;|q平裝)&nbsp;:&nbsp;|cNT$617<br>
+020&nbsp;##&nbsp;|q(下冊&nbsp;;&nbsp;|q平裝)&nbsp;:&nbsp;|cNT$616</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>|a國際標準書號<br>
+★若有10碼及13碼ISBN，僅需登錄13碼ISBN即可<br>
+★僅有10碼，照錄<br>
+★無ISBN書籍，仍需著錄|q、|c資訊，例：020 ## |q(平裝)&nbsp;:&nbsp;|cNT$250</p>
+<p class=MsoNormal>◎多冊書編目時（通常單冊沒有各別書名及作者），各單本及整套之ISBN均須著錄。</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>|c價格與相關資訊<br>
+★依書籍上印刷新臺幣定價為主</p>
+<p class=MsoNormal>★書籍上若有特價，須如下圖印刷在書上才可依特價著錄；若以貼紙黏貼特價，仍以定價著錄<br>
+<img width=329 height=63 id="_x0000_i1026" src="image/image001.jpg"></p>
+<p class=MsoNormal>★僅有套書價格無單冊價格，依套書價格除以冊數，若除不盡，將餘數自第一冊依次加1。<br>
+例1：一套699元，第一冊350元，第二冊349元。<br>
+例2：一套1250元，第一冊313元，第二冊313元，第三冊312元，第四冊312元。</p>
+<p class=MsoNormal>★幣值非新臺幣，依機關提供採購明細表著錄。</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>|q限定資訊<br>
+★著錄裝訂方式：平裝、精裝、軟精裝、經摺裝等<br>
+★著錄所含附件：平裝附紙型、平裝附地圖、平裝附手冊、平裝附光碟等<br>
+★著錄套書冊次：照錄壹、上、上冊、卷一、第1冊等（漫畫除外，漫畫集數皆轉換為阿拉伯數字「第O冊」）<br>
+★先查館藏，同書名但不同裝訂方式，或不同附件，則建置兩筆書目資料</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>|z 取消的或無效的ISBN</p>
+<p class=MsoNormal>★ToRead：系統無法搜尋此段，改為另外著錄一行020段<br>
+例：9781234567897錯誤，正確應為9789869767736，著錄：<br>
+020&nbsp;##&nbsp;|a9789869767736|q(平裝)&nbsp;:&nbsp;|cNT$340<br>
+020&nbsp;##&nbsp;|a9781234567897<br>
+500&nbsp;##&nbsp;|a封底ISBN誤植為9781234567897</p>
+<p class=MsoNormal>★Miracle：可正常使用<br>
+例：9781234567897錯誤，正確應為9789869767736，著錄：<br>
+020&nbsp;##&nbsp;|a9789869767736|q(平裝)&nbsp;:&nbsp;|cNT$340|z9781234567897<br>
+500&nbsp;##&nbsp;|a封底ISBN誤植為9781234567897</p>
+<p class=MsoNormal>&nbsp;</p><a name="024a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>024其他標準識別號(Other Standard Identifier)(R)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1標準識別號類型(Type of standard number or code)<br>
+3 國際商品編碼(International Article Number)</p>
+<p class=MsoNormal>指標2掃描與資料上顯示的識別碼有無差異(Difference indicator)<br>
+# 未提供資訊(No information provided)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|a識號號碼(Standard number or code)(NR)<br>
+|q限定資訊(Qualifying information)(R)</p>
+</td>
+ </tr>
+ </table>
+ <p class=MsoNormal>★024僅著錄|a商品條碼及|q冊次</p>
+<p class=MsoNormal>★關於裝訂方式、價格仍著錄於020段<br>
+例：<br>
+單行本只有商品條碼時：<br>
+020&nbsp;##&nbsp;|q(平裝)&nbsp;:&nbsp;|cNT$250<br>
+024 3# |a4711111111111</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>單行本同時有ISBN及商品條碼時：<br>
+020&nbsp;##&nbsp;|a9789869767736|q(平裝)&nbsp;:&nbsp;|cNT$340<br>
+024 3# |a4711111111111</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>套書同時有ISBN及商品條碼，且分冊次時：<br>
+020&nbsp;##&nbsp;|a9789869767736|q(第1冊&nbsp;;&nbsp;|q平裝)&nbsp;:&nbsp;|cNT$340<br>
+024 3# |a4711111111111|q(第1冊)</p>
+<p class=MsoNormal>&nbsp;</p><a name="040a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>040編目來源(Cataloging source)(NR)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1<br>
+# 未定義，以空格表示(Undefined)</p>
+<p class=MsoNormal>指標2<br>
+# 未定義，以空格表示(Undefined)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|a原始編目機構(Original cataloging agency)(NR)<br>
+|b編目語文(Language of cataloging)(NR)<br>
+|c轉檔機構(Transcribing agency)(R)<br>
+|e編目規則代碼(Description conventions)(R)</p>
+</td>
+ </tr>
+ </table>
+ <p class=MsoNormal>◎欄位040著錄編目及修正書目紀錄的機構，多數書目紀錄的|a和|c是同一機構。<br>
+新北市立圖書館代碼：TWTCL</p>
+<p class=MsoNormal>◎|b編目語文代碼：chi表示用中文來編目。</p>
+<p class=MsoNormal>◎|e編目規則代碼：rda表示「RDA編目規則」。<br>
+中文圖書輸入：<br>
+040&nbsp;##&nbsp;|aTWTCL|bchi|cTWTCL|erda</p>
+<p class=MsoNormal>&nbsp;</p><a name="041a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>041語文代碼(Language code)(R)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1譯文說明(Translation indication)<br>
+0 非譯文或不含譯文(Item not a translation/does not include a translation)<br>
+1 譯文或含譯文(Item is or include a translation)</p>
+<p class=MsoNormal>指標2代碼來源(Source of code)<br>
+# MARC21語文代碼系統(MARC language code)(同Leader/35-37使用之代碼系統)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|a正文 / (錄音、錄影資料)聲道語文(Language code of text/soundtrack or separate title)(R)<br>
+|h翻譯作品原文(Language code of original)(R)<br>
+|k據以翻譯語文(非原文) (Language code of intermediate translations)(R)</p>
+</td>
+ </tr>
+ </table>
+ <p class=MsoNormal>◎本欄用於1.作品內容有數種語言 2.主要內容是翻譯作品 3.內容摘要、目次或附件的語言與正文不同。通常041與546欄一起使用。</p>
+<p class=MsoNormal>◎欄位041需配合欄位008/35~37著錄。</p>
+<p class=MsoNormal>★出版品主要內容的語文著錄於|a，翻譯作品原文著錄於|h<br>
+範例1：若作品譯自英文，著錄：<br>
+041&nbsp;1#&nbsp;|achi|heng</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>範例2：若主要內容有一種以上語文，例如中英對照，著錄：<br>
+041&nbsp;0#&nbsp;|achi|aeng<br>
+546&nbsp;##&nbsp;|中英對照</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>範例3：若作品譯自英文，且為中英對照，著錄：<br>
+041&nbsp;1#&nbsp;|achi|aeng|heng<br>
+546&nbsp;##&nbsp;|中英對照</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>★出版品的翻譯來源若亦為翻譯作品，則該翻譯作品語言著錄於|k，最原始的作品語文著錄於|h</p>
+<p class=MsoNormal>範例：若中文作品譯自英文版，但英文版是從原始語文版本法文翻譯而來，著錄：</p>
+<p class=MsoNormal>041&nbsp;1#&nbsp;|achi|hfre|keng</p>
+<p class=MsoNormal>&nbsp;</p><a name="082a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>082杜威十進分類索書號(Dewey Decimal Classification Number)(R)<br><font color="red">[適用西文書]</font></p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1 版本資訊(Type of edition)<br>
+0 杜威十進分類表標準版(Full edition)</p>
+<p class=MsoNormal>指標2 索書號來源(Source of classification number)<br>
+# 未提供資訊(No information provided)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|a分類號(Classification number)(R)<br>
+|b書號(Item number)(NR)<br>
+|2杜威分類表版本(Edition number)(NR)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>|a著錄分類號<br>
+★外文書(中文書、日文書以外皆屬之，如西文、韓文、東南亞語文等)適用：DDC 23版<br>
+★以作者卒年為主<br>
+範例：<br>
+082&nbsp;0&nbsp;&nbsp;|a823.92|bR884|223<br>
+100&nbsp;1&nbsp;&nbsp;|aRowling, J. K.,&nbsp;|d1965-.|4aut<br>
+(分類號複分請依作者卒年，在世作者取最新年代，不用生年取)</p>
+<p class=MsoNormal>|b著錄作者號 <br>
+採用克特號。<br>
+★取克特號小工具：<a href="https://marc21-akaru-studio.neocities.org/CutterTable">https://marc21-akaru-studio.neocities.org/CutterTable</a><br>
+東南亞作者依各國慣例，書上印刷有的是名在前，著錄時應一律以姓取號。<br>
+★泰文作者：書上印刷為名在前，姓在後，應先至<a href="http://www.thai-language.com/dict/">此網站</a>翻譯，並以姓取號。<br>
+如มณีจันท์，翻譯之英文為mani，故作者號為M278。<br>
+★馬來西亞文作者：書上印刷為姓在前，名在後。如Rose Harissa，作者號為R796。<br>
+★土耳其文作者：書上印刷為姓在前，名在後。<br>
+★韓文作者：書上印刷為姓在前，名在後。請用<a href="https://search.naver.com/search.naver?query=%BF%A9%B1%C7+%BF%B5%B9%AE%C0%CC%B8%A7">此網站</a>將作者名翻譯成英文：<br>
+如김영하翻譯之英文為Kim, Yeong ha，故作者號為K49。<br>
+★緬甸文：參考緬英字典。<br>
+★印尼文：書上印刷為名在前，姓在後。<br>
+★越文：書上印刷為姓在前，名在後。<br>
+★德文：書上印刷為名在前，姓在後。<br>
+★匈牙利文：書上印刷為姓在前，名在後。<br>
+★菲律賓文：書上印刷為名在前，姓在後。<br>
+★柬埔寨文：書上印刷為姓在前，名在後。利用<a href="https://translate.google.com.tw/?hl=zh-TW&tab=cT">Google翻譯</a>取羅馬拼音後再取克特號。
+</p>
+<p class=MsoNormal>|2輸入23 (表示「23版」)</p>
+<p class=MsoNormal>★若書籍有冊次，請在作者號後加註冊次號(v.)，如【A147 v.1】；若含有多部曲之部冊，部曲與部冊間用冒號，如二部曲第一冊為【A147 v.2:1】</p>
+<p class=MsoNormal>★單編書籍有冊次，請直接加該冊冊次即可；套編書籍未完結前請加v.1-，已完結請加起始冊次，如該套五冊請著錄v.1-v.5</p>
+<p class=MsoNormal>&nbsp;</p><a name="084a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>084其他分類號碼(Other Classification Number)(R)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1<br>
+# 未定義，以空格表示(Undefined)</p>
+<p class=MsoNormal>指標2<br>
+# 未定義，以空格表示(Undefined)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|a分類號(Classification number)(R)<br>
+|b書號(Item number)(NR)<br>
+|2號碼來源(Number source)(NR)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>|a著錄分類號<br>
+★中文書、日文書適用：中文圖書分類法2007年版</p>
+<p class=MsoNormal>|b著錄作者號 <br>
+★五筆檢字小工具：<a href="https://marc21-akaru-studio.neocities.org/FiveCODE">https://marc21-akaru-studio.neocities.org/FiveCODE</a><br>
+★採用五筆檢字法，以《中西目錄排檢法與作者號碼表》編製內容為準，若其缺字則依國家圖書館首尾五筆著者號查詢系統(http://catapp.ncl.edu.tw/five/index.php)為準。</p>
+<p class=MsoNormal>|2輸入ncsclt (表示「中文圖書分類法」)<br>
+★若書籍有冊次，請在作者號後加註冊次號(v.)，如【8965 v.1】；若含有多部曲之部冊，部曲與部冊間用冒號，如二部曲第一冊為【8965 v.2:1】</p>
+<p class=MsoNormal>★單編書籍有冊次，請直接加該冊冊次即可；套編書籍未完結前請加v.1-，已完結請加起始冊次，如該套五冊請著錄v.1-v.5</p>
+<p class=MsoNormal>&nbsp;</p><a name="095a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td>  <p class=MsoNormal>095 館藏欄位-1</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1<br>
+# 未定義，以空格表示(Undefined)</p>
+<p class=MsoNormal>指標2<br>
+# 未定義，以空格表示(Undefined)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|a單位代碼<br>
+|b館藏地<br>
+|c登錄號(條碼號)<br>
+|d分類號<br>
+|e作者號<br>
+|l卷冊次號<br>
+|m價格<br>
+|n館員備註(採購批次)<br>
+|s館藏性質<br>
+|t分類法代碼<br>
+|z徵集來源<br>
+|p資料類型<br>
+|8連結分欄</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>|a輸入NTCL</p>
+<p class=MsoNormal>|b輸入館藏地代碼，請查閱「新北市立圖書館書目檔館藏地代碼表」<br>
+&nbsp; 例如：|bTBJUN →表示總館兒童室</p>
+<p class=MsoNormal>|c輸入條碼號 →例如：|cA0000001</p>
+<p class=MsoNormal>|d輸入分類號 →例如：|d874.57</p>
+<p class=MsoNormal>|e輸入作者號 →例如：|e8574</p>
+<p class=MsoNormal>|l圖書如分多冊(卷)出版，輸入卷冊次號，格式為【v.1】、【v.2:3】（v為小寫）；單行本書籍可&nbsp; 省略 </p>
+<p class=MsoNormal>|m輸入價格，須為純數字，不可有國字或英文或其他符號 例如：|m300 →定價300元</p>
+<p class=MsoNormal>|n記錄館員備註(採購批次)，格式為【採購來源-民國年-語種及項次-批次】</p>
+<p class=MsoNormal>|s輸入屬於書籍本體或附件→例如：|s本體(表示所有非附件的館藏)</p>
+<p class=MsoNormal>|t中文、日文圖書輸入CCL</p>
+<p class=MsoNormal>|z依據徵集來源填寫「採購」、「贈送」、「交換」 例如：|z採購(表示為採購書)</p>
+<p class=MsoNormal>|p輸入資料類型代碼（需與系統設定相同）→例如：|pBook (表示中文圖書)</p>
+<p class=MsoNormal>|8輸入館藏條碼號（不可省略）<br>
+範例：<br>
+095 ## |aNTCL|bTBMUL|cA9999999|d709|eC223|lv.4|m350|nAC-108-MF-01|s本體|tCCL|z採購|pBook|8A9999999</p>
+<p class=MsoNormal>&nbsp;</p><a name="096a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>096館藏欄位-2</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1<br>
+# 未定義，以空格表示(Undefined)</p>
+<p class=MsoNormal>指標2<br>
+# 未定義，以空格表示(Undefined)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄(僅列常用的，有效的分欄)<br>
+|8連結分欄<br>
+|a館藏流通類別<br>
+|x作者號取碼方式</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>|8輸入條碼號（不可省略）</p>
+<p class=MsoNormal>|a輸入流通類別代碼（需與系統設定相同）<br>
+&nbsp; 例如：L30（可借30天）、L7（可借7天）、R（不外借）</p>
+<p class=MsoNormal>|x中文、日文輸入Five strokes、西文輸入Cutter<br>
+範例：<br>
+096&nbsp;##&nbsp;|8A9999999|aL30|xFive strokes</p>
+<p class=MsoNormal>&nbsp;<a name="100a">&nbsp;</a></p>
+<table class=MsoNormalTable>
+ <tr> <td colspan=2 valign=top> <p class=MsoNormal>100主要款目-個人名稱(Main Entry-Personal Name)(NR)</p>
+</td>
+ </tr>
+ <tr> <td colspan=2 valign=top> <p class=MsoNormal>指標1人名形式(Type of personal name entry element)<br>
+0 以名字著錄(Forename)<br>
+1 以姓或姓名著錄(Surname)</p>
+<p class=MsoNormal>指標2<br>
+# 未定義，以空格表示(Undefined)</p>
+</td>
+ </tr>
+ <tr> <td colspan=2 valign=top> <p class=MsoNormal>分欄(僅列常用的，有效的分欄)<br>
+|a個人姓名(Personal name)(NR)<br>
+|b世代數(Numeration)<br>
+|c頭銜等修飾語(Titles and words associated with a name)(R)<br>
+|q全稱(Fuller form of name)(NR)<br>
+|d生卒年或相關領域活躍時期(Dates associated with a name)(NR)<br>
+|4相關職責代碼(Relator code)(R)</p>
+</td>
+</table>
+ <p class=MsoNormal>◎當個人姓名是一書目紀錄的主要款目或主要檢索點時，應用欄位100著錄此個人名稱。欄位100的款目，應取自權威檔。人名標目之擇定，依序以個人作品中最常用者、文獻中最常用者、個人最近使用者為主。</p>
+<p class=MsoNormal>◎本欄所載之著者為作品之創作者，如書籍之作者（含編著者），樂曲之作曲者；如無主要作者，欄位100著錄主要款目或主要檢核點(例如該書僅有黃志明主編，黃志明即著錄於100，不著錄於700)，選擇順序為：譯者、改寫、文字編輯/主編、總編輯、編輯、責任編輯、書名。以題名為主要款目時，題名著錄於130，本欄省略。本欄與欄位 110 不能同時記載。</p>
+<p class=MsoNormal>|a著錄作者名</p>
+<p class=MsoNormal>★中文：姓名放在同一分欄→例： |a林語堂</p>
+<p class=MsoNormal>★作者名稱中法師、牧師、居士不需取號，但若是出家人(佛教)則需冠「釋」姓<br>
+範例1：<br>
+100&nbsp;0#&nbsp;|a行雲|4aut<br>
+245&nbsp;10&nbsp;|a〇〇〇&nbsp;/&nbsp;|c行雲居士著</p>
+<p class=MsoNormal>範例2：<br>
+100&nbsp;1#&nbsp;|a釋星雲|4aut<br>
+245&nbsp;10&nbsp;|a〇〇〇&nbsp;/&nbsp;|c星雲大師著</p>
+<p class=MsoNormal>範例3：<br>
+100&nbsp;1#&nbsp;|a蕭平實|4aut<br>
+245&nbsp;10&nbsp;|a〇〇〇&nbsp;/&nbsp;|c平實居士著</p>
+<p class=MsoNormal>◎外國著者的著錄方式<br>
+1.基本著錄規則：<br>
+&nbsp;(1)遇西文人名時，請確實查核是否有已建立的權威檔。<br>
+&nbsp;(2)以著者姓氏的中文譯名當檢索款目，須找出正確的譯名。<br>
+2.選擇譯名的順序：<br>
+&nbsp;(1)查詢電腦權威檔。<br>
+&nbsp;(2)查詢電腦書目檔著者項。<br>
+&nbsp;(3)電腦書目檔及權威檔均無時：<br>
+&nbsp;&nbsp;A.依原件著錄。<br>
+&nbsp;&nbsp;B.原件未記載時，依中央通訊社之標準譯名錄。<br>
+&nbsp;&nbsp;C.譯名錄亦無時，參考其它圖書館譯名或由編目員自取（參考OCLC WorldCat）。</p>
+<p class=MsoNormal>★簡體書外國作者中譯依臺灣慣用翻譯輸入</p>
+<p class=MsoNormal>★簡體字著者，以正體字取著者號（100段著錄正體字），245照錄簡體字</p>
+<p class=MsoNormal>★特殊作者<br>
+範例：<br>
+100&nbsp;0#&nbsp;|a達賴喇嘛|b十四世|q(Dalai Lama XIV),&nbsp;|d1935-|4aut<br>
+100&nbsp;0#&nbsp;|a宗薩欽哲|c仁波切|q(Dzongsar Khyentse Rinpoche)|4aut<br>
+100&nbsp;1#&nbsp;|a蘇菲亞|c(Sophia)|4aut</p>
+<p class=MsoNormal>|c可放西洋作者原文名，或作者專業領域</p>
+<p class=MsoNormal>★須加圓括弧</p>
+<p class=MsoNormal>★可放英文名</p>
+<p class=MsoNormal>範例1：<br>
+100&nbsp;1#&nbsp;|a莫札特|c(Mozart, Wolfgang Amadeus)|4cmp</p>
+<p class=MsoNormal>範例2，作者專業領域：<br>
+100&nbsp;1#&nbsp;|a王文華|c(兒童文學),&nbsp;|d1966-|4aut<br>
+100&nbsp;1#&nbsp;|a王文華|c(化學)|4aut<br>
+100&nbsp;1#&nbsp;|a王文華|c(文學),&nbsp;|d1967-|4aut</p>
+<p class=MsoNormal>|q可著錄縮寫全稱<br>
+★須加圓括弧<br>
+★可放英文名簡寫的全稱<br>
+範例：<br>
+100&nbsp;1#&nbsp;|aEdwards, F. G.|q(Fobert Geoffrey)|4aut</p>
+<p class=MsoNormal>|d著錄生卒年<br>
+★前以半形逗點( , )帶出<br>
+範例：<br>
+100&nbsp;1#&nbsp;|a柴可夫斯基|c(Tchaikovsky, Peter Ilyich),&nbsp;|d1840-1893|4cmp</p>
+<p class=MsoNormal>|4相關職責代碼<br>
+★用來記述作品與人名的關係，如：著者(author)→aut、作曲者(composer)→cmp、藝術家(artist)→art等。代碼應取自RDA附錄I(I.2.1)內列出的代碼。<br>
+參考Relator Code and Term List網頁<br>
+<a href = "https://www.loc.gov/marc/relators/relaterm.html">https://www.loc.gov/marc/relators/relaterm.html</a><br>
+範例：<br>
+100&nbsp;1#&nbsp;|a王文華|c(兒童文學),&nbsp;|d1966-|4aut<br>
+100&nbsp;1#&nbsp;|a柴可夫斯基|c(Tchaikovsky,&nbsp;Peter&nbsp;Ilyich),&nbsp;|d1840-1893|4cmp<br>
+★若個人負多重職責，可重複使用分欄|4著錄不同職責。<br>
+範例：<br>
+245&nbsp;10&nbsp;|a張曼娟讀王爾德&nbsp;/&nbsp;|c王爾德(Oscar&nbsp;Wilde)原著&nbsp;;&nbsp;張曼娟編譯/導讀<br>
+700&nbsp;1#&nbsp;|a張曼娟|4edt|4trl|4wac<br></p>
+<p class=MsoNormal>&nbsp;</p><a name="110a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td colspan=2 valign=top> <p class=MsoNormal>110主要款目-團體名稱(Main Entry-Corporate Name)(NR)</p>
+</td>
+ </tr>
+ <tr> <td colspan=2 valign=top> <p class=MsoNormal>指標1團體名稱形式(Type of corporate name element)<br>
+1 以地區或轄區名著錄為標目主體(Jurisdiction name)<br>
+2 團體名稱直接著錄(Name in direct order)</p>
+<p class=MsoNormal>指標2<br>
+# 未定義，以空格表示(Undefined)</p>
+</td>
+ </tr>
+ <tr> <td colspan=2 valign=top> <p class=MsoNormal>分欄<br>
+|a團體名稱或轄區名稱(Corporate name or jurisdiction name as entry element) (NR)<br>
+|b從屬單位(Subordinate unit)(R)<br>
+|4相關職責代碼</p>
+</td>
+ </tr>
+</table>
+ <p class=MsoNormal>◎本欄記載作品之團體主要著者，如以題名為主要款目時，本欄省略。本欄與欄位100不能同時記載。</p>
+<p class=MsoNormal>◎本欄需做團體名稱權威檔，並依權威檔建立之標目著錄。</p>
+<p class=MsoNormal>★如無主要作者，欄位110著錄主要款目或主要檢核點(例如該書僅有廣文編輯部主編，廣文編輯部即著錄於110，不著錄於710) 選擇順序為：譯者、改寫、文字編輯/主編、總編輯、編輯、責任編輯、書名</p>
+<p class=MsoNormal>★以機關全名著錄；若非本國政府單位，須於|a加上國名<br>
+範例：<br>
+110&nbsp;1#&nbsp;|a美國|b能源部|4edt</p>
+<p class=MsoNormal>範例：<br>
+110&nbsp;1#&nbsp;|a臺北市|b教育局|4aut</p>
+<p class=MsoNormal>範例：<br>
+110&nbsp;2#&nbsp;|a石門水庫建設委員會|4edt</p>
+<p class=MsoNormal>範例：<br>
+110&nbsp;2#&nbsp;|a幼福文化事業股份有限公司|b編輯部|4edt<br>
+245&nbsp;10&nbsp;|a〇〇〇&nbsp;/&nbsp;|c幼福編輯部編著</p>
+<p class=MsoNormal>★團體作者有外文原文名時，以圓括弧直接加註在中文名後<br>
+110&nbsp;2#&nbsp;|a美國國家地理學會(National Geographic Society)|4edt</p>
+<p class=MsoNormal>★團體作者有列個別作者，另外在500段註明【個別作者為〇〇〇,〇〇〇】再貼700<br>
+110&nbsp;2#&nbsp;|atupera tupera(&#12484;&#12506;&#12521; &#12484;&#12506;&#12521;)|4aut<br>
+500&nbsp;##&nbsp;|atupera tupera個別作者為龜山達矢, 中川敦子<br>
+700&nbsp;1#&nbsp;|a&#20096;山達矢,&nbsp;|d1976-|4aut<br>
+700&nbsp;1#&nbsp;|a中川敦子,&nbsp;|d1978-|4aut</p>
+<p class=MsoNormal>&nbsp;</p><a name="111a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>111主要款目－會議名稱（Main Entry-Meeting Name）(NR)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1會議名稱形式<br>
+1以地區或轄區名著錄為標目主體<br>
+2會議名稱直接著錄</p>
+<p class=MsoNormal>指標2<br>
+# 未定義，以空格表示(Undefined)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|a會議名稱<br>
+|c會議地點<br>
+|d會議日期<br>
+|n會議屆次<br>
+|4相關職責代碼</p>
+</td>
+ </tr>
+</table>
+<p class=MsoNormal>◎當會議是一書目紀錄的主要款目或主要檢索點時，用111著錄此會議名稱。若此會議附屬於一機構，應以該機構為標目主體 (|a)，著錄於欄位110 。</p>
+<p class=MsoNormal>◎會議紀錄、報告或論文集，應立會議名稱團體標目，會議屆次、會議舉行時間、會議地點依次加註於名稱之後，置於圓括弧內；會議屆次、時間、地點間，以冒號相隔。</p>
+<p class=MsoNormal>◎會議之時間僅記年份。如會議跨二個年份舉行，記載其起訖年。</p>
+<p class=MsoNormal>◎會議地點記載於年份之後。會議如係在教育、文化機構內舉行，記載機構名稱。會議名稱如已包含舉行之地點，不必重複記載地點。</p>
+<p class=MsoNormal>◎如標目可適用於同一會議不同屆次，但會議時間及地點不同，標目後毋需加屆次、時間、地點，若地點相同，仍需記載。</p>
+<p class=MsoNormal>&nbsp;</p><a name="240a">&nbsp;</a></p>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>240劃一題名(Uniform Title)(NR)</p></td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1是否列印或顯示(Uniform title printed or displayed)<br>
+0 不列印或顯示(Not printed or displayed)<br>
+1 列印或顯示(Printed or displayed)</p>
+<p class=MsoNormal>指標2<br>
+0-9 不排序字元數(Number of nonfiling characters)<br></td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|a劃一題名(Uniform title)(NR)<br>
+|l作品語文(Language of a work)(NR)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>★可放置翻譯作品之原題名，|a放原文題名、|l放書籍目前被翻譯的語文。</p>
+<p class=MsoNormal>★500段著錄「譯自 : 原題名」<br>
+範例：<br>
+240&nbsp;10&nbsp;|aHarry Potter and the chamber of secrets. |l中文<br>
+500&nbsp;##&nbsp;|a譯自 : Harry Potter and the chamber of secrets</p>
+<p class=MsoNormal>★若翻譯原文有副題名，放於246段<br>
+範例：<br>
+240&nbsp;10&nbsp;|aMathematics. |l中文<br>
+246&nbsp;1#&nbsp;|i原文副題名&nbsp;:&nbsp;|athe man-made universe<br>
+500&nbsp;##&nbsp;|a譯自 : Mathematics : the man-made universe</p>
+<p class=MsoNormal>&nbsp;</p><a name="245a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>245題名及著者敘述項(Title Statement)(NR)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1題名附加款目(Title added entry)<br>
+0 不做附加款目(No added entry)<br>
+1 做附加款目(Added entry)<br>
+指標2不排序字元(Nonfiling characters)<br>
+0 無不排序字元(No nonfiling characters)<br>
+1-9 不排序字元數(Number of nonfiling characters)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|a正題名(Title)(NR)<br>
+|b其他題名(Remainder of title)(NR)<br>
+|c著者敘述(Statement of responsibility, etc.)(NR)<br>
+|n編次(Number of part/section of a work)(R)<br>
+|p編次名稱(Name of part/section of a work)(R)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>◎正題名的著錄方式</p>
+<p class=MsoNormal>1.依其出現在主要著錄來源的形式（包括遣詞用字、符號、標點、數字、國語注音符號、羅馬拼音、或其他拼音符號及夾用外文者）照錄，不要自行省略或是加字。<br>
+★特例：若題名出現叉號（無論用╳×ＸｘXx表示），一律以半形小寫x（前後不空）取代<br>
+範例：捷運╳殭屍<br>
+245&nbsp;10&nbsp;|a捷運x殭屍</p>
+<p class=MsoNormal>2.書名中如果包含著者的姓名或出版者經銷者的名稱等等，均應視為書名的一部分，完全按照出現的形式著錄。而如果書名單獨只是一個人名或是團體名，則這樣的名稱亦視為一完整書名，僅須依照出現的形式著錄即可。</p>
+<p class=MsoNormal>3.若一種圖書，包含若干個作品，而有一個概括的書名，此即為共同書名，著錄時以共同書名為正題名，個別作品的書名記於內容註。</p>
+<p class=MsoNormal>★若為合刊且無合刊名，做法如下：<br>
+範例1： →同著者<br>
+245&nbsp;10&nbsp;|a人間詞&nbsp;;&nbsp;|b人間詞話&nbsp;/&nbsp;|c王國維著<br>
+700&nbsp;12&nbsp;|a王國維|t人間詞話|4aut<br>
+&nbsp;<br>
+245&nbsp;10&nbsp;|a南方田園紳士&nbsp;:&nbsp;劉啟祥的繪畫人生&nbsp;;&nbsp;|b勤奮的南方鬥士&nbsp;:&nbsp;莊世和的繪畫人生&nbsp;/&nbsp;|c洪金禪文&nbsp;;&nbsp;達姆圖<br>
+700&nbsp;12&nbsp;|a洪金禪|t勤奮的南方鬥士&nbsp;:&nbsp;莊世和的繪畫人生|4aut</p>
+<p class=MsoNormal>範例2： →不同著者<br>
+100&nbsp;1#&nbsp;|a王智表|4aut<br>
+245&nbsp;10&nbsp;|a佛教的科學觀&nbsp;/&nbsp;|c王智表著. 一個科學者研究佛經的報告 / 王小徐著<br>
+264&nbsp;30&nbsp;|a一個科學者研究佛經的報告<br>
+700&nbsp;12&nbsp;|a王小徐|t一個科學者研究佛經的報告|4aut</p>
+<p class=MsoNormal>4.正題名之冠有「欽定」、「增補」、「重修」、「圖解」、「最新」等字樣者，依原題字樣著錄， 並以省略此類字樣之題名另立檢索款目。<br>
+範例：<br>
+245&nbsp;10&nbsp;|a最新英語讀本<br>
+246&nbsp;30&nbsp;|a英語讀本</p>
+<p class=MsoNormal>5.主要著錄來源不論正體字或簡體字，245欄題名及及著者敘述項皆依照錄原則著錄。如遇簡體字，245 欄題名項除照錄簡體字外，為便於識別及檢索，再於246 欄以正體字著錄。245 欄題名項以外各欄，仍以正體字為主。<br>
+範例：<br>
+245&nbsp;10&nbsp;|a周汝昌校&#35746;批&#28857;本&nbsp;:&nbsp;|b石&#22836;&#35760;&nbsp;/&nbsp;|c周汝昌著<br>
+246&nbsp;33&nbsp;|a周汝昌校訂批點本&nbsp;:&nbsp;|b石頭記</p>
+<p class=MsoNormal>6.台、臺二字題名項著錄之原則是：依書照錄。</p>
+<p class=MsoNormal>◎並列題名的著錄方式<br>
+1.主要著錄來源載有與正題名不同語文之其他題名或符號，視為並列題名，依照主要著錄來源所載之順序著錄，並列題名前冠以等號「=」。<br>
+2.並列題名非得自主要著錄來源 如：封面、書背、內容等則著錄於欄位246。<br>
+3.翻譯作品著錄於240者，245不用以等號「=」著錄外文原名</p>
+<p class=MsoNormal>◎副題名的著錄方式</p>
+<p class=MsoNormal>副題名指除正題名外，尚有對正題名作解釋性補充說明的書名，通常印在書名頁上，所用字體比較小，著錄時記在正題名之後，並以冒號「:」隔開。</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>◎著者敘述</p>
+<p class=MsoNormal>1.依作品的主要著錄來源著錄，著作方式記於著者名稱之後，著者敘述非得自主要著錄來源者，加方括弧。</p>
+<p class=MsoNormal>2.著作方式 如撰、編、輯 等 相同之著者名稱間以逗點「,」隔開，不同著作方式以分號「;」隔開。</p>
+<p class=MsoNormal>3.同一著作方式的著者，在三人（含三人）以下，以逗點(, )分隔；超過三人時，只須著錄第一人，並加「[及其他OO位]」字樣，於700段著錄其他人，例：<br>
+245&nbsp;10&nbsp;|a禁止酷刑公約研討會論文集與會議實錄. |n2019年&nbsp;/&nbsp;|c鄧衍森[及其他4位]著<br>
+700 1#&nbsp; |a劉嘉發|4aut<br>
+700 1#&nbsp; |a孟維德|4aut<br>
+700 1#&nbsp; |a黃翠紋|4aut<br>
+700 1#&nbsp; |a章光明|4aut</p>
+<p class=MsoNormal>★不同職責的人數分開計算，若超過3人亦在該職責第1人後加「[及其他OO位]」字樣，於700段著錄其他人，例：<br>
+245&nbsp;10&nbsp;|a雨停出來走走&nbsp;=&nbsp;|bOut of your blue&nbsp;/&nbsp;|c蘇文劭故事. 歌 ; 余韋呈[及其他4位]繪<br>
+700&nbsp;1#&nbsp;|a余韋呈|4ill<br>
+700&nbsp;1#&nbsp;|a張薰晏|4ill<br>
+700&nbsp;1#&nbsp;|a吳箏|4ill<br>
+700&nbsp;1#&nbsp;|a徐丹語|4ill<br>
+700&nbsp;1#&nbsp;|aLu, Chita|4ill</p>
+<p class=MsoNormal>4.著者之頭銜、學位、職位等均不必著錄。但省略後有礙辨識者，仍照錄之 。</p>
+<p class=MsoNormal>5.作品所題著者姓名若含中國朝代名稱時，照原題著錄，置於姓名之前，加圓括弧。</p>
+<p class=MsoNormal>6.作品所題外國著者原名或僅載中文譯名者，均依原題著錄；若同時載有著者外文原名及其中文譯名者，則原名著錄於中文譯名後，並加圓括弧。</p>
+<p class=MsoNormal>★以題名為主要款目時，指標1選擇0</p>
+<p class=MsoNormal>★有編次、編次名及並列題名時的順序：|a正題名. |n編次,&nbsp;|p編次名&nbsp;=&nbsp;|b並列題名&nbsp;/&nbsp;|cOO</p>
+<p class=MsoNormal>有副題名及並列題名時的順序：|a正題名&nbsp;:&nbsp;|b副題名 = 並列題名&nbsp;/&nbsp;|cOO</p>
+<p class=MsoNormal>範例：<br>
+245&nbsp;10&nbsp;|a妖怪公館&#12398;新房客. |n1,&nbsp;|p學園Monsters&nbsp;=&nbsp;|bResidence of monsters&nbsp;/&nbsp;|c藍旗左衽著 ; 謖繪圖<br>
+245&nbsp;10&nbsp;|a永恆的凝望&nbsp;:&nbsp;|b天才閃耀的時代 = Eternal gaze&nbsp;/&nbsp;|c謝哲青著</p>
+<p class=MsoNormal>|a著錄正題名</p>
+<p class=MsoNormal>|b用於並列題名或副題名</p>
+<p class=MsoNormal>|n以數字或字母標示出版品的分部時使用</p>
+<p class=MsoNormal>★用「圓點」(.)分隔。</p>
+<p class=MsoNormal>★「旅遊書（指定期出版）」、「地圖（指整本都是地圖）」的書名若有XXXX年版要著錄</p>
+<p class=MsoNormal>★如遇羅馬數字，以英文字母I、V、X拼寫，不要用符號表打Ⅲ、Ⅷ、Ⅸ<br>
+範例：<br>
+245&nbsp;10&nbsp;|a東京攻略完全制霸. |n2020<br>
+245&nbsp;10&nbsp;|a希臘人的故事. |nIII</p>
+<p class=MsoNormal>|p以名稱標示出版品的分部時使用</p>
+<p class=MsoNormal>★編次名稱前面是編次|n用「逗點」( , )隔開<br>
+245&nbsp;10&nbsp;|a銃皇無盡的法夫納. |nIX,&nbsp;|p蔚藍之契</p>
+<p class=MsoNormal>★編次名稱前面是題名，則用「圓點」( . )</p>
+<p class=MsoNormal>245&nbsp;10&nbsp;|a電波少女與錢仙大人番外篇. |p信樂大叔</p>
+<p class=MsoNormal>|c描述不同職責的著作者<br>
+★|c前以半形/帶出（/前後皆應留空格），例：</p>
+<p class=MsoNormal>245&nbsp;10&nbsp;|a莫斯科紳士&nbsp;/&nbsp;|c亞莫爾.托歐斯(Amor Towles)著 ; 李靜宜譯</p>
+<p class=MsoNormal>★按書上照錄(如：【…】【、】【。】【文】【作】【譯】【繪】等)<br>
+例如：<br>
+書名頁：王小徐著，即照錄「王小徐著」；<br>
+書名頁：王小徐作，即照錄「王小徐作」；<br>
+書名頁：王小徐繪，即照錄「王小徐繪」……</p>
+<p class=MsoNormal>書名頁無明確【文】【作】【譯】【繪】等字詞，僅標示【作者：王小徐】或【譯者：王小徐】……等，則依下列統一詞彙著錄：</p>
+<p class=MsoNormal>作者→「作」；繪者→「繪」；翻譯→「譯」；譯者→「譯」；繪圖→「繪」；食譜作者→「王小徐食譜作者」</p>
+ <p class=MsoNormal>&nbsp;</p><a name="246a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>246其他題名(Varying Form of Title)(R)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1附註/題名附加款目控制碼(Note/added entry controller)<br>
+1 有附註，有附加款目(Note, added entry)<br>
+3 無附註，有附加款目(Non note,added entry)</p>
+<p class=MsoNormal>指標2題名類型(Type of tifle)<br>
+# 未標示題名類型(No type specified)<br>
+0 部分題名(Portion of title)<br>
+1 並列題名(Parallel title)<br>
+2 區別題名(Distinctive title)<br>
+3 其他題名(Other tltle)<br>
+4 封面題名(Cover title)<br>
+5 附加書名頁題名(Added title page title)<br>
+6 卷端題名(Caption title)<br>
+7 逐頁題名(Running title)<br>
+8 書背題名(Spine title)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|a題名(Title proper/short tltle)(NR)<br>
+|b其他題名(Remainder of title)(NR)<br>
+|i顯示文字(Display text)(NR)<br>
+|n編次(Number of part/section of a work)(R)<br>
+|p編次名稱(Name of part/section of a work)(R)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>◎用來著錄在編資源的其他題名。此其他題名出現在主要錄來源以外與正題名不同的題名。若一出版品有其他版本（例：初版，修訂版）且題名不同，應著錄於欄位246。<br>
+範例：<br>
+245&nbsp;00&nbsp;|a宜蘭度小月的美味&nbsp;/&nbsp;|c陳兆麟作<br>
+246&nbsp;1#&nbsp;|i原書名&nbsp;:&nbsp;|a海鮮總動員</p>
+<p class=MsoNormal>|i 具體說明題名類型或出處</p>
+<p class=MsoNormal>★用於246指標2沒有提到的題名類型，著錄方式為246&nbsp;1#&nbsp;|i題名類型或出處&nbsp;:&nbsp;|a</p>
+<p class=MsoNormal>範例1：<br>
+245&nbsp;00&nbsp;|a生活妙點子1000招&nbsp;/&nbsp;|c學院社編著 ; 王毓純譯<br>
+246&nbsp;1#&nbsp;|i另有譯名&nbsp;:&nbsp;|a超省錢1000招</p>
+<p class=MsoNormal>範例2：<br>
+245&nbsp;00&nbsp;|a波特女士<br>
+246&nbsp;1#&nbsp;|i題名誤印&nbsp;:&nbsp;|a波特女王</p>
+<p class=MsoNormal>範例3：<br>
+246&nbsp;1#&nbsp;|i版權頁題名&nbsp;:&nbsp;|a癌症的雞尾酒療法</p>
+<p class=MsoNormal>範例4：<br>
+246&nbsp;1#&nbsp;|i版權頁英文題名&nbsp;:&nbsp;|aTaiwan</p>
+<p class=MsoNormal>範例5：<br>
+246&nbsp;1#&nbsp;|i原文副題名&nbsp;:&nbsp;|a&#12381;&#12428;&#12391;&#12399;息&#12364;詰&#12414;&#12427;&#12398;&#12391;<o:p></o:p></p>
+<p class=MsoNormal>指標2<br>
+# 未標示題名類型</p>
+<p class=MsoNormal>★提供非指標2的0-8類型時使用，指標1選擇1，指標2選擇#，分欄用i帶出說明文字，範例詳上</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>0 部分題名</p>
+<p class=MsoNormal>★是正題名的一部分，且這部分題名被讀者查詢檢索。</p>
+<p class=MsoNormal>★|a、|b、|p的全部或部分都可視情況著錄</p>
+<p class=MsoNormal>範例：正題名的一部分<br>
+245&nbsp;10&nbsp;|a最新英語讀本<br>
+246&nbsp;30&nbsp;|a英語讀本</p>
+<p class=MsoNormal>範例：副題名<br>
+245&nbsp;10&nbsp;|a教出乖巧好爸媽&nbsp;:&nbsp;|b父母教養手冊<br>
+246&nbsp;30&nbsp;|a父母教養手冊</p>
+<p class=MsoNormal>範例：編次名稱<br>
+245&nbsp;10&nbsp;|a來自清水的孩子. |n1,&nbsp;|p愛讀冊的少年<br>
+246&nbsp;30&nbsp;|a愛讀冊的少年</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>1 並列題名</p>
+<p class=MsoNormal>★題名以兩種以上語言出現在書名頁上，應在245以等號( = )引出該其他語言題名，並在246 31 著錄<br>
+範例：<br>
+245&nbsp;10&nbsp;|a2011年國際圖書館專業館員研習班&nbsp;:&nbsp;|b漢學研究資源及服務研習手冊 = 2011 International Workshop for Professional Librarians : Sinological Resources and Services Handbook<br>
+246&nbsp;31&nbsp;|a2011 International Workshop for Professional Librarians&nbsp;:&nbsp;|bSinological Resources and Services Handbook</p>
+<p class=MsoNormal>★若並列題名不出現在欄位245中，應用246&nbsp;1#&nbsp;|i來說明此並列題名的來源<br>
+範例：<br>
+245&nbsp;00&nbsp;|aKonferenzberichte. |pKernforschung Kerntechnik&nbsp;=&nbsp;|bConference papers. Nuclear research nuclear technology.<br>
+246&nbsp;31&nbsp;|aConference papers. |pNuclear research nuclear technology<br>
+246&nbsp;1#&nbsp;|iIssue for &lt;1991-&gt; have English title&nbsp;:&nbsp;|aConference papers. |pNuclear research nuclear technology</p>
+<p class=MsoNormal>★書名頁、封面、封底若有其他語言並列題名可著錄於此</p>
+<p class=MsoNormal>★若簡體字書籍的書名頁有漢語拼音，可著錄於並列題名，指標為31</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>3 其他題名<br>
+★當其他指標2無法描述一題名出處，可用246 33 著錄<br>
+★提供不同書寫形式的題名，如著錄數字的轉換<br>
+★若245段之題名中有數字或日文字需轉換成國字請著錄於此<br>
+★提供中間不插入標點符號的題名，以利Webpac搜尋。若標點符號在最後面則不需另行著錄</p>
+<p class=MsoNormal>範例：</p>
+<p class=MsoNormal>1. &amp;、符號、標誌等，例：<br>
+245&nbsp;10&nbsp;|a100&#12398;東京大人味發見<br>
+246&nbsp;33&nbsp;|a100個東京大人味發見<br>
+&nbsp;<br>
+245&nbsp;10&nbsp;|a什ㄇㄛ不見了<br>
+246&nbsp;33&nbsp;|a什麼不見了</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>2. 字與字間有或無空格，或短線，例：<br>
+245&nbsp;10&nbsp;|a0-2歲寶寶想表達什麼?<br>
+246&nbsp;33&nbsp;|a零到二歲寶寶想表達什麼</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>245&nbsp;10&nbsp;|a不開口也能讓人心服口服的英文E-mail速記解密<br>
+245&nbsp;33&nbsp;|a不開口也能讓人心服口服的英文Email速記解密</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>245&nbsp;10&nbsp;|a大清 八旗軍戰爭全史<br>
+246&nbsp;33&nbsp;|a大清八旗軍戰爭全史</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>3. 數字或年份(阿拉伯數字或正楷書寫) ，例：<br>
+245&nbsp;10&nbsp;|a365天.明天去哪個國家? 喵<br>
+246&nbsp;33&nbsp;|a三百六十五天明天去哪個國家喵</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>4 封面題名<br>
+◎若封面題名與正題名不同，且讀者易用此封面題名做檢索時，此時應給此封面題名一檢索款目，指標2為”4”。<br>
+範例：<br>
+245&nbsp;10&nbsp;|a你可以輕鬆教養小孩<br>
+246&nbsp;34&nbsp;|a你可以輕鬆教導孩子<br>
+7 逐頁題名<br>
+★在書籍每頁頂端或底端的題名<br>
+範例：<br>
+245&nbsp;10&nbsp;|a馬克思畫傳&nbsp;:&nbsp;|b馬克思誕辰200周年紀念版<br>
+246&nbsp;37&nbsp;|a馬克思畫傳1818-1883<br>
+8 書背題名</p>
+<p class=MsoNormal>★出版商印在書背的題名，圖書館自行裝訂後的書背刊名不屬此類</p>
+<p class=MsoNormal>範例：<br>
+246&nbsp;10&nbsp;|a戀戀中港&nbsp;:&nbsp;|b咱的故鄉.咱的厝<br>
+246 38 |a八十六年度全國文藝季苗栗縣活動成果專輯</p>
+<p class=MsoNormal>&nbsp;</p><a name="250a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td valign=top> <p class=MsoNormal>250版本項(Edition Statement)(R)</p>
+</td>
+ </tr>
+ <tr> <td valign=top> <p class=MsoNormal>指標1<br>
+# 未定義，以空格表示(Undefined)</p>
+<p class=MsoNormal>指標2<br>
+# 未定義，以空格表示(Undefined)</p>
+</td>
+ </tr>
+ <tr> <td valign=top> <p class=MsoNormal>分欄<br>
+|a版本敘述(Edition statement)CNR)<br>
+|b版本敘述其他資訊(Remainder of edition statement)(NR)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>◎在RDA編目規範下，應遵循”忠實著錄”原則，不再自行簡化版本詞語。</p>
+<p class=MsoNormal>◎依照主要著錄來源出現的形式著錄，無論書上之版次為阿拉伯數字或國字，一律照錄，如果主要著錄來源沒有出現版本敘述，請不要 自行加上“初版”等字樣 。</p>
+<p class=MsoNormal>◎版本名稱如原刊本、補刊本、初刊本等，均照原書所載著錄之。</p>
+<p class=MsoNormal>★先查館藏，同書名不同版本，則建置兩筆書目資料</p>
+<p class=MsoNormal><img width=421 height=49 id="_x0000_i1025" src="image/image002.png"></p>
+<p class=MsoNormal>|a照錄版本資訊<br>
+★BOD版或POD版需著錄<br>
+250&nbsp;##&nbsp;|aBOD一版</p>
+<p class=MsoNormal>|b其他資訊<br>
+★版權頁之版次外，如書名頁，封面等有特別再註明最新修訂版等則著著於分欄b，但如為2016-2017版，則著錄於245段分欄n<br>
+範例：<br>
+250&nbsp;##&nbsp;|a初版|b漫畫版<br>
+250&nbsp;##&nbsp;|a初版|b圖解版<br>
+250&nbsp;##&nbsp;|a初版|b電影書衣版<br>
+250&nbsp;##&nbsp;|a初版|b獨家電影動畫插圖版<br>
+250&nbsp;##&nbsp;|a初版|b[譯自原文第2版]</p>
+<p class=MsoNormal>★同一圖書同時有精裝版、平裝版，需分為兩筆書目，且在250 |b加註[精裝]，平裝不需加註<br>
+範例：<br>
+020&nbsp;##&nbsp;|a9789868552302|q(精裝)&nbsp;:&nbsp;|cNT$599<br>
+245&nbsp;10&nbsp;|a總指揮的告白&nbsp;:&nbsp;|b二〇〇六紅衫軍運動三週年紀念&nbsp;/&nbsp;|c施明德著<br>
+250&nbsp;##&nbsp;|a初版|b[精裝]</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>020&nbsp;##&nbsp;|a9789868552319|q(平裝)&nbsp;:&nbsp;|cNT$399<br>
+245&nbsp;10&nbsp;|a總指揮的告白&nbsp;:&nbsp;|b二〇〇六紅衫軍運動三週年紀念&nbsp;/&nbsp;|c施明德著<br>
+250&nbsp;##&nbsp;|a初版</p>
+<p class=MsoNormal>★同一圖書同時有不同附件形式，需分為兩筆書目，且在250 |b加註<br>
+範例：<br>
+020&nbsp;##&nbsp;|a9789576084928|q(精裝)&nbsp;:&nbsp;|cNT$99<br>
+245&nbsp;10&nbsp;|a動物園有小偷!?&nbsp;/&nbsp;|c劉思源文 ; 南君繪<br>
+250&nbsp;##&nbsp;|a初版</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>020&nbsp;##&nbsp;|a9789576084928|q(精裝附光碟)&nbsp;:&nbsp;|cNT$250<br>
+245&nbsp;10&nbsp;|a動物園有小偷!?&nbsp;/&nbsp;|c劉思源文 ; 南君繪<br>
+250&nbsp;##&nbsp;|a初版|b[含光碟]</p>
+</td>
+ </tr>
+</table>
+<p class=MsoNormal>&nbsp;</p><a name="264a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td>  <p class=MsoNormal>264出版、經銷、製造與版權年相關資訊(Production, Publication, Distribution, Manufacture, and Copyright Notice)(R)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1出版資訊順序(Sequence of statements)<br>
+# 不適用/未提供資訊/最早期的出版者(Not applicable / No information provided / Earliest)</p>
+<p class=MsoNormal>指標2相關功能(Function of entity)<br>
+0 生產(Production)<br>
+1 出版(Publication)<br>
+2 經銷(Distribution)<br>
+3 製造(Manufacture)<br>
+4 版權年(Copyright notice date)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|a出版地、經銷地、製造地(Place of production, publication, distribution, manufacture)(R)<br>
+|b出版者、經銷者、製造者(Name of producer, publisher, distributor, manufacturer)(R)<br>
+|c出版年、經銷年、製造年、版權年(Date of production, publication, distribution, manufacture, or copyright notice)(R)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>◎出版地的著錄方式<br>
+1.出版地的著錄是選擇出版者所在地的縣市名稱著錄，著錄至縣市，若地區名稱非取自指定著錄來源需加方括弧。<br>
+2.出版地如為外國，宜加國名，外國地名宜以中文譯名著錄，如：美國紐約。<br>
+3.若作品無出版地之記載，著錄可能之地名於方括弧內，後加問號；如無法推測，應以國名（外國出版地）、省名著錄，若其國名、省名有疑問者，亦加問號於後。如：[美國]、[廣東省?]。<br>
+4.若出版地無法查證者，則以“[出版地不詳]”著錄之。</p>
+<p class=MsoNormal>◎出版者的著錄方式<br>
+1.出版者(或發行者)名稱不止一個時，應選擇最前面的名稱著錄，但是排列在後面的出版者(或發行者)如果是在編目所在國家，或印刷字體顯著者，也應著錄在第一個出版者之後。<br>
+2.作品併載發行人及發行機構時，著錄發行機構即可。<br>
+3.政府出版品之出版者：依「照錄」原則著錄政府機關之全稱，惟書上未出現全稱時，依編目規則，仍以「照錄」為宜。<br>
+4.出版者或經銷者不詳，得以“ [出版者不詳]”著錄之。<br>
+5.學位論文分別以就讀學校所在地為出版地、論文撰寫為出版者，並加[ ]著錄。</p>
+<p class=MsoNormal>◎出版年的著錄方式<br>
+1.出版日期著錄年、月，以版本項所載該版首次出版年代為出版年，若無版本敘述，則以初次發行年代著錄之，年、月中間以圓點分隔。<br>
+2.出版年均以阿拉伯數字著錄西元年。<br>
+3.作品含有數冊而其出版年不同時，須註明其最初及最後出版年；若作品仍繼續出版中，則著錄最初之出版年，加一半形橫線（-），並預留空格，俟出版完整時，再行著錄最後之出版年。<br>
+★有冊次的書，如已完結，出版年同一年，僅月份不同，著錄【年.月-月】即可；若不同年，則著錄【頭年.月-尾年.月】<br>
+★有冊次的書，如未完結，著錄【年.月-】<br>
+4.出版年之各種情況：『原則上應能顯示第一個出版年』<br>
+5.出版年一定要著錄，如果在書中查不到出版年，可以參考其他資料，或是依照編目者自己的判斷以近似的年代著錄，但是必須加上方括弧。</p>
+<p class=MsoNormal>★出版地或出版者超過一個（共同出版），應用分號( ; )隔開著錄<br>
+範例：<br>
+264&nbsp;#1&nbsp;|a臺北市&nbsp;:&nbsp;|b商周出版&nbsp;;&nbsp;|a臺南市&nbsp;:&nbsp;|b臺南市政府文化局,&nbsp;|c2020.03</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>|a(出版、經銷、製造)地<br>
+★著錄至縣市</p>
+<p class=MsoNormal>|b(出版、經銷、製造)單位<br>
+★依版權頁照錄<br>
+範例：版權頁寫全名，不縮寫<br>
+264&nbsp;#1&nbsp;|a臺北市&nbsp;:&nbsp;|b時報文化出版企業股份有限公司, |c2020.02</p>
+<p class=MsoNormal>範例：版權頁非寫全名，照錄<br>
+264&nbsp;#1&nbsp;|a新北市&nbsp;:&nbsp;|b貓咪予花兒, |c2013.02</p>
+<p class=MsoNormal>★依版權頁敘述使用指標2</p>
+<p class=MsoNormal>★本館除經銷外，發行也使用264
+ &nbsp;#2&nbsp;|a，但著錄時以發行優先，除非無發行才著錄經銷<br>
+範例：同時有出版、發行、經銷，僅著錄出版、發行<br>
+264&nbsp;#1&nbsp;|a臺北市&nbsp;:&nbsp;|b麥浩斯出版, |c2020.01<br>
+264&nbsp;#2&nbsp;|a臺北市&nbsp;:&nbsp;|b英屬蓋曼群島商家庭傳媒股份有限公司城邦分公司,&nbsp;|c2020.01</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>|c(出版、經銷、製造、版權)年</p>
+<p class=MsoNormal>★僅著錄西元年月，書上是民國年，轉換成西元年→EX：2007.05</p>
+<p class=MsoNormal>★出版年不詳且查無資料，用【20??】；出版月不詳，僅著錄出版年即可。</p>
+<p class=MsoNormal>★版權年著錄於264 #4 |c，圖書資料在年份前要加版權符號(&copy;)</p>
+<p class=MsoNormal>★圖書非一刷的情況下才需著錄版權年，並應在出版、經銷、製造年後以方括弧加上刷次([〇刷])，刷次寫法照錄數字或中文<br>
+範例：<br>
+264&nbsp;#1&nbsp;|a臺北市&nbsp;:&nbsp;|b遠見天下文化出版股份有限公司, |c2019.02[2刷]<br>
+264&nbsp;#2&nbsp;|a[新北市新莊區]&nbsp;:&nbsp;|b大和書報圖書有限公司, |c2019.02[2刷]<br>
+264&nbsp;#4&nbsp;|c&copy;2018.03</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>範例：版權頁未註明刷次，264
+ &nbsp;#4&nbsp;|c&copy;著錄出版時間<br>
+264&nbsp;#1&nbsp;|a臺北市&nbsp;:&nbsp;|b三采文化股份有限公司, |c2018.06<br>
+264&nbsp;#4&nbsp;|c&copy;2018.01</p>
+ <p class=MsoNormal>&nbsp;</p><a name="300a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>300稽核項(Physical Description)(R)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1<br>
+# 未定義，以空格表示(Undefined)</p>
+<p class=MsoNormal>指標2<br>
+# 未定義，以空格表示(Undefined)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|a數量(面數、冊數或其他)(Extent)(R)<br>
+|b插圖及其他稽核細節(Other physical details)(NR)<br>
+|c高廣尺寸(Dimensions)(R)<br>
+|e附件(Accompanying material)(NR)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>300&nbsp;##&nbsp;|a數量&nbsp;:&nbsp;|b插圖及其他稽核項&nbsp;;&nbsp;|c高廣尺寸&nbsp;+&nbsp;|e附件</p>
+<p class=MsoNormal>
+範例：<br>
+300&nbsp;##&nbsp;|a159面&nbsp;:&nbsp;|b彩圖&nbsp;;&nbsp;|c26公分&nbsp;+&nbsp;|e1片CD-ROM<br>
+300&nbsp;##&nbsp;|a31面&nbsp;:&nbsp;|b彩圖&nbsp;;&nbsp;|c27公分&nbsp;+&nbsp;|e1片CD + 1片DVD<br>
+300&nbsp;##&nbsp;|a219面&nbsp;;&nbsp;|c23公分&nbsp;+&nbsp;|e1本手冊(家長導讀手冊)</p>
+<p class=MsoNormal>◎單冊圖書<br>
+(1)作品以正文的面數為主，正反皆印者記其「面」數。若全書之面數連貫，以載於書上最後一面數字為準，均應除去空白頁、廣告或其他與本書無關的資料面數。<br>
+(2)若正文前後之面數另計時，依書中之次序“正文前、正文、正文後”著錄，隔以逗點，面數、冊數等均以阿拉伯數字著錄之。若正文前後之面數不止一組，則各合計其面數，加方括弧。<br>
+(3) 一書若正文之面數有二組以上，或各篇章面數自為起訖，或未標面數者，應著錄為「1冊」。</p>
+<p class=MsoNormal>◎超過一冊的作品<br>
+(1)各冊面數不論各自起訖或面數連貫，著錄其冊數即可， 不必著錄其面數。</p>
+<p class=MsoNormal>|a記錄書籍數量，〇面或〇冊</p>
+<p class=MsoNormal>★書中若有圖版，則圖版要另外數面數，例：【|a[8]圖版, 128面】</p>
+<p class=MsoNormal>★一律用【冊】字，勿用【&#20876;】字</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>|b插圖及其他稽核細節</p>
+<p class=MsoNormal>★配合008/18-21，著錄圖、地圖、肖像、圖表、圖版、表格等內容</p>
+<p class=MsoNormal>◎插圖的顏色在二種以上者為彩色插圖，著錄時，應冠以“彩”字，如果插圖中只有一部分為彩色，則再冠“部分”於“彩”之前。<br>
+彩圖------ 插圖為彩色<br>
+部分彩圖----------- 插圖中包含部分彩圖</p>
+<p class=MsoNormal>★表格著錄【表】</p>
+<p class=MsoNormal>★圓餅圖、曲線圖、甘特圖等著錄【圖表】</p>
+<p class=MsoNormal>★肖像及用相機拍攝的人物照著錄【像】(有人的屬之，無論是照片或是畫)</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>|c高廣尺寸</p>
+<p class=MsoNormal>◎作品的高廣，以封面的長寬為準，以公分為單位，不到一公分的部分以一公分計算。</p>
+<p class=MsoNormal>◎一般作品的高廣僅著錄高度。</p>
+<p class=MsoNormal>◎特殊作品請著錄「高x廣」（乘號以小寫x代表，前後需留空），以下狀況為特殊作品：</p>
+<p class=MsoNormal>1.作品的寬度超過高度。<br>
+範例：|c21 x 30公分</p>
+<p class=MsoNormal>2.作品的寬度不及高度一半。<br>
+範例：|c20 x 9公分</p>
+<p class=MsoNormal>3.作品的寬度及高度相等。<br>
+範例：|c20 x 20公分</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>|e附件<br>
+◎附於一書同時出版並且與其配合使用之附件，可於高廣之後，著錄其名稱（或包括稽核事項），中間以加號“＋”隔開</p>
+<p class=MsoNormal>★附件判斷：所附之附件和書是否具有關聯性；需要下附件條碼號的才算附件。<br>
+◎純筆記無內容→不做附件。<br>
+◎手冊和本體沒有相連：<br>
+手冊高度和本體相同→請合訂為一冊。<br>
+手冊高度比本體矮或高→請做附件。<br>
+◎手冊和本體有相連：<br>
+手冊有壓虛線，方便撕下來→請拆下再合訂為一冊。<br>
+手冊未壓虛線，翻頁方向和本體相反→請做拆下附件。<br>
+手冊未壓虛線，翻頁方向同本體→維持原樣。</p>
+<p class=MsoNormal>★附件為光碟時，參考書籍說明照錄<br>
+常用範例：<br>
+|e1片CD<br>
+|e1片MP3<br>
+|e1片DVD<br>
+|e1片CD-ROM<br>
+|e1片DVD-ROM</p>
+<p class=MsoNormal>★附件為紙製品：<br>
+|e1張紙型<br>
+|e1本手冊<br>
+|e1張地圖<br>
+|e12張卡牌</p>
+<p class=MsoNormal>★附件其他範例：<br>
+|e1張紙型 + 1片CD<br>
+|e每冊附3片CD<br>
+|e第1冊附1片CD</p>
+<p class=MsoNormal>★超過一種附件用加號( + )隔開<br>
+300&nbsp;##&nbsp;|a295面&nbsp;:&nbsp;|b圖, 表&nbsp;;&nbsp;|c26公分&nbsp;+&nbsp;|e1片MP3 + 1本手冊</p>
+<p class=MsoNormal>★其他狀況如（一個書目檔）3本書各1片MP3<br>
+300&nbsp;##&nbsp;|a[34]面&nbsp;:&nbsp;|b彩圖,&nbsp;|c20公分&nbsp;+&nbsp;|e每冊各1片MP3</p>
+<p class=MsoNormal>★多書共用附件，有共用的書籍用套編呈現，請用集叢名著錄245，並用505、740註明各書書名<br>
+範例：阿羅有枝彩色筆、阿羅的童話國、阿羅房間要掛畫，3本書共用1片光碟時，3本書套編，加工方面3本書都要貼「本書含附件貼紙」</p>
+<p class=MsoNormal>245&nbsp;10&nbsp;|a[圖畫書視聽之旅]阿羅有枝彩色筆&nbsp;/&nbsp;|c克拉格特.強森(Crockett&nbsp;Johnson)文.&nbsp;圖&nbsp;;&nbsp;林良譯<br>
+300&nbsp;&nbsp;&nbsp;&nbsp;|a3冊&nbsp;:&nbsp;|b圖&nbsp;;&nbsp;|c20公分&nbsp;+&nbsp;|e1片DVD<br>
+500&nbsp;&nbsp;&nbsp;&nbsp;|a3書共用1片光碟<br>
+505&nbsp;00&nbsp;|g1,&nbsp;|t阿羅有枝彩色筆--|g2,&nbsp;|t阿羅的童話國--|g3,&nbsp;|t阿羅房間要掛畫<br>
+740&nbsp;02&nbsp;|a阿羅有枝彩色筆<br>
+740&nbsp;02&nbsp;|a阿羅的童話國<br>
+740&nbsp;02&nbsp;|a阿羅房間要掛畫</p>
+<p class=MsoNormal>&nbsp;</p><a name="336a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td>  <p class=MsoNormal>336內容形式(Content Type)(R)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1<br>
+# 未定義，以空格表示(Undefined)</p>
+<p class=MsoNormal>指標2<br>
+# 未定義，以空格表示(Undefined)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|a內容形式用語(Content type term)(R)<br>
+|b內容形式代碼(Content type code)(R)<br>
+|2用語或代碼出處(Source)(NR)<br>
+|3伴隨類型(Materials specified)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>◎欄位336著錄資源的作品內容表現形式，用於RDA編目規範下。內容形式用語或代碼需取自特定控制詞彙表。</p>
+<p class=MsoNormal>◎欄位336與紀錄標示( Leader/16)配合使用。</p>
+<p class=MsoNormal>336&nbsp;##&nbsp;|a內容形式用語|b內容形式代碼|2rdacontent</p>
+<p class=MsoNormal>|a內容形式用語</p>
+<p class=MsoNormal>|b內容形式代碼<br>
+★參考Term and Code List for RDA Content Types網頁與國圖中譯<br>
+<a href="https://www.loc.gov/standards/valuelist/rdacontent.html">https://www.loc.gov/standards/valuelist/rdacontent.html</a><br>
+<a href="https://catweb.ncl.edu.tw/standard/page/30632">https://catweb.ncl.edu.tw/standard/page/30632</a></p>
+<p class=MsoNormal>|2用語或代碼出處<br>
+★填寫rdacontent</p>
+<p class=MsoNormal>|3伴隨類型<br>
+★有附件時使用，分別敘述本體和附件的內容形式<br>
+範例1，中/日文圖書含DVD附件：<br>
+336&nbsp;##&nbsp;|3book|a文字|btxt|2rdacontent<br>
+336&nbsp;##&nbsp;|3DVD|a平面動態影像|btdi|2rdacontent<br>
+範例2，西文圖書含DVD附件：<br>
+336&nbsp;##&nbsp;|3book|atext|btxt|2rdacontent<br>
+336&nbsp;##&nbsp;|3DVD|atwo-dimensional moving image|btdi|2rdacontent</p>
+<p class=MsoNormal>★336|a、|b需照下表詞彙填入，若於此常用表內未見適用類型，請查參考網頁</p>
+<table class=MsoNormalTable style="width:700px;margin-left:calc((100% - 840px) / 2);">  <tr class=MsoNormal align=center><td colspan=2>336 |a</td>
+    <td>336 |b</td>
+    <td>常用類型舉例</td>
+    </tr><tr class=MsoNormal align=center><td>文字</td>
+    <td>text</td>
+    <td>txt</td>
+    <td>圖書</td>
+    </tr><tr class=MsoNormal align=center><td>平面動態影像</td>
+    <td>two-dimensional moving image</td>
+    <td>tdi</td>
+    <td>影片、錄影資料</td>
+    </tr><tr class=MsoNormal align=center><td>電腦程式</td>
+    <td>computer program</td>
+    <td>cop</td>
+    <td>作業系統、應用軟體</td>
+    </tr><tr class=MsoNormal align=center><td>演奏音樂</td>
+    <td>performed music</td>
+    <td>prm</td>
+    <td>錄製音樂、電腦音樂</td>
+    </tr><tr class=MsoNormal align=center><td>話語</td>
+    <td>spoken word</td>
+    <td>spw</td>
+    <td>閱讀、朗誦、演講、口述歷史紀錄、電腦語音</td>
+    </tr><tr class=MsoNormal align=center><td>聲音</td>
+    <td>sounds</td>
+    <td>snd</td>
+    <td>自然聲音、人造聲音</td>
+    </tr><tr class=MsoNormal align=center><td>靜態影像</td>
+    <td>still image</td>
+    <td>sti</td>
+    <td>素描、繪畫、圖表、照片、紙型、卡片</td>
+    </tr><tr class=MsoNormal align=center><td>地圖影像</td>
+    <td>cartographic image</td>
+    <td>cri</td>
+    <td>地圖、景觀圖、地圖集、遙感影像</td>
+    </tr><tr class=MsoNormal align=center><td>記譜音樂</td>
+    <td>notated music</td>
+    <td>ntm</td>
+    <td>樂譜</td>
+    </tr><tr class=MsoNormal align=center><td>立體形式</td>
+    <td>three-dimensional form</td>
+    <td>tdf</td>
+    <td>雕塑、模型、自然物件、標本、全息圖、磁鐵</td>
+    </tr></table>
+<p class=MsoNormal>&nbsp;</p><a name="337a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>337媒體形式(Media Type)(R)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1<br>
+# 未定義，以空格表示(Undefined)</p>
+<p class=MsoNormal>指標2<br>
+# 未定義，以空格表示(Undefined)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|a媒體形式用語(Media type term)(R)<br>
+|b媒體形式代碼(Media type code)(R)<br>
+|2用語或代碼出處(Source)(NR)<br>
+|3伴隨類型(Materials specified)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>◎欄位337用來著錄資源的媒體形式，此媒體是指一裝置或設備，讀者藉此來放映、觀看、閱讀等取得該資源內容，用於RDA編目規範下。媒體形式用語或代碼需取自特定控制詞彙表。</p>
+<p class=MsoNormal>◎欄位337可取代定長欄位007/00或可與欄位007/00同時著錄。</p>
+<p class=MsoNormal>337&nbsp;##&nbsp;|a媒體形式用語|b媒體形式代碼|2rdamedia</p>
+<p class=MsoNormal>|a媒體形式用語</p>
+<p class=MsoNormal>|b媒體形式代碼<br>
+★參考Term and Code List for RDA Media Types網頁與國圖中譯<br>
+<a href="https://www.loc.gov/standards/valuelist/rdamedia.html">https://www.loc.gov/standards/valuelist/rdamedia.html</a><br>
+<a href="https://catweb.ncl.edu.tw/standard/page/30632">https://catweb.ncl.edu.tw/standard/page/30632</a></p>
+<p class=MsoNormal>|2用語或代碼出處<br>
+★填寫rdamedia</p>
+<p class=MsoNormal>|3伴隨類型<br>
+★有附件時使用，分別敘述本體和附件的媒體形式<br>
+範例1，中/日文圖書含DVD附件：<br>
+337&nbsp;##&nbsp;|3book|a無媒介|bn|2rdamedia<br>
+337&nbsp;##&nbsp;|3DVD|a錄影|bv|2rdamedia<br>
+範例2，西文圖書含DVD附件：<br>
+337&nbsp;##&nbsp;|3book|aunmediated|bn|2rdamedia<br>
+337&nbsp;##&nbsp;|3DVD|avideo|bv|2rdamedia</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>★337|a、|b需照下表詞彙填入，若於此常用表內未見適用類型，請查參考網頁</p>
+<table class=MsoNormalTable style="width:700px;margin-left:calc((100% - 840px) / 2);">  <tr class=MsoNormal align=center>   <td colspan=2>   337 |a  </td>
+   <td>   337 |b  </td>
+   <td>   常用類型舉例  </td>
+  </tr>  <tr class=MsoNormal align=center>   <td>   無媒介  </td>
+   <td>Unmediated</td>
+   <td>   n  </td>
+   <td>   圖書、樂譜、紙型、卡片、地圖、模型等實物<br>（為直接透過人的感官察覺而不需中介設備輔助的媒體）  </td>
+  </tr>  <tr class=MsoNormal align=center>   <td>   錄影  </td>
+   <td>video</td>
+   <td>   v  </td>
+   <td>   DVD、VCD、錄影帶  </td>
+  </tr>  <tr class=MsoNormal align=center>   <td>   電腦  </td>
+   <td>computer</td>
+   <td>   c  </td>
+   <td>   CD-ROM、DVD-ROM、電腦磁碟片、線上資源、usb隨身碟  </td>
+  </tr>  <tr class=MsoNormal align=center>   <td>   錄音  </td>
+   <td>audio</td>
+   <td>   s  </td>
+   <td>   CD、MP3、黑膠唱片、錄音帶  </td>
+  </tr> </table>
+<p class=MsoNormal>&nbsp;</p><a name="338a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>338載體形式(Carrier Type)(R)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1<br>
+# 未定義，以空格表示(Undefined)</p>
+<p class=MsoNormal>指標2<br>
+# 未定義，以空格表示(Undefined)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|a載體形式用語(Carrier type term)(R)<br>
+|b載體形式代碼(Carrier type code)(R)<br>
+|2用語或代碼出處(Source)(NR)<br>
+|3伴隨類型(Materials specified)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>◎欄位338用來著錄資源的載體形式，及存放資源的硬體或線上形式，用於RDA編目規範下。載體形式用語或代碼需取自特定控制詞彙表。</p>
+<p class=MsoNormal>◎欄位338可取代定長欄位007/01或可與欄位007/01同時著錄。</p>
+<p class=MsoNormal>338&nbsp;##&nbsp;|a載體形式用語|b載體形式代碼|2rdacarrier</p>
+<p class=MsoNormal>|a載體形式用語</p>
+<p class=MsoNormal>|b載體形式代碼<br>
+★參考Term and Code List for RDA Carrier Types網頁與國圖中譯<br>
+<a href="https://www.loc.gov/standards/valuelist/rdacarrier.html">https://www.loc.gov/standards/valuelist/rdacarrier.html</a><br>
+<a href="https://catweb.ncl.edu.tw/standard/page/30632">https://catweb.ncl.edu.tw/standard/page/30632</a></p>
+<p class=MsoNormal>|2用語或代碼出處<br>
+★填寫rdacarrier</p>
+<p class=MsoNormal>|3伴隨類型<br>
+★有附件時使用，分別敘述本體和附件的載體形式<br>
+範例1，中/日文圖書含DVD附件：<br>
+338&nbsp;##&nbsp;|3book|a成冊|bnc|2rdacarrier<br>
+338&nbsp;##&nbsp;|3DVD|a影碟|bvd|2rdacarrier<br>
+範例2，西文圖書含DVD附件：<br>
+338&nbsp;##&nbsp;|3book|avolume|bnc|2rdacarrier<br>
+338&nbsp;##&nbsp;|3DVD|avideodisc|bvd|2rdacarrier</p>
+<p class=MsoNormal>★338|a、|b需照下表詞彙填入，若於此常用表內未見適用類型，請查參考網頁</p>
+<table class=MsoNormalTable style="width:600px;margin-left:calc((100% - 740px) / 2);">  <tr class=MsoNormal align=center>   <td valign=top colspan=2>338 |a</td>
+   <td>338 |b</td>
+   <td>常用類型舉例</td>
+  </tr>  <tr class=MsoNormal align=center>   <td>成冊</td>
+   <td>volume</td>
+   <td>nc</td>
+   <td>「成冊的」圖書、手冊、樂譜、地圖</td>
+  </tr>  <tr class=MsoNormal align=center>   <td>單張</td>
+   <td>sheet</td>
+   <td>nb</td>
+   <td>「單張的」樂譜、紙型、地圖</td>
+  </tr>  <tr class=MsoNormal align=center>   <td>卡片</td>
+   <td>card</td>
+   <td>no</td>
+   <td>卡片</td>
+  </tr>  <tr class=MsoNormal align=center>   <td>實物</td>
+   <td>object</td>
+   <td>nr</td>
+   <td>模型、磁鐵……等</td>
+  </tr>  <tr class=MsoNormal align=center>   <td>影碟</td>
+   <td>videodisc</td>
+   <td>vd</td>
+   <td>DVD、VCD</td>
+  </tr>  <tr class=MsoNormal align=center>   <td>電腦碟片</td>
+   <td>computer disc</td>
+   <td>cd</td>
+   <td>CD-ROM、DVD-ROM</td>
+  </tr>  <tr class=MsoNormal align=center>   <td>線上資源</td>
+   <td>online resource</td>
+   <td>cr</td>
+   <td>線上資源</td>
+  </tr>  <tr class=MsoNormal align=center>   <td>唱片</td>
+   <td>audio disc</td>
+   <td>sd</td>
+   <td>CD、黑膠唱片、(存在CD裡的)MP3</td>
+  </tr> </table>
+<p class=MsoNormal>&nbsp;</p><a name="490a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>490集叢項(Series Statement)(R)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1集叢是否做為檢索款目(Series tracing policy)</p>
+<p class=MsoNormal>1 集叢被檢索(Series traced)<br>
+指標2<br>
+# 未定義，以空格表示(Undefined)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|a集叢題名(Series statement)(R)<br>
+|v 集叢號(Volume / sequential designation)(R)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>◎集叢是指集合許多性質相似或形式相同的單獨作品，具有一個總書名的套書。集叢名對於讀者而言十分具有參考價值，因此集叢名的著錄可以讓讀者在查檢上更為方便。</p>
+<p class=MsoNormal>★照錄書背、版權頁之集叢，預行編目上的集叢不著錄</p>
+<p class=MsoNormal>★欄位490沒有分欄n及p，若要著錄集叢編次或編次名稱，請在|a後加(. )著錄<br>
+範例：<br>
+490&nbsp;1#&nbsp;|a中國方志叢書. 華中地方<br>
+830 #0 |a中國方志叢書. |p華中地方</p>
+<p class=MsoNormal>★集叢名如為簡體時，則需另行著錄繁體集叢名(830亦同)<br>
+範例：<br>
+490&nbsp;1#&nbsp;|a中&#22269;文&#23398;名著<br>
+490&nbsp;1#&nbsp;|a中國文學名著<br>
+★並列集叢名</p>
+<p class=MsoNormal>&nbsp; 集叢名如同時有中文及英文時，請分別著錄中、英文集叢名(830亦同）<br>
+範例：<br>
+490&nbsp;1#&nbsp;|a文學森林&nbsp;;&nbsp;|v6<br>
+490&nbsp;1#&nbsp;|aLiterary forest&nbsp;;&nbsp;|v6</p>
+<p class=MsoNormal>◎作品如果同時屬於二個集叢，因此有兩個集叢名時，請分別著錄兩個集叢名。<br>
+範例：<br>
+490&nbsp;1#&nbsp;|a張皓宸作品集&nbsp;;&nbsp;|v1<br>
+490&nbsp;1#&nbsp;|a皇冠叢書&nbsp;;&nbsp;|v第4687種</p>
+<p class=MsoNormal>|v 若書背、版權頁之集叢號不同，以最完整集叢號為主（如前綴有【英文】和【0】，則依此著錄）<br>
+範例：<br>
+集叢號分別為BP45、045，取BP45<br>
+490&nbsp;1#&nbsp;|a小魯寶寶書&nbsp;;&nbsp;|vBP45</p>
+<p class=MsoNormal>集叢號分別為0001、1，取0001<br>
+490&nbsp;1#&nbsp;|aEE&nbsp;;&nbsp;|v0001</p>
+
+<p class=MsoNormal>&nbsp;</p><a name="500a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>500一般附註(General Note)(R)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1<br>
+# 未定義，以空格表示(Undefined)</p>
+<p class=MsoNormal>指標2<br>
+# 未定義，以空格表示(Undefined)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|a一般附註(General note)(NR)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>◎欄位500用於一般註解及書目關係，當其他5XX欄位都不適用時，用欄位500著錄說明。</p>
+<p class=MsoNormal>◎翻譯作品或改寫的作品，應在附註項說明，其中翻譯作品以“譯自：”引出原文題名 。</p>
+<p class=MsoNormal>◎作品的題名如果不是取自主要著錄來源，須於附註項說明其出處。<br>
+&nbsp; 例如：500&nbsp; |a題名取自封面 &nbsp;(取自封面)</p>
+<p class=MsoNormal>◎與作品有關的著者敘述，如未著錄在題名及著者敘述項內，但仍有參考價值，必須加以說明時，應在附註項中註明。<br>
+245&nbsp;10&nbsp;|a知識的水庫 △/c 彭歌著<br>
+500&nbsp;&nbsp;&nbsp;&nbsp;|a著者本名姚朋</p>
+<p class=MsoNormal>◎外國著者的譯名在245欄位著者敘述項中須依作品出現的名稱著錄，而於100欄另立依權威檔已建立之名稱著錄以利檢索，此時須於附註項說 明該著者改譯之名稱，如：<br>
+100&nbsp;1&nbsp;&nbsp;|a葛羅斯 |q(Gross, C.)<br>
+245&nbsp;10&nbsp;|a電力系統分析 |c葛洛斯 (C Gross) 著<br>
+500&nbsp;&nbsp;&nbsp;&nbsp;|a著者改譯葛羅斯</p>
+<p class=MsoNormal>◎與版本有關的敘述，必要時，應註明於附註項。<br>
+245&nbsp;10&nbsp;|a今古學考 /|c廖平著<br>
+250&nbsp;&nbsp;&nbsp;&nbsp;|a影印本<br>
+500&nbsp;&nbsp;&nbsp;&nbsp;|a據民 14 年成都存古書局彙印六譯館叢書本影印</p>
+<p class=MsoNormal>使用範例：</p>
+<p class=MsoNormal>500&nbsp;##&nbsp;|a含索引<br>
+008/31為1含索引，且008/24-27無b書目時；或008/24-27有b書目，但書目集中可標頁碼時，在此註明</p>
+<p class=MsoNormal>500&nbsp;&nbsp;&nbsp;&nbsp;|a作者號取自〇〇<br>
+若作者號非取自主要作者應於此說明，範例：<br>
+500&nbsp;&nbsp;&nbsp;&nbsp;|a作者號取自譯者<br>
+500&nbsp;&nbsp;&nbsp;&nbsp;|a作者號取自第1冊譯者徐月珠</p>
+<p class=MsoNormal>500&nbsp;##&nbsp;|a〇〇〇為〇〇和〇〇共用之筆名<br>
+110&nbsp;2&nbsp;&nbsp;|a安德魯斯|g(Andrews, Ilona)<br>
+500&nbsp;&nbsp;&nbsp;&nbsp;|a伊洛娜.安德魯斯為伊洛娜.高登和安德魯.高登夫妻共用之筆名<br>
+700&nbsp;1&nbsp;&nbsp;|a高登|c(Gordon, Ilona)<br>
+700&nbsp;1&nbsp;&nbsp;|a高登|c(Gordon, Andrew)</p>
+<p class=MsoNormal>500&nbsp;##&nbsp;|a附錄 : 1, 〇〇〇--2, 〇〇〇--3, 〇〇〇<br>
+3種以內附錄依次標明</p>
+<p class=MsoNormal>500&nbsp;&nbsp;&nbsp;&nbsp;|a附錄 : 〇〇〇等〇種<br>
+超過3種只列第一種與總數量</p>
+<p class=MsoNormal>500&nbsp;&nbsp;&nbsp;&nbsp;|a含附錄<br>
+散見在各章節的附錄，或書上附錄集中在最後，沒有另給標題</p>
+<p class=MsoNormal>500&nbsp;&nbsp;&nbsp;&nbsp;|a試題本, 解析本合訂為一冊<br>
+手冊和本體合訂為一冊時不算附件，只需在500註明</p>
+<p class=MsoNormal>&nbsp;</p><a name="504a">&nbsp;</a>
+<table class=MsoNormalTable> <tr><td><p class=MsoNormal>504書目註(Bibliography, Etc. Note)(R)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1<br>
+# 未定義，以空格表示(Undefined)</p>
+<p class=MsoNormal>指標2<br>
+# 未定義，以空格表示(Undefined)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|a書目註(Bibliography, etc. note)(NR)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>◎作品包含參考書目，應著錄於欄位504。</p>
+<p class=MsoNormal>◎008資料類型代碼欄中的內容性質代碼之b-書目，須與504欄位-參考書目對應，如著錄 504欄參考書目，則008欄-內容性質代碼須著錄b。</p>
+<p class=MsoNormal>★索引、書目不同情形著錄方式請參此（標明頁碼&quot;-&quot;前後不加空格）</p>
+<p class=MsoNormal>有索引，有書目（書目集中可標頁碼）<br>
+500&nbsp;##&nbsp;|a含索引<br>
+504&nbsp;##&nbsp;|a參考書目 : 面467-486</p>
+<p class=MsoNormal>有索引，有書目（書目分散）<br>
+504&nbsp;##&nbsp;|a含參考書目及索引</p>
+<p class=MsoNormal>有索引，無書目<br>
+500&nbsp;##&nbsp;|a含索引</p>
+<p class=MsoNormal>無索引，有書目（書目集中可標頁碼）<br>
+504&nbsp;##&nbsp;|a參考書目 : 面467-486</p>
+<p class=MsoNormal>無索引，有書目（書目分散）<br>
+504&nbsp;##&nbsp;|a含參考書目<br>
+&nbsp;</p><a name="505a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>505內容註(Formatted Contents Note)(R)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1前導用語顯示(Display constant controller)<br>
+0 前導用語：內容註(Contents)</p>
+<p class=MsoNormal>指標2內容格式層次(Levels of content designation)<br>
+0 詳細式(Enhanced)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>|g 其他資料(Miscellaneous information)(R)<br>
+|t題名(Title)(R)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>◎欄位505用來註明出版品的內容，可包含著者敘述、錄音資料演奏時間、或卷&#20876;編次等</p>
+<p class=MsoNormal>◎作品如有下列情形，應著錄505欄位：<br>
+(1)作品的書名不能明確表達其內容。<br>
+(2)作品內容包含若干篇不同性質的文章。<br>
+(3)集合許多人論著而編成的作品，若書中的每一篇作品，均註明撰述者姓名時。</p>
+<p class=MsoNormal>★著錄505時需再著錄740段</p>
+<p class=MsoNormal>★需要註明書名內容時，使用|g標明次序，|t著錄題名<br>
+505&nbsp;00&nbsp;|g1,&nbsp;|t地府流浪貓--|g2,&nbsp;|t會作詩的寵物豬<br>
+740&nbsp;02&nbsp;|a地府流浪貓<br>
+740&nbsp;02&nbsp;|a會作詩的寵物豬</p>
+<p class=MsoNormal>★書籍內容若須著錄內容作者，另加|r著錄，並須著錄700分析款目<br>
+245&nbsp;10&nbsp;|a文學超圖解&nbsp;:&nbsp;|b10頁漫畫讀完知名文學作品 / 多力亞斯工場著 ; 常純敏譯<br>
+505&nbsp;00&nbsp;|g1,&nbsp;|t人間失格&nbsp;/&nbsp;|r太宰治--|g2,&nbsp;|t山月記&nbsp;/&nbsp;|r中島敦--|g3,&nbsp;|t檸檬&nbsp;/&nbsp;|r&#26806;井基次郎<br>
+700&nbsp;12&nbsp;|a太宰治|t人間失格<br>
+700&nbsp;12&nbsp;|a中島敦|t山月記<br>
+700&nbsp;12&nbsp;|a&#26806;井基次郎|t檸檬</p>
+<p class=MsoNormal>&nbsp;</p><a name="520a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>520摘要、提要註(Summary, Etc.)(R)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1前導用語顯示(Display constant controller)<br>
+# 前導用語：概要(Summary)</p>
+<p class=MsoNormal>指標2<br>
+# 未定義，以空格表示(Undefined)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄</p>
+<p class=MsoNormal>|a摘要等(Summary, etc.) (NR)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>◎欄位520用來形容一出版品的內容範圍和主題。此欄位是指「正式的摘要」。非正式的摘要用欄位500。</p>
+<p class=MsoNormal>◎錄音、錄影資料、兒童及青少年讀物、小說多提供內容摘要。</p>
+<p class=MsoNormal>★標點符號一律以半形輸入，並依循英式標點符號使用習慣（例如逗點、句點後須加半形空格等）</p>
+<p class=MsoNormal>&nbsp;</p><a name="521a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td valign=top> <p class=MsoNormal>521適用對象註(Target Audience Note)(R)</p>
+</td>
+ </tr>
+ <tr> <td valign=top> <p class=MsoNormal>指標1前導用語顯示(Display constant controller)<br>
+# 前導用語：適用對象(Audience)</p>
+<p class=MsoNormal>指標2<br>
+# 未定義，以空格表示(Undefined)</p>
+</td>
+ </tr>
+ <tr> <td valign=top> <p class=MsoNormal>分欄<br>
+|a適用對象(Target audience note)(R)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>◎欄位521用來說明此出版品的讀者群。兒童及青少年出版品上多有標示閱讀年級、或閱讀年齡的資訊，可著錄於此欄位。也可著錄錄影資源或電腦遊戲內容的適用對象。</p>
+<p class=MsoNormal>★依書上註明適用對象、年齡或適讀程度照錄<br>
+範例：<br>
+521&nbsp;##&nbsp;|a3歲以上親子共讀, 7歲以上自己閱讀<br>
+521&nbsp;##&nbsp;|a大學用書<br>
+521&nbsp;##&nbsp;|a限制級<br>
+→指該書目內所有書籍都是限制級<br>
+521&nbsp;##&nbsp;|a第1-5, 7冊為限制級<br>
+→書目內若有部分集數為限制級，應於521清楚標示</p>
+<p class=MsoNormal>★如果書上沒有標註適讀年齡，應於008/22適用對象註明a-e即可，521不著錄</p>
+ <p class=MsoNormal>&nbsp;</p><a name="546a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td>  <p class=MsoNormal>546語文註(Language Note)(R)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1<br>
+# 未定義，以空格表示(Undefined)</p>
+<p class=MsoNormal>指標2<br>
+# 未定義，以空格表示(Undefined)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|a語文註(Language note)(NR)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>★說明出版品正文所用之語文。此欄位應與定長欄位008/35-37和欄位041相配合。<br>
+常用範例：<br>
+546&nbsp;##&nbsp;|a國語注音<br>
+546&nbsp;##&nbsp;|a中英對照<br>
+546&nbsp;##&nbsp;|a部份內容為英文<br>
+546&nbsp;##&nbsp;|a簡體字本<br>
+546&nbsp;##&nbsp;|a漢語拼音<br>
+546&nbsp;##&nbsp;|a內容以臺文書寫<br>
+546&nbsp;##&nbsp;|a內容以粵文口語書寫<br>
+546&nbsp;##&nbsp;|a部份內容中英日法對照<br>
+546&nbsp;##&nbsp;|a中文泰雅族語對照</p>
+<p class=MsoNormal>★若書內有多種語文表現形式，可使用多筆546著錄<br>
+範例：一童書既有注音又為中英對照<br>
+546&nbsp;##&nbsp;|a國語注音<br>
+546&nbsp;##&nbsp;|a中英對照</p>
+<p class=MsoNormal>&nbsp;</p><a name="586a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>586得獎註(Awards Note)(R)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1前導用語顯示(Display constant controller)<br>
+# 前導用語：獎項(Awards)</p>
+<p class=MsoNormal>指標2<br>
+# 未定義，以空格表示(Undefined)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|a獎項(Awards note)(NR)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>◎欄位586著錄出版品所得的獎項。如有數個不同獎項，著錄於個別的欄位586。<br>
+586&nbsp;##&nbsp;|a獎項名, 得獎年（西元）<br>
+中/日文範例：<br>
+586&nbsp;##&nbsp;|a波隆那國際兒童書展新人獎, 2020年<br>
+586&nbsp;##&nbsp;|a中國時報開卷美好生活書, 2010年<br>
+西文範例：<br>
+586&nbsp;##&nbsp;|aThe Newbery Medal, 2005</p>
+<p class=MsoNormal>★入圍及商業獎不予著錄。（如【入圍2008年金鼎獎】、【Amazon年度銷售第1名】、【本屋大賞】等均不予著錄）</p>
+<p class=MsoNormal>&nbsp;</p><a name="594a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>594採購批次(NR)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1<br>
+# 未定義，以空格表示(Undefined)</p>
+<p class=MsoNormal>指標2<br>
+# 未定義，以空格表示(Undefined)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>|a採編附註項</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>★為本館自訂項目，若不確定批次，請向採購人員確認</p>
+<p class=MsoNormal>★批次號格式：AC-[採購年度]-[語言及項次]-[批次號]</p>
+<p class=MsoNormal>範例1：<br>
+594&nbsp;##&nbsp;|aAC-106-C1-01</p>
+<p class=MsoNormal>範例2，新北市圖採購之第二批東南亞文書目，依圖書語文分別著錄：<br>
+594&nbsp;##&nbsp;|aAC-113-THA-02<br>
+594&nbsp;##&nbsp;|aAC-113-VIE-02<br>
+594&nbsp;##&nbsp;|aAC-113-IND-02<br>
+594&nbsp;##&nbsp;|aAC-113-BUR-02</p>
+<p class=MsoNormal>範例3，國圖分區資源中心第一批西文書目：<br>
+594&nbsp;##&nbsp;|aNR-113-MF-01</p>
+<p class=MsoNormal>&nbsp;</p><a name="600a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td valign=top> <p class=MsoNormal>600標題附加款目-個人名稱(Subject Added Entry - Personal Name)(R)</p>
+</td>
+ </tr>
+ <tr> <td valign=top> <p class=MsoNormal>指標1人名形式(Type of personal name entry element)<br>
+0 以名字著錄(Forename)<br>
+1 以姓或姓名著錄(Surname)</p>
+<p class=MsoNormal>指標2標題系統 / 索引典代碼(Thesaurus)<br>
+4 未註明來源(Source not specified)</p>
+</td>
+ </tr>
+ <tr> <td valign=top> <p class=MsoNormal>分欄</p>
+<p class=MsoNormal>標題姓名部分(Name portion of heading)<br>
+|a個人姓名(Personal name)(NR)<br>
+|c頭銜等修飾語(Titles and words associated with a name)(R)<br>
+|q全稱(Fuller form of name)(NR)<br>
+|d生卒年或相關領域活躍時期(Dates associated with a name)(NR)</p>
+<p class=MsoNormal>題名部分(Title portion of heading)<br>
+|t作品題名(Title of a work)(NR)<br>
+|n編次(Number of part/section of a work)(R)<br>
+|p編次名稱(Name of part/section of a work)(R)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>★當一出版品的主題是有關個人、或個人的著作，用欄位600著錄此個人名稱，或個人名稱加上著作題名。</p>
+<p class=MsoNormal>★為配合本館資訊系統，600段著錄時請勿輸入|2lcstt</p>
+<p class=MsoNormal>★標題姓名部分，因中文主題詞表內人名屬於自由詞，請直接著錄人名，分欄使用方式可參100段</p>
+<p class=MsoNormal>範例：<br>
+600&nbsp;14&nbsp;|a饒夢霞<br>
+600&nbsp;14&nbsp;|a齊邦媛,&nbsp;|d1924-</p>
+<p class=MsoNormal>★題名部分如需著錄請選適當分欄使用</p>
+<p class=MsoNormal>&nbsp;</p>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>610標題附加款目-團體名稱(Subject Added Entry - Corporate Name)(R)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1團體名稱形式(Type of corporate name element)<br>
+1 以地區或轄區名稱著錄為標目主體(Jurisdiction name)<br>
+2 團體名稱直接著錄(Name in direct order)</p>
+<p class=MsoNormal>指標2標題系統 / 索引典代碼(Thesaurus)<br>
+4 未註明來源(Source not specified)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄</p>
+<p class=MsoNormal>團體名稱部分(Name portion of heading)<br>
+|a團體名稱或轄區名稱(Corporate name or jurisdiction name as entry element) (NR)<br>
+|b從屬單位(Subordinate unit)(R)</p>
+<p class=MsoNormal>題名部分(Title portion of heading)<br>
+|t作品題名(Title of a work)(NR)<br>
+|p編次名稱(Name of part/section of a work)(R)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>★當一出版品的主題是有關團體機構、或源於一團體機構的著作，用欄位610著錄此團體機構名稱，或團體機構名稱及其著作。</p>
+<p class=MsoNormal>★為配合本館資訊系統，610段著錄時請勿輸入|2lcstt</p>
+<p class=MsoNormal>★團體名稱部分，分欄使用方式可參110段</p>
+<p class=MsoNormal>範例：</p>
+<p class=MsoNormal>610&nbsp;24&nbsp;|a中華民國圖書館學會</p>
+<p class=MsoNormal>610&nbsp;14&nbsp;|a新北市|b社會局</p>
+<p class=MsoNormal>★題名部分如需著錄請選適當分欄使用</p>
+<p class=MsoNormal>&nbsp;</p>
+<table class=MsoNormalTable>
+ <tr> <td valign=top> <p class=MsoNormal>630標題附加款目 - 劃一題名(Subject Added Entry - Uniform Title)(R)</p>
+</td>
+ </tr>
+ <tr> <td valign=top> <p class=MsoNormal>指標1不排序字元(Nonfiling characters)<br>
+0 不排序字元數(Number of nonfiling characters)</p>
+<p class=MsoNormal>指標2標題系統 / 索引典代碼(Thesaurus)<br>
+4 未註明來源(Source not specified)</p>
+</td>
+ </tr>
+ <tr> <td valign=top> <p class=MsoNormal>分欄<br>
+題名部分(Title portion of heading)<br>
+|a劃一題名(Uniform title)(NR)<br>
+|l作品語文(Language of a work)(NR)<br>
+|n編次(Number of part/section of a work)(R)<br>
+|p編次名稱(Name of part/section of a work)(R)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>★當一出版品的內容是描述另一作品，且此被描述作品無作者或是宗教經典等，用630著錄此被描述作品題名。</p>
+<p class=MsoNormal>◎作品因版本或譯本不同而題名有異者，編目時得用劃一題名，並立為檢索款目，於目錄中匯集一處，以便檢索。</p>
+<p class=MsoNormal>★為配合本館資訊系統，630段著錄時請勿輸入|2lcstt</p>
+<p class=MsoNormal>範例：書籍內容與道德經相關，因此在630著錄</p>
+<p class=MsoNormal>245&nbsp;10&nbsp;|a會說話的文學經典&nbsp;:&nbsp;|b每天讀一點道德經&nbsp;/&nbsp;|c(春秋)老子原著 ; 東籬子解譯</p>
+<p class=MsoNormal>630 04 |a道德經</p>
+<p class=MsoNormal>&nbsp;</p><a name="650a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>650標題附加款目 - 主題用語/主題標目(Subject Added Entry - Topical Term)(R)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1標題層次(Level of subject)<br>
+# 未提供資訊(No information provided)</p>
+<p class=MsoNormal>指標2標題系統 / 索引典代碼(Thesaurus)<br>
+7 標題系統來源著錄於分欄2(Source specified in subfield $2)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|a主題用語/主題標目(Topical term or geographic name entry element)(NR)</p>
+<p class=MsoNormal>主題和形式複分標題(Subject and form subdivisions)<br>
+|2標題系統出處(Source of heading or term)(NR)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>★本段標題系統來源為「中文主題詞表」，|2請輸入lcstt</p>
+<p class=MsoNormal>★650主題詞必須出自中文主題詞表，表中沒有的詞彙請勿著錄，可查閱<a href="http://catbase.ncl.edu.tw/App3/">http://catbase.ncl.edu.tw/App3/</a><br>
+範例：<br>
+650&nbsp;#7&nbsp;|a旅遊|2lcstt</p>
+<p class=MsoNormal>★主題詞表內部分「自由詞」例外，如電腦程式名稱、電腦程式語言名稱等，詞表中查無亦應用以下格式著錄<br>
+範例：<br>
+650&nbsp;#7&nbsp;|aEXCEL 2016(電腦程式)|2lcstt<br>
+650&nbsp;#7&nbsp;|aPython(電腦程式語言)|2lcstt</p>
+<p class=MsoNormal>&nbsp;</p><a name="651a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>651標題附加款目 - 地理名稱(Subject Added Entry - Geographic Name)(R)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1<br>
+# 未定義，以空格表示(Undefined)</p>
+<p class=MsoNormal>指標2標題系統 / 索引典代碼(Thesaurus)<br>
+7 標題系統來源著錄於分欄2(Source specified in subfield $2)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|a地理名稱(Geographic name)(NR)</p>
+<p class=MsoNormal>主題和形式複分標題(Subject and form subdivisions)<br>
+|2標題系統出處(Source of heading or term)(NR)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>★本段標題系統來源為中文主題詞表，|2請輸入lcstt</p>
+<p class=MsoNormal>★著錄類型含國家名、自然地理區域和太空星球名、古蹟（例如絲路、長城）、公園和社區、地方城市等</p>
+<p class=MsoNormal>常用範例：<br>
+651&nbsp;#7&nbsp;|a新北市|2lcstt<br>
+651&nbsp;#7&nbsp;|a新北市三峽區|2lcstt<br>
+651&nbsp;#7&nbsp;|a太魯閣國家公園|2lcstt<br>
+<br>
+650&nbsp;#7&nbsp;|a遊記|2lcstt<br>
+650&nbsp;#7&nbsp;|a旅遊文學|2lcstt<br>
+651&nbsp;#7&nbsp;|a法國|2lcstt</p>
+<p class=MsoNormal>&nbsp;</p><a name="653a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>653館藏資料類型(NR)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1<br>
+# 未定義，以空格表示(Undefined)</p>
+<p class=MsoNormal>指標2<br>
+# 未定義，以空格表示(Undefined)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>|a館藏資料類型</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>★為本館自訂項目，請依書籍類型給定，館藏段特藏號（095 |p）內容與此相同。</p>
+<p class=MsoNormal>★若館藏資料類型為「Book中文圖書」則不需著錄本段，索書號亦不用給特藏號，但特藏號（095 |p）仍需著錄<br>
+★範例：兒童書<br>
+653&nbsp;##&nbsp;|aK</p>
+<p class=MsoNormal>常用資料類型：</p>
+<table class=MsoNormalTable style="width:600px;margin-left:calc((100% - 740px) / 2);">  <tr class=MsoNormal align=center>  <td>代碼</td>
+   <td>資料類型</td>
+   <td>代碼</td>
+  <td>資料類型</td>  </tr>
+  <tr class=MsoNormal align=center>
+  <td>Book</td>
+  <td>中文圖書</td>
+  <td>K</td>
+   <td>兒童書</td>  </tr>
+   <tr class=MsoNormal align=center>
+  <td>JPN</td>
+   <td>日文圖書</td>
+   <td>KB</td>
+   <td>兒童幼兒</td>  </tr>
+  <tr class=MsoNormal align=center>  <td>S</td>
+   <td>樂齡資料</td>
+   <td>KI</td>
+   <td>兒童大書</td>  </tr>
+  <tr class=MsoNormal align=center>  <td>Y</td>
+   <td>青少年資料</td>
+   <td>KT</td>
+   <td>橋樑書</td>  </tr>
+  <tr class=MsoNormal align=center>  <td>E</td>
+   <td>親子教養</td>
+   <td>KR</td>
+   <td>兒童參考書</td>  </tr>
+  <tr class=MsoNormal align=center>  <td>D</td>
+   <td>附件</td>
+   <td>KCB</td>
+   <td>兒童漫畫</td>  </tr>
+  <tr class=MsoNormal align=center>  <td>R</td>
+   <td>參考書</td>
+   <td>KABO</td>
+   <td>兒童原住民圖書</td>  </tr>
+  <tr class=MsoNormal align=center>  <td>CB</td>
+   <td>漫畫書</td>
+   <td>KSC</td>
+   <td>兒童簡體字圖書</td>  </tr>
+  <tr class=MsoNormal align=center>  <td>G</td>
+   <td>政府出版品</td>
+   <td>KJPN</td>
+   <td>兒童日文圖書</td>  </tr>
+  <tr class=MsoNormal align=center>  <td>T</td>
+   <td>新北市文獻</td>
+   <td>L</td>
+   <td>大本書</td>  </tr>
+  <tr class=MsoNormal align=center>  <td>ABO</td>
+   <td>原住民圖書</td>
+   <td>EBook</td>
+   <td>電子資源</td>  </tr>
+  <tr class=MsoNormal align=center>  <td>TAI</td>
+   <td>閩南語圖書</td>
+   <td>M</td>
+   <td>地圖</td>  </tr>
+  <tr class=MsoNormal align=center>  <td>HAK</td>
+   <td>客家語圖書</td>
+   <td>VS</td>
+   <td>雙視圖書</td>  </tr>
+  <tr class=MsoNormal align=center>  <td>SC</td>
+   <td>簡體字圖書</td>
+   <td>BB</td>
+   <td>點字書</td> </tr>
+ <tr class=MsoNormal align=center>  <td colspan="4"> ※高度超過35公分的書籍請設大本書（L）或兒童大書（KI）。</td>  </tr>
+ </table>
+  <p>&nbsp;</p><table class=MsoNormalTable style="width:600px;margin-left:calc((100% - 740px) / 2);">  <tr class=MsoNormal align=center>   <td colspan=4 valign=top>日文圖書：（日文圖書只用此二類，不另分漫畫等類別）</td>
+  </tr>  <tr class=MsoNormal align=center>   <td>JPN</td>
+   <td>日文圖書</td>
+   <td>KJPN</td>
+   <td>兒童日文圖書</td>
+  </tr> </table>
+<p class=MsoNormal>&nbsp;</p><a name="700a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td>  <p class=MsoNormal>700附加款目 - 個人名稱(Added Entry - Personal Name)(R)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1人名形式(Type of personal name entry element)<br>
+0 以名字著錄(Forename)<br>
+1 以姓或姓名著錄(Surname)</p>
+<p class=MsoNormal>指標2附加款目類型(Type of added entry)<br>
+# 未提供資訊(No information provided)<br>
+2 分析款目(Analytical entry)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄</p>
+<p class=MsoNormal>姓名(Name portion of heading)<br>
+|a個人姓名(Personal name)(NR)<br>
+|c頭銜等修飾語(Titles and other words associated with a name)(R)<br>
+|q全稱(Fuller form of name)(NR)<br>
+|d生卒年或相關領域活躍時期(Dates associated with a name)(NR)</p>
+<p class=MsoNormal>題名部分(Title portion of heading)<br>
+|t作品題名(Title of a work)(NR)<br>
+|n編次(Number of part/section of a work)(R)<br>
+|p編次名稱(Name of part/section of a work)(R)<br>
+|4相關職責代碼</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>◎本欄記載作品主要作者以外之其他個人著者，需以擇定之人名標目建立權威檔，並依權威檔著錄。</p>
+<p class=MsoNormal>◎本國著作之次要著者於700欄|a的著錄方式：<br>
+100&nbsp;1#&nbsp;|a侯文詠|4aut<br>
+245&nbsp;10&nbsp;|a〇〇&nbsp;/&nbsp;|c侯文詠著；小野圖<br>
+700&nbsp;0#&nbsp;|a小野|4ill</p>
+<p class=MsoNormal>◎出家之上師、法師、大師均冠“釋”字，居士則不須冠<br>
+100&nbsp;1&nbsp;&nbsp;|a釋證嚴,&nbsp;|d1937-|4aut<br>
+245&nbsp;10&nbsp;|a靜思語的環保人生&nbsp;/&nbsp;|c證嚴法師作 ; 釋德棨, 明含輯錄<br>
+700&nbsp;1&nbsp;&nbsp;|a釋德棨|4edt</p>
+<p class=MsoNormal>◎外國著者之次要著者於700欄 |a的著錄方式：<br>
+245&nbsp;10&nbsp;|a〇〇 / |c南西.吉布茲(Nancy Gibbs)著 ； 威爾.史密斯(Will Smith)繪圖<br>
+700&nbsp;1&nbsp;&nbsp;|a史密斯|c(Smith, Will)|4ill</p>
+<p class=MsoNormal>◎個人的文集、美術作品集、攝影集，編輯者須在700 欄做追尋，並以原始著作者取著者號，以使同一作者的作品聚集在一起。</p>
+<p class=MsoNormal>&nbsp;</p>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>710附加款目 - 團體名稱(Added Entry - Corporate Name)(R)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1團體名稱形式(Type of corporate name entry element)<br>
+1 以地區或轄區名稱著錄為標目主體(Jurisdiction name)<br>
+2 團體名稱直接著錄(Name in direct order)<br>
+指標2附加款目類型(Type of added entry)<br>
+# 未提供資訊(No information provided)<br>
+2 分析款目(Analytical entry)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|a團體名稱或轄區名稱(Corporate name or jurisdiction name as entry element) (NR)<br>
+|b從屬單位(Subordinate unit)(R)</p>
+<p class=MsoNormal>題名部分(Titleportionofheading)<br>
+|t作品題名(Title of a work)(NR)<br>
+|p編次名稱(Name of part/section of a work)(R)<br>
+|4相關職責代碼</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>◎欄位710記載其他團體著者，需以擇定之團體標目建立權威檔，並依權威檔著錄。<br>
+245&nbsp;00&nbsp;|a〇〇&nbsp;/&nbsp;|c行政院大陸工作委員會編<br>
+710&nbsp;2#&nbsp;|a行政院|b大陸工作委員會|4edt</p>
+<p class=MsoNormal>◎外國團體著者翻譯成中文著錄，原名置於圓括弧內。<br>
+245&nbsp;00&nbsp;|a〇〇&nbsp;/&nbsp;|cNational geographic society主編<br>
+710&nbsp;2#&nbsp;|a美國國家地理學會(National geographic society)|4edt</p>
+<p class=MsoNormal>&nbsp;</p>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>711附加款目 – 會議名稱(Added Entry - Meeting Name)(R)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1會議名稱形式(Type of meeting name entry element)<br>
+0 倒置名稱 (已不再使用)<br>
+1 以地區或轄區名稱著錄為標目主體(Jurisdiction name)<br>
+2 會議名稱直接著錄(Name in direct order)</p>
+<p class=MsoNormal>指標2附加款目類型(Type of added entry)<br>
+# 未提供資訊(No information provided)<br>
+2 分析款目(Analytical entry)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|a會議名稱或轄區名稱(Meeting name or jurisdiction name as entry element) (NR)<br>
+|c會議地點(Location of meeting)(NR)<br>
+|d會議日期(Date of meeting)(NR)<<br>
+|n會議屆次(Number of part/section/meeting)(R)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>◎若一出版品的內容源自會議、或是會議紀錄，用欄位711登錄此標目。廣義的會議，包括：展覽、運動會、慶祝會、集會等。<br>
+711&nbsp;2#&nbsp;|a亞洲圖書館合作會議|n(1&nbsp;:&nbsp;|d民63&nbsp;:&nbsp;|c淡江大學)<br>
+711&nbsp;2#&nbsp;|a中文文獻資源共建共享合作會議|n(8&nbsp;:&nbsp;|d民99&nbsp;:&nbsp;|c國家圖書館)<br>
+711&nbsp;2#&nbsp;|a亞洲國際美術展覽會|n(28&nbsp;:&nbsp;|d2014&nbsp;:&nbsp;|c金門文化園區歷史民俗博物館)</p>
+<p class=MsoNormal>&nbsp;</p><a name="740a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>740附加款目 - 非控制相關或分析題名(Added Entry – Uncontrolled Related / Analytical Title)(R)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1不排序字元(Nonfiling characters)<br>
+0 無不排序字元(No nonfiling characters)<br>
+1-9 不排序字元數(Number of nonfiling characters)</p>
+<p class=MsoNormal>指標2附加款目類型(Type of added entry)<br>
+# 未提供資訊(No information provided)<br>
+2 分析款目(Analytical entry)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|a非控制相關/分析題名(Uncontrolled related/analytical title)(NR)<br>
+|n編次(Number of part/section of a work)(R)<<br>
+|p編次名稱(Name of part/section of awork)(R)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>◎欄位740用來著錄「無」權威控制的相關出版題名或分析款目題名。</p>
+<p class=MsoNormal>★用來著錄欄位505內容註的各篇章題名追尋，指標2用2<br>
+範例：<br>
+505&nbsp;1#&nbsp;|g1,&nbsp;|t地府流浪貓--|g2,&nbsp;|t會作詩的寵物豬<br>
+740&nbsp;02&nbsp;|a地府流浪貓<br>
+740&nbsp;02&nbsp;|a會作詩的寵物豬</p>
+<p class=MsoNormal>◎如果英文題名第1個字母為冠詞（A、An、The）其著錄方式為：</p>
+<p class=MsoNormal>指標1-不排序字元依冠詞之字母數加 1 著錄，如A鍵入2，An 鍵入3，The鍵入4；</p>
+<p class=MsoNormal>指標2- 鍵入2分析。<br>
+740&nbsp;0#&nbsp;|aSongs my mother taught<br>
+740&nbsp;2#&nbsp;|aA summer place<br>
+&nbsp; 指標1 選”2”，表示電腦會忽略前2個字元（A及空格），由第3個字元S開始排序；意即A和空格2個字元為不排序字元。</p>
+<p class=MsoNormal>&nbsp;</p><a name="830a">&nbsp;</a>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>830集叢附加款目 - 劃一題名(Series Added Entry - Uniform Title)(R)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1<br>
+# 未定義，以空格表示(Undefined)</p>
+<p class=MsoNormal>
+指標2不排序字元(Nonfiling characters)<br>
+0 無不排序字元(No nonfiling characters)<br>
+1-9 不排序字元數(Number of nonfiling characters)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|a劃一題名(Uniform title)(NR)<br>
+|n編次(Number of part/section of a work)(R)<br>
+|p編次名稱(Name of part/section of a work)(R)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>◎欄位830著錄集叢題名附加款目，是最常用的集叢附加款目。</p>
+<p class=MsoNormal>◎著錄欄位830時，書目紀錄中應有集叢敘述(欄位490)說明集叢資訊。</p>
+<p class=MsoNormal>★為使權威集中，本段請勿著錄|v集叢號<br></p>
+<p class=MsoNormal>|n以數字或字母標示，用「圓點」(.)分隔。<<br>
+範例：<br>
+490&nbsp;1#&nbsp;|a浯島文學獎長篇小說集. 第13屆&nbsp;;&nbsp;|v1<br>
+830 #0 |a浯島文學獎長篇小說集. |n第13屆</p>
+<p class=MsoNormal>|p以名稱標示，|p前面是劃一題名|a用「圓點」( . )隔開；|p前面是編次|n用「逗點」( , )隔開<br>
+範例：<br>
+490&nbsp;1#&nbsp;|a中國古典名劇白話小說. 六大古典喜劇&nbsp;;&nbsp;|v伍<br>
+830 #0 |a中國古典名劇白話小說. |p六大古典喜劇<br>
+490&nbsp;1#&nbsp;|a365地球小小說. 3, 奇幻小說&nbsp;;&nbsp;|v2<br>
+830 #0 |a365地球小小說. |n3,&nbsp;|p奇幻小說</p>
+<p class=MsoNormal>★集叢名如為簡體時，則需另行著錄繁體集叢名(490亦同)<br>
+範例：<br>
+830&nbsp;#0&nbsp;|a中&#22269;文&#23398;名著<br>
+830&nbsp;#0&nbsp;|a中國文學名著<br>
+<p class=MsoNormal>&nbsp;</p>
+<table class=MsoNormalTable>
+ <tr> <td> <p class=MsoNormal>856電子資源位址及取得方法(Electronic Location and Access)(R)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>指標1取得方式(Access method)<br>
+1 檔案傳輸(FTP)<br>
+4 超本文傳輸協定(HTTP)</p>
+<p class=MsoNormal>指標2相關性(Relationship)<br>
+# 未提供資訊(No information provided)<br>
+0 資源本身(Resource)<br>
+1 資源之電子版本(Version of resource)</p>
+</td>
+ </tr>
+ <tr> <td> <p class=MsoNormal>分欄<br>
+|u資源定位器URL(R)<br>
+|z 公開顯示之附註(Public note)(R)</p>
+</td>
+ </tr>
+ </table>
+<p class=MsoNormal>◎欄位856用來紀錄遠端取得的電子出版品的資源位址及取得方法。無論線上取得的是全部或部分資源，均可使用此欄位。</p>
+
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>&nbsp;</p><a name="999a">&nbsp;</a>
+<p class=MsoNormal align=center><b>中文、日文館藏資料類型代碼表</b></p>
+<table class=MsoNormalTable style="width:600px;margin-left:calc((100% - 740px) / 2);">
+ <tr class=MsoNormal align=center> <td valign=top>代碼</td>
+ <td valign=top>資料類型</td>
+ <td valign=top >代碼</td>
+ <td valign=top>資料類型</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>Book</td>
+ <td valign=top>中文圖書</td>
+ <td valign=top>K</td>
+ <td valign=top>兒童書</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>JPN</td>
+ <td valign=top>日文圖書</td>
+ <td valign=top>KB</td>
+ <td valign=top>兒童幼兒</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>S</td>
+ <td valign=top>樂齡資料</td>
+ <td valign=top>KI</td>
+ <td valign=top>兒童大書</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>Y</td>
+ <td valign=top>青少年資料</td>
+ <td valign=top>KT</td>
+ <td valign=top>橋樑書</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>E</td>
+ <td valign=top>親子教養</td>
+ <td valign=top>KR</td>
+ <td valign=top>兒童參考書</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>D</td>
+ <td valign=top>附件</td>
+ <td valign=top>KCB</td>
+ <td valign=top>兒童漫畫</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>R</td>
+ <td valign=top>參考書</td>
+ <td valign=top>KABO</td>
+ <td valign=top>兒童原住民圖書</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>CB</td>
+ <td valign=top>漫畫書</td>
+ <td valign=top>KSC</td>
+ <td valign=top>兒童簡體字圖書</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>G</td>
+ <td valign=top>政府出版品</td>
+ <td valign=top>KJPN</td>
+ <td valign=top>兒童日文圖書</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>T</td>
+ <td valign=top>新北市文獻</td>
+ <td valign=top>L</td>
+ <td valign=top>大本書</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>ABO</td>
+ <td valign=top>原住民圖書</td>
+ <td valign=top>EBook</td>
+ <td valign=top>電子資源</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>TAI</td>
+ <td valign=top>閩南語圖書</td>
+ <td valign=top>M</td>
+ <td valign=top>地圖</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>HAK</td>
+ <td valign=top>客家語圖書</td>
+ <td valign=top>VS</td>
+ <td valign=top>雙視圖書</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>SC</td>
+ <td valign=top>簡體字圖書</td>
+ <td valign=top>BB</td>
+ <td valign=top>點字書</td>
+ </tr>
+</table>
+<p class=MsoNormal>★日文漫畫特藏號採JPN，不用CB</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal align=center><b>外文館藏資料類型代碼表</b></p>
+<table class=MsoNormalTable style="width:80%;margin-left:20px;">
+ <tr class=MsoNormal align=center> <td valign=top>代碼</td>
+ <td valign=top>資料類型</td>
+ <td valign=top >代碼</td>
+ <td valign=top>資料類型</td>
+ <td valign=top >代碼</td>
+ <td valign=top>資料類型</td>
+ <td valign=top >代碼</td>
+ <td valign=top>資料類型</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>F</td>
+ <td valign=top>西文書</td>
+ <td valign=top>RF</td>
+ <td valign=top>外文參考</td>
+ <td valign=top>JPN</td>
+ <td valign=top>日文圖書</td>
+ <td valign=top>KJPN</td>
+ <td valign=top>兒童日文圖書</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>THA</td>
+ <td valign=top>泰文圖書</td>
+ <td valign=top>KTHA</td>
+ <td valign=top>兒童泰文圖書</td>
+ <td valign=top>MAS</td>
+ <td valign=top>馬來文圖書</td>
+ <td valign=top>KMAS</td>
+ <td valign=top>兒童馬來文圖書</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>KOR</td>
+ <td valign=top>韓文圖書</td>
+ <td valign=top>KKOR</td>
+ <td valign=top>兒童韓文圖書</td>
+ <td valign=top>IND</td>
+ <td valign=top>印尼文圖書</td>
+ <td valign=top>KIND</td>
+ <td valign=top>兒童印尼文圖書</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>VIE</td>
+ <td valign=top>越文圖書</td>
+ <td valign=top>KVIE</td>
+ <td valign=top>兒童越文圖書</td>
+ <td valign=top>BUR</td>
+ <td valign=top>緬甸文圖書</td>
+ <td valign=top>KBUR</td>
+ <td valign=top>兒童緬甸文圖書</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>FRE</td>
+ <td valign=top>法文圖書</td>
+ <td valign=top>KFRE</td>
+ <td valign=top>兒童法文圖書</td>
+ <td valign=top>GER</td>
+ <td valign=top>德文圖書</td>
+ <td valign=top>KGER</td>
+ <td valign=top>兒童德文圖書</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>HIN</td>
+ <td valign=top>印度文圖書</td>
+ <td valign=top>KHIN</td>
+ <td valign=top>兒童印度文圖書</td>
+ <td valign=top>SPA</td>
+ <td valign=top>西班牙文圖書</td>
+ <td valign=top>KSPA</td>
+ <td valign=top>兒童西班牙文圖書</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>HUN</td>
+ <td valign=top>匈牙利文圖書</td>
+ <td valign=top>KHUN</td>
+ <td valign=top>兒童匈牙利文圖書</td>
+ <td valign=top>PHI</td>
+ <td valign=top>菲律賓文圖書</td>
+ <td valign=top>KPHI</td>
+ <td valign=top>兒童菲律賓文圖書</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>CAM</td>
+ <td valign=top>柬埔寨文圖書</td>
+ <td valign=top>KCAM</td>
+ <td valign=top>兒童柬埔寨文圖書</td>
+ <td valign=top>AFR</td>
+ <td valign=top>非洲圖書</td>
+ <td valign=top>KAFR</td>
+ <td valign=top>兒童非洲圖書</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>ARA</td>
+ <td valign=top>阿拉伯文圖書</td>
+ <td valign=top>KARA</td>
+ <td valign=top>兒童阿拉伯文圖書</td>
+ <td valign=top>POR</td>
+ <td valign=top>葡萄牙文圖書</td>
+ <td valign=top>KPOR</td>
+ <td valign=top>兒童葡萄牙文圖書</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>DUT</td>
+ <td valign=top>荷蘭文圖書</td>
+ <td valign=top>KDUT</td>
+ <td valign=top>兒童荷蘭文圖書</td>
+ <td valign=top>CZE</td>
+ <td valign=top>捷克文圖書</td>
+ <td valign=top>KCZE</td>
+ <td valign=top>兒童捷克文圖書</td>
+ </tr>
+</table>
+<p class=MsoNormal>★西文漫畫特藏號採對應語言代號，不用CB</p>
+<p class=MsoNormal><br>&nbsp;</p><a name="999b">&nbsp;</a>
+<p class=MsoNormal align=center>【取分類號】</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>一、中、日文圖書資源根據「中文圖書分類法」（2007年版）</p>
+<p class=MsoNormal>二、兒童書適用：國家圖書館108.8.15<a
+href="https://catweb.ncl.edu.tw/sites/default/files/upload/standard/%E5%85%92%E7%AB%A5%E6%96%87%E5%AD%B8%E7%9B%B8%E9%97%9C%E5%88%86%E9%A1%9E%E8%A1%A8%28%E5%85%AC%E5%91%8A%E7%89%88%29.pdf">兒童文學相關分類表修訂說明2019.08</a><br>
+例：【圖多字少】入繪本（.599）<br>
+&emsp;&emsp;【字多圖少、橋梁書】入兒童故事；兒童小說（.596）</p>
+<p class=MsoNormal>三、幼兒書：<br>
+1.&nbsp;428.82→兒童遊戲，可做互動遊戲的圖書入此，書例：好玩的東西、遊戲時間躲貓貓<br>
+2.&nbsp;428.83→兒童閱讀，偏向一般幼兒繪本入此，含拉拉頁、立體彈跳頁、洞洞形狀頁等。書例：小金魚逃走了、好餓的毛毛蟲<br>
+3.&nbsp;523.23教材與教學法、523.24課本；玩具；教具→請確定為幼稚園（3-6歲）教材才入此類</p>
+<p class=MsoNormal>四、中外文經典作品改編成漫畫形式，分類號依該經典作品類號，特藏號不放CB，250|b著錄[漫畫版]</p>
+<p class=MsoNormal>五、旅遊類若有符合992.7x的內容，如自行車旅行、火車旅行等，應入992.7x，不入700史地類，若為專論單一國家之旅行，再加國別碼。如《日本鐵道旅行》應入992.7431。</p>
+<p class=MsoNormal>六、漫畫一律用947.41，不用依全套冊數細分947.416、947.417、947.418</p>
+<p class=MsoNormal>七、文學作品以作者國籍為標準，若作者具有雙重國籍，以後來取得國籍(如移民)為主，</p>
+<p class=MsoNormal>八、其他特殊情況：<br>
+作者於外國，以該國語言撰寫作品，並在該國出版，文學類圖書分類號應以該出版國取號，例如東山彰良、溫又柔、三木&#12394;&#12378;&#12394;三人均為臺灣人，以日文撰寫、在日本出版之文學著作，翻譯為中文後，仍取861.5x。<br>
+<br><br><br><br></p><a name="999c">&nbsp;</a>
+<p class=MsoNormal align=center>【取著者號】</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>一、本館著者號採用「五筆檢字法」，以《中西目錄排檢法與作者號碼表》編製內容為準，若其缺字則依國家圖書館首尾五筆著者號查詢系統(<a href="http://catapp.ncl.edu.tw/five/index.php">http://catapp.ncl.edu.tw/five/index.php</a>)為準。</p>
+<p class=MsoNormal>二、五筆檢字法之著者號有「著者年代表」，依著者卒年判斷，遇【古人】，請一定要注意著者號084$b的年代號（例外：作者為日、韓國籍者年代號取7）</p>
+<table class=MsoNormalTable style="width:600px;margin-left:calc((100% - 740px) / 2);">
+ <tr class=MsoNormal align=center> <td colspan=2 valign=top>中國時代</td>
+ <td colspan=2 valign=top>西元時代</td>
+ <td colspan=2 valign=top>日本時代</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>民國：現代</td>
+ <td valign=top>8</td>
+ <td valign=top>20世紀</td>
+ <td valign=top>8</td>
+ <td valign=top>現代：明治及其後</td>
+ <td valign=top>7</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>清：近代</td>
+ <td valign=top>7</td>
+ <td valign=top>19世紀</td>
+ <td valign=top>7</td>
+ <td valign=top>近世：江戶「德川」時代</td>
+ <td valign=top>6</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>明</td>
+ <td valign=top>6</td>
+ <td valign=top>18世紀</td>
+ <td valign=top>6</td>
+ <td valign=top>室町及安土桃山時代</td>
+ <td valign=top>5</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>宋遼金元</td>
+ <td valign=top>5</td>
+ <td valign=top>17世紀</td>
+ <td valign=top>5</td>
+ <td valign=top>近古：鎌倉－桃山</td>
+ <td valign=top>4</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>隋唐五代</td>
+ <td valign=top>4</td>
+ <td valign=top>近代</td>
+ <td valign=top>4</td>
+ <td valign=top>平安時代</td>
+ <td valign=top>3</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>晉南北朝</td>
+ <td valign=top>3</td>
+ <td valign=top>中世紀</td>
+ <td valign=top>3</td>
+ <td valign=top>中古：大化－平安</td>
+ <td valign=top>2</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>秦漢三國</td>
+ <td valign=top>2</td>
+ <td valign=top>古羅馬</td>
+ <td valign=top>2</td>
+ <td valign=top>太古及上古：神代</td>
+ <td valign=top>1</td>
+ </tr>
+ <tr class=MsoNormal align=center> <td valign=top>先秦</td>
+ <td valign=top>1</td>
+ <td valign=top>古希臘</td>
+ <td valign=top>1</td>
+ <td valign=top>&nbsp;</td>
+ <td valign=top>&nbsp;</td>
+ </tr>
+</table>
+<p class=MsoNormal>★請先查詢本館館藏目錄，參考該作者既有著者號，若查無資料再依上述原則取號<br>
+&nbsp;<br>
+三、日本人取姓名前三個字（例：姓吉竹，名伸介，作者號取吉竹伸）</p>
+<p class=MsoNormal>★日本名的作者（出現平假名或片假名），亦依五筆檢字法取碼。</p>
+<p class=MsoNormal>★外文名的作者，若書中無中文翻譯，請依優先次序選擇中譯名取號：館內權威檔→《標準譯名錄》→其他來源著稱譯名（例如其他出版社另有中譯名，但勿選用中國大陸譯名）</p>
+<p class=MsoNormal>★著者取號依「書名頁」的著者為主</p>
+<p class=MsoNormal>★無著者或無法取著者號之圖書資料，以譯者、改寫、文字編輯/主編、總編輯、編輯、責任編輯、書名之先後順序取著者號；非原創者，如譯者、改寫、文字編輯/主編、總編輯、編輯者，須建入100段。</p>
+<p class=MsoNormal>特殊狀況：</p>
+<p class=MsoNormal>★書上作者為臺灣人取英文名字查詢順序：館內權威檔→查詢作者本名→以譯者、改寫、文字編輯/主編、總編輯、編輯、責任編輯、書名之先後順序取著者號<br>
+★關於書上的「原著」、「改寫」、「漫畫」作者號的取法<br>
+「一般書」取「原著」(不取改寫)<br>
+「漫畫」、「整本都是圖的書」，取「漫畫」、「繪者」<br>
+範例：<br>
+084&nbsp;&nbsp;&nbsp;&nbsp;|a857.47|b864 v.1|2ncsclt<br>
+100 1&nbsp; |a彭超<br>
+245&nbsp;10&nbsp;|a西遊記. |n1,&nbsp;|p美猴王出世&#8710;/&#8710;|c彭超漫畫 ; 吳承恩原著<br>
+700&nbsp;1#&nbsp;|a吳承恩,&nbsp;|d1510-1582<br>
+→分類號以文學分類取號，作者號取自漫畫者彭超</p>
+<p class=MsoNormal>★若多冊合併為套編且各冊作者不同，作者號取【第一冊作者】，500段著錄【第2冊作者為〇〇〇】，並在700段作追尋。<br>
+範例：<br>
+084&nbsp;&nbsp;&nbsp;&nbsp;|a557.52|b8767 v.1-4|2ncsclt<br>
+100 1&nbsp; |a邱永芳|4aut<br>
+245&nbsp;10&nbsp;|a我國港灣壓艙水污染問題管理法制化之研究&nbsp;/&nbsp;|c邱永芳, 王毓正著<br>
+500&nbsp;&nbsp;&nbsp;&nbsp;|a第3-4冊作者為張富東, 黃茂信<br>
+700&nbsp;1#&nbsp;|a王毓正|4aut<br>
+700&nbsp;1#&nbsp;|a張富東|4aut<br>
+700&nbsp;1#&nbsp;|a黃茂信|4aut</p>
+<p class=MsoNormal>★若多冊單編且各冊作者不同，作者號取【第一冊作者】，500段著錄【作者號取自第1冊作者〇〇〇】，並在700段作追尋。<br>
+範例：<br>
+084&nbsp;##&nbsp;|a049.41|b879 v.3|2ncsclt<br>
+110&nbsp;2#&nbsp;|aBomBom Stoty|4aut<br>
+245&nbsp;10&nbsp;|a漫畫大英百科. |n地理3,&nbsp;|p美洲&nbsp;=&nbsp;|bBritannica&nbsp;/&nbsp;|cBomBom Stoty文 ; 崔炳益圖 ; 徐月珠譯<br>
+500&nbsp;##&nbsp;|a作者號取自第1冊譯者劉徽<br>
+700&nbsp;1#&nbsp;|a崔炳益|4ill<br>
+700&nbsp;1#&nbsp;|a徐月珠|4trl<br>
+700&nbsp;1#&nbsp;|a劉徽|4trl</p>
+<p class=MsoNormal>★若作者名中遇到英文字、數字或符號則跳過取號；但若是度C則不取，如溫暖38度C，作者號為838</p>
+<p class=MsoNormal>★西洋人姓只有一字時，須取至名且作者號須補滿4碼<br>
+EX：羅倫.隆(Loren Long)，作者號取8457</p>
+<p class=MsoNormal>★特殊作者取號：<br>
+&nbsp;&nbsp;但丁(Dante Alighieri)，取「但丁」</p>
+<p class=MsoNormal>★團體作者先上館內查，以何取號</p>
+<p class=MsoNormal>★著者為【NHK出版】不取，取譯者</p>
+<p class=MsoNormal>★政府單位，取重點字<br>
+如：行政院農業委員會特→245及110段KEY全名，著者號取『農委會』<br>
+行政院文化建設委員會→245及110段KEY全名，著者號取『文建會』<br>
+日本能率協會顧問公司顧問群→245及110段KEY全名，著者號取『日本能率協會』<br>
+東京大學工學部建築學科安藤忠雄研究室→245及110段KEY全名，著者號取『東大工』<br>
+★110段Key『財團法人農業工程研究中心』，245段KEY『農業工程研究中心』，著者號取『農工研』<br>
+★110段Key『財團法人中華民國昇恒昌中心』，245段KEY『中華民國昇恒昌中心』，著者號取『昇恒昌中心』。</p>
+<p class=MsoNormal>★連續出版作品第1集冊次號著錄方式：<br>
+－遇到第1集時，按照書籍給予冊次（書上原本有標冊次，就給v.1；書上沒編就不用加）<br>
+－遇到採購時即為連續集數購入的，無論書上是否有寫第1集，都要加上v.1</p>
+</div>
+</body>
+</html>

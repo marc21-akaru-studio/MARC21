@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<meta name="robots" content="noindex, nofollow">
+		<title>MARC21小工具 - 館藏設定</title>
+
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="shortcut icon" href="favicon.ico"/>
+		<link rel="bookmark" href="favicon.ico"/>
+	</head>
+
+	<body>
+		<!--載入時預設 / Onload-->
+		<script src="js/Onload.js"></script>
+
+		<!--主要輸入/輸出區-->
+		<div class="box" style="display:flex;width:100%;float:none;">
+		<div class="box" style="width:72%;max-width:1250px;flex-shrink:0;">
+			<div class="box" style="width:100%;height:11em;overflow:auto;">
+				<div class="box" style="width:48%;display:inline-flex;flex-wrap:wrap;flex-direction:raw;align-items:start;">
+					<div class="box">
+						<div class="box" style="padding:0px;">
+						<span class="labeltext">起始條碼：</span>
+						<input type="text" maxlength="12" class="inputbox" id="BoxBarcodeStart" style="width:18em;height:1em;text-align:left;"></div>
+					</div>
+					<div class="box">
+						<div class="box" style="padding:0px;">
+						<span class="labeltext">冊次號：&emsp;</span>
+						<input type="text" class="inputbox" id="BoxVlNo" style="width:18em;height:1em;text-align:left;">
+						</div>
+					</div>
+					<div class="box">
+						<div class="box" style="padding:0px;">
+						<span class="labeltext">年代號：&emsp;</span>
+						<input type="text" class="inputbox" id="BoxYear" style="width:18em;height:1em;text-align:left;">
+						</div>
+					</div>
+					<div class="box">
+						<span class="labeltext">館員備註：</span>
+						<input type="text" class="inputbox" id="BoxLibMemo" style="width:18em;height:1em;text-align:left;">
+					</div>
+					<div class="box">
+						<input class="chkBox" type="checkbox" id="chkMairacle" onchange="toolChkMairacle()" checked>
+						<label class="labeltext" for="chkMairacle">加入：</label>
+						<span class="labeltext">館藏性質：</span>
+						<select class="selectBox" id="sel095s" style="width:4em;">
+							<option value="本體" selected>本體</option>
+							<option value="附件">附件</option>
+						</select>
+						<span class="labeltext">徵集來源：</span>
+						<select class="selectBox" id="sel095z" style="width:4em;">
+							<option value="採購" selected>採購</option>
+							<option value="贈送">贈送</option>
+							<option value="交換">交換</option>
+						</select><br>
+					</div>
+				</div>
+				<div class="box" style="width:48%;">
+					<div class="box">
+						<span class="labeltext">資料類型：</span>
+						<select class="selectBox" id="BoxDataType" style="width:18em;" onchange="toolSwitchBK();toolChangeBookStacks();">
+							<option value="" selected>Book 中文圖書</option>
+						</select></div><br>
+					<div class="box">
+						<span class="labeltext">流通類型：</span>
+						<select class="selectBox" id="BoxBroType" style="width:18em;">
+							<option value="" selected>L30 可借30天</option>
+						</select></div><br>
+					<div class="box">
+						<span class="labeltext">取碼方式：</span>
+						<select class="selectBox" id="BoxForC" style="width:18em;">
+							<option value="" selected>中文書 Five strokes</option>
+						</select></div><br>
+					<div class="box">
+						<span class="labeltext">典藏地：&emsp;</span>
+						<select class="selectBox" id="BoxArea" style="width:11em;">
+							<option value="" selected>BK 開架閱覽</option>
+						</select>
+						<input class="chkBox" type="checkbox" onchange="toolSwitchBK()" id="chkStocken" checked>
+						<label class="labeltext" for="chkStocken">館藏地檢查</label>
+					</div><br>
+				</div>
+			</div>
+			<div class="box" style="width:100%;height:6em;">
+				<div class="zi_box_1" id="" style="width:96%;">
+					<span class="zi_box_2">快速選擇分館</span><br>
+					<div class="box" style="width:96%;display:inline-flex;flex-wrap:nowrap;flex-direction:raw;align-items:start;">
+						<div class="button" style="width:4em;" onclick="toolCheckAll('Yes')">全選</div>
+						<div class="button" style="width:5em;" onclick="toolCheckAll('No')">全不選</div>
+						<div class="box" style="float:left;width:17.5em;padding:0px;">
+						<span class="labeltext">輸入選擇：</span>
+							<input type="text" class="inputbox" id="BoxChk" style="width:11em;text-align:left;"></div>
+						<div class="button" style="width:4em;" onclick="toolCheckMer()">勾選</div>
+						<div class="box" style="width:1em;padding:0px;">
+						</div>
+						<div class="box" style="flex-grow:1;width:13em;padding:0px;">
+						<span class="labeltext" id="LabelCount">已選取 0 館</span></div>
+					
+				</div>
+				</div>
+			</div>
+			<div class="box" style="width:100%;height:19em;overflow:auto;">
+				<div class="zi_box_1" style="width:98%;">
+					<span class="zi_box_2">所在分館</span><br>
+				<div class="box" style="width:98%;height:56em;padding:0px;display:inline-flex;flex-wrap:wrap;flex-direction:column;align-items:start;">
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk001" onchange="toolCheckStacks('Chk001')">
+						<label id="txt001" class="labeltext" for="Chk001" style="font-size:1em;width:5em;display:">BA 五股</label>
+						<input type="text" maxlength="2" class="inputbox" id="int001" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int001')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk002" onchange="toolCheckStacks('Chk002')">
+						<label id="txt002" class="labeltext" for="Chk002" style="font-size:1em;width:5em;display:">BB 五股成州</label>
+						<input type="text" maxlength="2" class="inputbox" id="int002" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int002')"><br>
+
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk003" onchange="toolCheckStacks('Chk003')">
+						<label id="txt003" class="labeltext" for="Chk003" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int003" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int003')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk004" onchange="toolCheckStacks('Chk004')">
+						<label id="txt004" class="labeltext" for="Chk004" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int004" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int004')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk005" onchange="toolCheckStacks('Chk005')">
+						<label id="txt005" class="labeltext" for="Chk005" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int005" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int005')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk006" onchange="toolCheckStacks('Chk006')">
+						<label id="txt006" class="labeltext" for="Chk006" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int006" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int006')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk007" onchange="toolCheckStacks('Chk007')">
+						<label id="txt007" class="labeltext" for="Chk007" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int007" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int007')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk008" onchange="toolCheckStacks('Chk008')">
+						<label id="txt008" class="labeltext" for="Chk008" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int008" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int008')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk009" onchange="toolCheckStacks('Chk009')">
+						<label id="txt009" class="labeltext" for="Chk009" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int009" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int009')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk010" onchange="toolCheckStacks('Chk010')">
+						<label id="txt010" class="labeltext" for="Chk010" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int010" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int010')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk011" onchange="toolCheckStacks('Chk011')">
+						<label id="txt011" class="labeltext" for="Chk011" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int011" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int011')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk012" onchange="toolCheckStacks('Chk012')">
+						<label id="txt012" class="labeltext" for="Chk012" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int012" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int012')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk013" onchange="toolCheckStacks('Chk013')">
+						<label id="txt013" class="labeltext" for="Chk013" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int013" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int013')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk014" onchange="toolCheckStacks('Chk014')">
+						<label id="txt014" class="labeltext" for="Chk014" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int014" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int014')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk015" onchange="toolCheckStacks('Chk015')">
+						<label id="txt015" class="labeltext" for="Chk015" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int015" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int015')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk016" onchange="toolCheckStacks('Chk016')">
+						<label id="txt016" class="labeltext" for="Chk016" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int016" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int016')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk017" onchange="toolCheckStacks('Chk017')">
+						<label id="txt017" class="labeltext" for="Chk017" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int017" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int017')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk018" onchange="toolCheckStacks('Chk018')">
+						<label id="txt018" class="labeltext" for="Chk018" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int018" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int018')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk019" onchange="toolCheckStacks('Chk019')">
+						<label id="txt019" class="labeltext" for="Chk019" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int019" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int019')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk020" onchange="toolCheckStacks('Chk020')">
+						<label id="txt020" class="labeltext" for="Chk020" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int020" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int020')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk021" onchange="toolCheckStacks('Chk021')">
+						<label id="txt021" class="labeltext" for="Chk021" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int021" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int021')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk022" onchange="toolCheckStacks('Chk022')">
+						<label id="txt022" class="labeltext" for="Chk022" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int022" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int022')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk023" onchange="toolCheckStacks('Chk023')">
+						<label id="txt023" class="labeltext" for="Chk023" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int023" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int023')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk024" onchange="toolCheckStacks('Chk024')">
+						<label id="txt024" class="labeltext" for="Chk024" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int024" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int024')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk025" onchange="toolCheckStacks('Chk025')">
+						<label id="txt025" class="labeltext" for="Chk025" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int025" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int025')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk026" onchange="toolCheckStacks('Chk026')">
+						<label id="txt026" class="labeltext" for="Chk026" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int026" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int026')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk027" onchange="toolCheckStacks('Chk027')">
+						<label id="txt027" class="labeltext" for="Chk027" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int027" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int027')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk028" onchange="toolCheckStacks('Chk028')">
+						<label id="txt028" class="labeltext" for="Chk028" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int028" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int028')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk029" onchange="toolCheckStacks('Chk029')">
+						<label id="txt029" class="labeltext" for="Chk029" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int029" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int029')"><br>
+						</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk030" onchange="toolCheckStacks('Chk030')">
+						<label id="txt030" class="labeltext" for="Chk030" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int030" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int030')"><br>
+						</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk031" onchange="toolCheckStacks('Chk031')">
+						<label id="txt031" class="labeltext" for="Chk031" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int031" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int031')"><br>
+						</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk032" onchange="toolCheckStacks('Chk032')">
+						<label id="txt032" class="labeltext" for="Chk032" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int032" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int032')"><br>
+						</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk033" onchange="toolCheckStacks('Chk033')">
+						<label id="txt033" class="labeltext" for="Chk033" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int033" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int033')"><br>
+						</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk034" onchange="toolCheckStacks('Chk034')">
+						<label id="txt034" class="labeltext" for="Chk034" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int034" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int034')"><br>
+						</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk035" onchange="toolCheckStacks('Chk035')">
+						<label id="txt035" class="labeltext" for="Chk035" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int035" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int035')"><br>
+						</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk036" onchange="toolCheckStacks('Chk036')">
+						<label id="txt036" class="labeltext" for="Chk036" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int036" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int036')"><br>
+						</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk037" onchange="toolCheckStacks('Chk037')">
+						<label id="txt037" class="labeltext" for="Chk037" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int037" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int037')"><br>
+						</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk038" onchange="toolCheckStacks('Chk038')">
+						<label id="txt038" class="labeltext" for="Chk038" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int038" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int038')"><br>
+						</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk039" onchange="toolCheckStacks('Chk039')">
+						<label id="txt039" class="labeltext" for="Chk039" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int039" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int039')"><br>
+						</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk040" onchange="toolCheckStacks('Chk040')">
+						<label id="txt040" class="labeltext" for="Chk040" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int040" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int040')"><br>
+						</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk041" onchange="toolCheckStacks('Chk041')">
+						<label id="txt041" class="labeltext" for="Chk041" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int041" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int041')"><br>
+						</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk042" onchange="toolCheckStacks('Chk042')">
+						<label id="txt042" class="labeltext" for="Chk042" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int042" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int042')"><br>
+						</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk043" onchange="toolCheckStacks('Chk043')">
+						<label id="txt043" class="labeltext" for="Chk043" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int043" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int043')"><br>
+						</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk044" onchange="toolCheckStacks('Chk044')">
+						<label id="txt044" class="labeltext" for="Chk044" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int044" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int044')"><br>
+						</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk045" onchange="toolCheckStacks('Chk045')">
+						<label id="txt045" class="labeltext" for="Chk045" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int045" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int045')"><br>
+						</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk046" onchange="toolCheckStacks('Chk046')">
+						<label id="txt046" class="labeltext" for="Chk046" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int046" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int046')"><br>
+						</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk047" onchange="toolCheckStacks('Chk047')">
+						<label id="txt047" class="labeltext" for="Chk047" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int047" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int047')"><br>
+						</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk048" onchange="toolCheckStacks('Chk048')">
+						<label id="txt048" class="labeltext" for="Chk048" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int048" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int048')"><br>
+						</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk049" onchange="toolCheckStacks('Chk049')">
+						<label id="txt049" class="labeltext" for="Chk049" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int049" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int049')"><br>
+						</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk050" onchange="toolCheckStacks('Chk050')">
+						<label id="txt050" class="labeltext" for="Chk050" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int050" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int050')"><br>
+						</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk051" onchange="toolCheckStacks('Chk051')">
+						<label id="txt051" class="labeltext" for="Chk051" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int051" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int051')"><br>
+						</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk052" onchange="toolCheckStacks('Chk052')">
+						<label id="txt052" class="labeltext" for="Chk052" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int052" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int052')"><br>
+						</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk053" onchange="toolCheckStacks('Chk053')">
+						<label id="txt053" class="labeltext" for="Chk053" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int053" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int053')"><br>
+						</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk054" onchange="toolCheckStacks('Chk054')">
+						<label id="txt054" class="labeltext" for="Chk054" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int054" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int054')"><br>
+						</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk055" onchange="toolCheckStacks('Chk055')">
+						<label id="txt055" class="labeltext" for="Chk055" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int055" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int055')"><br>
+						</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk056" onchange="toolCheckStacks('Chk056')">
+						<label id="txt056" class="labeltext" for="Chk056" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int056" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int056')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk057" onchange="toolCheckStacks('Chk057')">
+						<label id="txt057" class="labeltext" for="Chk057" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int057" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int057')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk058" onchange="toolCheckStacks('Chk058')">
+						<label id="txt058" class="labeltext" for="Chk058" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int058" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int058')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk059" onchange="toolCheckStacks('Chk059')">
+						<label id="txt059" class="labeltext" for="Chk059" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int059" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int059')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk060" onchange="toolCheckStacks('Chk060')">
+						<label id="txt060" class="labeltext" for="Chk060" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int060" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int060')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk061" onchange="toolCheckStacks('Chk061')">
+						<label id="txt061" class="labeltext" for="Chk061" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int061" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int061')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk062" onchange="toolCheckStacks('Chk062')">
+						<label id="txt062" class="labeltext" for="Chk062" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int062" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int062')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk063" onchange="toolCheckStacks('Chk063')">
+						<label id="txt063" class="labeltext" for="Chk063" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int063" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int063')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk064" onchange="toolCheckStacks('Chk064')">
+						<label id="txt064" class="labeltext" for="Chk064" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int064" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int064')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk065" onchange="toolCheckStacks('Chk065')">
+						<label id="txt065" class="labeltext" for="Chk065" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int065" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int065')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk066" onchange="toolCheckStacks('Chk066')">
+						<label id="txt066" class="labeltext" for="Chk066" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int066" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int066')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk067" onchange="toolCheckStacks('Chk067')">
+						<label id="txt067" class="labeltext" for="Chk067" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int067" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int067')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk068" onchange="toolCheckStacks('Chk068')">
+						<label id="txt068" class="labeltext" for="Chk068" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int068" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int068')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk069" onchange="toolCheckStacks('Chk069')">
+						<label id="txt069" class="labeltext" for="Chk069" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int069" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int069')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk070" onchange="toolCheckStacks('Chk070')">
+						<label id="txt070" class="labeltext" for="Chk070" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int070" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int070')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk071" onchange="toolCheckStacks('Chk071')">
+						<label id="txt071" class="labeltext" for="Chk071" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int071" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int071')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk072" onchange="toolCheckStacks('Chk072')">
+						<label id="txt072" class="labeltext" for="Chk072" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int072" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int072')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk073" onchange="toolCheckStacks('Chk073')">
+						<label id="txt073" class="labeltext" for="Chk073" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int073" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int073')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk074" onchange="toolCheckStacks('Chk074')">
+						<label id="txt074" class="labeltext" for="Chk074" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int074" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int074')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk075" onchange="toolCheckStacks('Chk075')">
+						<label id="txt075" class="labeltext" for="Chk075" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int075" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int075')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk076" onchange="toolCheckStacks('Chk076')">
+						<label id="txt076" class="labeltext" for="Chk076" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int076" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int076')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk077" onchange="toolCheckStacks('Chk077')">
+						<label id="txt077" class="labeltext" for="Chk077" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int077" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int077')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk078" onchange="toolCheckStacks('Chk078')">
+						<label id="txt078" class="labeltext" for="Chk078" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int078" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int078')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk079" onchange="toolCheckStacks('Chk079')">
+						<label id="txt079" class="labeltext" for="Chk079" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int079" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int079')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk080" onchange="toolCheckStacks('Chk080')">
+						<label id="txt080" class="labeltext" for="Chk080" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int080" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int080')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk081" onchange="toolCheckStacks('Chk081')">
+						<label id="txt081" class="labeltext" for="Chk081" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int081" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int081')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk082" onchange="toolCheckStacks('Chk082')">
+						<label id="txt082" class="labeltext" for="Chk082" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int082" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int082')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk083" onchange="toolCheckStacks('Chk083')">
+						<label id="txt083" class="labeltext" for="Chk083" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int083" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int083')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk084" onchange="toolCheckStacks('Chk084')">
+						<label id="txt084" class="labeltext" for="Chk084" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int084" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int084')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk085" onchange="toolCheckStacks('Chk085')">
+						<label id="txt085" class="labeltext" for="Chk085" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int085" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int085')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk086" onchange="toolCheckStacks('Chk086')">
+						<label id="txt086" class="labeltext" for="Chk086" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int086" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int086')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk087" onchange="toolCheckStacks('Chk087')">
+						<label id="txt087" class="labeltext" for="Chk087" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int087" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int087')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk088" onchange="toolCheckStacks('Chk088')">
+						<label id="txt088" class="labeltext" for="Chk088" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int088" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int088')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk089" onchange="toolCheckStacks('Chk089')">
+						<label id="txt089" class="labeltext" for="Chk089" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int089" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int089')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk090" onchange="toolCheckStacks('Chk090')">
+						<label id="txt090" class="labeltext" for="Chk090" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int090" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int090')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk091" onchange="toolCheckStacks('Chk091')">
+						<label id="txt091" class="labeltext" for="Chk091" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int091" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int091')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk092" onchange="toolCheckStacks('Chk092')">
+						<label id="txt092" class="labeltext" for="Chk092" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int092" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int092')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk093" onchange="toolCheckStacks('Chk093')">
+						<label id="txt093" class="labeltext" for="Chk093" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int093" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int093')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk094" onchange="toolCheckStacks('Chk094')">
+						<label id="txt094" class="labeltext" for="Chk094" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int094" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int094')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk095" onchange="toolCheckStacks('Chk095')">
+						<label id="txt095" class="labeltext" for="Chk095" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int095" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int095')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk096" onchange="toolCheckStacks('Chk096')">
+						<label id="txt096" class="labeltext" for="Chk096" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int096" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int096')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk097" onchange="toolCheckStacks('Chk097')">
+						<label id="txt097" class="labeltext" for="Chk097" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int097" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int097')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk098" onchange="toolCheckStacks('Chk098')">
+						<label id="txt098" class="labeltext" for="Chk098" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int098" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int098')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk099" onchange="toolCheckStacks('Chk099')">
+						<label id="txt099" class="labeltext" for="Chk099" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int099" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int099')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk100" onchange="toolCheckStacks('Chk100')">
+						<label id="txt100" class="labeltext" for="Chk100" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int100" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int100')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk101" onchange="toolCheckStacks('Chk101')">
+						<label id="txt101" class="labeltext" for="Chk101" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int101" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int101')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk102" onchange="toolCheckStacks('Chk102')">
+						<label id="txt102" class="labeltext" for="Chk102" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int102" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int102')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk103" onchange="toolCheckStacks('Chk103')">
+						<label id="txt103" class="labeltext" for="Chk103" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int103" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int103')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk104" onchange="toolCheckStacks('Chk104')">
+						<label id="txt104" class="labeltext" for="Chk104" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int104" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int104')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk105" onchange="toolCheckStacks('Chk105')">
+						<label id="txt105" class="labeltext" for="Chk105" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int105" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int105')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk106" onchange="toolCheckStacks('Chk106')">
+						<label id="txt106" class="labeltext" for="Chk106" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int106" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int106')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk107" onchange="toolCheckStacks('Chk107')">
+						<label id="txt107" class="labeltext" for="Chk107" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int107" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int107')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk108" onchange="toolCheckStacks('Chk108')">
+						<label id="txt108" class="labeltext" for="Chk108" style="font-size:1em;width:5em;display:"></label>
+						<input type="text" maxlength="2" class="inputbox" id="int108" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int108')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk109" onchange="toolCheckStacks('Chk109')">
+						<label id="txt109" class="labeltext" for="Chk109" style="font-size:1em;width:5em;display:">&emsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&nbsp;</label>
+						<input type="text" maxlength="2" class="inputbox" id="int109" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int109')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk110" onchange="toolCheckStacks('Chk110')">
+						<label id="txt110" class="labeltext" for="Chk110" style="font-size:1em;width:5em;display:">&emsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&nbsp;</label>
+						<input type="text" maxlength="2" class="inputbox" id="int110" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int110')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk111" onchange="toolCheckStacks('Chk111')">
+						<label id="txt111" class="labeltext" for="Chk111" style="font-size:1em;width:5em;display:">&emsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&nbsp;</label>
+						<input type="text" maxlength="2" class="inputbox" id="int111" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int111')"><br>
+					</div>
+					<div class="box" style="width:24.3%">
+						<input class="chkBox" type="checkbox" id="Chk112" onchange="toolCheckStacks('Chk112')">
+						<label id="txt112" class="labeltext" for="Chk112" style="font-size:1em;width:5em;display:">&emsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&nbsp;</label>
+						<input type="text" maxlength="2" class="inputbox" id="int112" style="width:2em;height:0.95em;text-align:center;" onchange="toolChangeStack('int112')"><br>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+		<div class="box" style="height:38em;flex-grow:1;">
+			<div class="box" style="max-width:16em;height:10%;">
+				<div class="button" style="width:6em;float:left;" onclick="toolRunStack()" onfocus="">產生ISO檔</div>
+				<div class="button" style="width:6em;float:right;" onclick="toolClearStacks()" onfocus="">清除重填</div>
+			</div>
+			<div class="box" style="width:98%;height:88%;">
+				<div class="zi_box_1" style="height:93%;width:100%;">
+					<span class="zi_box_2">輸出資料</span><br>
+				<textarea id="showISO" class="inputbox" style="height:91%;width:95%;overflow:scroll;white-space:pre;font-size:var(--fontbigsize);resize:none;" onfocus="" readonly></textarea></div><br>
+			</div><br>
+		</div>
+		</div>
+
+		<!--顯示選單 / ShowTools-->
+		<script src="js/ShowTools.js"></script>
+
+		<!--切換記錄類型 / SwitchGroups-->
+		<script src="js/SwitchGroups.js"></script>
+
+		<!--顯示提示 / ShowTips-->
+		<script src="js/ShowTips.js"></script>
+
+		<!--輸入過程 / InputTools-->
+		<script src="js/InputTools.js"></script>
+
+		<script>
+		window.addEventListener('storage', function (e) {
+			if (e.key === 'Book653a') {
+				//console.log('localStorage的Book653a值' + e.newValue);
+				document.querySelector('#BoxDataType').value = localStorage.getItem('Book653a');
+				toolChangeBookStacks();
+			}
+			if (e.key === 'Book594a') {
+				BoxLibMemo.value = localStorage.getItem('Book594a');
+			}
+		});
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<meta name="robots" content="noindex, nofollow">
+		<title>西文核編小工具(HTML版)</title>
+
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="shortcut icon" href="favicon.ico"/>
+		<link rel="bookmark" href="favicon.ico"/>
+	</head>
+
+	<body style="overflow:hidden;">
+		<!--載入時預設 / CutterTable-->
+		<script src="js/CutterTable.js"></script>
+	<div class="box" id="divmain" style="width:500px;left:1%;height:100vh;padding:0px;">
+		<div class="zi_box_1" id="Group084" style="width:calc(100% - 12px);max-width:480px;"><span class="zi_box_2">作者姓名</span><br>
+		<div class="box" style="width:96%;">
+			<div class="box" style="width:calc(100% - 6em);">
+				<span class="labeltext">作者姓名：</span>
+				<input type="text" class="inputbox" id="boxAuthor5" style="width:calc(98% - 6.5em);text-align:left;" placeholder="請輸入作者姓氏或全名">
+			</div>
+			<div id="btnCutter" class="button" style="width:4em;float:right;" onclick="ButtCutter();">取號</div><br>
+		</div><br>
+	</div><br>
+	<div class="zi_box_1" id="GroupOld" style="width:calc(100% - 12px);max-width:480px;"><span class="zi_box_2">作者號：</span><br>
+		<label id="AuthorName" class="labeltext">&nbsp;</label>
+		<div class="box" style="width:96%;">
+			<div class="inputbox" id="boxInCutter" style="width:100%;height:23em;overflow:auto;line-height:1.6em;"></div>
+		</div><br>
+	</div><br>
+	<div class="box" id="divright" style="position:fixed;width:calc(96vw - 500px);right:1%;top:1%;height:100vh;padding:0px;">
+		<div class="button" style="width:6em;float:right;" onclick="toolDisplay('toolTheme5');">切換主題</div><br>
+		<div class="zi_box_1" id="Group084" style="width:96%;"><span class="zi_box_2">比對館藏</span><br>
+
+		<div class="box" style="width:96%;">
+			<div class="box" style="width:calc(96% - 5em);">
+				<span class="labeltext">配館：</span>
+				<input type="text" class="inputbox" id="boxStocks" style="width:calc(98% - 4.5em);text-align:left;" onchange="ChangeStocks();">
+			</div>
+			<div id="btnNTCall" class="button" style="width:4em;float:right;" onclick="ButtFillAll();">全市</div><br>
+		<div class="box" style="width:96%;">
+			<form>
+				<fieldset class="zi_box_1">
+				<legend class="labeltext">資料來源：</legend>
+				<div>
+				<input type="radio" id="chkFromA" name="contact" value="A" checked />
+				<label for="chkFromA" class="labeltext">進階查詢</label>
+				<input type="radio" id="chkFromB" name="contact" value="B" />
+				<label for="chkFromB" class="labeltext">館藏資料維護(Chrome/Edge)</label>
+				<input type="radio" id="chkFromC" name="contact" value="C" />
+				<label for="chkFromC" class="labeltext">館藏資料維護(FireFox)</label>
+				<input type="radio" id="chkFromM" name="contact" value="M" />
+				<label for="chkFromM" class="labeltext">Marcedit書目檔</label>
+				</div>
+				</fieldset>
+			</form>
+		</div>
+		<div class="box" style="width:96%;">
+		<textarea id="lblPeast" class="inputbox" style="height:10em;width:98%;overflow:auto;white-space:pre;" onchange="ChangeStocks();"></textarea></div><br>
+		<div id="btnCheckStocks" class="button" style="width:4em;float:right;" onclick="ButtCheckStocks();">比對</div><br>
+	</div><br>
+	<div class="zi_box_1" id="GroupOld" style="width:96%;"><span class="zi_box_2">比對結果</span><br>
+		<div class="box" style="width:96%;">
+			<div class="inputbox" id="boxInDatabase" style="width:100%;height:7em;overflow:auto;line-height:1.6em;"></div>
+		</div><br>
+	</div>
+	</div><br>
+	<!--切換主題 / ShowTools-->
+	<div class="toolstyle" id="toolTheme5" style="width:10em;height:3.6em;top:4%;left:calc(100% - 12em);display:none;">
+		<table class="bibTable" style="width:88%;align:center;">
+			<tr>
+				<td style="width:1%;"></td>
+				<td style="width:30%;">
+					<div class="button" id="toolThemeLight" style="height:90%;weight:90%;" onclick="switchTo('light');"><svg viewBox="0 0 333.33334 333.33334" height="80%" width="80%" >
+					<g transform="matrix(1.3333333,0,0,-1.3333333,0,333.33333)" id="g0">
+							<g transform="translate(0,125)" id="g1">
+							  <path id="path1" style="fill:#FFF;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 C 0,-69.035 55.964,-125 125,-125 V 125 C 55.964,125 0,69.036 0,0"/>
+							</g>
+							<g transform="translate(125,250)" id="g2">
+							  <path id="path2" style="fill:#9cb85c;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 V -125 H 125 C 125,-55.964 69.035,0 0,0"/>
+							</g>
+							<g transform="translate(250,125)" id="g3">
+							  <path id="path3" style="fill:#5cb89c;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 H -125 V -125 C -55.965,-125 0,-69.035 0,0"/>
+							</g>
+					</g>
+					</svg></div></td>
+				<td style="width:4%;"></td>
+				<td style="width:30%;">
+					<div class="button" id="toolThemeDark" style="height:90%;weight:90%;" onclick="switchTo('dark');"><svg viewBox="0 0 333.33334 333.33334" height="80%" width="80%" >
+						<g transform="matrix(1.3333333,0,0,-1.3333333,0,333.33333)" id="g0">
+							<g transform="translate(0,125)" id="g1">
+							<path id="path1" style="fill:#000;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 C 0,-69.035 55.964,-125 125,-125 V 125 C 55.964,125 0,69.036 0,0"/>
+							</g>
+							<g transform="translate(125,250)" id="g2">
+							<path id="path2" style="fill:#895B2E;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 V -125 H 125 C 125,-55.964 69.035,0 0,0"/>
+							</g>
+							<g transform="translate(250,125)" id="g3">
+							<path id="path3" style="fill:#492711;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 H -125 V -125 C -55.965,-125 0,-69.035 0,0"/>
+							</g>
+						</g>
+					</svg></div></td>
+				<td style="width:4%;"></td>
+				<td style="width:30%;">
+					<div class="button" id="toolThemeBisque" style="height:90%;weight:90%;" onclick="switchTo('bisque');"><svg viewBox="0 0 333.33334 333.33334" height="80%" width="80%" >
+						<g transform="matrix(1.3333333,0,0,-1.3333333,0,333.33333)" id="g0">
+							<g transform="translate(0,125)" id="g1">
+							<path id="path1" style="fill:#f7e3af;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 C 0,-69.035 55.964,-125 125,-125 V 125 C 55.964,125 0,69.036 0,0"/>
+							</g>
+							<g transform="translate(125,250)" id="g2">
+							<path id="path2" style="fill:#5e2f00;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 V -125 H 125 C 125,-55.964 69.035,0 0,0"/>
+							</g>
+							<g transform="translate(250,125)" id="g3">
+							<path id="path3" style="fill:#a78664;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 H -125 V -125 C -55.965,-125 0,-69.035 0,0"/>
+							</g>
+						</g>
+					</svg></div></td>
+				<td style="width:1%;"></td>
+			</tr>
+		</table>
+		</div>
+	</div>
+	</div>
+		<!--輸入過程 / InputTools-->
+		<script src="js/InputTools.js"></script>
+		<!--讀檔 / ShowTools-->
+		<script src="js/ShowTools.js"></script>
+		<!--比對館藏 / ChkStacks-->
+		<script src="js/ChkStacks.js"></script>
+
+	</body>
+</html>

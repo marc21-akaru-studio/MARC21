@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<meta name="robots" content="noindex, nofollow">
+		<title>MARC21小工具 - 書目檔檢視/編輯/轉檔</title>
+
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="shortcut icon" href="favicon.ico"/>
+		<link rel="bookmark" href="favicon.ico"/>
+	</head>
+
+	<body>
+		<!--載入時預設 / Onload-->
+		<script src="js/Onload.js"></script>
+
+		<!--主要輸入/輸出區-->
+		<div class="box" style="width:98%;height:20em;">
+			<div class="zi_box_1" id="" style="width:100%;height:96%;">
+				<span class="zi_box_2">RDA書目檔</span><br>
+				<div class="box" style="width:98%;display:inline-flex;">
+				<div class="button" style="width:7em;flex-shrink:0;" onclick="toolShowGroup('GroupOpen')">開啟書目檔</div>
+				<div id="saveBib" class="button" style="width:7em;flex-shrink:0;" onclick="toolSaveBib('')">書目檔存檔</div>
+				<div id="MARCtoExcel" class="button" style="width:11em;flex-shrink:0;" onclick="toolShowGroup('GroupExcel')">書目檔轉Excel清冊</div>
+				<div class="box" style="flex-grow:1;"></div>
+				<div class="box" style="width:24em;flex-shrink:0;display:inline-flex;">
+					<div class="box" style="flex-grow:1;">
+					<input type="text" class="inputbox" id="ISOFindText" style="width:98%;text-align:left;">
+					</div>
+					<div class="button" style="width:5em;flex-shrink:0;" onclick="toolFindBib()">尋找...</div>
+					<div class="box" style="width:6em;flex-shrink:0;">
+						<input class="chkBox" type="checkbox" id="chkISOFindStart">
+						<label class="labeltext" for="chkISOFindStart">從頭開始</label>
+					</div>
+				</div>
+				</div>
+				<textarea id="showISO" class="inputbox" style="height: calc(100% - 5em);width:98%;overflow: scroll;white-space:pre;font-size:var(--fontbigsize);"></textarea>
+				<!--讀取書目檔 / EditISO-->
+				<div class="toolstyle" id="GroupOpen" style="width:16em;height:8em;display:none;top:4em;left:1em;">
+					<div class="button" onclick="toolReadMID('MID1')" style="width:14em;">書目檔1：無MID、無館藏段</div>
+					<div class="button" onclick="toolReadMID('MID2')" style="width:14em;">書目檔2：有MID、無館藏段</div>
+					<div class="button" onclick="toolReadMID('MID3')" style="width:14em;">書目檔3：無MID、有館藏段</div>
+					<div class="button" onclick="toolReadMID('MID4')" style="width:14em;">書目檔4：有MID、有館藏段</div>
+				</div>
+				<!--存入書目檔 / EditISO-->
+				<div class="toolstyle" id="GroupSave" style="width:16em;height:8em;display:none;top:4em;left:10em;">
+					<div class="button" onclick="toolSaveBib('MID1')" style="width:14em;">書目檔1：無MID、無館藏段</div>
+					<div class="button" onclick="toolSaveBib('MID2')" style="width:14em;">書目檔2：有MID、無館藏段</div>
+					<div class="button" onclick="toolSaveBib('MID3')" style="width:14em;">書目檔3：無MID、有館藏段</div>
+					<div class="button" onclick="toolSaveBib('MID4')" style="width:14em;">書目檔4：有MID、有館藏段</div>
+				</div>
+				<!--書目檔轉為Excel清冊 / EditISO-->
+				<div class="toolstyle" id="GroupExcel" style="width:16em;height:8em;display:none;top:4em;left:10em;">
+					<span class="labeltext">自訂欄位：</span>
+					<input type="text" maxlength="4" class="inputbox" id="boxFolder" style="width:9em;text-align:left;">
+					<div class="button" onclick="toolTxt2Excel()" style="width:14em;">開始轉換</div>
+				</div>
+			</div><br>
+		</div>
+		<div class="box" style="width:98%;height:20em;">
+			<div class="zi_box_1" id="" style="width:100%;height:98%;">
+				<span class="zi_box_2">XML檔</span><br>
+				<div class="box" style="width:98%;display:inline-flex;">
+				<div class="button" style="width:10em;flex-shrink:0;" onclick="toolTxt2XML()">書目檔轉為XML↓</div>
+				<div class="button" style="width:6em;flex-shrink:0;" onclick="toolSaveXML()">XML存檔</div>
+				<div class="button" style="width:8em;flex-shrink:0;" onclick="toolSimpleXML()">篩減為館藏檔</div>
+				<div class="button" style="width:10em;flex-shrink:0;" onclick="toolXML2Txt()">XML轉為書目檔↑</div>
+				</div><br>
+				<textarea id="boxXML" class="inputbox" style="height: calc(100% - 4.5em);width:98%;overflow: scroll;white-space:pre;font-size:var(--fontbigsize);"></textarea>
+			</div><br>
+		</div>
+		<!--其他宣告事項-->
+		<div class="toolstyle" id="GroupAlert" style="width:16em;height:8em;display:none;top:calc(50% - 4em);left:calc(50% - 8em);">
+			<br><span id="boxAlert" class="labeltext" style="font-size:1.2em;"></span><br><br>
+			<div class="box" style="width:96%;align:center;">
+				<div class="button" style="position:absolute;width:6em;left:calc(50% - 4em);" onclick="toolISOAlert('Yes','')">我知道了</div>
+			</div>
+		</div>
+
+		<!--ISO轉檔 / EditISO-->
+		<script src="js/EditISO.js"></script>
+
+	</body>
+</html>

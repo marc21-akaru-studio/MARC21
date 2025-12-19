@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<meta name="robots" content="noindex, nofollow">
+		<title>MARC21小工具(HTML版) v.1.0.1.1</title>
+
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="shortcut icon" href="favicon.ico"/>
+		<link rel="bookmark" href="favicon.ico"/>
+		<!-- <script src="js/jquery-3.7.1.js"></script> -->
+	</head>
+
+	<body style="overflow:hidden;">
+		<!--載入時預設 / Onload-->
+		<script src="js/Onload.js"></script>
+		<div class="box" id="divpass" style="width:98%;height:98%;top:1%;left:1%;padding:0px;">
+			<div class="box" style="left:calc(50vw - 12.5em);top:calc(50vh - 1em);">
+			<div class="box" style="width:16em;">
+			<span class="labeltext">請輸入：</span>
+			<input type="text" class="inputbox" id="inputPP" style="width:9em;text-align:left;"></div>
+			<div class="button" style="width:8em;float:left;" onclick="toolPass('xHqha2MfCoMgBgpgMp==')">進入</div></div>
+		</div>
+
+	<div class="box" id="divmain" style="width:100%;height:100vh;padding:0px;display:none;">
+		<!--選單列 / ShowTools-->
+		<div class="box" id="toolBar" style="width:97%;height:5%;position:fixed; top:0px; left:2%;">
+			<div class="box" style="display:inline-flex;">
+					<div class="button" style="min-width:6em;" onclick="toolDisplay('toolMARCFrom');" onfocus="showTips('toolMARCFrom','')">從…匯入</div>
+					<div class="button" style="min-width:7em;" onclick="toolSC();" onfocus="showTips('toolSC','')">簡體書格式</div>
+					<div class="button" style="min-width:8em;" onclick="toolDisplay('toolISBN');" onfocus="showTips('toolISBNto13','')">ISBN 10&gt;13碼</div>
+					<div class="button" style="min-width:7em;" onclick="toolDisplay('toolEuroWord');" onfocus="showTips('toolEuroWord','')">外語字母表</div>
+					<div class="button" style="min-width:6em;" onclick="toolDisplay('toolMoney');" onfocus="showTips('toolMoney','')">匯率換算</div>
+					<div class="button" style="min-width:8em;" onclick="toolDisplay('toolSaveMARC');toolSwitchTemp();" onfocus="showTips('toolSaveMARC','');">書目檔案處理</div>
+					<div class="box" style="flex-grow:1;"></div>
+					<div class="button" style="width:6em;flex-shrink:0;" onclick="toolDisplay('toolThemeColor');" onfocus="showTips('toolDayNight','')">切換主題</div>
+			</div>
+		</div><br>
+		<!--主要輸入/出區-->
+		<div class="box" id="GroupMain" style="width:98%;height:82%;position:fixed; top:5%; left:0%;display:inline-flex;flex-wrap:nowrap;align-items:start;">
+			<!--輸入區-->
+			<div class="box_left" id="GroupBib">
+			<!--008段 / Show008-->
+			<div class="zi_box_1" id="Group008" style="width:calc(100% - 12px);">
+			<span class="zi_box_2">008段</span><br>
+			<div class="box" id="Group000" style="width:96%;"><a name="mark000"></a>
+				<span class="labeltext">出版情況：</span><select class="selectBox" id="box008a06" style="width:calc(98% - 5em);" onchange="view008()" onfocus="showTips('box008a06','008a')">
+				<option value="s" selected>s 單一出版年或可能的出版年</option>
+				</select><br>
+				<span class="labeltext">出版地區：</span><div class="select-container" style="width:calc(96% - 5em);">
+				<select id="sel008a15" onclick="selBxChange('bib008a15','sel008a15',0);changeCountry();switch653();switch546();view008();" onfocus="showTips('bib008a15','008a')">
+				<option>ch 臺灣</option>
+				</select>
+			<input id="bib008a15" onchange="changeCountry();view008();" onfocus="showTips('bib008a15','008a')" value="ch 臺灣"></div>
+				<!--切換記錄類型 / SwitchGroups-->
+				<table class="bibTable">
+					<tr>
+						<td style="width:1%;"></td>
+						<td style="width:14%;text-align:left;"><div id="btn000Book" class="btn_Group" onclick="setBibAs('Book')" style="display:none;">圖書</div>
+						<div id="btn000BookNow" class="btn_Group_now" onclick="setBibAs('none')">圖書</div></td>
+						<td style="width:1%;"></td>
+						<td style="width:23%;text-align:left;"><div id="btn000Peri" class="btn_Group" onclick="setBibAs('Peri')">連續出版品</div>
+						<div id="btn000PeriNow" class="btn_Group_now" onclick="setBibAs('none')" style="display:none;">連續出版品</div></td>
+						<td style="width:16%;text-align:left;"><div id="btn000eBook" class="btn_Group" onclick="setBibAs('eBook')">電子資源</div>
+						<div id="btn000eBookNow" class="btn_Group_now" onclick="setBibAs('none')" style="display:none;">電子資源</div></td>
+						<td style="width:1%;"></td>
+						<td style="width:14%;text-align:left;"><div id="btn000Audio" class="btn_Group" onclick="setBibAs('Audio')">錄音資料</div>
+						<div id="btn000AudioNow" class="btn_Group_now" onclick="setBibAs('none')" style="display:none;">錄音資料</div></td>
+						<td style="width:1%;"></td>
+						<td style="width:14%;text-align:left;"><div id="btn000DVDs" class="btn_Group" onclick="setBibAs('DVDs')">視聽資料</div>
+						<div id="btn000DVDsNow" class="btn_Group_now" onclick="setBibAs('none')" style="display:none;">視聽資料</div></td>
+						<td style="width:1%;"></td>
+						<td style="width:13%;text-align:left;"><div id="btn000Toys" class="btn_Group" onclick="setBibAs('Toys')">遊戲</div>
+						<div id="btn000ToysNow" class="btn_Group_now" onclick="setBibAs('none')" style="display:none;">遊戲</div></td>
+						<td style="width:1%;"></td>
+					</tr>
+				</table>
+				<!--圖書類型-->
+				<div class="box" id="GroupBook" style="width:98%;">
+					<div class="zi_box_1"><span class="zi_box_2">插圖</span><br>
+					<table class="bibTable" style="text-align:left;">
+						<tr>
+							<td style="width:1%;"></td>
+							<td style="width:calc(96% - 13em);">
+								<select class="selectBox" id="bib008aIll1" style="width:100%;" onchange="view008();change300c();" onfocus="showTips('bib008aIll','008a')">
+								<option value=" " selected># 無插圖</option>
+								</select>
+							</td>
+							<td style="width:5em;text-align:center;">
+							<input class="chkBox" type="checkbox" id="boxIllchk1a" value="fullColor" onchange="chkColors('A1')" onfocus="showTips('bib008aIll','008a')">
+							<label class="labeltext" for="boxIllchk1a">全彩</label></td>
+							<td style="width:7em;text-align:center;">
+							<input class="chkBox" type="checkbox" id="boxIllchk1b" value="chieflyColor" onchange="chkColors('A2')" onfocus="showTips('bib008aIll','008a')">
+							<label class="labeltext" for="boxIllchk1b">部份彩色</label></td>
+							<td style="width:1%;"></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+								<select class="selectBox" id="bib008aIll2" style="width:100%;" onchange="view008();change300c();" onfocus="showTips('bib008aIll','008a')">
+								<option value=" " selected># 無插圖</option>
+								</select>
+							</td>
+							<td style="text-align:center;">
+							<input class="chkBox" type="checkbox" id="boxIllchk2a" value="fullColor" onchange="chkColors('B1')" onfocus="showTips('bib008aIll','008a')">
+							<label class="labeltext" for="boxIllchk2a">全彩</label></td>
+							<td style="text-align:center;">
+							<input class="chkBox" type="checkbox" id="boxIllchk2b" value="chieflyColor" onchange="chkColors('B2')" onfocus="showTips('bib008aIll','008a')">
+							<label class="labeltext" for="boxIllchk2b">部份彩色</label></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+								<select class="selectBox" id="bib008aIll3" style="width:100%;" onchange="view008();change300c();" onfocus="showTips('bib008aIll','008a')">
+								<option value=" " selected># 無插圖</option>
+								</select>
+							</td>
+							<td style="text-align:center;">
+							<input class="chkBox" type="checkbox" id="boxIllchk3a" value="fullColor" onchange="chkColors('C1')" onfocus="showTips('bib008aIll','008a')">
+							<label class="labeltext" for="boxIllchk3a">全彩</label></td>
+							<td style="text-align:center;">
+							<input class="chkBox" type="checkbox" id="boxIllchk3b" value="chieflyColor" onchange="chkColors('C2')" onfocus="showTips('bib008aIll','008a')">
+							<label class="labeltext" for="boxIllchk3b">部份彩色</label></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+								<select class="selectBox" id="bib008aIll4" style="width:100%;" onchange="view008();change300c();" onfocus="showTips('bib008aIll','008a')">
+								<option value=" " selected># 無插圖</option>
+								</select>
+							</td>
+							<td style="text-align:center;">
+							<input class="chkBox" type="checkbox" id="boxIllchk4a" value="fullColor" onchange="chkColors('D1')" onfocus="showTips('bib008aIll','008a')">
+							<label class="labeltext" for="boxIllchk4a">全彩</label></td>
+							<td style="text-align:center;">
+							<input class="chkBox" type="checkbox" id="boxIllchk4b" value="chieflyColor" onchange="chkColors('D2')" onfocus="showTips('bib008aIll','008a')">
+							<label class="labeltext" for="boxIllchk4b">部份彩色</label></td>
+							<td></td>
+						</tr>
+					</table></div>
+					<div class="box">
+						<span class="labeltext">適用對象：</span>
+						<select class="selectBox" id="bib008a22" style="width:calc(45% - 5em);" onchange="view008();switch653();" onfocus="showTips('bib008a22','008a')">
+						<option value="e" selected>e 成人</option>
+						</select>
+						&emsp;
+						<span class="labeltext">載體形式：</span>
+						<select class="selectBox" id="bib008a23" style="width:calc(45% - 5em);" onchange="view008()" onfocus="showTips('bib008a23','008a')">
+						<option value=" " selected># 非下列形式</option>
+						</select><br>
+					</div>
+					<div class="zi_box_1"><span class="zi_box_2">內容特性</span><br>
+						<select class="selectBox" id="bib008a24" style="width:47%;" onchange="view008()" onfocus="showTips('bib008a24','008a')">
+						<option value=" " selected># 內容無特殊性</option>
+						</select>
+						&nbsp;
+						<select class="selectBox" id="bib008a25" style="width:47%;" onchange="view008()" onfocus="showTips('bib008a25','008a')">
+						<option value=" " selected># 內容無特殊性</option>
+						</select><br>
+						<select class="selectBox" id="bib008a26" style="width:47%;" onchange="view008()" onfocus="showTips('bib008a26','008a')">
+						<option value=" " selected># 內容無特殊性</option>
+						</select>
+						&nbsp;
+						<select class="selectBox" id="bib008a27" style="width:47%;" onchange="view008()" onfocus="showTips('bib008a27','008a')">
+						<option value=" " selected># 內容無特殊性</option>
+						</select><br>
+					</div>
+					<div class="box">
+						<div class="box">
+							<span class="labeltext">政府出版品：</span>
+							<select class="selectBox" id="bib008a28" style="width:calc(100% - 7em);" onchange="view008()" onfocus="showTips('bib008a28','008a')">
+							<option value=" " selected># 非政府出版品</option>
+							</select><br>
+						</div>
+						<div class="box">
+							<span class="labeltext">會議出版品：</span>
+							<select class="selectBox" id="bib008a29" style="width:calc(100% - 7em);" onchange="view008()" onfocus="showTips('bib008a29','008a')">
+							<option value="0" selected>0 非會議出版品</option>
+							</select>
+						</div><br>
+						<div class="box">
+							<span class="labeltext">紀念文集：</span>
+							<select class="selectBox" id="bib008a30" style="width:calc(45% - 5em);" onchange="view008()" onfocus="showTips('bib008a30','008a')">
+							<option value="0" selected>0 非紀念文集</option>
+							</select>
+							&emsp;
+							<span class="labeltext">索引：</span>
+							<select class="selectBox" id="bib008a31" style="width:calc(45% - 4em);" onchange="view008()" onfocus="showTips('bib008a31','008a')">
+							<option value="0" selected>0 不含索引</option>
+							</select>
+						</div><br>
+						<div class="box">
+							<span class="labeltext">文學體裁：</span>
+							<select class="selectBox" id="bib008a33" style="width:calc(45% - 5em);" onchange="view008()" onfocus="showTips('bib008a33','008a')">
+							<option value="0" selected>0 非小說(不再細分)</option>
+							</select>
+							&emsp;
+							<span class="labeltext">傳記：</span>
+							<select class="selectBox" id="bib008a34" style="width:calc(45% - 4em);" onchange="view008()" onfocus="showTips('bib008a34','008a')">
+							<option value=" " selected># 非傳記作品</option>
+							</select><br>
+						</div>
+					</div>
+				</div>
+				<!--期刊類型-->
+				<div class="box" id="GroupPeri" style="width:98%;display:none;">
+					<div class="box">
+						<span class="labeltext">刊期：</span>
+						<select class="selectBox" id="box008s18" style="width:calc(45% - 3em);" onchange="view008()" onfocus="showTips('box008s18','008a')">
+						<option value="m" selected>m 月刊</option>
+						</select>
+						&emsp;
+						<span class="labeltext">規則性：</span>
+						<select class="selectBox" id="box008s19" style="width:calc(45% - 5em);" onchange="view008()" onfocus="showTips('box008s19','008a')">
+						<option value="r" selected>r 有規則</option>
+						</select><br>
+						<span class="labeltext">連續性出版品類型：</span>
+						<select class="selectBox" id="box008s21" style="width:calc(100% - 9.5em);" onchange="view008()" onfocus="showTips('box008s21','008a')">
+						<option value="p" selected>p 期刊</option>
+						</select><br>
+						<span class="labeltext">原件載體型式：</span>
+						<select class="selectBox" id="box008s22" style="width:calc(100% - 7.5em);" onchange="view008()" onfocus="showTips('box008s22','008a')">
+						<option value=" " selected># 非下列形式</option>
+						</select><br>
+						<span class="labeltext">載體形式：</span>
+						<select class="selectBox" id="box008s23" style="width:calc(45% - 5em);" onchange="view008()" onfocus="showTips('box008s23','008a')">
+						<option value=" " selected># 非下列形式</option>
+						</select>
+						&emsp;
+						<span class="labeltext">整部性質：</span>
+						<select class="selectBox" id="box008s24" style="width:calc(45% - 6em);" onchange="view008()" onfocus="showTips('box008s24','008a')">
+						<option value=" " selected># 未說明</option>
+						</select><br>
+						<div class="zi_box_1"><span class="zi_box_2">內容特性</span><br>
+							<select class="selectBox" id="box008s25" style="width:47%;" onchange="view008()" onfocus="showTips('box008s25','008a')">
+							<option value=" " selected># 未說明</option>
+							</select>
+							&emsp;
+							<select class="selectBox" id="box008s26" style="width:47%;" onchange="view008()" onfocus="showTips('box008s26','008a')">
+							<option value=" " selected># 未說明</option>
+							</select><br>
+							<select class="selectBox" id="box008s27" style="width:47%;" onchange="view008()" onfocus="showTips('box008s27','008a')">
+							<option value=" " selected># 未說明</option>
+							</select><br>
+						</div><br>
+						<span class="labeltext">政府出版品：</span>
+						<select class="selectBox" id="box008s28" style="width:calc(100% - 7em);" onchange="view008()" onfocus="showTips('box008s28','008a')">
+						<option value=" " selected># 非政府出版品</option>
+						</select><br>
+						<span class="labeltext">會議出版品：</span>
+						<select class="selectBox" id="box008s29" style="width:calc(100% - 7em);" onchange="view008()" onfocus="showTips('box008s29','008a')">
+						<option value="0" selected>0 非會議出版品</option>
+						</select><br>
+						<span class="labeltext">題名語文：</span>
+						<select class="selectBox" id="box008s33" style="width:calc(45% - 5em);" onchange="view008()" onfocus="showTips('box008s33','008a')">
+						<option value="e" selected>e 中文</option>
+						</select>
+						&emsp;
+						<span class="labeltext">著錄形式：</span>
+						<select class="selectBox" id="box008s34" style="width:calc(45% - 6em);" onchange="view008()" onfocus="showTips('box008s34','008a')">
+						<option value="0" selected>0 連續著錄模式</option>
+						</select><br>
+					</div>
+				</div>
+				<!--電子書類型-->
+				<div class="box" id="GroupeBook" style="width:98%;display:none;">
+					<span class="labeltext">適用對象：</span>
+					<select class="selectBox" id="box008e05" style="width:calc(100% - 6em);" onchange="view008()" onfocus="showTips('box008e05','008a')">
+					<option value="e" selected>e 成人</option>
+					</select><br>
+					<span class="labeltext">電子資源類型：</span>
+					<select class="selectBox" id="box008e09" style="width:calc(100% - 8em);" onchange="view008()" onfocus="showTips('box008e09','008a')">
+					<option value="d" selected>d 文字</option>
+					</select><br>
+					<span class="labeltext">政府出版品：</span>
+					<select class="selectBox" id="box008e11" style="width:calc(100% - 7em);" onchange="view008()" onfocus="showTips('box008e11','008a')">
+					<option value=" " selected># 非政府出版品</option>
+					</select><br>
+				</div>
+				<!--錄音資料類型-->
+				<div class="box" id="GroupAudio" style="width:98%;display:none;">
+					<span class="labeltext">作曲形式代碼：</span>
+					<select class="selectBox" id="box008f19" style="width:calc(100% - 8em);" onchange="view008()" onfocus="showTips('box008f19','008a')">
+					<option value="zz" selected>zz 其他(Others)</option>
+					</select></br>
+					<span class="labeltext">樂譜形式代碼：</span>
+					<select class="selectBox" id="box008f21" style="width:calc(100% - 8em);" onchange="view008()" onfocus="showTips('box008f21','008a')">
+					<option value="z" selected>z 其他(Other than score format)</option>
+					</select><br>
+					<span class="labeltext">音樂部份：&emsp;&emsp;</span>
+					<select class="selectBox" id="box008f22" style="width:calc(100% - 8em);" onchange="view008()" onfocus="showTips('box008f22','008a')">
+					<option value=" " selected># 任何部分, 或沒有指定</option>
+					</select><br>
+					<span class="labeltext">適用對象代碼：</span>
+					<select class="selectBox" id="box008f23" style="width:calc(100% - 8em);" onchange="view008()" onfocus="showTips('box008f23','008a')">
+					<option value="e" selected>e 成人</option>
+					</select><br>
+					<span class="labeltext">形式特性代碼：</span>
+					<select class="selectBox" id="box008f24" style="width:calc(100% - 8em);" onchange="view008()" onfocus="showTips('box008f24','008a')">
+					<option value=" " selected># 不詳或未說明</option>
+					</select><br>
+					<div class="zi_box_1"><span class="zi_box_2">文字附件</span><br>
+					<select class="selectBox" id="box008f25" style="width:47%;" onchange="view008()" onfocus="showTips('box008f25','008a')">
+					<option value=" " selected># 內容無特殊特性</option>
+					</select>
+					&emsp;
+					<select class="selectBox" id="box008f26" style="width:47%;" onchange="view008()" onfocus="showTips('box008f26','008a')">
+					<option value=" " selected># 內容無特殊特性</option>
+					</select><br>
+					<select class="selectBox" id="box008f27" style="width:47%;" onchange="view008()" onfocus="showTips('box008f27','008a')">
+					<option value=" " selected># 內容無特殊特性</option>
+					</select>
+					&emsp;
+					<select class="selectBox" id="box008f28" style="width:47%;" onchange="view008()" onfocus="showTips('box008f28','008a')">
+					<option value=" " selected># 內容無特殊特性</option>
+					</select><br>
+					<select class="selectBox" id="box008f29" style="width:47%;" onchange="view008()" onfocus="showTips('box008f29','008a')">
+					<option value=" " selected># 內容無特殊特性</option>
+					</select>
+					&emsp;
+					<select class="selectBox" id="box008f30" style="width:47%;" onchange="view008()" onfocus="showTips('box008f30','008a')">
+					<option value=" " selected># 內容無特殊特性</option>
+					</select><br></div>
+					<span class="labeltext">錄音資料代碼：</span>
+					<select class="selectBox" id="box008f31" style="width:calc(100% - 8em);" onchange="view008()" onfocus="showTips('box008f31','008a')">
+					<option value=" " selected># 不詳或未說明</option>
+					</select><br>
+					<span class="labeltext">移調和排列：</span>
+					<select class="selectBox" id="box008f32" style="width:calc(100% - 7em);" onchange="view008()" onfocus="showTips('box008f32','008a')">
+					<option value=" " selected># 不排列或移調或不指定</option>
+					</select><br>
+					<span class="labeltext">片長(自動換算)：</span>
+					<input type="text" class="inputbox" id="boxCDhr" style="width:4em;text-align:center;" onchange="AV_CD_mins('Audio')">
+					<span class="labeltext">小時</span>
+					<input type="text" class="inputbox" id="boxCDmin" style="width:4em;text-align:center;" onchange="AV_CD_mins('Audio')">
+					<span class="labeltext">分&nbsp;=&nbsp;</span>
+					<span class="labeltext" id="lblCDmin">0</span><br>
+				</div>
+				<!--視聽資料類型-->
+				<div class="box" id="GroupDVDs" style="width:98%;display:none;">
+					<span class="labeltext">資料類型代碼：</span>
+					<select class="selectBox" id="box007v01" style="width:calc(100% - 8em);" onchange="view008()" onfocus="showTips('box007v01','008a')">
+					<option value="v" selected>v 錄影資料</option>
+					</select><br>
+					<span class="labeltext">資料特殊類型標示：</span>
+					<select class="selectBox" id="box007v02" style="width:calc(100% - 10em);" onchange="view008()" onfocus="showTips('box007v02','008a')">
+					<option value="d" selected>d 影碟</option>
+					</select><br>
+					<span class="labeltext">色彩：&emsp;&emsp;</span>
+					<select class="selectBox" id="box007v04" style="width:calc(100% - 6em);" onchange="view008()" onfocus="showTips('box007v04','008a')">
+					<option value="c" selected>c 彩色</option>
+					</select><br>
+					<span class="labeltext">錄影資料規格：</span>
+					<select class="selectBox" id="box007v05" style="width:calc(100% - 8em);" onchange="view008()" onfocus="showTips('box007v05','008a')">
+					<option value="v" selected>v DVD</option>
+					</select><br>
+					<span class="labeltext">聲音：&emsp;&emsp;</span></td>
+					<select class="selectBox" id="box007v06" style="width:calc(100% - 6em);" onchange="view008()" onfocus="showTips('box007v06','008a')">
+					<option value="a" selected>a 聲音在媒體上</option>
+					</select><br>
+					<span class="labeltext">發聲媒體：</span>
+					<select class="selectBox" id="box007v07" style="width:calc(100% - 6em);" onchange="view008()" onfocus="showTips('box007v07','008a')">
+					<option value="i" selected>i 影碟</option>
+					</select><br>
+					<span class="labeltext">尺寸大小：</span>
+					<select class="selectBox" id="box007v08" style="width:calc(100% - 6em);" onchange="view008()" onfocus="showTips('box007v08','008a')">
+					<option value="z" selected>z 其他</option>
+					</select><br>
+					<span class="labeltext">聲道種類：</span>
+					<select class="selectBox" id="box007v09" style="width:calc(100% - 6em);" onchange="view008()" onfocus="showTips('box007v09','008a')">
+					<option value="q" selected>q 四聲道、多聲道或環聲系統</option>
+					</select><br>
+					<span class="labeltext">片長(自動換算)：</span>
+					<input type="text" class="inputbox" id="box008v01" style="width:4em;text-align:center;" onchange="AV_CD_mins('DVDs')">
+					<span class="labeltext">小時</span>
+					<input type="text" class="inputbox" id="box008v01b" style="width:4em;text-align:center;" onchange="AV_CD_mins('DVDs')">
+					<span class="labeltext">分&nbsp;=&nbsp;</span>
+					<span class="labeltext" id="lblDVDmin">0</span><br>
+					<span class="labeltext">適用對象：</span>
+					<select class="selectBox" id="box008v05" style="width:calc(100% - 6em);" onchange="view008()" onfocus="showTips('box008v05','008a')">
+					<option value="e" selected>e 成人</option>
+					</select><br>
+					<span class="labeltext">政府出版品：</span>
+					<select class="selectBox" id="box008v11" style="width:calc(100% - 7em);" onchange="view008()" onfocus="showTips('box008v11','008a')">
+					<option value=" " selected># 非政府出版品</option>
+					</select><br>
+					<span class="labeltext">載體形式：</span>
+					<select class="selectBox" id="box008v12" style="width:calc(100% - 6em);" onchange="view008()" onfocus="showTips('box008v12','008a')">
+					<option value=" " selected># 非下列形式</option>
+					</select><br>
+					<span class="labeltext">錄影資料類型：</span>
+					<select class="selectBox" id="box008v16" style="width:calc(100% - 8em);" onchange="view008()" onfocus="showTips('box008v16','008a')">
+					<option value="v" selected>v 錄影資料</option>
+					</select><br>
+					<span class="labeltext">影片運行技術：</span>
+					<select class="selectBox" id="box008v17" style="width:calc(100% - 8em);" onchange="view008()" onfocus="showTips('box008v17','008a')">
+					<option value="l" selected>l 實景</option>
+					</select></br>
+				</div>
+				<!--遊戲類型-->
+				<div class="box" id="GroupToys" style="width:98%;display:none;">
+					<span class="labeltext">遊戲時間(自動換算)：</span>
+					<input type="text" class="inputbox" id="box008t01" style="width:4em;text-align:center;" onchange="AV_CD_mins('Toys')">
+					<span class="labeltext">小時</span>
+					<input type="text" class="inputbox" id="box008t01b" style="width:4em;text-align:center;" onchange="AV_CD_mins('Toys')">
+					<span class="labeltext">分&nbsp;=&nbsp;</span>
+					<span class="labeltext" id="lblToyMin">0</span><br>
+					<span class="labeltext">適用對象：&emsp;</span>
+					<select class="selectBox" id="box008t05" style="width:calc(100% - 7em);" onchange="view008()" onfocus="showTips('box008t05','008a')">
+					<option value="b" selected>b 學齡兒童，6-8歲</option>
+					</select><br>
+					<span class="labeltext">政府出版品：</span>
+					<select class="selectBox" id="box008t11" style="width:calc(100% - 7em);" onchange="view008()" onfocus="showTips('box008t11','008a')">
+					<option value=" " selected># 非政府出版品</option>
+					</select><br>
+					<span class="labeltext">載體形式：&emsp;</span>
+					<select class="selectBox" id="box008t12" style="width:calc(100% - 7em);" onchange="view008()" onfocus="showTips('box008t12','008a')">
+					<option value=" " selected># 非下列形式</option>
+					</select><br>
+					<span class="labeltext">錄影資料類型：</span>
+					<select class="selectBox" id="box008t16" style="width:calc(100% - 8em);" onchange="view008()" onfocus="showTips('box008t16','008a')">
+					<option value="g" selected>g 遊戲用品</option>
+					</select><br>
+					<span class="labeltext">影片運行技術：</span>
+					<select class="selectBox" id="box008t17" style="width:calc(100% - 8em);" onchange="view008()" onfocus="showTips('box008t17','008a')">
+					<option value="n" selected>n 不適用</option>
+					</select><br>
+				</div>
+				<!--008段-->
+				<div class="box">
+				<div class="box" style="width:40%;">
+				<span class="labeltext">作品語文：</span><div class="select-container" style="width:calc(96% - 5em);float:right;">
+					<select id="sel008a35" onclick="selBxChange('bib008a35','sel008a35',0);view008();switch653();switch546();" onfocus="showTips('bib008a35','008a')">
+					<option></option>
+					</select>
+				<input id="bib008a35" onfocus="showTips('bib008a35','008a')" onchange="view008();switch653();" value="chi 中文"></div></div>
+				<div class="box" style="width:50%;">
+				<input class="chkBox" type="checkbox" id="chkMulLang" onchange="tollMulLangCheck()">
+				<span class="labeltext">雙語對照：</span>
+				<div class="select-container" style="width:calc(96% - 7em);float:right;">
+					<select id="sel041b" style="width:100%" onclick="selBxChange('bib041b','sel041b',0);view008();tollMulLangCheck();" onfocus="showTips('bib041b','041a')">
+					<option></option>
+				<input id="bib041b" onfocus="showTips('bib041b','041a')" onchange="view008();tollMulLangCheck();" value="eng 英語"></div></select><br>
+					</div>
+				</div>
+				<div class="box">
+				<span class="labeltext">修正記錄代碼：</span><select class="selectBox" id="bib00838" style="width:calc(45% - 7em);" onchange="view008()" onfocus="showTips('bib00838','008a')">
+				<option value="#" selected># 未修正</option>
+				</select>
+				&emsp;
+				<span class="labeltext">編目來源：</span><select class="selectBox" id="bib00839" style="width:calc(45% - 7em);" onchange="view008()" onfocus="showTips('bib00839','008a')">
+				<option value="d" selected>d 其他</option>
+				</select></div><br>
+				<div class="zi_box_1"><span class="zi_box_2">定長欄預覽</span><br>
+					<div class="box" style="width:96%;">
+					<textarea id="lbl008" class="inputbox" style="height:4em;width:98%;color:var(--gray-word);" onfocus="showTips('view008','008a')" readonly></textarea></div><br></div>
+				</div><br>
+			</div>
+			<!--圖書017、020、024段-->
+			<div class="zi_box_1" id="Group020" style="width:calc(100% - 12px);"><span class="zi_box_2">017、020、024段</span><a name="mark020"></a><br>
+					<div class="box" style="width:48%;">
+					<select class="selectBox" id="cbx020Head" style="width:5em;" onfocus="showTips('cbx020Head','020a')">
+						<option value="ISBN" selected>ISBN：</option>
+						<option value="EAN">EAN：</option>
+						<option value="ISSN">ISSN：</option>
+						</select>
+						<input type="text" maxlength="13" class="inputbox" id="box020a" style="width:calc(100% - 7em);text-align:left;" onfocus="showTips('box020a','020a')">
+					</div>
+					<div class="box" style="width:48%;float:right;">
+							<span class="labeltext">裝訂方式：</span>
+							<div class="select-container" style="width:calc(96% - 5.5em);">
+							<select id="sel020q" onclick="selBxChange('box020q','sel020q',0)" onfocus="showTips('sel020q','020a')">
+								<option>平裝</option>
+							</select>
+						<input id="box020q" onfocus="showTips('box020q','020a')" value=""></div></div><br>
+					<div class="box" style="width:calc(100% - 10em);"><div class="box" style="width:48%;">
+					<span class="labeltext">定價：</span>
+					<input type="text" maxlength="20" class="inputbox" id="box020c" style="width:calc(100% - 5em);text-align:left;" onchange="toolRenewLocal('box020c')" onfocus="showTips('box020c','020a')"></div>
+					<div class="box" style="width:48%;">
+					<span class="labeltext">GPN：</span>
+					<input type="text" maxlength="20" class="inputbox" id="box017a" style="width:calc(100% - 5em);text-align:left;" onfocus="showTips('box017a','017a')"></div></div>
+					<div id="btn020Down" class="button" style="width:8em;float:right;" onclick="showGroupDown('Group020set','btn020Down')" onfocus="showTips('btn020Down','020a')">多筆ISBN▼</div><br>
+				<div class="box" id="Group020set" style="width:98%;display:none;">
+					<div class="box" style="width:38%;">
+					<span class="labeltext">分冊方式：</span>
+					<div class="select-container" style="width:calc(96% - 5.5em);">
+						<select id="sel020Hvl" onclick="selBxChange('box020Hvl','sel020Hvl',0);Show020vol();" onfocus="showTips('box020Hvl','020a')">
+						<option></option>
+						</select>
+					<input type="text" id="box020Hvl" onfocus="showTips('box020Hvl','')" value=""></div></div>
+					<div class="box" style="width:58%;">
+					<span class="labeltext">冊次：</span>
+					<div class="select-container" style="width:calc(96% - 7em);">
+						<select id="sel020Nvl" onclick="selBxChange('box020Nvl','sel020Nvl',0);Show020vol();" onfocus="showTips('sel020Nvl','020a')">
+						<option></option>
+						</select>
+					<input type="text" id="box020Nvl" onfocus="showTips('box020Nvl','020a')" onchange="Show020vol()" value=""></div>
+					<span class="labeltext" id="lbl020qvl">第?冊</span></div><br>
+					<span class="labeltext">&emsp;冊次轉&emsp;</span>
+					<input class="chkBox" type="checkbox" id="chkN2CTA" value="fullColor" onfocus="showTips('chkN2CTA','020a')">
+					<label class="labeltext" for="chkN2CTA">壹貳參</label>&emsp;
+					<input class="chkBox" type="checkbox" id="chkN2CTB" value="fullColor" onfocus="showTips('chkN2CTB','020a')">
+					<label class="labeltext" for="chkN2CTB">一二三</label>
+					<div id="btnISBNs" class="button" style="width:8em;float:right;" onclick="tool020Add('input');" onfocus="showTips('btnISBNs','020a')">加入</div><br>
+					<textarea id="box020ALL" class="inputbox" style="height: 95%;width:96%;overflow:scroll;" onfocus="showTips('box020ALL','020a')"></textarea>
+				</div><br>
+			</div><br>
+			<!--視聽020段-->
+			<div class="zi_box_1" id="GroupAV020" style="width:calc(100% - 12px);display:none;"><span class="zi_box_2">017、020、024、028段[視聽資料]</span><a name="mark020v"></a><br>
+				<span class="labeltext">產品條碼：</span>
+				<input type="text" maxlength="13" class="inputbox" id="boxAV024a" style="width:9em;text-align:left;" onfocus="showTips('boxAV024a','020a')">
+				<span class="labeltext">光碟格式：</span>
+				<select class="selectBox" id="cbx020DVD" style="width:9em;" onfocus="showTips('cbx020DVD','020a')" onclick="switch653();">
+						<option value="DVD" selected>DVD 錄影資料</option>
+						<option value="VCD">VCD 錄影資料</option>
+						<option value="BD">BD 錄影資料</option>
+						<option value="CD">CD 音樂資料</option>
+						<option value="SB">SB 有聲書</option>
+						<option value="LP">LP 黑膠唱片</option>
+						</select><br>
+				<span class="labeltext">定價：</span>
+				<input type="text" class="inputbox" id="boxAV020c" style="width:9em;text-align:left;" onchange="toolRenewLocal('boxAV020c')" onfocus="showTips('boxAV020c','020a')">
+				<span class="labeltext">政府出版品代碼：</span>
+				<input type="text" class="inputbox" id="boxAV017a" style="width:8em;text-align:left;" onfocus="showTips('boxAV017a','017a')"><br>
+				<span class="labeltext">出版者編號：</span>
+				<input type="text" class="inputbox" id="boxAV028a" style="width:9em;text-align:left;" onfocus="showTips('boxAV028a','020a')">
+				<span class="labeltext">來源：</span>
+				<input type="text" class="inputbox" id="boxAV028b" style="width:9em;text-align:left;" onfocus="showTips('boxAV028b','020a')">
+			</div><br>
+			<!--041-653段-->
+			<div class="zi_box_1" id="Group041" style="width:calc(100% - 12px);"><span class="zi_box_2">041段</span><a name="mark041"></a><br>
+				<div class="box" style="width:40%;display:inline-flex;">
+				<span class="labeltext">翻譯作品：</span>
+				<div class="select-container" style="width:calc(96% - 5em);">
+					<select id="sel041h" onclick="selBxChange('box041h','sel041h',0);ButtFiveCode();toolRenewLocal('box084b');sel041hChange();" onfocus="showTips('sel041h','041a')">
+					<option>chi 中文</option>
+					</select>
+				<input type="text" id="box041h" onchange="sel041hChange();" onfocus="showTips('box041h','041a')" value=""></div></div>
+
+				<label class="labeltext" id="lbl040a">&nbsp;</label>
+				<br>
+				<div class="box" id="GroupAV041a" style="width:96%;display:none;">
+					<span class="labeltext">發音：</span>
+					<input type="text" class="inputbox" id="box041aAV" style="width:9em;text-align:left;" onfocus="showTips('box041aAV','041a')">
+					<input type="text" class="inputbox" id="box041aAVb" style="width:9em;text-align:left;" onfocus="showTips('box041aAVb','041a')">
+					<select class="selectBox" id="cbx041aAV" style="width:9em;" onchange="tool041AV('cbx041aAV','box041aAV','box041aAVb')" onfocus="showTips('cbx041aAV','041a')">
+						<option value="eng">eng 英語</option>
+						</select><br></div>
+				<div class="box" id="GroupAV041b" style="width:96%;display:none;">
+					<span class="labeltext">字幕：</span>
+					<input type="text" class="inputbox" id="box041j" style="width:9em;text-align:left;" onfocus="showTips('box041j','041a')">
+					<input type="text" class="inputbox" id="box041jb" style="width:9em;text-align:left;" onfocus="showTips('box041jb','041a')">
+					<select class="selectBox" id="cbx041j" style="width:9em;" onchange="tool041AV('cbx041j','box041j','box041jb')" onfocus="showTips('box041jb','041a')">
+						<option value="eng">eng 英語</option>
+						</select><br></div>
+			</div><br>
+			<div class="zi_box_1" id="Group084" style="width:calc(100% - 12px);"><span class="zi_box_2">084段[西文082段]</span><a name="mark084"></a><br>
+				<div class="box" style="width:96%;display:inline-flex;flex-wrap:wrap;">
+				<div class="box" style="width:calc(48% - 7em);min-width:180px;">
+				<span class="labeltext">分類號：</span>
+				<input type="text" maxlength="20" class="inputbox" id="box084a" style="width:calc(96% - 5.5em);text-align:left;" onfocus="showTips('box084a','084a')" onchange="toolRenewLocal('box084a')"></div>
+				<div class="box" style="width:calc(48% - 7em);min-width:180px;">
+				<span class="labeltext">作者號：</span>
+				<input type="text" class="inputbox" id="box084b" style="width:calc(96% - 5.5em);text-align:left;" onfocus="showTips('box084b','084a')" onchange="toolRenewLocal('box084b')"></div>
+				<div id="btnFivePen" class="button" style="width:4em;" onclick="toolOpenCutter();ButtFiveCode();toolRenewLocal('box084b');" onfocus="showTips('btnFivePen','084a')">取號</div><br>
+				<div id="btnGetPeo" class="button" style="width:6em;" onclick="ButtGetPeo();toolRenewLocal('box084b');" onfocus="showTips('btnGetPeo','084a')">傳記取號</div>
+				</div>
+			</div><br>
+			<div class="zi_box_1" id="Group100" style="width:calc(100% - 12px);"><span class="zi_box_2">100、700段</span><a name="mark100"></a><br>
+				<div class="box" style="width:92%;"><input type="text" class="inputbox" id="box100a" style="width:calc(100% - 6em);text-align:left;" onfocus="showTips('box100a','100a')">
+					<input class="chkBox" type="checkbox" id="chk100a" onfocus="showTips('chk100a','100a')">
+					<label class="labeltext" for="chk100a">團體</label></div>
+				<div class="button" style="width:1em;float:right;" onclick="AuthorSet('box100a')" onfocus="showTips('box100a','100a')"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></div>
+				<br>
+				<div class="box" style="width:14em;float:right;">
+					<div class="select-container" style="width:6em;">
+						<select id="sel100a" onclick="selBxChange('cbx100a','sel100a',0);switchRDArd('cbx100a');" onfocus="showTips('sel100a','100a')">
+						<option>著</option>
+						</select>
+						<input type="text" id="cbx100a" onchange="switchRDArd('cbx100a')" onfocus="showTips('cbx100a','100a')" value="著"></div>
+					<div class="select-container" style="width:6em;">
+						<select id="sel100a4" onclick="selBxChange('cbx100a4','sel100a4',4)" onfocus="showTips('sel100a4','RD')">
+						<option value="aut">aut author/著者</option>
+						</select>
+						<input type="text" id="cbx100a4" onfocus="showTips('cbx100a4','RD')" value="aut"></div>
+				</div><br>
+				<div class="box" style="width:92%;"><input type="text" class="inputbox" id="box700D" style="width:calc(100% - 6em);text-align:left;" onfocus="showTips('box700D','100a')">
+					<input class="chkBox" type="checkbox" id="chk700D" onfocus="showTips('chk700D','100a')">
+					<label class="labeltext" for="chk700D">團體</label></div>
+				<div class="button" style="width:1em;float:right;" onclick="AuthorSet('box700D')" onfocus="showTips('box100a','100a')"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></div>
+				<br>
+				<div class="box" style="width:14em;float:right;">
+					<div class="select-container" style="width:6em;">
+						<select id="sel700D" onclick="selBxChange('cbx700D','sel700D',0);switchRDArd('cbx700D');" onfocus="showTips('sel700D','100a')">
+						<option>繪</option>
+						</select>
+					<input type="text" id="cbx700D" onchange="switchRDArd('cbx700D')" onfocus="showTips('cbx700D','100a')" value="繪"></div>
+					<div class="select-container" style="width:6em;">
+						<select id="sel700D4" onclick="selBxChange('cbx700D4','sel700D4',4)" onfocus="showTips('sel700D4','RD')">
+						<option value="ill">ill illustrator/插圖者</option>
+						</select>
+					<input type="text" id="cbx700D4" onfocus="showTips('cbx700D4','RD')" value="ill"></div>
+				</div><br>
+				<div class="box" style="width:92%;"><input type="text" class="inputbox" id="box700T" style="width:calc(100% - 6em);text-align:left;" onfocus="showTips('box700T','100a')">
+					<input class="chkBox" type="checkbox" id="chk700T" onfocus="showTips('chk700T','100a')">
+					<label class="labeltext" for="chk700T">團體</label></div>
+				<div class="button" style="width:1em;float:right;" onclick="AuthorSet('box700T')" onfocus="showTips('box100a','100a')"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></div>
+				<br>
+				<div class="box" style="width:14em;float:right;">
+					<div class="select-container" style="width:6em;">
+						<select id="sel700T" onclick="selBxChange('cbx700T','sel700T',0);switchRDArd('cbx700T');" onfocus="showTips('sel700T','100a')">
+						<option>譯</option>
+						</select>
+						<input type="text" id="cbx700T" onchange="switchRDArd('cbx700T')" onfocus="showTips('cbx700T','100a')" value="譯"></div>
+					<div class="select-container" style="width:6em;">
+						<select id="sel700T4" onclick="selBxChange('cbx700T4','sel700T4',4)" onfocus="showTips('sel700T4','RD')">
+						<option value="trl">trl translator/譯者</option>
+						</select>
+						<input type="text" id="cbx700T4" onfocus="showTips('cbx700T4','RD')" value="trl"></div>
+				</div><br>
+				<div class="box" id="Group700AV" style="width:100%;left:-0.5%;display:none;">
+				<div class="box" style="width:92%;"><input type="text" class="inputbox" id="boxAV700" style="width:calc(100% - 6em);text-align:left;" onfocus="showTips('boxAV700','100a')">
+					<input class="chkBox" type="checkbox" id="chkAV700" onfocus="showTips('chkAV700','100a')">
+					<label class="labeltext" for="chkAV700">團體</label></div>
+				<div class="button" style="width:1em;float:right;" onclick="AuthorSet('boxAV700')" onfocus="showTips('box100a','100a')"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></div><br>
+				<div class="box" style="width:14em;float:right;">
+					<div class="select-container" style="width:6em;">
+						<select id="selAV700" onclick="selBxChange('cbxAV700','selAV700',0);switchRDArd('cbxAV700');" onfocus="showTips('selAV700','100a')">
+						<option>主演</option>
+						</select>
+					<input type="text" id="cbxAV700" onchange="switchRDArd('cbxAV700')" onfocus="showTips('cbxAV700','100a')" value="主演"></div>
+					<div class="select-container" style="width:6em;">
+						<select id="selAV7004" onclick="selBxChange('cbxAV7004','selAV7004',4)" onfocus="showTips('selAV7004','RD')">
+						<option value="act">act actor/演員</option>
+						</select>
+					<input type="text" id="cbxAV7004" onfocus="showTips('cbxAV7004','RD')" value="act"></div>
+				</div><br>
+				</div><br>
+			</div><br>
+			<div class="zi_box_1" id="Group240" style="width:calc(100% - 12px);"><span class="zi_box_2">240段</span><a name="mark240"></a><br>
+			
+			<div class="box" style="width:96%;"><span class="labeltext">原文題名：</span>
+			<input type="text" class="inputbox" id="box240a" style="width:calc(100% - 15em);text-align:left;" onfocus="showTips('box240a','240a')" disabled>
+			<div class="select-container" style="width:7em;">
+				<select id="sel240l" onclick="selBxChange('box240l','sel240l',0)" onfocus="showTips('box240l','240a')">
+				<option>中文</option>
+				</select>
+				<input type="text" id="box240l" onfocus="showTips('box240l','240a')" value="中文"></div></div><br>
+			</div><br>
+			<div class="zi_box_1" id="Group245" style="width:calc(100% - 12px);"><span class="zi_box_2">245段</span><a name="mark240"></a><br>
+			<div class="box" style="width:96%;">
+			<span class="labeltext">正題名：</span>
+			<input type="text" class="inputbox" id="box245a" style="width:calc(100% - 6em);text-align:left;" onfocus="showTips('box245a','245a')"></div><br>
+			<div id="btn245Down" class="button" style="width:5em;float:right;" onclick="showGroupDown('Group245np','btn245Down')" onfocus="showTips('btn245Down','245a')">編次▼</div><br>
+			<div class="box" id="Group245np" style="width:96%;display:none;">
+				<span class="labeltext">編次：</span>
+				<input type="text" class="inputbox" id="box245n" style="width:8em;text-align:left;" onfocus="showTips('box245n','')">
+				<span class="labeltext">編次名稱：</span>
+				<input type="text" class="inputbox" id="box245p" style="width:18em;text-align:left;" onfocus="showTips('box245p','')">
+			</div>
+			</div><br>
+			<div class="zi_box_1" id="Group246" style="width:calc(100% - 12px);"><span class="zi_box_2">245,b、246段</span><a name="mark246"></a><br>
+				<span class="labeltext">副題名：</span>
+				<input type="text" class="inputbox" id="box245b" style="width:calc(100% - 6em);text-align:left;" onfocus="showTips('box245b','245a')"><br>
+				<div id="btn246Down" class="button" style="width:8em;float:right;" onclick="showGroupDown('Group246s','btn246Down')" onfocus="showTips('btn246Down','246a')">多筆246段▼</div>
+				<div class="box" id="Group246s" style="width:96%;display:none;">
+					<span class="labeltext">其他題名：</span>
+					<input type="text" class="inputbox" id="box246s" style="width:calc(100% - 7em);text-align:left;" onfocus="showTips('box246s','246a')"><br>
+					<span class="labeltext">指標：</span>
+					<select class="selectBox" id="box246A" style="width:calc((100% - 5em) / 2);" onfocus="showTips('box246A','246a')">
+						<option value="" selected></option>
+						<option value="0">0 有附註，無附加款目</option>
+					</select>
+					<select class="selectBox" id="box246B" style="width:calc((100% - 5em) / 2);" onfocus="showTips('box246B','246a')">
+						<option value="" selected></option>
+						<option value="#"># 未標示題名類型</option>
+					</select><br>
+					<div class="box" style="display:inline-flex;">
+					<div class="box" style="width:calc(100% - 5em);>
+					<span class="labeltext">|i：&emsp;</span>
+					<div class="select-container" style="width:50%;">
+						<select id="sel246i" onclick="selBxChange('box246i','sel246i',0)" onfocus="showTips('box246i','246a')">
+						<option></option>
+						</select>
+					<input type="text" id="box246i" onfocus="showTips('box246i','246a')" value=""></div></div>
+					<div id="btnAdd246s" class="button" style="width:4em;float:right;" onclick="toolAdd246s()" onfocus="showTips('btnAdd246s','246a')">加入</div></div><br>
+					<textarea id="box246all" class="inputbox" style="height: 93%;width:96%;overflow: scroll;" onfocus="showTips('box246s','246a')"></textarea>
+				</div>
+			</div><br>
+			<div class="zi_box_1" id="Group250" style="width:calc(100% - 12px);"><span class="zi_box_2">250段</span><a name="mark250"></a><br>
+			<div class="box" style="width:98%;display:inline-flex;">
+			<div class="box" style="width:42%;">
+			<span class="labeltext">版次：</span>
+			<div class="select-container" style="width:calc(96% - 4em);">
+				<select id="sel250a" onclick="selBxChange('box250a','sel250a',0)" onfocus="showTips('box250a','250a')">
+				<option></option>
+				</select>
+				<input type="text" id="box250a" onfocus="showTips('box250a','250a')" value=""></div></div>
+			<div class="box" style="grow:1;">
+			<span class="labeltext">&emsp;版本其他：</span>
+			<div class="select-container" style="width:calc(96% - 6em);">
+				<select id="sel250b" onclick="selBxChange('box250b','sel250b',0)" onfocus="showTips('box250b','250a')">
+				<option></option>
+				</select>
+			<input type="text" id="box250b" onfocus="showTips('box250b','250a')" value=""></div></div></div>
+			</div><br>
+			<div class="zi_box_1" id="Group264" style="width:calc(100% - 12px);"><span class="zi_box_2">260段&nbsp;[RDA為264]</span><a name="mark264"></a><br>
+			<div class="box" style="width:96%;display:inline-flex;">
+			<div class="box" style="width:12em;flex-shrink:0;">
+				<span class="labeltext">出版地：</span>
+				<div class="select-container" style="width:7em;">
+				<select id="sel260a" onclick="selBxChange('box260a','sel260a',0)" onfocus="showTips('box260a','264a')">
+				<option>臺北市</option>
+				</select>
+			<input type="text" id="box260a" onfocus="showTips('box260a','264a')" value=""></div></div>
+			<div class="box" style="flex-grow:1;">
+				<span class="labeltext">出版者：</span>
+				<div class="select-container" style="width:calc(96% - 4.5em);">
+				<select id="sel260b" onchange="selBxChange('box260b','sel260b',1);toolPublish('260b');" onchange="toolPublish('260b')" onfocus="showTips('box260b','264a')">
+				<option></option>
+				</select>
+			<input type="text" id="box260b" onfocus="showTips('box260b','264a')" value=""></div></div></div><br>
+			<div class="box" style="width:96%;display:inline-flex;">
+			<div class="box" style="width:12em;flex-shrink:0;">
+				<span class="labeltext">經銷地：</span>
+				<div class="select-container" style="width:7em;">
+				<select id="sel260a2" onclick="selBxChange('box260a2','sel260a2',0)" onfocus="showTips('box260a','264a')">
+				<option>臺北市</option></select>
+			<input type="text" id="box260a2" onfocus="showTips('box260a','264a')" value=""></div></div>
+			<div class="box" style="flex-grow:1;">
+				<span class="labeltext">經銷者：</span>
+				<div class="select-container" style="width:calc(96% - 4.5em);">
+				<select id="sel260b2" onchange="selBxChange('box260b2','sel260b2',1);toolPublish('260b2');" onfocus="showTips('box260b','264a')">
+				<option></option></select>
+			<input type="text" id="box260b2" onchange="toolPublish('260b2')" onfocus="showTips('box260b','264a')" value=""></div></div></div>
+			<div class="box" style="width:98%;display:inline-flex;">
+				<div class="box" style="width:23em;flex-shrink:0;">
+					<span class="labeltext">出版日期：</span>
+					<input type="text" class="inputbox" id="box260c" style="width:8em;text-align:left;" onchange="view008()" onfocus="showTips('box260c','264a')">
+					<select class="selectBox" id="cbxYearT" style="width:7em;" onchange="showYearT()" onfocus="showTips('cbxYearT','264a')">
+						<option selected>西元年</option>
+					</select>
+				</div>
+				<div class="box" style="flex-grow:1;">
+					<span class="labeltext">刷次：</span>
+					<div class="select-container" style="width:calc(98% - 4.5em);">
+					<select id="sel260cb" onclick="selBxChange('box260cb','sel260cb',0)" onfocus="showTips('box260c','264a')">
+					<option></option></select>
+					<input type="text" id="box260cb" onfocus="showTips('box260cb','264a')" value=""></div>
+				</div>
+			</div>
+				<div class="box" style="width:96%;">
+					<span class="labeltext">版權年：</span>
+					<input type="text" class="inputbox" id="box260cC" style="width:8em;text-align:left;" onfocus="showTips('box260c','264a')">
+				</div><br>
+			</div><br>
+			<div class="zi_box_1" id="Group300" style="width:calc(100% - 12px);"><span class="zi_box_2">300段</span><a name="300"></a><br>
+				<div class="box" style="width:96%;display:inline-flex;">
+					<div class="box" style="width:42%;min-width:16em;flex-shrink:0;">
+						<span class="labeltext">數量：</span>
+						<div class="select-container" style="width:12em;">
+						<select id="sel300a" onchange="selBxChange('box300a','sel300a',1)" onfocus="showTips('box300a','300a')">
+						<option></option></select>
+						<input type="text" id="box300a" onfocus="showTips('box300a','300a')" value=""></div>
+					</div>
+					<div class="box" style="flex-grow:1;">
+						<span class="labeltext">&emsp;圖表：</span>
+						<input type="text" maxlength="" class="inputbox" id="box300b" style="width:calc(100% - 6em);text-align:left;" onchange="check504()" onfocus="showTips('box300b','300a')">
+					</div>
+				</div><br>
+				<div class="box" style="width:96%;display:inline-flex;">
+					<div class="box" style="width:42%;min-width:16em;flex-shrink:0;">
+						<span class="labeltext">尺寸：</span>
+						<div class="select-container" style="width:12em;">
+						<select id="sel300c" onchange="selBxChange('cbx300c','sel300c',1)" onfocus="showTips('cbx300c','300a')">
+						<option></option></select>
+						<input type="text" id="cbx300c" onfocus="showTips('cbx300c','300a')" value=""></div>
+					</div>
+					<div class="box" style="flex-grow:1;">
+						<span class="labeltext">&emsp;附件：</span>
+						<div class="select-container" style="width:calc(100% - 6em);">
+						<select id="sel300e" onchange="selBxChange('box300e','sel300e',1);toolRenewLocal('box300e');" onfocus="showTips('box300e','300a')">
+						<option></option></select>
+						<input type="text" id="box300e" onchange="toolRenewLocal('box300e')" onfocus="showTips('box300e','300a')"></div>
+					</div>
+				</div><br>
+			</div><br>
+			<div class="zi_box_1" id="Group336" style="width:calc(100% - 12px);"><span class="zi_box_2">336、337、338段[RDA]</span><a name="336"></a><br>
+			<span class="labeltext">336段：</span>
+			<select class="selectBox" id="cbx336" style="width:calc(100% - 6em);" onfocus="showTips('cbx336','336a')">
+				<option value="txt" selected>txt text/文字</option>
+			</select><br>
+			<span class="labeltext">337段：</span>
+			<select class="selectBox" id="cbx337" style="width:calc(100% - 6em);" onchange="switch338('cbx337','cbx338')" onfocus="showTips('cbx337','337a')">
+				<option value="n" selected>n unmediated/無媒介</option>
+			</select><br>
+			<span class="labeltext">338段：</span>
+			<select class="selectBox" id="cbx338" style="width:calc(100% - 6em);" onfocus="showTips('cbx338','338a')">
+				<option value="nc" selected>nc volume/成冊</option>
+			</select><br>
+			</div><br>
+			<div class="zi_box_1" id="Group336" style="width:calc(100% - 12px);"><span class="zi_box_2">336、337、338段[RDA附件]</span><a name="336"></a><br>
+			<span class="labeltext">附件類型：</span>
+			<select class="selectBox" id="cbxCDs" style="width:calc(100% - 10em);" onchange="switch336CD();toolRenewLocal('box300e');" onfocus="showTips('cbx336','336a')">
+				<option value=""></option>
+			</select>
+			<div id="btnCDs" class="button" style="width:2em;float:right;" onclick="showGroupDown('Group336CD','btnCDs')" onfocus="showTips('btnCDs','336a')">▼</div><br>
+			<div class="box" id="Group336CD" style="width:96%;display:none;">
+				<span class="labeltext">336段：</span>
+				<select class="selectBox" id="cbx336b" style="width:calc(100% - 6em);" onfocus="showTips('cbx336b','336a')">
+					<option value=""></option>
+				</select><br>
+				<span class="labeltext">337段：</span>
+				<select class="selectBox" id="cbx337b" style="width:calc(100% - 6em);" onchange="switch338('cbx337b','cbx338b')" onfocus="showTips('cbx337','337a')">
+					<option value=""></option>
+				</select><br>
+				<span class="labeltext">338段：</span>
+				<select class="selectBox" id="cbx338b" style="width:calc(100% - 6em);" onfocus="showTips('cbx338','338a')">
+					<option value=""></option>
+				</select><br>
+			</div>
+			</div><br>
+			<div class="zi_box_1" id="Group490" style="width:calc(100% - 12px);"><span class="zi_box_2">490、830段</span><a name="490"></a><br>
+				<div class="box" style="width:98%;max-width:98%;display:flex;flex-wrap:warp;justify-content:flex-start;">
+				<div class="box" style="width:calc((98% - 10em) / 2);min-width:14em;flex-shrink:0;">
+					<span class="labeltext">集叢名：</span>
+					<input type="text" maxlength="" class="inputbox" id="box490a" style="width:calc(96% - 5em);text-align:left;" onfocus="showTips('box490a','490a')">
+				</div>
+				<div class="box" style="max-width:calc((98% - 10em) / 2);flex-grow:1;margin:0px 10px 0px 10px;">
+					<span class="labeltext">集叢號：</span>
+					<input type="text" maxlength="" class="inputbox" id="box490v" style="width:calc(96% - 5em);min-width:4em;text-align:left;" onfocus="showTips('box490v','490a')">
+				</div>
+				<div id="btnShow490s" class="button" style="width:8em;flex-shrink:0;" onclick="showGroupDown('Group490s','btnShow490s')" onfocus="showTips('Group490s','490a')">多筆490段▼</div></div>
+				<div class="box" id="Group490s" style="width:96%;display:none;">
+					<div id="btnAdd490s" class="button" style="width:8em;float:right;" onclick="toolAdd490s()" onfocus="showTips('Group490s','490a')">新增</div><br>
+					<textarea id="box490s" class="inputbox" style="height:4em;width:96%;overflow:scroll;font-size:1em;" onfocus="showTips('box490a','490a')"></textarea><br>
+					<textarea id="box830s" class="inputbox" style="height:4em;width:96%;overflow:scroll;font-size:1em;" onfocus="showTips('box490a','830a')"></textarea><br>
+				</div>
+			</div><br>
+			<div class="zi_box_1" id="Group600" style="width:calc(100% - 12px);"><span class="zi_box_2">600-653段</span><a name="600"></a><br>
+				<div class="box" style="width:98%;display:inline-flex;">
+				<div class="box" style="flex-grow:1;">
+				<span class="labeltext">傳記人物或團體：</span>
+				<input type="text" maxlength="" class="inputbox" id="box600a" style="width:calc(100% - 14em);text-align:left;" onfocus="showTips('box600a','600a')">
+				<input class="chkBox" type="checkbox" id="chk600a" onfocus="showTips('chk600a','600a')">
+				<label class="labeltext" for="chk600a">團體</label></div>
+				<div class="button" style="width:1em;float:right;" onclick="AuthorSet('box600a')" onfocus="showTips('box600a','600a')"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></div></div><br>
+				<div class="box" style="width:98%;display:inline-flex;">
+				<div class="box" style="flex-grow:1;">
+					<span class="labeltext">主題(逗號分隔)：</span>
+					<div class="select-container" style="width:calc(98% - 8.5em);">
+					<select id="sel650a" onchange="selBxChange('box650a','sel650a',2)" onfocus="showTips('box650a','650a')">
+						<option value=""></option></select>
+				<input type="text" id="box650a" onfocus="showTips('box650a','650a')" value=""></div></div>
+				<div class="button" style="width:1em;float:right;" onclick="EntrySet('box650a')" onfocus="showTips('box600a','600a')"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></div></div><br>
+				<div class="box" style="width:98%;display:inline-flex;">
+				<div class="box" style="flex-grow:1;">
+					<span class="labeltext">地理附加款目：</span>
+					<div class="select-container" style="width:calc(98% - 7.5em);">
+					<select id="sel651a" onchange="selBxChange('box651a','sel651a',2)" onfocus="showTips('box651a','651a')">
+					<option value=""></option></select>
+				<input type="text" id="box651a" onfocus="showTips('box651a','651a')" value=""></div></div>
+				<div class="button" style="width:1em;float:right;" onclick="EntrySet('box651a')" onfocus="showTips('box600a','600a')"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></div></div><br>
+				<div class="box" style="width:96%;">
+					<span class="labeltext">資料類型(委外加館藏專用)：</span>
+					<select class="selectBox" id="cbx653a" style="width:calc(100% - 15em);max-width:19em;" onchange="toolRenewLocal('box653a')" onfocus="showTips('cbx653a','653a')">
+						<option value=""></option>
+					</select><br>
+				</div>
+			</div><br>
+			<!--分區資源中心-->
+			<div class="zi_box_1" id="GroupNRRC" style="width:calc(100% - 12px);"><span class="zi_box_2">NRRC 035、037、090、653段</span><a name="markNRRC"></a>
+				<div id="btnShowNRRC" class="button" style="width:2em;float:right;" onclick="showGroupDown('GroupNRRC2','btnShowNRRC')" onfocus="showTips('GroupNRRC','')">▼</div><br>
+				<div class="box" id="GroupNRRC2" style="width:96%;display:none;">
+					<span class="labeltext">035段：</span>
+					<input type="text" maxlength="" class="inputbox" id="txtNRRC035" style="width:calc(100% - 6em);text-align:left;" onfocus="showTips('GroupNRRC','')" value="NO"><br>
+					<span class="labeltext">037段：</span>
+					<input type="text" maxlength="" class="inputbox" id="txtNRRC037" style="width:calc(100% - 6em);text-align:left;" onfocus="showTips('GroupNRRC','')" value="公共圖書館新北分區資源中心"><br>
+					<span class="labeltext">090段：</span>
+					<input type="text" maxlength="" class="inputbox" id="txtNRRC090" style="width:calc(100% - 6em);text-align:left;" onfocus="showTips('GroupNRRC','')" value="新北市立圖書館"><br>
+					<div class="box" style="width:96%;">
+						<span class="labeltext">653段：</span>
+						<div class="select-container" style="width:calc(96% - 4em);">
+						<select id="selNRRC653" onchange="selBxChange('txtNRRC653','selNRRC653',2)" onfocus="showTips('GroupNRRC','')">
+							<option value=""></option></select>
+					<input type="text" id="txtNRRC653" onfocus="showTips('GroupNRRC','')" value=""></div></div><br>
+				</div>
+			</div><br>
+			<!--500-586段-->
+			<div class="zi_box_1" id="Group500_586" style="width:calc(100% - 12px);"><span class="zi_box_2">5xx段</span><a name="mark500"></a><br>
+				<div class="box" style="width:96%;">
+					<span class="labeltext">一般註：</span>
+					<div class="select-container" style="width:calc(96% - 4em);">
+					<select id="sel500a" style="height:7em;" onchange="selBxChange('box500a','sel500a',3);check504();" onfocus="showTips('box500a','500a')">
+					<option></option></select>
+				<textarea id="box500a" class="input_white" style="height:6em;width:calc(100% - 2.5em);left:3pt;top:2pt;" onchange="check504()" onfocus="showTips('box500a','500a')"></textarea></div></div><br>
+				<div class="box" style="width:96%;">
+					<span class="labeltext">書目註：</span>
+					<div class="select-container" style="width:calc(96% - 4em);">
+					<select id="sel504a" onclick="selBxChange('box504a','sel504a',0);check504();" onfocus="showTips('box504a','504a')">
+					<option></option></select>
+				<input type="text" id="box504a" onchange="check504()" onfocus="showTips('box504a','504a')" value=""></div></div><br>
+				<div class="box" style="width:96%;">
+					<div class="box" style="width:4em;margin:0px;padding:0px;">
+					<span class="labeltext" style="line-height:4.5em;">內容註：</span></div>
+					<div class="box" style="width:calc(100% - 6em);margin:0px;padding:0px;">
+					<textarea id="box505a" class="inputbox" style="height:4em;left:4.5em;width:100%;overflow:scroll;" onfocus="showTips('box505a','505a')"></textarea></div>
+				</div><br>
+				<div class="box" style="width:96%;">
+					<div class="box" style="width:4em;margin:0px;padding:0px;">
+					<span class="labeltext" style="line-height:4.5em;">提要註：</span></div>
+					<div class="box" style="width:calc(100% - 6em);margin:0px;padding:0px;">
+					<textarea id="box520a" class="inputbox" style="height:4em;left:4.5em;width:100%;overflow:scroll;white-space:pre-wrap;" onfocus="showTips('box520a','520a')"></textarea></div>
+				</div><br>
+				<div class="box" style="width:96%;">
+					<span class="labeltext">適用對象：</span>
+					<div class="select-container" style="width:calc(96% - 5em);">
+					<select id="sel521a" onclick="selBxChange('box521a','sel521a',0)" onfocus="showTips('box521a','521a')">
+					<option></option></select>
+				<input type="text" id="box521a" onfocus="showTips('box521a','521a')" value=""></div></div><br>
+				<div class="box" style="width:96%;">
+					<span class="labeltext">語文註：</span>
+					<div class="select-container" style="width:calc(96% - 4em);">
+					<select id="sel546a" onclick="selBxChange('box546a','sel546a',0)" onfocus="showTips('box546a','504a')">
+					<option></option></select>
+				<input type="text" id="box546a" onfocus="showTips('box546a','504a')" value=""></div></div><br>
+				<div class="box" style="width:96%;">
+					<div class="box" style="width:4em;margin:0px;padding:0px;">
+					<span class="labeltext" style="line-height:4.5em;">得獎註：</span></div>
+					<div class="box" style="width:calc(100% - 5em);margin:0px;padding:0px;">
+					<textarea id="box586a" class="inputbox" style="height:4em;left:4.5em;width:100%;overflow:scroll;" onfocus="showTips('box586a','586a')"></textarea></div>
+				</div><br>
+				<div class="zi_box_1" style="width:98%;height:98%;">
+					<span class="zi_box_2">批次號</span><br>
+					<span class="labeltext">批次號：</span>
+					<select class="selectBox" id="cbx594a1" style="width:calc((100% - 14em) / 2);min-width:7em;" onchange="show594()" onfocus="showTips('box594a','594a')">
+						<option value=""></option>
+					</select>
+					<select class="selectBox" id="cbx594a2" style="width:4em;" onchange="show594()" onfocus="showTips('box594a','594a')">
+						<option value=""></option>
+					</select>
+					<select class="selectBox" id="cbx594a3" style="width:calc((100% - 14em) / 2);min-width:7em;" onchange="show594()" onfocus="showTips('box594a','594a')">
+						<option value=""></option>
+					</select>
+					<select class="selectBox" id="cbx594a4" style="width:3em;" onchange="show594()" onfocus="showTips('box594a','594a')">
+						<option value=""></option>
+					</select><br>
+					<span class="labeltext">&emsp;&emsp;&emsp;&emsp;</span>
+					<input type="text" class="inputbox" id="box594a" style="width:calc(100% - 6.5em);text-align:left;" onchange="toolRenewLocal('box594a')" onfocus="showTips('box594a','594a')">
+				</div><br>
+				<div class="box" id="GroupeBook260" style="position:relative;width:96%;display:none;">
+					<span class="labeltext">製造地：</span>
+					<div class="select-container" style="width:7em;">
+					<select id="sel260a3" onclick="selBxChange('box260a3','sel260a3',0)" onfocus="showTips('box260a3','264a')">
+					<option>臺北市</option></select>
+				<input type="text" id="box260a3" onfocus="showTips('box260a3','264a')" value=""></div>
+					<span class="labeltext">&emsp;製造者：</span>
+					<div class="select-container" style="width:calc(96% - 17em);">
+					<select id="sel260b3" onchange="selBxChange('box260b3','sel260b3',0)" onfocus="showTips('box260b3','264a')">
+					<option></option></select>
+				<input type="text" id="box260b3" onfocus="showTips('box260b3','264a')" value=""></div></div><br>
+				<div class="box" id="GroupeBook538" style="position:relative;width:96%;display:none;">
+					<span class="labeltext">系統細節註：</span>
+					<div class="select-container" style="width:calc(96% - 6em);">
+					<select id="sel538a" onchange="selBxChange('box538a','sel538a',0)" onfocus="showTips('sel538a','')">
+					<option></option></select>
+					<input type="text" id="box538a" onfocus="showTips('sel538a','')" value=""></div>
+				</div><br>
+				<div class="box" style="width:96%;">
+					<span class="labeltext">電子資源：</span>
+					<input type="text" class="inputbox" id="box856u" style="width:calc(100% - 7em);text-align:left;" onfocus="showTips('box856u','856a')" disabled></div><br>
+			</div><br>
+			<!--權威工具-->
+			<div class="zi_box_1" id="GroupAuthority" style="width:calc(100% - 12px);"><span class="zi_box_2">權威檔工具</span><a name="markAuthority"></a><div id="btnShowAuth" class="button" style="width:2em;float:right;" onclick="showGroupDown('GroupAuth','btnShowAuth')" onfocus="showTips('GroupAuth','')">▼</div><br>
+				<div class="box" id="GroupAuth" style="width:96%;display:none;">
+					<span class="labeltext" style="font-color:#111;">建置中</span>
+				</div>
+			</div><br>
+		</div>
+		<!--更改欄寬(暫時停用)-->
+		<div class="box_resize" id="GroupResize" style="display:none;"></div>
+		<!--輸出MARC21-->
+		<div class="box_right" id="GroupOut">
+		<div class="zi_box_1" id="GroupMARC" style="width:100%;height:98%;">
+			<span class="zi_box_2">輸出資料</span>
+			<div class="button" style="width:1em;float:right;" onclick="switchFontSize('Small')" onfocus="showTips('sizeBig','')"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M200-440v-80h560v80H200Z"/></svg></div>
+			<div class="button" style="width:1em;float:right;" onclick="switchFontSize('Big')" onfocus="showTips('sizeBig','')"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></div>
+			<div class="button" style="width:1em;float:right;" onclick="toolCopy('showMARC')" onfocus="showTips('copyMARC','')"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/></svg></div>
+			<div class="box" id="" style="width:11em;float:right;">
+				<span class="labeltext">輸出格式：</span><select class="selectBox" id="selOutput" style="width:6em;" onchange="switchOutput()" onfocus="showTips('','')">
+					<option value="Miracle" selected>Miracle</option>
+					<option value="MARCEdit">MARCEdit</option>
+				</select><br>
+			</div><br>
+			<textarea id="showMARC" class="inputbox" style="height: 93%;width:96%;overflow: scroll;font-size:var(--fontbigsize);resize:none;" onfocus="showTips('showMARC','')"></textarea>
+		</div><br></div><br>
+		</div><br>
+		<!--底端工具列-->
+		<div class="box" id="toolBar2" style="width:97%;height:5%;position:fixed; top:90%; left:2%;">
+			<div class="box" id="toolBar2_left" style="width:55%;max-width:700px;">
+			<table class="bibTable" style="padding:0px;margin:0px;">
+				<tr>
+					<td style="width:4%;"></td>
+					<td style="width:30%;"><div id="btnMARCClear" class="button" onclick="toolDisplay('toolToolMARCClear')" style="width:8em;">清除重填</div></td>
+					<td style="width:31%;"><div id="btnMARCoutput" class="button" onclick="view008();ouputMARC();" style="width:9em;">併入MARC21</div></td>
+					<td style="width:31%;">
+							<div style="margin-end:1rem;">
+							<input class="chkBox" type="checkbox" id="chkRDA" value="RDA" checked>
+							<label class="labeltext" for="chkRDA">輸出為RDA格式</label></div></td>
+				</tr>
+			</table>
+			</div>
+			<div class="box" id="toolBar2_right" style="width:43%;"><table class="bibTable" style="padding:0px;margin:0px;">
+				<tr>
+					<td style="width:4%;"></td>
+					<td style="width:46%;"><div id="btnAddStack" class="button" onclick="toolDisplay('toolAddStack')" style="width:8em;">加入館藏段</div></td>
+					<td style="width:46%;">
+							<div style="margin-end:1rem;">
+							<div id="btnHideMARC" class="button" onclick="toolHideMARC('0')" style="width:8em;">收合輸出頁框</div></div></td>
+					<td style="width:4%;"></td>
+				</tr>
+			</table>
+			</div>
+		</div><br>
+		<!--傳記取號-->
+		<div class="toolstyle" id="toolToolGetPeo" style="width:20em;height:12em;display:none;top:calc(50% - 5em);left:calc(50% - 10em);">
+			<br><span class="labeltext" style="font-size:1.2em;">被傳者：</span><br>
+			<input type="text" class="inputbox" id="box084bPeo" style="width:86%;text-align:left;" onfocus="showTips('084b','084a')"><br><br>
+				<table class="bibTable">
+				<tr>
+				<td style="width:4%;"></td>
+				<td style="width:46%;text-align:center;">
+				<div class="button" style="width:80%;" onclick="toolToolGetPeo('Yes')" onfocus="showTips('084b','084a')">取號</div></td>
+				<td style="width:46%;text-align:center;">
+				<div class="button" style="width:80%;" onclick="toolToolGetPeo('No')" onfocus="showTips('084b','084a')">返回</div></td>
+				<td style="width:4%;"></td>
+				</tr>
+				</table>
+		</div>
+		<!--詢問是否清除-->
+		<div class="toolstyle" id="toolToolMARCClear" style="width:16em;height:10em;display:none;top:calc(50% - 4em);left:calc(50% - 8em);">
+			<br><span class="labeltext" style="font-size:1.2em;">真的要全部清除嗎？</span><br><br>
+			<div class="box" style="width:96%;align:center;">
+				<div class="button" style="width:6em;float:left;" onclick="toolErase('Yes')" onfocus="showTips('toolErase','')">是</div>
+				<div class="button" style="width:6em;float:left;" onclick="toolErase('No')" onfocus="showTips('toolErase','')">否</div>
+			</div>
+		</div>
+		<!--其他宣告事項-->
+		<div class="toolstyle" id="GroupAlert" style="width:16em;height:10em;display:none;top:calc(50% - 4em);left:calc(50% - 8em);">
+			<br><span id="boxAlert" class="labeltext" style="font-size:1.2em;"></span><br><br>
+			<div class="box" style="width:96%;align:center;">
+				<div class="button" style="position:absolute;width:6em;left:calc(50% - 4em);" onclick="toolAlert('Yes','')">我知道了</div>
+			</div>
+		</div>
+		<!--館藏頁框-->
+		<div class="toolstyle" id="toolAddStack" style="position:fixed;width:calc(100% - 3em);height:calc(90% - 2em);max-height:52em;display:none;top:2em;left:1.5em;">
+		<div class="button" onclick="toolDisplay('toolCloseStack')" style="position:absolute;width:1em;float:right;z-index:999;top:0.6em;right:0.5em;"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></div>
+			<iframe id="mater" src="materials.html"></iframe>
+		</div>
+		<!--說明列-->
+		<div class="box" id="tipsBar" style="width:97%;height:4%;padding:0px;position:fixed; top:95%; left:2%;display:inline-flex;">
+			<div id="lblTips" class="tipsbox" style="width:40%;left:1%;" onclick="showTips();">新北市立圖書館專版 ©2023 AKARU Studio.</div>
+			<div id="lblTips2" class="tipsbox" style="width:43%;left:43%;" onclick="showTips();">&emsp;</div>
+			<div id="btnHELP" class="tipsbox" style="width:10%;left:88%;" onclick="openBibRules();">點此看編目規範&emsp;</div>
+		</div>
+		<!--從…匯入 / ShowTools-->
+		<div class="toolstyle" id="toolMARCFrom" style="width:40%;height:25em;text-align:center;display:none;position:absolute; top:4%;left:5%;">
+		<textarea id="peastBib" class="inputbox" style="height: 82%;width:96%;white-space:pre;" onfocus="showTips('toolMARCFrom','')"></textarea><br>
+		<div class="box" id="" style="width:96%;">
+			<span class="labeltext">資料來源：</span>
+				<select class="selectBox" style="width:14em;" id="selMARCFrom">
+					<optgroup label="自Z39.50資料庫">
+						<option value="Z39CMARC">C-MARC格式</option>
+						<option value="Z39MARC21">MARC21格式</option>
+					</optgroup>
+					<optgroup label="自國圖資料庫">
+						<option value="NBICMARC">NBInet (C-MARC格式)</option>
+						<option value="NBIMARC21">NBInet (MARC21格式)</option>
+						<option value="CIP">全國CIP(C-MARC格式)</option>
+					</optgroup>
+					<optgroup label="其他來源">
+						<option value="catalog">CATALOG (MARC21格式)</option>
+						<option value="103-B">103-B</option>
+						<option value="104-S">104-S</option>
+						<option value="Toys">玩具書目</option>
+						<option value="bot">bot</option>
+					</optgroup>
+				</select>
+				<div class="button" style="width:7em;float:right;" onclick="toolRead();" onfocus="showTips('toolMARCFrom','')">轉入資料</div>
+			</div>
+		</div>
+		<!--ISBN 10→13碼 / ShowTools-->
+		<div class="toolstyle" id="toolISBN" style="width:21em;height:8em;display:none;top:4%;left:26%;">
+			<div class="box" style="width:98%;">
+				<span class="labeltext">前置3碼：</span>
+				<input type="text" maxlength="3" class="inputbox" id="threewords" style="width:2em;text-align:center;" onfocus="showTips('toolISBNto13','')">
+				<span class="labeltext">10碼ISBN：</span>
+				<input type="text" maxlength="10" class="inputbox" id="ISBN10" style="width:5em;text-align:center;" onfocus="showTips('toolISBNto13','')">
+			</div><br>
+			<div class="box" style="width:auto;align:center;">
+				<div class="button" style="width:8em;float:right;" onclick="toolISBNto13('box020a')" onfocus="showTips('toolISBNto13','')">計算並填入020段</div>
+				<div class="button" style="width:8em;float:right;" onclick="toolISBNto13('ISBN13')" onfocus="showTips('toolISBNto13','')">計算</div>
+			</div><br>
+			<div class="box" style="width:98%;">
+				<span class="labeltext">13碼ISBN：</span>
+				<input type="text" maxlength="10" class="inputbox" id="ISBN13" style="width:10em;text-align:center;" onfocus="showTips('toolISBNto13','')" readonly>
+			</div><br>
+		</div>
+		<!--外語字母表 / ShowTools-->
+		<div class="toolstyle" id="toolEuroWord" style="width:36em;height:20em;display:none;top:4%;left:38%;">
+			<div class="box" style="width:10.5em;height:19em;">
+				<div class="button" style="width:9em;" onclick="toolShowEuro('Latin')" onfocus="showTips('toolEuroWord','')">拉丁字母(Unicode)</div>
+				<div class="button" style="width:9em;" onclick="toolShowEuro('RUS')" onfocus="showTips('toolEuroWord','')">俄文(Unicode)</div>
+				<div class="button" style="width:9em;" onclick="toolShowEuro('VIE')" onfocus="showTips('toolEuroWord','')">越文(VASCII)</div>
+				<div class="button" style="width:9em;" onclick="toolShowEuro('JPN')" onfocus="showTips('toolEuroWord','')">日文(Unicode)</div>
+				<div class="button" style="width:9em;" onclick="toolShowEuro('KOR')" onfocus="showTips('toolEuroWord','')">韓文(Unicode)</div>
+				<div class="button" style="width:9em;" onclick="toolShowEuro('THA')" onfocus="showTips('toolEuroWord','')">泰文(Unicode)</div>
+				<div class="button" style="width:9em;" onclick="toolShowEuro('IND')" onfocus="showTips('toolEuroWord','')">印尼文(Unicode)</div>
+				<div class="button" style="width:9em;" onclick="toolShowEuro('Other')" onfocus="showTips('toolEuroWord','')">其他符號(Unicode)</div>
+				<div class="box">
+					<div class="button" style="width:1em;float:right;" onclick="switchFontSize('Small')"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M200-440v-80h560v80H200Z"/></svg></div>
+					<div class="button" style="width:1em;float:right;" onclick="switchFontSize('Big')"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></div>
+				</div>
+			</div>
+			<div class="box" style="width:calc(100% - 12em);height:19em;">
+				<textarea id="letterView" class="inputbox" style="height: 98%;width:98%;overflow: scroll;font-size:var(--fontbigsize);font-family:monospace;" onfocus="showTips('toolEuroWord','')" readonly></textarea>
+			</div>
+		</div>
+		<!--匯率換算 / ShowTools-->
+		<div class="toolstyle" id="toolMoney" style="width:17em;height:15em;display:none;top:4%;left:49.5%;">
+			<div class="box" style="width:98%;">
+				<span class="labeltext">匯率：</span>
+				<input type="text" class="inputbox" id="money1" style="width:6em;text-align:center;" onfocus="showTips('toolMoney','')">
+				<div class="button" style="width:4em;float:right;" onclick="toolExchange('money1')" onfocus="showTips('toolmoney','')">換算</div>
+			</div><br>
+			<div class="box" style="width:98%;">
+				<span class="labeltext">匯率：</span>
+				<input type="text" class="inputbox" id="money2" style="width:6em;text-align:center;" onfocus="showTips('toolMoney','')">
+				<div class="button" style="width:4em;float:right;" onclick="toolExchange('money2')" onfocus="showTips('toolmoney','')">換算</div>
+			</div><br>
+			<div class="box" style="width:98%;">
+				<span class="labeltext">匯率：</span>
+				<input type="text" class="inputbox" id="money3" style="width:6em;text-align:center;" onfocus="showTips('toolMoney','')">
+				<div class="button" style="width:4em;float:right;" onclick="toolExchange('money3')" onfocus="showTips('toolmoney','')">換算</div>
+			</div><br>
+			<div class="box" style="width:98%;">
+				<span class="labeltext">匯率：</span>
+				<input type="text" class="inputbox" id="money4" style="width:6em;text-align:center;" onfocus="showTips('toolMoney','')">
+				<div class="button" style="width:4em;float:right;" onclick="toolExchange('money4')" onfocus="showTips('toolmoney','')">換算</div>
+			</div><br>
+			<div class="box" style="width:98%;">
+				<span class="labeltext">匯率：</span>
+				<input type="text" class="inputbox" id="money5" style="width:6em;text-align:center;" onfocus="showTips('toolMoney','')">
+				<div class="button" style="width:4em;float:right;" onclick="toolExchange('money5')" onfocus="showTips('toolmoney','')">換算</div>
+			</div><br>
+			<div class="box" style="width:98%;">
+				<span class="labeltext">基價：</span>
+				<input type="text" class="inputbox" id="money6" style="width:6em;text-align:center;" onfocus="showTips('toolMoney','')" readonly value="50">
+				<div class="button" style="width:4em;float:right;" onclick="toolExchange('money6')" onfocus="showTips('toolmoney','')">換算</div>
+			</div><br>
+		</div>
+		<!--書目檔案處理 / ShowTools-->
+		<div class="toolstyle" id="toolSaveMARC" style="position:fixed;width:20em;height:16.5em;display:none;top:4%;left:59.5%;">
+		<div class="zi_box_1" style="width:96%;">
+			<span class="labeltext">請輸入MID：</span>
+			<input type="text" class="inputbox" id="boxMID" style="width:9em;text-align:left;" onchange="toolSwitchTemp()" onfocus="showTips('boxMID','')">
+			<div class="box" style="width:96%;">
+			<input class="chkBox" type="radio" name="exampleRadios" id="chkMID1" value="MID1" style="width:1em;">
+				<label class="labeltext" for="chkMID1">書目檔1：無MID、無館藏段</label>
+			</div>
+			<div class="box" style="width:96%;">
+			<input class="chkBox" type="radio" name="exampleRadios" id="chkMID2" value="MID2">
+				<label class="labeltext" for="chkMID2">書目檔2：有MID、無館藏段</label>
+			</div>
+			<div class="box" style="width:96%;">
+			<input class="chkBox" type="radio" name="exampleRadios" id="chkMID3" value="MID3">
+				<label class="labeltext" for="chkMID3">書目檔3：無MID、有館藏段</label>
+			</div>
+			<div class="box" style="width:96%;">
+			<input class="chkBox" type="radio" name="exampleRadios" id="chkMID4" value="MID4">
+				<label class="labeltext" for="chkMID3">書目檔4：有MID、有館藏段</label>
+			</div>
+			<div class="box" style="width:96%;height:2em;">
+			<div class="button" onclick="toolSaveMID()" style="position:absolute;width:9em;left:calc(50% - 5em);" onfocus="showTips('saveMID1','')">存檔(附加在後)</div>
+			</div>
+		</div>
+		<div class="zi_box_1" style="width:96%;height:2em;">
+			<div class="button" onclick="toolDisplay('toolMadeISO');" style="position:absolute;width:12em;left:calc(50% - 7em)">書目檔檢視/編輯/存檔</div>
+		</div>
+		</div>
+		<!--書目檔頁框-->
+		<div class="toolstyle" id="toolMadeISO" style="position:fixed;width:calc(100% - 5em);height:calc(90% - 5em);max-height:46em;display:none;top:2em;left:2em;">
+		<div class="button" onclick="toolDisplay('toolCloseboth')" style="position:absolute;width:1em;right:0.5em;"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></div>
+			<iframe id="mdiso" src="madeISO.html" style="height:calc(100% - 1em);"></iframe>
+		</div>
+		<!--克特號頁框-->
+		<div class="toolstyle" id="toolCutterTable" style="position:fixed;width:520px;height:calc(90% - 5em);max-height:34em;display:none;top:2em;left:calc(50% - 250px);">
+		<div class="button" onclick="toolDisplay('toolCloseCutter')" style="position:absolute;width:1em;right:0.5em;"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></div>
+			<iframe id="mdiso" src="CutterTable.html" style="height:calc(100% - 1em);"></iframe>
+		</div>
+		<!--作者名輸入助手 / AuthorTools-->
+		<div class="toolstyle" id="toolAuthor" style="position:fixed;display:none;width:70%;height:22em;max-height:70%;top:calc(50% - 10em);left:15%;">
+		<div class="zi_box_1" style="width:98%;max-height:calc(98% - 3em);">
+			<span class="labeltext">書名頁作者名(中譯)：</span>
+			<input type="text" class="inputbox" id="boxAuthor245c_ch" style="width:calc(96% - 12em);text-align:left;" onfocus="showTips('boxAuthor245c_ch','')"><br>
+			<span class="labeltext">書名頁作者名(英文)：</span>
+			<input type="text" class="inputbox" id="boxAuthor245c_en" style="width:calc(96% - 12em);text-align:left;" onfocus="showTips('boxAuthor245c_en','')"><br>
+			<span class="labeltext">作者生卒年：</span>
+			<input type="text" class="inputbox" id="boxAuthor100d" style="width:calc(96% - 8em);text-align:left;" onfocus="showTips('boxAuthor100d','')"><br>
+			<span class="labeltext">作者另譯為：</span>
+			<input type="text" class="inputbox" id="boxAuthor100b" style="width:calc(96% - 8em);text-align:left;" onfocus="showTips('boxAuthor100b','')"><br>
+			<span class="labeltext">作者本名：</span>
+			<input type="text" class="inputbox" id="boxAuthor400a" style="width:calc(96% - 7em);text-align:left;" onfocus="showTips('boxAuthor400a','')"><br>
+			<span class="labeltext">作者別名、筆名(逗號分別)：</span>
+			<input type="text" class="inputbox" id="boxAuthor400b" style="width:calc(96% - 15em);text-align:left;" onfocus="showTips('boxAuthor400b','')"><br>
+		</div>
+		<div class="zi_box_1" style="width:98%;height:2.5em;display:inline-flex;">
+			<span class="labeltext">&emsp;&emsp;韓國作者姓名英譯：</span>
+			<input type="text" class="inputbox" id="boxAuthorKor" style="width:calc(96% - 11em);text-align:left;" onfocus="showTips('boxAuthorKor','')"><br>
+		</div>
+		<div class="zi_box_1" style="width:98%;height:2em;display:inline-flex;">
+			<div class="button" onclick="toolFillAuthor('fillAuthor');" style="width:8em;flex-shrink:0;">填入作者</div>
+			<div class="box" style="flex-grow:1;"></div>
+			<div class="button" onclick="toolFillAuthor('Cancel');" style="width:8em;flex-shrink:0;">取消</div>
+		</div>
+		</div>
+		<!--主題輸入助手 / EntryTools-->
+		<div class="toolstyle" id="toolEntry" style="position:fixed;display:none;width:70%;height:19em;max-height:70%;top:calc(50% - 10em);left:15%;">
+			<textarea id="peastEntry" class="inputbox" style="height: 74%;width:96%;"></textarea><br>
+		<div class="zi_box_1" style="width:98%;height:2em;display:inline-flex;">
+			<div class="button" onclick="toolFillEntry('fillEntry');" style="width:6em;flex-shrink:0;">填入主題</div>
+			<div class="button" onclick="toolFillEntry('fillFromBot');" style="width:9em;flex-shrink:0;">自bot填入主題</div>
+			<div class="box" style="flex-grow:1;"></div>
+			<div class="button" onclick="toolFillEntry('Cancel');" style="width:6em;flex-shrink:0;">取消</div>
+		</div>
+		</div>
+		<!--切換主題 / ShowTools-->
+		<div class="toolstyle" id="toolThemeColor" style="width:10em;height:3.6em;top:4%;left:calc(92% - 6em);display:none;">
+			<table class="bibTable" style="width:88%;align:center;">
+				<tr>
+					<td style="width:1%;"></td>
+					<td style="width:30%;">
+						<div class="button" id="toolThemeLight" style="height:90%;weight:90%;" onclick="switchTo('light');" onfocus="showTips('toolThemeLight','')"><svg viewBox="0 0 333.33334 333.33334" height="80%" width="80%" >
+						<g transform="matrix(1.3333333,0,0,-1.3333333,0,333.33333)" id="g0">
+								<g transform="translate(0,125)" id="g1">
+								  <path id="path1" style="fill:#FFF;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 C 0,-69.035 55.964,-125 125,-125 V 125 C 55.964,125 0,69.036 0,0"/>
+								</g>
+								<g transform="translate(125,250)" id="g2">
+								  <path id="path2" style="fill:#9cb85c;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 V -125 H 125 C 125,-55.964 69.035,0 0,0"/>
+								</g>
+								<g transform="translate(250,125)" id="g3">
+								  <path id="path3" style="fill:#5cb89c;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 H -125 V -125 C -55.965,-125 0,-69.035 0,0"/>
+								</g>
+						</g>
+						</svg></div></td>
+					<td style="width:4%;"></td>
+					<td style="width:30%;">
+						<div class="button" id="toolThemeDark" style="height:90%;weight:90%;" onclick="switchTo('dark');" onfocus="showTips('toolThemeDark','')"><svg viewBox="0 0 333.33334 333.33334" height="80%" width="80%" >
+							<g transform="matrix(1.3333333,0,0,-1.3333333,0,333.33333)" id="g0">
+								<g transform="translate(0,125)" id="g1">
+								<path id="path1" style="fill:#000;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 C 0,-69.035 55.964,-125 125,-125 V 125 C 55.964,125 0,69.036 0,0"/>
+								</g>
+								<g transform="translate(125,250)" id="g2">
+								<path id="path2" style="fill:#895B2E;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 V -125 H 125 C 125,-55.964 69.035,0 0,0"/>
+								</g>
+								<g transform="translate(250,125)" id="g3">
+								<path id="path3" style="fill:#492711;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 H -125 V -125 C -55.965,-125 0,-69.035 0,0"/>
+								</g>
+							</g>
+						</svg></div></td>
+					<td style="width:4%;"></td>
+					<td style="width:30%;">
+						<div class="button" id="toolThemeBisque" style="height:90%;weight:90%;" onclick="switchTo('bisque');" onfocus="showTips('toolThemeBisque','')"><svg viewBox="0 0 333.33334 333.33334" height="80%" width="80%" >
+							<g transform="matrix(1.3333333,0,0,-1.3333333,0,333.33333)" id="g0">
+								<g transform="translate(0,125)" id="g1">
+								<path id="path1" style="fill:#f7e3af;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 C 0,-69.035 55.964,-125 125,-125 V 125 C 55.964,125 0,69.036 0,0"/>
+								</g>
+								<g transform="translate(125,250)" id="g2">
+								<path id="path2" style="fill:#5e2f00;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 V -125 H 125 C 125,-55.964 69.035,0 0,0"/>
+								</g>
+								<g transform="translate(250,125)" id="g3">
+								<path id="path3" style="fill:#a78664;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 H -125 V -125 C -55.965,-125 0,-69.035 0,0"/>
+								</g>
+							</g>
+						</svg></div></td>
+					<td style="width:1%;"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+		<script>key = 'RSTUVWXYhijklmncdefgpqrstuvHIJKLMNOPQZABCDEFGowxyzab';</script>
+
+		<!--預覽008段 / Show008-->
+		<script src="js/Show008.js"></script>
+
+		<!--顯示選單 / ShowTools-->
+		<script src="js/ShowTools.js"></script>
+
+		<!--切換記錄類型 / SwitchGroups-->
+		<script src="js/SwitchGroups.js"></script>
+
+		<!--顯示提示 / ShowTips-->
+		<script src="js/ShowTips.js"></script>
+
+		<!--輸入過程 / InputTools-->
+		<script src="js/InputTools.js"></script>
+
+		<!--輸出書目 / OutputBib-->
+		<script src="js/OutputBib.js"></script>
+
+		<!--繁轉簡 / bookmarklet_cn-->
+		<script src="js/bookmarklet_cn.js"></script>
+
+		<!--1.0.1.1版 導入1xx/7xx分欄4符合RDA規範 2024/8/19-->
+		<!--1.0.0.1版 正式版上線 2023/9/23-->
+	</body>
+</html>

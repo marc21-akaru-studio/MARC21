@@ -1,0 +1,338 @@
+//解除本機檔案限制
+security.fileuri.strict_origin_policy
+
+//上方Toolbar
+toolMARCFrom()	從…匯入
+toolSC()	簡體書格式
+toolISBNto13()	ISBN 10>13碼
+toolEuroWord()	外語字母表
+toolMoney()	匯率換算
+toolSaveMARC()	書目檔案處理
+toolDayNight()	夜間模式
+
+//切換書目格式
+setBibAsBook()	圖書
+setBibAsPeri()	連續出版品
+setBibAseBook()	電子資源
+setBibAsAudio()	錄音資料
+setBibAsDVDs()	視聽資料
+setBibAsToys()	遊戲
+
+
+// 中英用語
+
+// 提示
+ onfocus="showTips('tool','');"
+toolMARCFrom	從…匯入
+toolSC	簡體書格式
+toolISBNto13	ISBN 10>13碼
+toolEuroWord	外語字母表
+toolMoney	匯率換算
+toolSaveMARC	書目檔案處理
+toolDayNight	版面調整
+toolThemeLight	日間主題
+toolThemeDark	夜間主題
+toolThemeBisque	濃湯主題
+box008a06	出版情況
+bib008a15	出版地區	sel008a15
+bib008aIll	插圖
+bib008a22	適用對象
+bib008a23	載體形式
+bib008a24-27	內容特性
+bib008a28	政府出版品
+bib008a29	會議出版品
+bib008a30	紀念文集
+bib008a31	索引
+bib008a33	文學體裁
+bib008a34	傳記
+bib008a35	作品語文	sel008a35
+bib041b	雙語對照	sel041b
+bib00838	修正記錄代碼
+bib00839	編目來源
+view008	008段預覽
+showMARC	輸出資料
+
+box008s18	刊期
+box008s19	規則性
+box008s21	連續性出版品類型
+box008s22	原件載體型式
+box008s23	載體形式
+box008s24	整部性質
+box008s25	內容特性
+box008s26	內容特性
+box008s27	內容特性
+box008s28	政府出版品
+box008s29	會議出版品
+box008s33	題名語文
+box008s34	著錄形式
+
+box008e05	適用對象
+box008e09	電子資源類型
+box008e11	政府出版品
+
+box008f19	作曲形式代碼
+box008f21	樂譜形式代碼
+box008f22	音樂部份
+box008f23	適用對象代碼
+box008f24	形式特性代碼
+box008f25	文字附件1
+box008f26	文字附件2
+box008f27	文字附件3
+box008f28	文字附件4
+box008f29	文字附件5
+box008f30	文字附件6
+box008f31	錄音資料代碼
+box008f32	移調和排列
+boxCDhr	片長(時)
+boxCDmin	片長(分)
+lblCDmin	片長(計算後)
+
+box007v01	資料類型代碼
+box007v02	資料特殊類型標示
+box007v04	色彩
+box007v05	錄影資料規格
+box007v06	聲音
+box007v07	發聲媒體
+box007v08	尺寸大小
+box007v09	聲道種類
+box008v01	片長(時)
+box008v01b	片長(分)
+lblDVDmin	片長(計算後)
+box008v05	適用對象
+box008v11	政府出版品
+box008v12	載體形式
+box008v16	錄影資料類型
+box008v17	影片運行技術
+
+box008t01	片長(時)
+box008t01b	片長(分)
+lblToyMin	片長(計算後)
+box008t05	適用對象
+box008t11	政府出版品
+box008t12	載體形式
+box008t16	錄影資料類型
+box008t17	影片運行技術
+
+cbx020Head	ISBN/EAN/ISSN
+box020a	020a
+box020q	020q	sel020q
+box020c	020c
+box017a	017a
+box020Hvl	分冊方式	sel020Hvl
+box020Nvl	冊次	sel020Nvl
+lbl020q	第?冊	sel020q
+chkN2CTA	冊次轉壹貳參
+chkN2CTB	冊次轉一二三
+btnISBNs	加入多筆ISBN
+box020ALL	所有ISBN
+
+boxAV024a	產品條碼
+cbx020DVD	光碟格式
+boxAV020c	定價
+boxAV017a	政府出版品代碼
+boxAV028a	出版者編號
+boxAV028b	來源
+
+box041h	翻譯作品
+lbl040a	雙語對照
+box041aAV	發音
+box041aAVb	發音
+cbx041aAV	發音
+box041j	字幕
+box041jb	字幕
+cbx041j	字幕
+
+box084a	分類號
+box084b	作者號	box084bPeo
+
+box100a	主要著者
+cbx100a	主要著作方式	sel100a
+chk100a	團體
+box700D	次要著者
+cbx700D	次要著作方式	sel700D
+chk700D	團體
+box700T	第3著者
+cbx700T	第3著作方式	sel700T
+chk700T	團體
+boxAV700	[視聽]主演
+cbxAV700	[視聽]職務	selAV700
+chkAV700	團體
+
+box240a	原文題名
+box240l	翻譯作語言	sel240l
+box245a	正題名
+box245n	編次
+box245p	編次名稱
+box245b	副題名
+box246s	其他題名
+box246A	246段指標1
+box246B	246段指標2
+box246i	246, i	sel246i
+box246all	多筆246段
+
+box250a	版次	sel250a
+box250b	版本其他	sel250b
+
+box260a	出版地	sel260a
+box260b	出版者	sel260b
+box260a2	經銷地	sel260a2
+box260b2	經銷者	sel260b2
+box260c	出版日期
+cbxYearT	年號轉西元
+box260cb	刷次	sel260cb
+box260cC	版權年
+
+box300a	數量	sel300a
+box300b	圖表
+cbx300c	尺寸	sel300c
+box300e	附件	sel300e
+
+cbx336	336段
+cbx337	337段
+cbx338	338段
+cbxCDs	選擇附件形式
+cbx336b	附件336段
+cbx337b	附件337段
+cbx338b	附件338段
+
+box490a	集叢名
+box490v	集叢號
+box490s	多筆490
+box830s	多筆830
+
+box600a	傳記人物或團體
+chk600a	團體
+box650a	主題(逗號分隔)	sel650a
+box651a	地理附加款目	sel651a
+cbx653a	資料類型(委外加館藏專用)
+
+txtNRRC035	035段
+txtNRRC037	037段
+txtNRRC090	090段
+txtNRRC653	653段
+
+box500a	一般註	sel500a
+box504a	書目註	sel504a
+box505a	內容註
+box520a	提要註
+box521a	適用對象	sel521a
+box546a	語文註	sel546a
+box586a	得獎註
+
+cbx594a1	批次號(預算來源)
+cbx594a2	批次號(年度)
+cbx594a3	批次號(採購內容)
+cbx594a4	批次號(流水號)
+box594a	批次號
+
+box856u	電子資源
+
+cbx008WriterWho	選取作者
+Box008Witer	作者生平
+Box008WiterN	筆名
+Box008WiterMID	MID
+Box008WiterSD	選取段號
+boxMuti008400	產生權威檔
+
+BoxBarcodeStart	起始條碼
+BoxBarcodeCount	分館數
+BoxBarcodeEnd	結尾條碼
+計算結尾條碼
+BoxVlNo	冊次號
+算冊數
+LblVlCount	共1冊
+BoxLibMemo	館員備註
+
+BoxDataType	資料類型
+BoxBroType	流通類型
+BoxForC	取碼方式
+BoxArea	典藏地
+chkStocken	館藏地檢查
+全選
+全部不選
+BoxChk	輸入選擇
+勾選
+LabelCount	已選取0館；還有0館
+Chk001-112	勾選
+txt001-112	分館名稱
+int001-112	館藏數
+showISO	輸出資料
+selOutput	選擇輸出格式
+
+
+//div
+<div class="box" id="" style="width:96%;display:none;">
+</div>
+
+//Group
+<div class="zi_box_1" id="" style="width:100%;height:98%;">
+	<span class="zi_box_2"></span><br>
+</div><br>
+
+//textarea
+<textarea id="" class="inputbox" style="height: 93%;width:96%;" onfocus="showTips('','')"></textarea>
+
+//checkbox
+<input class="chkBox" type="checkbox" id="" onfocus="showTips('','')">
+<label class="labeltext" for=""></label>
+
+//button
+<div id="" class="button" style="width:8em;" onclick="" onfocus="showTips('','')"></div>
+
+//span
+<span class="labeltext"></span>
+
+//inputbox
+<span class="labeltext"></span>
+<input type="text" maxlength="" class="inputbox" id="" style="width:9em;text-align:left;" onfocus="showTips('','')">
+
+//datalist+input
+<input type="text" list="" maxlength="" class="inputbox" id="" style="width:9em;text-align:left;" onfocus="showTips('','')">
+	<datalist id="">
+		<option></option>
+	</datalist>
+
+//selectbox
+<select class="selectBox" id="" style="width:;" onfocus="showTips('','')">
+	<option value="" selected></option>
+	<option value=""></option>
+</select><br>
+
+//新複合下拉選單
+<div class="box" style="position:relative;width:96%;">
+	<span class="labeltext"></span><span style="overflow: hidden;">
+	<select class="selectBox" id="" style="width:em;" onchange="selBxChange('','',0)" onfocus="showTips('','')">
+	<option></option>
+	</select></span>
+<input type="text" class="input_white" id="" style="width:em;left:em;" onfocus="showTips('','')" value=""></div>
+
+//css控制重疊複合選單
+<div class="select-container" style="width:calc(100% - 6em);">
+	<select id="" onclick="selBxChange('','',0);" onfocus="">
+	<option></option>
+	</select>
+<input id="" onfocus="showTips('','')" onchange="" value=""></div>
+
+//localStorage用法
+//存入
+window.localStorage.setItem(ID, value);
+//讀取
+window.localStorage.getItem(ID);
+//刪除特定項
+window.localStorage.removeItem(ID);
+//全部刪除
+window.localStorage.clear();
+//搜尋key值(index=localStorage項的索引位置)
+window.localStorage.key(index);
+
+// base64編碼及解碼
+btoa('Hello World'); // 編碼，"SGVsbG8gV29ybGQ="
+atob('SGVsbG8gV29ybGQ='); // 解碼，"Hello World"
+
+//保留字元
+<	&gt;	&#60;
+>	&lt;	&#62;
+&	&amp;	&#38;
+"	&quot;	&#34;
+'	&apos;	&#39;
+©	&copy;
