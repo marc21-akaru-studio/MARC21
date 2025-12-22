@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<meta name="robots" content="noindex, nofollow">
+		<title>抓取書單小工具(HTML版) v.1.0.0.7</title>
+		<style>
+		:root{
+		--color: #000;
+		--broder: #e2fea1;
+		--bg-color: #FFF;
+		--gray-word: #777;
+		--button-brcolor: #c2de81;
+		--button-bgcolor: #9cb85c;
+		--hover-brcolor: #81dec2;
+		--hover-bgcolor: #5cb89c;
+		}
+		
+		@media (prefers-color-scheme: light) {
+		:root{
+		--color: #000;
+		--broder: #e2fea1;
+		--bg-color: #FFF;
+		--gray-word: #777;
+		--button-brcolor: #c2de81;
+		--button-bgcolor: #9cb85c;
+		--hover-brcolor: #81dec2;
+		--hover-bgcolor: #5cb89c;
+		}}
+
+		@media (prefers-color-scheme: dark) {
+		:root {
+		--color: #FFF;
+		--broder: #ffb300;
+		--bg-color: #000;
+		--gray-word: #555;
+		--button-brcolor: #ff9c00;
+		--button-bgcolor: #ff8c00;
+		--hover-brcolor: #fffc00;
+		--hover-bgcolor: #ffec00;
+		}
+		}
+		body {
+		background-color:var(--bg-color);}
+
+		.box {
+		background-color: var(--bg-color);
+		padding-top: 0px;
+		padding: 10px;
+		width:100%;}
+
+		.button {
+		font-family: sans-serif;
+		font-size: 1.2em;
+		color: var(--bg-color);
+		margin-top: 5px;
+		margin-button: 10px;
+		border: 2px solid var(--button-brcolor);
+		width: 70%;
+		height: 3vw;
+		text-align: center;
+		background-color: var(--button-bgcolor);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		border-radius: 7px;}
+
+		.button:hover {
+		border: 2px solid var(--hover-brcolor);
+		background-color: var(--hover-bgcolor);
+		}
+
+		.inputbox {
+		background-color: var(--bg-color);
+		padding: 15px;
+		height: 1em;
+		width: 85%;
+		border-radius: 6px;
+		border: none;
+		border: 2px solid var(--button-brcolor);
+		outline: none;
+		font-size: 1em;}
+
+		.inputbox:focus {
+		border: 2px solid var(--hover-brcolor);
+		}
+
+		.labeltext {
+		font-size:1em;}
+		</style>
+	</head>
+
+	<body>
+		<!--v.1.0.0.7 新增Amazon書單、修改部份bug-->
+		<!--v.1.0.0.6 精簡部份程式碼-->
+		<!--v.1.0.0.5 隨系統設定自動切換日間/夜間模式-->
+		<!--v.1.0.0.4 版面微調、修改欄位變動時的bug-->
+		<!--v.1.0.0.3 設置CCS、簡化function-->
+		<!--v.1.0.0.2 版面微調-->
+		<div class="box">
+		<div class="box"><span class="labeltext">欄位順序&#65306;</span><br>
+		<input type="text" id="disc" class="inputbox" value="(空格),書名,作者,出版社,ISBN,出版日期,定價,分類"></div>
+		<div class="box"><span class="labeltext">抓取內容&#65306;</span><br>
+		<textarea id="peastBook" class="inputbox" style="height: 5vh;overflow: auto;white-space:pre-warp;" placeholder="在這裡貼上要抓取的內容"></textarea></div>
+		<table style="width:90%;">
+			<tr>
+				<td style="width:7%;">&nbsp;</td>
+				<td style="width:22%;align:center;"><div id="btnBooks" class="button" onclick="gotfromWeb('Books')">博客來</div></td>
+				<td style="width:22%;align:center;"><div id="btnSanmin" class="button" onclick="gotfromWeb('Sanmin')">三民</div></td>
+				<td style="width:22%;align:center;"><div id="btnSanmin" class="button" onclick="gotfromWeb('Amazon')">Amazon</div></td>
+				<td style="width:22%;align:center;"><div id="btnWebpac" class="button" onclick="gotfromWeb('Webpac')">Webpac</div></td>
+				<td style="width:5%">&nbsp;</td>
+			</tr>
+		</table>
+		<div class="box"><span class="labeltext">擷取書單&#65306;</span><br>
+		<textarea id="showHistory" class="inputbox" style="height: 10vh;max-height:40vh;overflow: auto;white-space:pre-warp;"></textarea></div>
+		<table style="width:90%;">
+			<tr>
+				<td style="width:45%;">&nbsp;</td>
+				<td style="width:25%;align:center;"><div id="btnCopy" class="button" onclick="sellectHistory()">全選</div></td>
+				<td style="width:25%;align:center;"><div id="btnClear" class="button" onclick="clearHistory()">清除內容</div></td>
+				<td style="width:5%;">&nbsp;</td>
+			</tr>
+		</table>
+		</div>
+		
+		<script>
+			//var objPeastbook = peastBook;
+			//var objShowHistory = showHistory;
+
+			function gotTexts(strGetEachLine, strFindText, strEndText) {
+				if (strEndText === '') {
+					var startIndex = strGetEachLine.indexOf(strFindText) + strFindText.length;
+					var endIndex = strGetEachLine.length;
+					var strReturnText = strGetEachLine.substring(startIndex, endIndex).trim();
+				} else if (strEndText !== '') {
+					var firstIndex = strGetEachLine.indexOf(strFindText) + strFindText.length;
+					var secondIndex = strGetEachLine.indexOf(strEndText, firstIndex);
+					var endIndex = secondIndex !== -1 ? secondIndex : strGetEachLine.length;
+
+					var strReturnText = strGetEachLine.substring(firstIndex, endIndex).trim()
+				}
+				return strReturnText;
+			}
+
+			function gotfromWeb(strWitchSite) {
+				var strSanmin = peastBook.value;
+				var strEachLine = strSanmin.split('\n');
+				var strTitle = "";
+				var strAuthor = "";
+				var strISBN = "";
+				var strPublisher = "";
+				var strPubDate = "";
+				var strPrice = "";
+				var strTags = "";
+				strShowHistory = showHistory.value;
+
+				if (strWitchSite === 'Books') {
+				strTitle = strEachLine[0] !== '' ? strEachLine[0] : strEachLine[1];
+				for (let i = 2; i < strEachLine.length; i++) {
+					if (strEachLine[i].trim().startsWith("ISBN：") || strEachLine[i].trim().startsWith("    ISBN：")) {
+						strISBN = gotTexts(strEachLine[i], 'N：', '');
+					} else if (strEachLine[i].trim().startsWith("出版社：") || strEachLine[i].trim().startsWith("    出版社：")) {
+						strPublisher = gotTexts(strEachLine[i], '者 ‏ : ‎ ', '');
+						strPublisher = strPublisher.split('(')[0];
+					} else if (strEachLine[i].trim().startsWith("作者： ") || strEachLine[i].trim().startsWith("    作者： ")) {
+						strAuthor = gotTexts(strEachLine[i], '者 ', '');
+					} else if (strEachLine[i].trim().startsWith("出版日期：") || strEachLine[i].trim().startsWith("    出版日期：")) {
+						strPubDate = gotTexts(strEachLine[i], '期：', '');
+					} else if (strEachLine[i].trim().startsWith("定價：") || strEachLine[i].trim().startsWith("    定價：")) {
+						strPrice = gotTexts(strEachLine[i], '價：', '');
+						strPrice = strPrice.replace("NT$ ", "").replace("NT$", "").replace(" 元", "").replace("元", "");
+					} else if (strEachLine[i].trim().startsWith("本書分類：") || strEachLine[i].trim().startsWith("    本書分類：")) {
+						strTags = strTags === '' ? gotTexts(strEachLine[i], '類：', '') : strTags + ',' + gotTexts(strEachLine[i], '類：', '');}
+					}
+				}
+				if (strWitchSite === 'Sanmin') {
+					strTitle = strEachLine[0] !== '' ? strEachLine[0] : strEachLine[1];
+					for (let i = 2; i < strEachLine.length; i++) {
+						if (strEachLine[i].trim().startsWith('ISBN13') || strEachLine[i].trim().startsWith('    ISBN13')) {
+							strISBN = gotTexts(strEachLine[i], '3：', '');
+						} else if (strEachLine[i].trim().startsWith('出版社：') || strEachLine[i].trim().startsWith('    出版社：')) {
+							strPublisher = gotTexts(strEachLine[i], '社：', '');
+						} else if (strEachLine[i].trim().startsWith('作者：') || strEachLine[i].trim().startsWith('    作者：')) {
+							strAuthor = gotTexts(strEachLine[i], '者：', '');
+						} else if (strEachLine[i].trim().startsWith('出版日：') || strEachLine[i].trim().startsWith('    出版日：')) {
+							strPubDate = gotTexts(strEachLine[i], '日：', '');
+						} else if (strEachLine[i].trim().startsWith('定 價：') || strEachLine[i].trim().startsWith('定價：') || strEachLine[i].trim().startsWith('定  價：')) {
+							strPrice = gotTexts(strEachLine[i], '價：', '');
+							strPrice = strPrice.replace('NT$ ', '').replace('NT$', '').replace(' 元', '').replace('元', '');
+						} else if (strEachLine[i].trim().startsWith('中文圖書分類：') || strEachLine[i].trim().startsWith('中文圖書分類 ：') || strEachLine[i].trim().startsWith(' 中文圖書分類 ： ')) {
+							strEachLine[i] = strEachLine[i].replace('類： ', '類：');
+							strEachLine[i] = strEachLine[i].replace('類 ： ', '類：');
+							strTags = gotTexts(strEachLine[i], '類：', '');
+						}
+					}
+				}
+				if (strWitchSite === 'Amazon') {
+					strTitle = strEachLine[0] !== '' ? strEachLine[0] : strEachLine[1];
+					strTitle = strTitle.split(' – ')[0];
+					if (strEachLine[1].trim().startsWith('作者') || strEachLine[1].trim().startsWith('作者 ') || strEachLine[1].trim().startsWith('by ') ) {
+					
+							strAuthor = strEachLine[1];
+							strAuthor = strAuthor.replace(/作者\s/g, '');
+							strAuthor = strAuthor.replace(/by\s/g, '');
+						} 
+					if (strEachLine[2].trim().startsWith('作者') || strEachLine[2].trim().startsWith('作者 ') || strEachLine[2].trim().startsWith('by ') ) {
+					
+							strAuthor = strEachLine[2];
+							strAuthor = strAuthor.replace(/作者\s/g, '');
+							strAuthor = strAuthor.replace(/by\s/g, '');
+						}
+					for (let i = 2; i < strEachLine.length; i++) {
+						strEachLine[i] = strEachLine[i].replace(/‏/g,'');
+						strEachLine[i] = strEachLine[i].replace(/‎/g,'');
+						if (strEachLine[i].trim().startsWith('ISBN-13  :') || strEachLine[i].trim().startsWith('    ISBN-13  :')) {
+							strISBN = gotTexts(strEachLine[i], '13  :', '');
+							strISBN = strISBN.replace(/-/g,'').trim();
+							strISBN = strISBN.replace(/:\s\s/g,'');
+						} else if (strEachLine[i].trim().startsWith('出版者  :') || strEachLine[i].trim().startsWith('    出版者  :') || strEachLine[i].trim().startsWith('Publisher  :') || strEachLine[i].trim().startsWith('    Publisher  :') || strEachLine[i].trim().startsWith('    出版社  :') || strEachLine[i].trim().startsWith('出版社  :')) {
+							strEachLine[i] = strEachLine[i].replace(/出版社/g,'出版者');
+							if (strEachLine[i].indexOf('者',0) !== -1) {
+								strPublisher = gotTexts(strEachLine[i], '者  :', '\(');
+								strPubDate = strPubDate.replace(/\s/g, '');
+							}
+							if (strPublisher === '') strPublisher = gotTexts(strEachLine[i], 'er  :', '\(').trim();
+							strPublisher = strPublisher.replace(/er\s\s:\s\s/g,'');
+							strPublisher = strPublisher.replace(/:\s\s/g,'');
+							strPublisher = strPublisher.replace(/\s:\s\s/g,'');
+							//出版日
+							strPubDate = strEachLine[i].split('\(')[1].trim();
+							if (strPubDate.indexOf('年',0) !== 0-1) strPubDate = strPubDate.replace(/\s/g, '');
+							strPubDate = strPubDate.replace(/年/, '\/');
+							strPubDate = strPubDate.replace(/月/, '\/');
+							strPubDate = strPubDate.replace(/日\)/, '');
+							strPubDate = strPubDate.replace(/\)/, '');
+						} else if (strEachLine[i].trim().startsWith('定 價：') || strEachLine[i].trim().startsWith('定  價：')) {
+							strPrice = gotTexts(strEachLine[i], '價：', '');
+							strPrice = strPrice.replace('NT$ ', '').replace('NT$', '').replace(' 元', '').replace('元', '');
+						} else if (strEachLine[i].trim().startsWith('中文圖書分類：')) {
+							strEachLine[i] = strEachLine[i].replace('類： ', '類：');
+							strTags = gotTexts(strEachLine[i], '類：', '');
+						}
+					}
+				}
+				if (strWitchSite === 'Webpac') {
+				for (let i = 1; i < strEachLine.length; i++) {
+					if (strEachLine[i].trim().startsWith('010')) {
+						if (strEachLine[i].indexOf('$a') > 0) {
+						strISBN = strISBN !=='' ? strISBN + ',' + gotTexts(strEachLine[i], '$a', '$') : gotTexts(strEachLine[i], '$a', '$');}
+
+						if (strEachLine[i].indexOf('$d') > 0) {
+						strEachLine[i] = strEachLine[i].replace('NT$ ', '').replace('NT$', '').replace(' 元', '').replace('元', '').replace('新', '').replace('臺幣', '').replace('台幣', '').replace(' ', '');
+						strPrice = strPrice !=='' ? strPrice + ',' + gotTexts(strEachLine[i], '$d', '$') : gotTexts(strEachLine[i], '$d', '$');
+						}
+					} else if (strEachLine[i].trim().startsWith('020')) {
+						strEachLine[i] = strEachLine[i].replace(' : $', '$').replace(' ; $', '$').replace(' / $', '$').replace(' = $', '$').replace(', $', '$').replace('. $', '$');
+						if (strEachLine[i].indexOf('$a') > 0) {
+						strISBN = strISBN !=='' ? strISBN + ',' + gotTexts(strEachLine[i], '$a', '$') : gotTexts(strEachLine[i], '$a', '$');}
+
+						if (strEachLine[i].indexOf('$c') > 0) {
+						
+						strEachLine[i] = strEachLine[i].replace('NT$ ', '').replace('NT$', '').replace(' 元', '').replace('元', '').replace('新', '').replace('臺幣', '').replace('台幣', '').replace(' ', '');
+						strPrice = strPrice !=='' ? strPrice + ',' + gotTexts(strEachLine[i], '$c', '$') : gotTexts(strEachLine[i], '$c', '$');
+						}
+					} else if (strEachLine[i].trim().startsWith('210')) {
+						if (strEachLine[i].indexOf('$c') > 0) {
+						strPublisher = strPublisher !== '' ? strPublisher : gotTexts(strEachLine[i], '$c', '$');}
+
+						if (strEachLine[i].indexOf('$d') > 0) {
+						strPubDate = strPubDate !== '' ? strPubDate : gotTexts(strEachLine[i], '$d', '$');}
+					} else if (strEachLine[i].trim().startsWith('260')) {
+						strEachLine[i] = strEachLine[i].replace(' : $', '$').replace(' ; $', '$').replace(' / $', '$').replace(' = $', '$').replace(', $', '$').replace('. $', '$');
+						if (strEachLine[i].indexOf('$b') > 0) {
+						strPublisher = strPublisher !== '' ? strPublisher : gotTexts(strEachLine[i], '$b', '$');}
+
+						if (strEachLine[i].indexOf('$c') > 0) {
+						strPubDate = strPubDate !== '' ? strPubDate : gotTexts(strEachLine[i], '$c', '$');}
+					} else if (strEachLine[i].trim().startsWith('264')) {
+						strEachLine[i] = strEachLine[i].replace(' : $', '$').replace(' ; $', '$').replace(' / $', '$').replace(' = $', '$').replace(', $', '$').replace('. $', '$');
+						if (strEachLine[i].indexOf('$b') > 0) {
+						strPublisher = strPublisher !== '' ? strPublisher : gotTexts(strEachLine[i], '$b', '$');}
+
+						if (strEachLine[i].indexOf('$c') > 0) {
+						strPubDate = strPubDate !== '' ? strPubDate : gotTexts(strEachLine[i], '$c', '$');}
+					} else if (strEachLine[i].trim().startsWith('200')) {
+						if (strEachLine[i].indexOf('$a') > 0) {
+						strTitle = strTitle !== '' ? strTitle : gotTexts(strEachLine[i], '$a', '$');}
+
+						if (strEachLine[i].indexOf('$f') > 0) {
+						strAuthor = strAuthor !== '' ? strAuthor + ';' + gotTexts(strEachLine[i], '$f', '$') : gotTexts(strEachLine[i], '$f', '$');}
+
+						if (strEachLine[i].indexOf('$g') > 0) {
+						strAuthor = strAuthor !== '' ? strAuthor + ';' + gotTexts(strEachLine[i], '$g', '$') : gotTexts(strEachLine[i], '$g', '$');}
+					} else if (strEachLine[i].trim().startsWith('245')) {
+						strEachLine[i] = strEachLine[i].replace(' / $', '$');
+						if (strEachLine[i].indexOf('$a') > 0) {
+						strTitle = strTitle !== '' ? strTitle : gotTexts(strEachLine[i], '$a', '$');}
+						if (strEachLine[i].indexOf('$b') > 0) {
+						strTitle = strTitle !== '' ? strTitle + ' ' + gotTexts(strEachLine[i], '$b', '$') : gotTexts(strEachLine[i], '$b', '$');}
+
+						if (strEachLine[i].indexOf('$c') > 0) {
+						strAuthor = strAuthor !== '' ? strAuthor + ';' + gotTexts(strEachLine[i], '$c', '$') : gotTexts(strEachLine[i], '$c', '$');}
+					} else if (strEachLine[i].trim().startsWith('650') || strEachLine[i].trim().startsWith('651')) {
+						strEachLine[i] = strEachLine[i].replace(' : $', '$').replace(' ; $', '$').replace(' / $', '$').replace(' = $', '$').replace(', $', '$').replace('. $', '$');
+						if (strEachLine[i].indexOf('$a') > 0) {
+						strTags = strTags === '' ? gotTexts(strEachLine[i], '$a', '$') : strTags + ',' + gotTexts(strEachLine[i], '$a', '$');}
+					} else if (strEachLine[i].trim().startsWith('606')) {
+						if (strEachLine[i].indexOf('$a') > 0) {
+						strTags = strTags === '' ? gotTexts(strEachLine[i], '$a', '$') : strTags + ',' + gotTexts(strEachLine[i], '$a', '$');}
+					}
+				}
+				}
+				var strOutput = disc.value;
+				strOutput = strOutput.replace(/\(空格\)/g, '').replace('書名','[A]').replace('作者','[B]').replace('出版社','[C]').replace('ISBN','[D]').replace('出版日期','[E]').replace('定價','[F]').replace('分類','[G]').replace(/\,/g, '\t');
+				strOutput = strOutput.replace('[A]',strTitle).replace('[B]',strAuthor).replace('[C]',strPublisher).replace('[D]',strISBN).replace('[E]',strPubDate).replace('[F]',strPrice).replace('[G]',strTags);
+				//document.getElementById('showHistory').innerHTML = strShowHistory + strOutput + '\n';
+				//document.getElementById('peastBook').innerHTML = '';
+				showHistory.value = strShowHistory + strOutput + '\n';
+				peastBook.value = '';
+				document.getElementById('showHistory').scrollTop = document.getElementById('showHistory').scrollHeight;
+			}
+
+			function clearHistory() {
+				//document.getElementById('showHistory').innerHTML = '';
+				showHistory.value = '';
+			}
+			
+			function sellectHistory() {
+				var copyText = document.getElementById('showHistory');
+				copyText.select();
+				copyText.setSelectionRange(0, 99999);
+				document.execCommand('copy');
+			}
+	</script>
+	</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>電子資源借閱排行榜產生器</title>
+    <!-- v.1.1.0.1 下載格式新增PDF檔 -->
+    <!-- v.1.0.0.2 增加書名欄位 -->
+    <link rel="stylesheet" href="css\style.css">
+    <script src="js/qrious.min.js"></script>
+    <script src="js/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<style>
+#bookList {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.book-item {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin: 5px;
+    height: 6em;
+    width: 420px;
+    background-color: #FFF;
+    padding:0.2em;
+    border: 2px solid #c2de81;
+    border-radius: 5px;
+}
+
+.book-cover {
+    height: 70pt;
+    width: auto;
+    margin: auto;
+}
+
+.qr-code {
+    height: 70pt;
+    margin: auto;
+}
+
+.item {
+    text-align: center;
+    margin: 5pt;
+}
+.my-span {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    line-height: 1em;
+    height: 3em;
+    width: 10em;
+    text-overflow: ellipsis;
+    margin: 0.6em 5px 0px 5px;
+    text-align: center;
+}
+
+.chkBox {
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+}
+
+#uploadArea {
+    border: 2px dashed #007bff;
+    border-radius: 8px;
+    padding: 5px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s;
+    max-width: 500px;
+    height: 220px;
+    overflow: auto;
+    position: relative;
+    flex-grow: 1;
+    color: #666;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+#uploadArea:hover {
+    background-color: #e7f3ff;
+}
+
+#uploadArea img {
+    max-width: 100%;
+    max-height: 200px;
+    display: block;
+    margin: 0 auto;
+}
+</style>
+<body>
+    <div class="box" style="width:98%;">
+        <table class="bibTable">
+            <tr>
+                <td style="width:14%;text-align:left;"><div id="btn000Book" class="btn_Group" onclick="setBibAs('Book')" style="display:none;">單冊上傳</div>
+                <div id="btn000BookNow" class="btn_Group_now" onclick="setBibAs('none')">單冊上傳</div></td>
+                <td style="width:1%;"></td>
+                <td style="width:14%;text-align:left;"><div id="btn000Excel" class="btn_Group" onclick="setBibAs('Excel')">Excel上傳</div>
+                <div id="btn000ExcelNow" class="btn_Group_now" onclick="setBibAs('none')" style="display:none;">Excel上傳</div></td>
+                <td style="width:1%;"></td>
+                <td style="width:70%;"></td>
+            </tr>
+        </table>
+    </div>
+    <div id="GroupBook" class="zi_box_1" style="width:98%;"><span class="zi_box_2">單冊上傳</span><br>
+        <div>
+            <input class="inputbox" style="width:6em;text-align:center;" type="number" id="rank" placeholder="借閱名次">
+            <input class="inputbox" style="width:calc(98% - 7em);" type="text" id="title" placeholder="書名">
+            <input class="inputbox" style="width:98%;" type="text" id="link" placeholder="電子資源連結">
+            <div class="zi_box_1" style="width:98%;display:flex;align-items:center;justify-content:center;"><span class="zi_box_2">上傳書封</span><br><br>
+            <div id="uploadArea" contenteditable="true">
+                拖放圖片或在此粘貼圖片
+            </div>
+            </div>
+        </div>
+    </div>
+    <div id="GroupExcel" class="zi_box_1" style="width:98%;display:none;"><span class="zi_box_2">整批上傳</span><br>
+        <div class="chkBox">
+            <input class="inputbox" type="file" style="width:calc(98% - 8em);" id="excelFile" accept=".xlsx, .xls">
+            <button class="button" style="height:2.5em;width:7em;" id="importExcel">上傳Excel</button>
+        </div>
+    </div>
+    <div class="zi_box_1" style="width:98%;"><span class="zi_box_2">已上傳</span><br>
+        <div id="bookList"></div>
+    </div>
+    <div class="zi_box_1" style="width:98%;"><span class="zi_box_2">文件生成</span><br>
+        <div class="chkBox">
+            <button class="button" style="height:2.5em;width:8em;" id="generateHtml">文件預覽</button>
+            <div class="chkBox">
+                <input class="chkBox" type="checkbox" id="chkDWPDF">
+                <label class="labeltext" for="chkDWPDF">同時下載PDF文件</label>
+            </div>
+            <div class="chkBox">
+                <input class="chkBox" type="checkbox" id="chkDWHTML">
+                <label class="labeltext" for="chkDWHTML">同時下載HTML文件</label>
+            </div>
+        </div>
+    </div>
+
+    <script src="js\ranking.js"></script>
+</body>
+</html>
