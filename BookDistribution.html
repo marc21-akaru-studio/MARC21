@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html lang="zh-Hant-TW"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<title>裝箱單小工具(HTML版) v.1.0.0.0</title>
+
+		<link rel="stylesheet" href="./BookDistribution_files/style.css">
+	</head>
+
+	<body>
+	<div class="box" style="width:98%;height:calc(90vh - 2em);display:inline-flex;padding:10px 10px 10px 10px;">
+		<div class="box" style="width:63%;height:100%;display:flex;flex-wrap:wrap;flex-shrink:0;gap:0px;">
+			<div class="box" style="width:98%;height:98%;display:flex;flex-wrap:wrap;flex-shrink:0;gap:0px;">
+				<div class="box" style="width:60%;height:60%;flex-shrink:0;">
+					<span style="font-size:1em;">訂購單：</span><br>
+					<textarea id="peastOrder" class="inputbox" style="width:96%;height:calc(98% - 3em);flex-shrink:0;" placeholder="在這裡貼上訂購單的內容，分館以|a代替"></textarea><br><br>
+				</div>
+				<div class="box" style="width:20%;height:60%;flex-grow:1;">
+					<span style="font-size:1em;">配館：</span><br>
+					<textarea id="peastLocation" class="inputbox" style="width:96%;height:calc(98% - 3em);" placeholder="在這裡貼上配館"></textarea><br><br>
+				</div>
+				<div class="box" style="width:98%;height:1.2em;display:inline-flex;justify-content:Space-evenly;padding:0px 0px 20px 0px;">
+					<div id="btnCut" class="button" style="width:6em;" onclick="toolFrom()">產生箱單</div>
+					<div id="btnSelect" class="button" style="width:6em;" onclick="toolSelect()">箱單全選</div>
+					<div id="btnSelect" class="button" style="width:11em;" onclick="toolShowTool()">計算各館冊數、金額</div>
+				</div>
+				<div class="box" style="width:98%;height:calc(40% - 2em);flex-grow:1;">
+					<span style="font-size:1em;">箱單：</span><br>
+					<textarea id="listDistribution" class="inputbox" style="width:96%;height: calc(98% - 1em);white-space: pre;" readonly=""></textarea><br><br>
+				</div>
+			</div>
+		</div>
+		<div class="box" style="flex-grow:1;">
+		</div>
+		<div class="box" style="width:35%;height:100%;flex-shrink:0;">
+			<span style="font-size:1em;">計算：</span><br>
+			<textarea id="listPrice" class="inputbox" style="width:96%;height:98%;white-space: pre;" readonly=""></textarea><br><br>
+		</div>
+	</div>
+	<div class="toolstyle" id="toolClume" style="width:20em;height:9em;left:calc(50% - 10em);top:calc(50% - 4.5em);display:none;">
+		<span>請輸入計算用的欄位數：</span><br>
+		<input type="number" class="inputbox" style="text-align:center;" value="" id="library_code" placeholder="分館代碼位於第[]欄"><br>
+		<input type="number" class="inputbox" style="text-align:center;" value="" id="book_price" placeholder="金額位於第[]欄"><br>
+		<div class="box" style="width:98%;display: flex;justify-content: center;">
+			<div id="btnStart" class="button" style="width:11em;" onclick="toolCount()">開始計算</div>
+		</div>
+	</div>
+	<script>
+		function toolFrom() {
+			if (peastOrder.value !== '' && peastLocation.value !== '') {
+				let strReturn = '';
+				let aryOrder = peastOrder.value.split('\n');
+				let aryLocation = peastLocation.value.split('\n');
+				if (aryOrder.length !== aryLocation.length) {
+					alert('訂購單和配館數量不符，無法產生箱單哦！');
+				}
+				if (aryOrder.length === aryLocation.length) {
+					for (i=0;i<aryOrder.length;i++) {
+					  if (aryLocation[i] !== '') {
+  						aryLocation[i] = aryLocation[i].replace(/\./g,',');
+  						let aryTemp = aryLocation[i].split(',');
+  						aryTemp.sort();
+  						for (j=0;j<aryTemp.length;j++) {
+  							strReturn += aryOrder[i].replace(/\|a/g,aryTemp[j]) + '\n';
+  						}
+					  }
+					}
+				}
+				listDistribution.value = strReturn;
+			}
+		}
+		function toolSelect() {
+			if (listDistribution.value !== '') {
+				document.getElementById('listDistribution').select();
+			}
+		}
+		function toolShowTool() {
+			document.getElementById('toolClume').style.display = '';
+		}
+		function toolCount() {
+			document.getElementById('toolClume').style.display = 'none';
+			if (listDistribution.value !== '' && library_code.value !== '' && book_price.value !== '') {
+				let aryCount = [];
+				let aryEachLine = listDistribution.value.slice(0,-1).split('\n').map(row => row.split('\t'));
+				const libraryCode = Number(library_code.value) - 1;
+				const bookPrice = Number(book_price.value) - 1;
+				for (i=0;i<aryEachLine.length;i++) {
+				  if (aryEachLine[i].length > 0) {
+  					const strThisLibrary = aryEachLine[i][libraryCode];
+  					const numBookPrice = Number(aryEachLine[i][bookPrice]);
+  					if (aryCount.length > 0) {
+  						let index = aryCount.findIndex(row => row[0] === strThisLibrary);
+  						if (index === -1) {
+  							aryCount.push([strThisLibrary,1,numBookPrice]);
+  						}
+  						if (index !== -1) {
+  							aryCount[index][1] += 1;
+  							aryCount[index][2] += numBookPrice;
+  						}
+  					}
+  					if (aryCount.length === 0) {
+  						aryCount.push([strThisLibrary,1,numBookPrice]);
+  					}
+				  }
+				}
+				aryCount.sort();
+				let strReturn = aryCount.map(row => row.join('\t')).join('\n');
+				listPrice.value = strReturn;
+			}
+		}
+	</script>
+	
+</body></html>
