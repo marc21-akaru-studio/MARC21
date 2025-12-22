@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- saved from url=(0014)about:internet -->
-<html lang="zh-Hant-TW"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		
+<html lang="zh-Hant-TW">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 		<title>裝箱單小工具(HTML版) v.1.0.0.0</title>
 
-		<link rel="stylesheet" href="./BookDistribution_files/style.css">
+		<link rel="stylesheet" href="css/style.css" />
 	</head>
 
 	<body>
@@ -12,11 +12,11 @@
 		<div class="box" style="width:63%;height:100%;display:flex;flex-wrap:wrap;flex-shrink:0;gap:0px;">
 			<div class="box" style="width:98%;height:98%;display:flex;flex-wrap:wrap;flex-shrink:0;gap:0px;">
 				<div class="box" style="width:60%;height:60%;flex-shrink:0;">
-					<span style="font-size:1em;">訂購單：</span><br>
+					<span style="font-size:1em;">訂購單&#65306;</span><br>
 					<textarea id="peastOrder" class="inputbox" style="width:96%;height:calc(98% - 3em);flex-shrink:0;" placeholder="在這裡貼上訂購單的內容，分館以|a代替"></textarea><br><br>
 				</div>
 				<div class="box" style="width:20%;height:60%;flex-grow:1;">
-					<span style="font-size:1em;">配館：</span><br>
+					<span style="font-size:1em;">配館&#65306;</span><br>
 					<textarea id="peastLocation" class="inputbox" style="width:96%;height:calc(98% - 3em);" placeholder="在這裡貼上配館"></textarea><br><br>
 				</div>
 				<div class="box" style="width:98%;height:1.2em;display:inline-flex;justify-content:Space-evenly;padding:0px 0px 20px 0px;">
@@ -25,20 +25,20 @@
 					<div id="btnSelect" class="button" style="width:11em;" onclick="toolShowTool()">計算各館冊數、金額</div>
 				</div>
 				<div class="box" style="width:98%;height:calc(40% - 2em);flex-grow:1;">
-					<span style="font-size:1em;">箱單：</span><br>
-					<textarea id="listDistribution" class="inputbox" style="width:96%;height: calc(98% - 1em);white-space: pre;" readonly=""></textarea><br><br>
+					<span style="font-size:1em;">箱單&#65306;</span><br>
+					<textarea id="listDistribution" class="inputbox" style="width:96%;height: calc(98% - 1em);white-space: pre;" readonly></textarea><br><br>
 				</div>
 			</div>
 		</div>
 		<div class="box" style="flex-grow:1;">
 		</div>
 		<div class="box" style="width:35%;height:100%;flex-shrink:0;">
-			<span style="font-size:1em;">計算：</span><br>
-			<textarea id="listPrice" class="inputbox" style="width:96%;height:98%;white-space: pre;" readonly=""></textarea><br><br>
+			<span style="font-size:1em;">計算&#65306;</span><br>
+			<textarea id="listPrice" class="inputbox" style="width:96%;height:98%;white-space: pre;" readonly></textarea><br><br>
 		</div>
 	</div>
 	<div class="toolstyle" id="toolClume" style="width:20em;height:9em;left:calc(50% - 10em);top:calc(50% - 4.5em);display:none;">
-		<span>請輸入計算用的欄位數：</span><br>
+		<span>請輸入計算用的欄位數&#65306;</span><br>
 		<input type="number" class="inputbox" style="text-align:center;" value="" id="library_code" placeholder="分館代碼位於第[]欄"><br>
 		<input type="number" class="inputbox" style="text-align:center;" value="" id="book_price" placeholder="金額位於第[]欄"><br>
 		<div class="box" style="width:98%;display: flex;justify-content: center;">
@@ -109,5 +109,5 @@
 			}
 		}
 	</script>
-	
-</body></html>
+	</body>
+</html>
