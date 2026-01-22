@@ -234,6 +234,8 @@
 
         // 4. 將書目內所有 ":$" 取代為 ": $"
         result = result.replace(/:\$/g, ': $');
+        result = result.replace(/\/\$/g, '\/ $');
+        result = result.replace(/\;\$/g, '; $');
 
         return result;
     }
@@ -267,3 +269,4 @@
 </body>
 
 </html>
+
