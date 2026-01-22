@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>書目檔自動修復工具</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg: #f8fafc;
+            --border: #e2e8f0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            padding: 20px;
+            color: #1e293b;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .editor-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            .editor-grid { grid-template-columns: 1fr; }
+        }
+        .field-group {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #475569;
+        }
+        textarea {
+            width: 100%;
+            height: 370px;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-family: "Cascadia Code", "Courier New", monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            resize: vertical;
+            box-sizing: border-box;
+            background-color: white;
+        }
+        textarea:focus {
+            outline: 2px solid var(--primary);
+            border-color: transparent;
+        }
+        #outputText {
+            background-color: #f1f5f9;
+            cursor: pointer;
+        }
+        .controls {
+            text-align: center;
+        }
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background-color: var(--primary-hover);
+        }
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #334155;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>書目檔修復工具</h1>
+    </header>
+
+    <div class="editor-grid">
+        <div class="field-group">
+            <label for="inputText">原始書目 (壞檔)</label>
+            <textarea id="inputText" placeholder="請在此貼上原始書目內容..."></textarea>
+        </div>
+        <div class="field-group">
+            <label for="outputText">修復後書目 (點擊自動複製)</label>
+            <textarea id="outputText" readonly placeholder="修復後的結果將顯示於此..."></textarea>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button id="fixButton">執行修復</button>
+    </div>
+</div>
+
+<div id="toast" class="toast">內容已複製到剪貼簿！</div>
+
+<script>
+    // 定義分欄排序規則
+    const SUBFIELD_RULES = {
+        '=017': ['a', '2'],
+        '=020': ['a', 'q', 'c'],
+        '=082': ['a', 'b', '2'],
+        '=084': ['a', 'b', '2'],
+        '=100': ['a', 'c', 'd', 'y', '4'],
+        '=110': ['a', 'c', 'd', 'y', '4'],
+        '=600': ['a', 'c', 'd', 'y', '4'],
+        '=610': ['a', 'c', 'd', 'y', '4'],
+        '=700': ['a', 'c', 'd', 'y', '4'],
+        '=710': ['a', 'c', 'd', 'y', '4'],
+        '=245': ['a', 'n', 'p', 'b', 'c'],
+        '=246': ['i', 'a', 'n', 'p', 'b'],
+        '=336': ['a', 'b', '2'],
+        '=337': ['a', 'b', '2'],
+        '=338': ['a', 'b', '2'],
+        '=630': ['a', 'n', 'p', 'b', '2'],
+        '=650': ['a', 'n', 'p', 'b', '2'],
+        '=651': ['a', 'n', 'p', 'b', '2']
+    };
+
+    // 重組分欄 (嚴格保護前 8 Byte)
+    function reorderSubfields(line) {
+        if (line.length <= 8) return line;
+
+        const prefix8 = line.substring(0, 8); // 絕對保護的前 8 Byte
+        const tag = prefix8.substring(0, 4);  // 用於判斷標籤 (如 =020)
+        const content = line.substring(8);
+
+        if (!SUBFIELD_RULES[tag]) return line;
+
+        const rule = SUBFIELD_RULES[tag];
+        
+        // 使用 $ 拆分分欄
+        const subfields = [];
+        const parts = content.split('$');
+        
+        // 第一個 $ 之前的文字 (通常是空的，除非 8 Byte 後還有前導字元)
+        let leadText = parts[0]; 
+        
+        for (let i = 1; i < parts.length; i++) {
+            subfields.push('$' + parts[i]);
+        }
+        
+        let sortedSubfields = [];
+        let remaining = [...subfields];
+
+        // 依照規則順序挑選分欄
+        rule.forEach(code => {
+            for (let i = 0; i < remaining.length; i++) {
+                if (remaining[i].startsWith('$' + code)) {
+                    sortedSubfields.push(remaining[i]);
+                    remaining.splice(i, 1);
+                    i--; // 繼續檢查是否有同名的分欄
+                }
+            }
+        });
+
+        // 剩下的分欄放到最後
+        sortedSubfields = sortedSubfields.concat(remaining);
+
+        return prefix8 + leadText + sortedSubfields.join('');
+    }
+
+    // 提取冊次數字 (用於 020 排序)
+    function getVolNumber(line) {
+        const match = line.match(/\$q\(第(\d+)冊/);
+        return match ? parseInt(match[1], 10) : 999999;
+    }
+
+    // 提取 $4 內容 (用於 700 排序)
+    function getSub4(line) {
+        const match = line.match(/\$4([^$]+)/);
+        return match ? match[1] : '';
+    }
+
+    // 修復單筆書目
+    function fixRecord(recordText) {
+        let lines = recordText.split('\n').map(l => l.trimEnd()).filter(l => l.length > 0);
+        
+        // 1. 去除重複的行
+        lines = [...new Set(lines)];
+
+        // 2. 先對每一行進行分欄重組
+        lines = lines.map(line => reorderSubfields(line));
+
+        // 3. 依照段號排序 (LDR 最優先)
+        lines.sort((a, b) => {
+            const tagA = a.substring(0, 4);
+            const tagB = b.substring(0, 4);
+            
+            if (tagA === '=LDR') return -1;
+            if (tagB === '=LDR') return 1;
+            
+            if (tagA === tagB) {
+                if (tagA === '=020') {
+                    return getVolNumber(a) - getVolNumber(b);
+                }
+                if (tagA === '=700') {
+                    return getSub4(a).localeCompare(getSub4(b));
+                }
+                return 0;
+            }
+            
+            return tagA.localeCompare(tagB);
+        });
+
+        // 組合回字串
+        let result = lines.join('\n');
+
+        // 4. 將書目內所有 ":$" 取代為 ": $"
+        result = result.replace(/:\$/g, ': $');
+
+        return result;
+    }
+
+    // 主程式
+    document.getElementById('fixButton').addEventListener('click', () => {
+        const input = document.getElementById('inputText').value;
+        if (!input.trim()) return;
+
+        // 以空行分隔每筆書目
+        const records = input.split(/\n\s*\n/);
+        const fixedRecords = records
+            .map(r => fixRecord(r))
+            .filter(r => r.length > 0);
+
+        document.getElementById('outputText').value = fixedRecords.join('\n\n');
+    });
+
+    // 點擊自動複製
+    document.getElementById('outputText').addEventListener('click', function() {
+        if (!this.value) return;
+        this.select();
+        navigator.clipboard.writeText(this.value).then(() => {
+            const toast = document.getElementById('toast');
+            toast.style.display = 'block';
+            setTimeout(() => { toast.style.display = 'none'; }, 2000);
+        });
+    });
+</script>
+
+</body>
+</html>
