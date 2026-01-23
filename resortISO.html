@@ -186,7 +186,7 @@
         return prefix8 + leadText + sortedSubfields.join('');
     }
 
-    // 提取冊次數字 (用於 020 排序)
+    // 提取冊次數字 (用於 020、024 排序)
     function getVolNumber(line) {
         const match = line.match(/\$q\(第(\d+)冊/);
         return match ? parseInt(match[1], 10) : 999999;
@@ -218,6 +218,9 @@
             
             if (tagA === tagB) {
                 if (tagA === '=020') {
+                    return getVolNumber(a) - getVolNumber(b);
+                }
+                if (tagA === '=024') {
                     return getVolNumber(a) - getVolNumber(b);
                 }
                 if (tagA === '=700') {
@@ -269,4 +272,3 @@
 </body>
 
 </html>
-
