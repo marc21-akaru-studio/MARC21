@@ -220,7 +220,7 @@ function toolGetBib(strTemp) {
 			aryTemp.push(['姓名','245a']);
 			aryTemp.push(['空行','']);
 			aryTemp.push(['簡介','520a']);
-			
+			strBibtext = strBibtext.trim();
 			var aryTemp2 = strBibtext.split('\n');
 			if (aryTemp.length === aryTemp2.length) {
 				aryTemp2[0] = '新北市立圖書館真人圖書館. \|p' + aryTemp2[0].replace(/館藏類別\-/g,'');
@@ -1470,4 +1470,5 @@ function toolOpenCutter() {
 	if (bib008a35.value.substr(0,3) !== 'chi' && bib008a35.value.substr(0,3) !== 'jpn') {
 		if (document.getElementById('btn000BookNow').style.display === '' || document.getElementById('btn000PeriNow').style.display === '') document.getElementById('toolCutterTable').style.display = '';
 	}
+
 }
