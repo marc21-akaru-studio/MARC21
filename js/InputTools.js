@@ -1208,6 +1208,7 @@ function toolFill(strTemp,strData,strDate,isC2M) {
 	}
 	if (strTemp === '520a') {
 		if (strDate === 'Toy') strReturn = '遊戲說明 : ' + HarfSing(strReturn, 1);
+		if (strDate === 'humanlibrary') strReturn = HarfSing(strReturn, 1);
 		if (box520a.value === '') box520a.value = strReturn;
 	}
 	if (strTemp === '520c') {

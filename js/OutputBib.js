@@ -53,7 +53,7 @@ function ouputMARC() {
 	if (strType !== 'Audio' && strType !== 'DVDs') {
 		if (box017a.value !== '') strThisLine = '017 #8 |a' + box017a.value.trim() + '|2rocgpt';
 		if (strThisLine !== '') strThisLine += '\n';
-		if (box020ALL.value === '') {
+		if (box020ALL.value === '' && box020a.value + box020q.value + box020c.value !== '') {
 			// if (boxAV024a.value + boxAV020c.value === '') {
 				box020q.value = box020q.value.replace(' : ',' ; |q');
 				box020q.value = box020q.value.replace(' ; ',' ; |q');
@@ -168,15 +168,17 @@ function ouputMARC() {
 	strThisLine = '';
 
 	// 082.084段
-	if (strCODE === 'chi') strThisLine = '084    |a' + box084a.value.trim();
-	if (strCODE === 'eng') strThisLine = '082    |a' + box084a.value.trim();
-	if (strType !== 'Toys') {
-		if(box084b.value !== '') strThisLine += '|b' + box084b.value.trim();
-		if (strCODE === 'chi') strThisLine += '|2ncsclt';
-		if (strCODE === 'eng') strThisLine += '|223';
+	if (box084a.value + box084b.value !== '') {
+		if (strCODE === 'chi') strThisLine = '084    |a' + box084a.value.trim();
+		if (strCODE === 'eng') strThisLine = '082    |a' + box084a.value.trim();
+		if (strType !== 'Toys') {
+			if(box084b.value !== '') strThisLine += '|b' + box084b.value.trim();
+			if (strCODE === 'chi') strThisLine += '|2ncsclt';
+			if (strCODE === 'eng') strThisLine += '|223';
+		}
+		if (strThisLine !== '') strMARC += strThisLine + '\n';
+		strThisLine = '';
 	}
-	if (strThisLine !== '') strMARC += strThisLine + '\n';
-	strThisLine = '';
 
 	// 090段[NRRC]
 	if (ifNRRC) {
@@ -294,11 +296,11 @@ function ouputMARC() {
 		strThisLine += '246 30 |a' + box245p.value.trim();
 	}
 	if (box240a.value.indexOf(':',0) !== 0-1) {
-		var str264i = box240a.value.slice(box240a.value.indexOf(':',0)+1);
-		str264i = str264i.trim();
-		var intFind = box246all.value.indexOf(str264i,0);
+		var str246i = box240a.value.slice(box240a.value.indexOf(':',0)+1);
+		str246i = str246i.trim();
+		var intFind = box246all.value.indexOf(str246i,0);
 		if (intFind === 0-1) {
-			box246s.value = str264i;
+			box246s.value = str246i;
 			document.querySelector('#box246A').value = '1';
 			document.querySelector('#box246B').value = '#';
 			box246i.value = '原文副題名';
@@ -329,32 +331,34 @@ function ouputMARC() {
 
 	// 260段[RDA為264]
 	if (ifRDA) {
-		var str264b = '';
-		if (box250a.value.substr(0,2) === '公播') str264b = '公播發行';
-		strThisLine = '264 #1 |a' +
-			GotChi2Eng(box260a.value.trim(),'264a',strCODE) + 
-			' : |b' + GotChi2Eng(box260b.value.trim(),'264b',strCODE);
-		if (box250a.value.substr(0,2) === '公播' && box260b2.value === '') strThisLine += str264b;
-		strThisLine += ', |c' + box260c.value.trim().replace(/u/g,'\?');
-		if (box260cb.value !== '') {
-			strThisLine += '[' + box260cb.value.trim();
-			if (strCODE === 'chi') strThisLine += '刷]';
-			if (strCODE === 'eng') strThisLine += ']';
-		}
-		if (strCODE === 'eng') strThisLine += '.';
-		if (box260b2.value !== '') {
-			strThisLine += '\n' +
-				'264 #2 |a' + box260a2.value.trim() + 
-				' : |b' + box260b2.value.trim() + str264b + 
-				', |c' + box260c.value.trim().replace(/u/g,'\?');
+		if (box260a.value + box260b.value !== '') {
+			var str264b = '';
+			if (box250a.value.substr(0,2) === '公播') str264b = '公播發行';
+			strThisLine = '264 #1 |a' +
+				GotChi2Eng(box260a.value.trim(),'264a',strCODE) + 
+				' : |b' + GotChi2Eng(box260b.value.trim(),'264b',strCODE);
+			if (box250a.value.substr(0,2) === '公播' && box260b2.value === '') strThisLine += str264b;
+			strThisLine += ', |c' + box260c.value.trim().replace(/u/g,'\?');
 			if (box260cb.value !== '') {
 				strThisLine += '[' + box260cb.value.trim();
 				if (strCODE === 'chi') strThisLine += '刷]';
 				if (strCODE === 'eng') strThisLine += ']';
 			}
-		if (strCODE === 'eng') strThisLine += '.';
+			if (strCODE === 'eng') strThisLine += '.';
+			if (box260b2.value !== '') {
+				strThisLine += '\n' +
+					'264 #2 |a' + box260a2.value.trim() + 
+					' : |b' + box260b2.value.trim() + str264b + 
+					', |c' + box260c.value.trim().replace(/u/g,'\?');
+				if (box260cb.value !== '') {
+					strThisLine += '[' + box260cb.value.trim();
+					if (strCODE === 'chi') strThisLine += '刷]';
+					if (strCODE === 'eng') strThisLine += ']';
+				}
+			if (strCODE === 'eng') strThisLine += '.';
+			}
+			if (box260cC.value !== '') strThisLine += '\n' + '264 #4 |c©' + box260cC.value.trim();
 		}
-		if (box260cC.value !== '') strThisLine += '\n' + '264 #4 |c©' + box260cC.value.trim();
 	} 
 	if (!ifRDA) {
 		var strNotRDA260b = box260b.value.trim();
@@ -445,10 +449,10 @@ function ouputMARC() {
 
 	// 336-338段
 	if (ifRDA) {
-		var myIndex = document.getElementById('cbxCDs').selectedIndex;
-		var strSelectedText = '';
+		let myIndex = document.getElementById('cbxCDs').selectedIndex;
+		let strSelectedText = '';
 		if (myIndex > 0) strSelectedText = document.getElementById('cbxCDs').options[myIndex].text;
-		var strAppe = got336CD(strSelectedText);
+		let strAppe = got336CD(strSelectedText);
 		if (box300e.value + strSelectedText === '') {
 			myIndex = document.getElementById('cbx336').selectedIndex;
 			strSelectedText = document.getElementById('cbx336').options[myIndex].text;
@@ -460,7 +464,7 @@ function ouputMARC() {
 			strSelectedText = document.getElementById('cbx338').options[myIndex].text;
 			strThisLine += '\n' + '338    ' + got336Text(strSelectedText,'338','',strCODE);
 		} else if (box300e.value + strSelectedText !== '') {
-			var strBook = strType;
+			let strBook = strType;
 			if (strBook === 'Audio') strBook = document.querySelector('#cbx020DVD').value;
 			if (strBook === 'DVDs') strBook = document.querySelector('#cbx020DVD').value;
 			strBook = strBook.replace('Peri','periodica');
@@ -470,7 +474,7 @@ function ouputMARC() {
 			strSelectedText = document.getElementById('cbx336').options[myIndex].text;
 			strThisLine = '336    ' + got336Text(strSelectedText,'336',strBook,strCODE);
 			myIndex = document.getElementById('cbx336b').selectedIndex;
-			if (myIndex !== 0-1) {
+			if (myIndex !== -1) {
 				strSelectedText = document.getElementById('cbx336b').options[myIndex].text;
 				strThisLine += '\n' + '336    ' + got336Text(strSelectedText,'336',strAppe,strCODE);
 			}
@@ -478,7 +482,7 @@ function ouputMARC() {
 			strSelectedText = document.getElementById('cbx337').options[myIndex].text;
 			strThisLine += '\n' + '337    ' + got336Text(strSelectedText,'337',strBook,strCODE);
 			myIndex = document.getElementById('cbx337b').selectedIndex;
-			if (myIndex !== 0-1) {
+			if (myIndex !== -1) {
 				strSelectedText = document.getElementById('cbx337b').options[myIndex].text;
 				strThisLine += '\n' + '337    ' + got336Text(strSelectedText,'337',strAppe,strCODE);
 			}
@@ -486,7 +490,7 @@ function ouputMARC() {
 			strSelectedText = document.getElementById('cbx338').options[myIndex].text;
 			strThisLine += '\n' + '338    ' + got336Text(strSelectedText,'338',strBook,strCODE);
 			myIndex = document.getElementById('cbx338b').selectedIndex;
-			if (myIndex !== 0-1) {
+			if (myIndex !== -1) {
 				strSelectedText = document.getElementById('cbx338b').options[myIndex].text;
 				strThisLine += '\n' + '338    ' + got336Text(strSelectedText,'338',strAppe,strCODE);
 			}
@@ -891,6 +895,11 @@ function ouputMARC() {
 	// 856段[電子資源]
 	if (strType === 'eBook') {
 		if (box856u.value !== '') strThisLine = '856 40 |u' + box856u.value.trim() + '|z點擊此處查看電子書全文';
+		if (strThisLine !== '') strMARC += strThisLine + '\n';
+		strThisLine = '';
+	}
+	if (strType === 'Toys') {
+		if (box856u.value !== '') strThisLine = '856 40 |u' + box856u.value.trim() + '|z點擊此處預約真人圖書';
 		if (strThisLine !== '') strMARC += strThisLine + '\n';
 		strThisLine = '';
 	}

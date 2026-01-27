@@ -210,6 +210,40 @@ function toolGetBib(strTemp) {
 			if (box260c.value === '') box260c.value = '202u';
 			view008();
 		}
+		if (strTemp === 'humanlibrary') {
+			//真人圖書書目(自真人圖書官網)
+			var aryTemp = [];
+			aryTemp.push(['館藏類別','490a']);
+			aryTemp.push(['空行','']);
+			aryTemp.push(['頭銜','245b']);
+			aryTemp.push(['空行','']);
+			aryTemp.push(['姓名','245a']);
+			aryTemp.push(['空行','']);
+			aryTemp.push(['簡介','520a']);
+			
+			var aryTemp2 = strBibtext.split('\n');
+			if (aryTemp.length === aryTemp2.length) {
+				aryTemp2[0] = '新北市立圖書館真人圖書館. \|p' + aryTemp2[0].replace(/館藏類別\-/g,'');
+				aryTemp2[4] = '真人圖書' + aryTemp2[4].replace(/先生/g,'').replace(/小姐/g,'').trim();
+				document.getElementById('box856u').disabled = true;
+				box856u.value = 'https:\/\/docs.google.com\/forms\/d\/e\/1FAIpQLSeUDhwqayYiEh3NY4D-1WeGRZ1GlzoCf8R2SesRShWg2qvHcw/viewform'; //預約表單
+				document.querySelector('#cbx336').value = 'xxx';
+				document.querySelector('#cbx337').value = 'n';
+				document.querySelector('#cbx338').value = 'nz';
+				box008t01b.value = 45;
+				document.querySelector('#box008t05').value = 'e';
+				document.querySelector('#box008t16').value = 'z';
+				document.querySelector('#cbx653a').value = 'Book';
+				let strToday = new Date();
+				let strYear = strToday.getFullYear().toString();
+				box260c.value = strYear;
+				let imax = aryTemp.length;
+				for (j=0;j<imax;j++) {
+					if (aryTemp2[j] !== '') toolFill(aryTemp[j][1],aryTemp2[j],'humanlibrary',false);
+				}
+			}
+			view008();
+		}
 		if (strTemp === 'bot') {
 			//MARC21書目(自bot)
 			strBibtext = strBibtext.replace(/\n\s\s\s\s\s\s\s/g,'');
@@ -255,7 +289,7 @@ function toolGetBib(strTemp) {
 		}
 		peastBib.value = '';
 		document.getElementById('toolMARCFrom').style.display='none';
-		if (box084b.value === '') ButtFiveCode();
+		if (box084b.value === '' && strTemp !== 'humanlibrary') ButtFiveCode();
 		//更新localStorage
 		localStorage.setItem('Book020c', box020c.value.trim());
 		localStorage.setItem('Book084a', box084a.value.trim());
