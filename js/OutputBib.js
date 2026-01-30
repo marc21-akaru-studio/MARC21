@@ -522,7 +522,7 @@ function ouputMARC() {
 	strThisLine = '';
 
 	// 500段
-	if (strType === 'eBook') {
+	if (strType === 'eBook' && box250b.value !== '真人圖書') {
 		if (box500a.value.indexOf('系統需求',0) === 0-1) strThisLine = '500 ## |a系統需求 : 網頁瀏覽器IE7以上或iRead eBook';
 	}
 	if (box500a.value !== '') {
@@ -582,7 +582,7 @@ function ouputMARC() {
 	strThisLine = '';
 
 	// 516段[電子資源]
-	if (strType === 'eBook') strThisLine = '516 ## |a電子書';
+	if (strType === 'eBook' && box250b.value !== '真人圖書') strThisLine = '516 ## |a電子書';
 	if (strThisLine !== '') strMARC += strThisLine + '\n';
 	strThisLine = '';
 
@@ -604,7 +604,7 @@ function ouputMARC() {
 	strThisLine = '';
 
 	// 530.533段[電子資源]
-	if (strType === 'eBook') {
+	if (strType === 'eBook' && box250b.value !== '真人圖書') {
 		strThisLine += '530 ## |a另發行中文紙本' + '\n';
 		if (box260a3.value + box260b3.value !== '') strThisLine += '533 ## |a電子版本製作. |b' + box260a3.value.trim() + ' : |c' + box260b3.value.trim();
 	}
@@ -894,12 +894,9 @@ function ouputMARC() {
 
 	// 856段[電子資源]
 	if (strType === 'eBook') {
-		if (box856u.value !== '') strThisLine = '856 40 |u' + box856u.value.trim() + '|z點擊此處查看電子書全文';
-		if (strThisLine !== '') strMARC += strThisLine + '\n';
-		strThisLine = '';
-	}
-	if (strType === 'Toys') {
-		if (box856u.value !== '') strThisLine = '856 40 |u' + box856u.value.trim() + '|z點擊此處預約真人圖書';
+		let str856z = '|z點擊此處查看電子書全文';
+		if (box250b.value === '真人圖書') str856z = '|z點擊此處預約真人圖書';
+		if (box856u.value !== '') strThisLine = '856 40 |u' + box856u.value.trim() + str856z;
 		if (strThisLine !== '') strMARC += strThisLine + '\n';
 		strThisLine = '';
 	}

@@ -86,7 +86,9 @@ function view008() {
 			box008s33.value + box008s34.value
 	} else if (displayeBook !== 'none') {
 		// 電子書類型
-		str008view = '00000nma#a0000000#i#450#' + '\n' + str008view;
+		str008view = '00000nma#a0000000#i#450#' + '\n' + 
+			'006 m    eq  d        ' +  '\n' + 
+			'007 cr cn||||uuaua' +  '\n' + str008view;
 		str008view = str008view + '####' +
 			box008e05.value + '###' +
 			box008e09.value + '#' +

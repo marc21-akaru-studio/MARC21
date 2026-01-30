@@ -227,12 +227,13 @@ function toolGetBib(strTemp) {
 				aryTemp2[4] = '真人圖書' + aryTemp2[4].replace(/先生/g,'').replace(/小姐/g,'').trim();
 				document.getElementById('box856u').disabled = true;
 				box856u.value = 'https:\/\/docs.google.com\/forms\/d\/e\/1FAIpQLSeUDhwqayYiEh3NY4D-1WeGRZ1GlzoCf8R2SesRShWg2qvHcw/viewform'; //預約表單
+				box020c.value = 0;
+				box020q.value = '真人圖書';
+				document.querySelector('#box008e09').value = 'm';
 				document.querySelector('#cbx336').value = 'xxx';
 				document.querySelector('#cbx337').value = 'n';
-				document.querySelector('#cbx338').value = 'nz';
-				box008t01b.value = 45;
-				document.querySelector('#box008t05').value = 'e';
-				document.querySelector('#box008t16').value = 'z';
+				document.querySelector('#cbx338').value = 'cz';
+				box250b.value = '真人圖書';
 				document.querySelector('#cbx653a').value = 'Book';
 				let strToday = new Date();
 				let strYear = strToday.getFullYear().toString();
@@ -1470,5 +1471,4 @@ function toolOpenCutter() {
 	if (bib008a35.value.substr(0,3) !== 'chi' && bib008a35.value.substr(0,3) !== 'jpn') {
 		if (document.getElementById('btn000BookNow').style.display === '' || document.getElementById('btn000PeriNow').style.display === '') document.getElementById('toolCutterTable').style.display = '';
 	}
-
 }
