@@ -56,9 +56,9 @@ function toolChangeCountry() {
 		aryTemp.push(['7','7 現代：明治時代及其後(1868- )',true]);
 		aryTemp.push(['6','6 近世：江戶「德川」時代(1600-1868)',false]);
 		aryTemp.push(['5','5 室町及安土桃山時代(1392-1600)',false]);
-		aryTemp.push(['4','4 近古：鎌倉－桃山(1192-1600)',false]);
+		aryTemp.push(['4','4 近古：鎌倉－桃山(1192-1392)',false]);
 		aryTemp.push(['3','3 平安時代(784-1192)',false]);
-		aryTemp.push(['2','2 中古：大化－平安(645-1192)',false]);
+		aryTemp.push(['2','2 中古：大化－平安(645-784)',false]);
 		aryTemp.push(['1','1 太古及上古：神代(to 645)',false]);
 	}
 	if (chkCountryKR.checked) {
