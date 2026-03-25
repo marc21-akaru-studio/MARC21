@@ -625,7 +625,11 @@ function ouputMARC() {
 	strThisLine = '';
 
 	// 546段
-	if (box546a.value !== '') strThisLine = '546    |a' + box546a.value.trim();
+	if (box546a.value !== '') {
+		let str546a = box546a.value.trim();
+		str546a = GotChi2Eng(str546a,'546a',strCODE);
+		strThisLine = '546    |a' + str546a;
+	}
 	if (strThisLine !== '') strMARC += strThisLine + '\n';
 	strThisLine = '';
 
@@ -1236,6 +1240,47 @@ function GotChi2Eng(strWords,strWhLine,strLang) {
 			strReturn = strReturn.replace('歲', '');
 			strReturn = strReturn.replace('以上', '\+');
 			strReturn = strReturn.replace('限制級', 'Restricted : under 18 not allowed.');
+			strReturn += '.';
+		}
+		if (strWhLine === '546a') {
+			if (strReturn.indexOf('對照',0) != -1) {
+				let aryPosition = [];
+				aryPosition.push(['chi','Chinese']);
+				aryPosition.push(['eng','English']);
+				aryPosition.push(['fre','French']);
+				aryPosition.push(['ger','German']);
+				aryPosition.push(['kor','Korean']);
+				aryPosition.push(['jpn','Japanese']);
+				aryPosition.push(['ita','Italian']);
+				aryPosition.push(['spa','Spanish']);
+				aryPosition.push(['hun','Hungarian']);
+				aryPosition.push(['por','Portuguese']);
+				aryPosition.push(['dut','Dutch']);
+				aryPosition.push(['nor','Norwegian']);
+				aryPosition.push(['cze','Czech']);
+				aryPosition.push(['rus','Russian']);
+				aryPosition.push(['swe','Swedish']);
+				aryPosition.push(['dan','Danish']);
+				aryPosition.push(['rum','Romanian']);
+				aryPosition.push(['tha','Thai']);
+				aryPosition.push(['may','Malay']);
+				aryPosition.push(['ind','Indonesian']);
+				aryPosition.push(['vie','Vietnamese']);
+				aryPosition.push(['bur','Burmese']);
+				aryPosition.push(['hin','Hindi']);
+				aryPosition.push(['phi','Philippine']);
+				aryPosition.push(['cam','Khmer']);
+				aryPosition.push(['ara','Arabic']);
+				aryPosition.push(['lao','Lao']);
+				let imax = aryPosition.length;
+				let str008a35 = bib008a35.value.substr(0,3);
+				let str041b = bib041b.value.substr(0,3);
+				for (i=0;i<imax;i++) {
+					if (str008a35 === aryPosition[i][0]) str008a35 = aryPosition[i][1];
+					if (str041b === aryPosition[i][0]) str041b = aryPosition[i][1];
+				}
+				strReturn = `Parallel texts in ${str008a35} and ${str041b}`;
+			}
 			strReturn += '.';
 		}
 	}
