@@ -34,6 +34,9 @@ function ButtCheckStocks() {
 				if (strFind !== 'BASRT' && strFind !== 'TBZ') strFind = strFind.slice(0,3) != 'PAL' ? strFind.slice(0,2) : 'PAL';
 				if (strFind === 'BASRT') strFind = 'BASRT';
 				if (strFind === 'TBZ1') strFind = 'TBZ1';
+				if (strFind === 'TBZ2') strFind = 'TBZ2';
+				if (strFind === 'TBZ3') strFind = 'TBZ3';
+				if (strFind === 'TBZ4') strFind = 'TBZ4';
 				aryStacks.push([strFind,false]);
 			}
 			if (! chkFromM.checked) {
@@ -90,6 +93,9 @@ function toolReturnCode(strTemp) {
 		}
 		if (strReturn === 'TBZ') {
 			strReturn = strStacks.substr(intFind + intWord, 4) === 'TBZ1' ? 'TBZ1' : strReturn;
+			strReturn = strStacks.substr(intFind + intWord, 4) === 'TBZ2' ? 'TBZ2' : strReturn;
+			strReturn = strStacks.substr(intFind + intWord, 4) === 'TBZ3' ? 'TBZ3' : strReturn;
+			strReturn = strStacks.substr(intFind + intWord, 4) === 'TBZ4' ? 'TBZ4' : strReturn;
 		}
 	} else if (intFind === 0-1) {
 		strReturn = strReturn + '?';
