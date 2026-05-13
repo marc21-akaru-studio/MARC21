@@ -85,7 +85,7 @@ function toolReturnCode(strTemp) {
 	let intFind = strStacks.indexOf(strTemp + '\t',0);
 	let intWord = strTemp.length + 1;
 	if (intFind > 0-1) {
-		strReturn = strReturn + strStacks.substr(intFind + intWord, 4);
+		strReturn = strReturn + strStacks.substr(intFind + intWord, 3);
 		strReturn = strReturn.replace(/\n/g, '');
 		strReturn = strReturn.replace(/\s/g, '');
 		if (strReturn === 'BAS') {
