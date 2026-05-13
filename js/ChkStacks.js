@@ -34,9 +34,6 @@ function ButtCheckStocks() {
 				if (strFind !== 'BASRT' && strFind !== 'TBZ') strFind = strFind.slice(0,3) != 'PAL' ? strFind.slice(0,2) : 'PAL';
 				if (strFind === 'BASRT') strFind = 'BASRT';
 				if (strFind === 'TBZ1') strFind = 'TBZ1';
-				if (strFind === 'TBZ2') strFind = 'TBZ2';
-				if (strFind === 'TBZ3') strFind = 'TBZ3';
-				if (strFind === 'TBZ4') strFind = 'TBZ4';
 				aryStacks.push([strFind,false]);
 			}
 			if (! chkFromM.checked) {
