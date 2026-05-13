@@ -93,9 +93,6 @@ function toolReturnCode(strTemp) {
 		}
 		if (strReturn === 'TBZ') {
 			strReturn = strStacks.substr(intFind + intWord, 4) === 'TBZ1' ? 'TBZ1' : strReturn;
-			strReturn = strStacks.substr(intFind + intWord, 4) === 'TBZ2' ? 'TBZ2' : strReturn;
-			strReturn = strStacks.substr(intFind + intWord, 4) === 'TBZ3' ? 'TBZ3' : strReturn;
-			strReturn = strStacks.substr(intFind + intWord, 4) === 'TBZ4' ? 'TBZ4' : strReturn;
 		}
 	} else if (intFind === 0-1) {
 		strReturn = strReturn + '?';
