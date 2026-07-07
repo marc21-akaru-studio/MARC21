@@ -218,10 +218,10 @@
   </div>
 </div>
 
-<script src="js/xlsx.full.min.js"></script>
-<script src="js/qrcode.min.js"></script>
-<script src="js/html2canvas.min.js"></script>
-<script src="js/jspdf.umd.min.js"></script>
+<script src="./js/xlsx.full.min.js"></script>
+<script src="./js/qrcode.min.js"></script>
+<script src="./js/html2canvas.min.js"></script>
+<script src="./js/jspdf.umd.min.js"></script>
 <script>
 let books = [];
 const editingCovers = new Set();
@@ -325,8 +325,8 @@ function renderBooks(){
         <div>
           <label>內容簡介 (上限200字)</label>
           <div class="desc-wrap">
-            <textarea maxlength="200" oninput="updateDesc(${i}, this)">${escapeHtml(book.desc)}</textarea>
-            <span class="char-count" id="desc-count-${i}">${book.desc.length}/200</span>
+            <textarea maxlength="200" class="${book.desc.length >= 200 ? 'limit' : ''}" oninput="updateDesc(${i}, this)">${escapeHtml(book.desc)}</textarea>
+            <span class="char-count ${book.desc.length >= 200 ? 'limit' : ''}" id="desc-count-${i}">${book.desc.length}/200</span>
           </div>
         </div>
         <div class="block-footer">
@@ -563,10 +563,29 @@ ${books.map((book,i)=>`
 async function downloadAsPDF(title){
   const target = document.getElementById('resultSection');
   const originalWidth = target.style.width;
+  const originalPaddingLeft = target.style.paddingLeft;
+  const originalPaddingRight = target.style.paddingRight;
+
   target.style.width = '794px'; // ~210mm at 96dpi
+  target.style.paddingLeft = '56.7px'; // ~1.5cm at 96dpi
+  target.style.paddingRight = '56.7px'; // ~1.5cm at 96dpi
   await new Promise(r => setTimeout(r, 150)); // allow reflow / QR render
 
   try{
+    const targetRect = target.getBoundingClientRect();
+    // Capture the ebook-link anchor positions (in CSS px, relative to target) before rasterizing,
+    // so we can overlay real clickable link annotations on top of the flattened image.
+    const linkInfos = Array.from(target.querySelectorAll('.result-qr a')).map(a => {
+      const r = a.getBoundingClientRect();
+      return {
+        href: a.href,
+        x: r.left - targetRect.left,
+        y: r.top - targetRect.top,
+        w: r.width,
+        h: r.height
+      };
+    });
+
     const canvas = await html2canvas(target, {scale: 2, useCORS: true, backgroundColor: '#F7F1E1'});
     const { jsPDF } = window.jspdf;
     const pdf = new jsPDF({unit: 'mm', format: [210, 4000]});
@@ -574,11 +593,21 @@ async function downloadAsPDF(title){
     const imgHeightMm = canvas.height * (imgWidthMm / canvas.width);
     const imgData = canvas.toDataURL('image/jpeg', 0.92);
     pdf.addImage(imgData, 'JPEG', 0, 0, imgWidthMm, Math.min(imgHeightMm, 4000));
+
+    // Overlay clickable link areas on top of the image at the matching positions.
+    const mmPerPx = imgWidthMm / targetRect.width;
+    linkInfos.forEach(info => {
+      if(!info.href) return;
+      pdf.link(info.x * mmPerPx, info.y * mmPerPx, info.w * mmPerPx, info.h * mmPerPx, {url: info.href});
+    });
+
     pdf.save(`${sanitizeFilename(title)}.pdf`);
   }catch(err){
     alert('PDF 產生失敗，可能是書封圖片網址不支援跨網域讀取。錯誤訊息：' + err.message);
   }finally{
     target.style.width = originalWidth;
+    target.style.paddingLeft = originalPaddingLeft;
+    target.style.paddingRight = originalPaddingRight;
   }
 }
 
