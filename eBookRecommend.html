@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>電子書推薦榜製作工具</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F1E1;
+    --card:#FFFFFF;
+    --ink:#26313A;
+    --teal:#1F4E4A;
+    --gold:#C9932F;
+    --red:#C0433A;
+    --line:#D9CFB4;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Noto Sans TC', sans-serif;
+    padding:24px 16px 80px;
+  }
+  .container{max-width:980px;margin:0 auto;}
+
+  .main-title{
+    display:block;
+    width:100%;
+    text-align:center;
+    font-family:'Noto Serif TC', serif;
+    font-weight:900;
+    font-size:clamp(24px,4vw,38px);
+    color:var(--teal);
+    background:transparent;
+    border:none;
+    border-bottom:3px solid var(--gold);
+    padding:10px 6px 14px;
+    margin-bottom:26px;
+  }
+  .main-title:focus{outline:none;border-bottom-color:var(--red);}
+
+  .section{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:18px 20px;
+    margin-bottom:22px;
+    box-shadow:0 2px 6px rgba(38,49,58,.06);
+  }
+  .toolbar-section{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center;}
+
+  button{
+    font-family:inherit;
+    cursor:pointer;
+    border:none;
+    border-radius:6px;
+    padding:10px 18px;
+    font-size:14px;
+    font-weight:700;
+    transition:opacity .2s;
+  }
+  button:hover{opacity:.85;}
+  .btn-tool{background:var(--teal);color:#fff;}
+  .btn-add{background:var(--gold);color:#fff;display:block;margin:0 auto 26px;}
+  .btn-del{background:var(--red);color:#fff;padding:6px 12px;font-size:13px;}
+  .btn-primary{background:var(--red);color:#fff;font-size:17px;padding:14px 30px;}
+  .btn-small{background:#999;color:#fff;font-size:12px;padding:4px 10px;margin-top:6px;}
+
+  /* ---- book input block ---- */
+  .book-block{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:16px;
+    margin-bottom:18px;
+    display:grid;
+    grid-template-columns:40px 150px 150px 1fr;
+    gap:16px;
+    align-items:start;
+    position:relative;
+  }
+  .serial-num{
+    display:flex;align-items:center;justify-content:center;
+    height:200px;
+    font-family:'Noto Serif TC',serif;
+    font-weight:900;
+    font-size:22px;
+    color:var(--gold);
+  }
+  .cover-pane{
+    width:150px;height:200px;
+    border-radius:6px;overflow:hidden;
+    border:2px solid var(--line);
+    background:#f0ede2;
+    display:flex;align-items:center;justify-content:center;
+    transition:border-color .15s;
+  }
+  .cover-pane.pane-excel{border-color:#2ecc71;}
+  .cover-pane.pane-editing{border-color:#f39c12;}
+  .cover-pane img{width:100%;height:100%;object-fit:cover;cursor:pointer;}
+  .cover-edit{
+    width:100%;height:100%;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:6px;padding:8px;text-align:center;
+    border:2px dashed var(--gold);
+    border-radius:6px;
+    background:#fbf8ef;
+  }
+  .cover-edit p{font-size:11px;color:#777;margin:0;line-height:1.4;}
+  .cover-edit input{
+    width:100%;font-size:12px;padding:5px;
+    border:1px solid var(--line);border-radius:4px;
+  }
+  .qr-pane{
+    width:150px;height:200px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:8px;background:#fbf8ef;border:2px solid var(--line);border-radius:6px;padding:8px;
+  }
+  .qr-pane .qr-box{width:110px;height:110px;display:flex;align-items:center;justify-content:center;}
+  .qr-pane .qr-placeholder{font-size:11px;color:#999;text-align:center;}
+
+  .book-fields{display:flex;flex-direction:column;gap:10px;}
+  .book-fields label{font-size:12px;font-weight:700;color:var(--teal);}
+  .book-fields input[type=text]{
+    width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;font-size:14px;
+  }
+  .desc-wrap{position:relative;}
+  .desc-wrap textarea{
+    width:100%;min-height:70px;padding:8px;padding-right:56px;
+    border:2px solid var(--line);border-radius:5px;font-size:14px;resize:vertical;
+    font-family:inherit;
+  }
+  .desc-wrap textarea.limit{border-color:var(--red);}
+  .char-count{
+    position:absolute;right:8px;bottom:8px;
+    font-size:11px;color:#888;background:rgba(255,255,255,.85);padding:1px 6px;border-radius:10px;
+  }
+  .char-count.limit{color:var(--red);font-weight:700;}
+  .block-footer{display:flex;justify-content:flex-end;}
+
+  /* ---- output section ---- */
+  .output-controls{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:center;}
+  .output-controls label{font-size:14px;display:flex;align-items:center;gap:6px;}
+
+  /* ---- result section ---- */
+  #resultSection{background:var(--paper);}
+  #resultTitle{
+    text-align:center;font-family:'Noto Serif TC',serif;font-weight:900;
+    font-size:clamp(28px,5vw,46px);color:var(--teal);margin:10px 0 34px;
+  }
+  .result-book{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:20px;
+    margin-bottom:22px;
+    display:grid;
+    grid-template-columns:170px 170px 1fr;
+    gap:22px;
+    align-items:center;
+    box-shadow:0 2px 8px rgba(38,49,58,.08);
+  }
+  .result-cover img{width:170px;height:220px;object-fit:cover;border-radius:6px;border:1px solid var(--line);}
+  .result-cover .no-cover{
+    width:170px;height:220px;display:flex;align-items:center;justify-content:center;
+    background:#f0ede2;border-radius:6px;color:#999;font-size:13px;border:1px solid var(--line);
+  }
+  .result-qr{display:flex;flex-direction:column;align-items:center;gap:10px;}
+  .result-qr a{
+    color:var(--teal);font-weight:700;font-size:14px;text-decoration:underline;
+  }
+  .result-info h2{
+    font-family:'Noto Serif TC',serif;font-size:22px;color:var(--ink);margin:4px 0 10px;
+  }
+  .result-info p{font-size:15px;line-height:1.8;white-space:pre-wrap;margin:0;}
+
+  @media (max-width:640px){
+    .book-block{grid-template-columns:1fr;}
+    .serial-num{height:auto;padding:4px 0;}
+    .cover-pane,.qr-pane{width:100%;}
+    .result-book{grid-template-columns:1fr;}
+    .result-cover img,.result-cover .no-cover{width:100%;height:auto;aspect-ratio:3/4;}
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Part 1: title -->
+  <input id="mainTitle" class="main-title" value="新北市立圖書館電子書推薦" oninput="autoSave()">
+
+  <!-- Part 2: save / load -->
+  <div class="section toolbar-section">
+    <button class="btn-tool" onclick="saveJSON()">💾 存檔 (.json)</button>
+    <button class="btn-tool" onclick="document.getElementById('loadFile').click()">📂 載入檔案 (.json / Excel)</button>
+    <input type="file" id="loadFile" accept=".json,.xlsx,.xls" style="display:none" onchange="handleLoadFile(event)">
+  </div>
+
+  <!-- Part 3: dynamic book blocks -->
+  <div id="booksContainer"></div>
+  <button class="btn-add" onclick="addBook()">➕ 新增書籍區塊</button>
+
+  <!-- Part 4: output -->
+  <div class="section">
+    <div class="output-controls">
+      <button class="btn-primary" onclick="showBookList()">📖 顯示書榜</button>
+      <label><input type="checkbox" id="downloadHTML"> 同時下載為HTML檔</label>
+      <label><input type="checkbox" id="downloadPDF"> 同時下載為PDF檔</label>
+    </div>
+  </div>
+
+  <div id="resultSection" style="display:none;">
+    <h1 id="resultTitle"></h1>
+    <div id="resultList"></div>
+  </div>
+</div>
+
+<script src="js/xlsx.full.min.js"></script>
+<script src="js/qrcode.min.js"></script>
+<script src="js/html2canvas.min.js"></script>
+<script src="js/jspdf.umd.min.js"></script>
+<script>
+let books = [];
+const editingCovers = new Set();
+const AUTOSAVE_KEY = 'ebook_list_tool_autosave_v1';
+
+function autoSave(){
+  try{
+    const data = {
+      title: document.getElementById('mainTitle').value,
+      books: books
+    };
+    localStorage.setItem(AUTOSAVE_KEY, JSON.stringify(data));
+  }catch(e){ /* localStorage unavailable, ignore */ }
+}
+
+function loadAutoSave(){
+  try{
+    const saved = localStorage.getItem(AUTOSAVE_KEY);
+    if(!saved) return false;
+    const data = JSON.parse(saved);
+    if(!data) return false;
+    document.getElementById('mainTitle').value = data.title || '新北市立圖書館電子書推薦';
+    books = data.books || [];
+    if(books.length === 0) books.push({cover:'', ebookLink:'', title:'', desc:'', coverSource:''});
+    renderBooks();
+    return true;
+  }catch(e){
+    return false;
+  }
+}
+
+function escapeHtml(str){
+  return (str||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function sanitizeFilename(name){
+  const n = (name||'').replace(/[\\/:*?"<>|]/g,'_').trim();
+  return n || 'ebooklist';
+}
+
+/* ---------------- book blocks ---------------- */
+function addBook(){
+  books.push({cover:'', ebookLink:'', title:'', desc:'', coverSource:''});
+  renderBooks();
+}
+function deleteBook(i){
+  if(confirm('確定要刪除這本書的區塊嗎？')){
+    books.splice(i,1);
+    editingCovers.clear();
+    renderBooks();
+  }
+}
+function updateBook(i, field, value){
+  books[i][field] = value;
+  if(field === 'ebookLink') regenerateQR(i);
+  autoSave();
+}
+function updateDesc(i, el){
+  books[i].desc = el.value;
+  const len = el.value.length;
+  const span = document.getElementById(`desc-count-${i}`);
+  span.textContent = `${len}/200`;
+  span.classList.toggle('limit', len >= 200);
+  el.classList.toggle('limit', len >= 200);
+  autoSave();
+}
+
+function renderBooks(){
+  const container = document.getElementById('booksContainer');
+  container.innerHTML = '';
+  books.forEach((book, i) => {
+    const div = document.createElement('div');
+    div.className = 'book-block';
+
+    const isEditingCover = editingCovers.has(i) || !book.cover;
+    const coverInner = (book.cover && !editingCovers.has(i))
+      ? `<img src="${escapeHtml(book.cover)}" alt="書封" crossorigin="anonymous" onclick="enterCoverEdit(${i})">`
+      : `<div class="cover-edit" ondragover="event.preventDefault()" ondrop="handleCoverDrop(event, ${i})" onpaste="handleCoverPaste(event, ${i})" tabindex="0">
+           <p>拖曳圖片檔案、貼上圖片，<br>或貼上圖片網址後按 Enter</p>
+           <input type="text" placeholder="圖片網址 (URL)" value="${(book.cover && !book.cover.startsWith('data:')) ? escapeHtml(book.cover) : ''}"
+                  onkeydown="if(event.key==='Enter'){event.preventDefault(); setCoverFromUrl(${i}, this.value);}">
+           ${book.cover ? `<button class="btn-small" onclick="exitCoverEdit(${i})">取消</button>` : ''}
+         </div>`;
+    const paneClass = isEditingCover ? 'pane-editing' : (book.coverSource === 'excel' ? 'pane-excel' : '');
+
+    div.innerHTML = `
+      <span class="serial-num">${i+1}</span>
+      <div class="cover-pane ${paneClass}" id="cover-${i}">${coverInner}</div>
+      <div class="qr-pane">
+        <div class="qr-box" id="qr-${i}"></div>
+        <span style="font-size:11px;color:#888;">電子書連結 QR</span>
+      </div>
+      <div class="book-fields">
+        <div>
+          <label>書名</label>
+          <input type="text" value="${escapeHtml(book.title)}" oninput="updateBook(${i}, 'title', this.value)">
+        </div>
+        <div>
+          <label>電子書連結</label>
+          <input type="text" value="${escapeHtml(book.ebookLink)}" placeholder="https://..." oninput="updateBook(${i}, 'ebookLink', this.value)">
+        </div>
+        <div>
+          <label>內容簡介 (上限200字)</label>
+          <div class="desc-wrap">
+            <textarea maxlength="200" oninput="updateDesc(${i}, this)">${escapeHtml(book.desc)}</textarea>
+            <span class="char-count" id="desc-count-${i}">${book.desc.length}/200</span>
+          </div>
+        </div>
+        <div class="block-footer">
+          <button class="btn-del" onclick="deleteBook(${i})">刪除此書</button>
+        </div>
+      </div>
+    `;
+    container.appendChild(div);
+  });
+  books.forEach((_, i) => regenerateQR(i));
+  autoSave();
+}
+
+/* ---------------- cover pane ---------------- */
+function enterCoverEdit(i){ editingCovers.add(i); renderBooks(); }
+function exitCoverEdit(i){ editingCovers.delete(i); renderBooks(); }
+
+function handleCoverDrop(event, i){
+  event.preventDefault();
+  const file = event.dataTransfer.files && event.dataTransfer.files[0];
+  if(file && file.type.startsWith('image/')){
+    const reader = new FileReader();
+    reader.onload = e => {
+      books[i].cover = e.target.result;
+      books[i].coverSource = 'manual';
+      editingCovers.delete(i);
+      renderBooks();
+    };
+    reader.readAsDataURL(file);
+    return;
+  }
+  const uri = event.dataTransfer.getData('text/uri-list') || event.dataTransfer.getData('text/plain');
+  if(uri) setCoverFromUrl(i, uri);
+}
+
+function handleCoverPaste(event, i){
+  const items = event.clipboardData && event.clipboardData.items;
+  if(items){
+    for(const item of items){
+      if(item.type.startsWith('image/')){
+        event.preventDefault();
+        const file = item.getAsFile();
+        const reader = new FileReader();
+        reader.onload = e => {
+          books[i].cover = e.target.result;
+          books[i].coverSource = 'manual';
+          editingCovers.delete(i);
+          renderBooks();
+        };
+        reader.readAsDataURL(file);
+        return;
+      }
+    }
+  }
+  const text = event.clipboardData ? event.clipboardData.getData('text') : '';
+  if(text && text.trim()){
+    event.preventDefault();
+    setCoverFromUrl(i, text);
+  }
+}
+
+function setCoverFromUrl(i, url){
+  if(!url || !url.trim()) return;
+  books[i].cover = url.trim();
+  books[i].coverSource = 'manual';
+  editingCovers.delete(i);
+  renderBooks();
+}
+
+/* ---------------- QR code ---------------- */
+function regenerateQR(i){
+  const box = document.getElementById(`qr-${i}`);
+  if(!box) return;
+  box.innerHTML = '';
+  const link = (books[i].ebookLink || '').trim();
+  if(link){
+    new QRCode(box, {text: link, width: 100, height: 100, correctLevel: QRCode.CorrectLevel.M});
+  } else {
+    box.innerHTML = '<span class="qr-placeholder">輸入電子書<br>連結後產生 QR</span>';
+  }
+}
+
+/* ---------------- save / load ---------------- */
+function saveJSON(){
+  const data = { title: document.getElementById('mainTitle').value, books: books };
+  const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${sanitizeFilename(data.title)}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function handleLoadFile(event){
+  const file = event.target.files[0];
+  if(!file) return;
+  const ext = file.name.split('.').pop().toLowerCase();
+
+  if(ext === 'json'){
+    const reader = new FileReader();
+    reader.onload = e => {
+      try{
+        const data = JSON.parse(e.target.result);
+        document.getElementById('mainTitle').value = data.title || '新北市立圖書館電子書推薦';
+        books = data.books || [];
+        editingCovers.clear();
+        renderBooks();
+      }catch(err){
+        alert('JSON 檔案格式錯誤，載入失敗。');
+      }
+    };
+    reader.readAsText(file);
+  } else if(ext === 'xlsx' || ext === 'xls'){
+    const reader = new FileReader();
+    reader.onload = e => {
+      try{
+        const wb = XLSX.read(new Uint8Array(e.target.result), {type: 'array'});
+        const sheet = wb.Sheets[wb.SheetNames[0]];
+        const rows = XLSX.utils.sheet_to_json(sheet, {defval: ''});
+        books = rows.map(row => {
+          const coverUrl = String(row['書封連結'] || '');
+          return {
+            cover: coverUrl,
+            coverSource: coverUrl ? 'excel' : '',
+            ebookLink: String(row['電子書連結'] || ''),
+            title: String(row['書名'] || ''),
+            desc: String(row['內容簡介'] || '').slice(0, 200)
+          };
+        });
+        // Title left untouched per spec.
+        editingCovers.clear();
+        renderBooks();
+      }catch(err){
+        alert('Excel 檔案讀取失敗，請確認欄位包含：書名、電子書連結、書封連結、內容簡介。');
+      }
+    };
+    reader.readAsArrayBuffer(file);
+  } else {
+    alert('請選擇 .json 或 .xlsx/.xls 檔案。');
+  }
+  event.target.value = '';
+}
+
+/* ---------------- output / result ---------------- */
+function showBookList(){
+  const title = document.getElementById('mainTitle').value.trim() || '新北市立圖書館電子書推薦';
+  const resultSection = document.getElementById('resultSection');
+  const resultTitle = document.getElementById('resultTitle');
+  const resultList = document.getElementById('resultList');
+
+  resultTitle.textContent = title;
+  resultList.innerHTML = books.map((book, i) => `
+    <div class="result-book">
+      <div class="result-cover">
+        ${book.cover ? `<img src="${escapeHtml(book.cover)}" crossorigin="anonymous">` : `<div class="no-cover">無書封</div>`}
+      </div>
+      <div class="result-qr">
+        <div class="qr-box" id="result-qr-${i}"></div>
+        ${book.ebookLink ? `<a href="${escapeHtml(book.ebookLink)}" target="_blank" rel="noopener">電子書連結</a>` : ''}
+      </div>
+      <div class="result-info">
+        <h2>${escapeHtml(book.title || '（未命名書籍）')}</h2>
+        <p>${escapeHtml(book.desc || '')}</p>
+      </div>
+    </div>
+  `).join('');
+
+  resultSection.style.display = 'block';
+  books.forEach((book, i) => {
+    const box = document.getElementById(`result-qr-${i}`);
+    if(box && book.ebookLink && book.ebookLink.trim()){
+      new QRCode(box, {text: book.ebookLink.trim(), width: 100, height: 100, correctLevel: QRCode.CorrectLevel.M});
+    }
+  });
+
+  resultSection.scrollIntoView({behavior:'smooth'});
+
+  if(document.getElementById('downloadHTML').checked) downloadAsHTML(title);
+  if(document.getElementById('downloadPDF').checked) downloadAsPDF(title);
+}
+
+function getQRDataUrl(i){
+  const box = document.getElementById(`result-qr-${i}`);
+  if(!box) return '';
+  const canvas = box.querySelector('canvas');
+  if(canvas) return canvas.toDataURL('image/png');
+  const img = box.querySelector('img');
+  if(img) return img.src;
+  return '';
+}
+
+function downloadAsHTML(title){
+  const html = `<!DOCTYPE html>
+<html lang="zh-TW"><head><meta charset="UTF-8">
+<title>${escapeHtml(title)}</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#F7F1E1;color:#26313A;font-family:'Noto Sans TC',sans-serif;padding:30px 16px;}
+  .wrap{max-width:980px;margin:0 auto;}
+  h1{text-align:center;font-family:'Noto Serif TC',serif;font-weight:900;font-size:38px;color:#1F4E4A;margin-bottom:30px;}
+  .result-book{background:#fff;border:1px solid #D9CFB4;border-radius:10px;padding:20px;margin-bottom:22px;
+    display:grid;grid-template-columns:170px 170px 1fr;gap:22px;align-items:center;box-shadow:0 2px 8px rgba(38,49,58,.08);}
+  .result-cover img{width:170px;height:220px;object-fit:cover;border-radius:6px;border:1px solid #D9CFB4;}
+  .no-cover{width:170px;height:220px;display:flex;align-items:center;justify-content:center;background:#f0ede2;border-radius:6px;color:#999;font-size:13px;}
+  .result-qr{display:flex;flex-direction:column;align-items:center;gap:10px;}
+  .result-qr img{width:100px;height:100px;}
+  .result-qr a{color:#1F4E4A;font-weight:700;font-size:14px;text-decoration:underline;}
+  .result-info h2{font-family:'Noto Serif TC',serif;font-size:22px;margin:4px 0 10px;}
+  .result-info p{font-size:15px;line-height:1.8;white-space:pre-wrap;margin:0;}
+  @media(max-width:640px){.result-book{grid-template-columns:1fr;}}
+</style></head>
+<body><div class="wrap">
+<h1>${escapeHtml(title)}</h1>
+<div id="resultList">
+${books.map((book,i)=>`
+  <div class="result-book">
+    <div class="result-cover">${book.cover?`<img src="${escapeHtml(book.cover)}" crossorigin="anonymous">`:'<div class="no-cover">無書封</div>'}</div>
+    <div class="result-qr">${getQRDataUrl(i) ? `<img src="${getQRDataUrl(i)}" alt="QR code">` : ''}${book.ebookLink?`<a href="${escapeHtml(book.ebookLink)}" target="_blank" rel="noopener">電子書連結</a>`:''}</div>
+    <div class="result-info"><h2>${escapeHtml(book.title||'（未命名書籍）')}</h2><p>${escapeHtml(book.desc||'')}</p></div>
+  </div>`).join('')}
+</div>
+</div>
+</body></html>`;
+  const blob = new Blob([html], {type: 'text/html'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${sanitizeFilename(title)}.html`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+async function downloadAsPDF(title){
+  const target = document.getElementById('resultSection');
+  const originalWidth = target.style.width;
+  target.style.width = '794px'; // ~210mm at 96dpi
+  await new Promise(r => setTimeout(r, 150)); // allow reflow / QR render
+
+  try{
+    const canvas = await html2canvas(target, {scale: 2, useCORS: true, backgroundColor: '#F7F1E1'});
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF({unit: 'mm', format: [210, 4000]});
+    const imgWidthMm = 210;
+    const imgHeightMm = canvas.height * (imgWidthMm / canvas.width);
+    const imgData = canvas.toDataURL('image/jpeg', 0.92);
+    pdf.addImage(imgData, 'JPEG', 0, 0, imgWidthMm, Math.min(imgHeightMm, 4000));
+    pdf.save(`${sanitizeFilename(title)}.pdf`);
+  }catch(err){
+    alert('PDF 產生失敗，可能是書封圖片網址不支援跨網域讀取。錯誤訊息：' + err.message);
+  }finally{
+    target.style.width = originalWidth;
+  }
+}
+
+/* ---------------- init ---------------- */
+if(!loadAutoSave()){
+  addBook();
+}
+</script>
+</body>
+</html>
