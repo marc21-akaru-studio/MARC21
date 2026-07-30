@@ -288,6 +288,21 @@ function toolGetBib(strTemp) {
 			strBibtext = strBibtext.trim();
 			fillMARC21(strBibtext,2,'260c');
 		}
+		if (strTemp === 'Gemini') {
+			//MARC21書目(自Gemini)
+			strBibtext = strBibtext.replace(/\n\s\s\s\s\s\s\s/g,'');
+			var aryBibtext = strBibtext.split('\n');
+			var strNewBib = '';
+			var kmax = aryBibtext.length;
+			for (k=0;k<kmax;k++) {
+				var intFind = aryBibtext[k].indexOf('|',0);
+				if (strNewBib !== '') strNewBib = strNewBib + '\n';
+				strNewBib = strNewBib + aryBibtext[k];
+			}
+			strBibtext = strNewBib.replace(/\|/g,'\$');
+			strBibtext = strBibtext.trim();
+			fillMARC21(strBibtext,1,'260c');
+		}
 		peastBib.value = '';
 		document.getElementById('toolMARCFrom').style.display='none';
 		if (box084b.value === '' && strTemp !== 'humanlibrary') ButtFiveCode();
@@ -428,17 +443,17 @@ function fillMARC21(strBibtext,intCutOf,strDate) {
 		if (strHead === '020') {
 			if (box020a.value + box020c.value !== '') {
 				if (box020ALL.value !== '') tool020Add('fillMARC21');}
+			if (box020a.value.length > 13) {
+				let strTemp020 = box020a.value.slice(13);
+				box020q.value = strTemp020.replace(/[():]/g, '');
+				box020a.value = box020a.value.substring(0,13);
+			}
 		}
 		if (strHead === '490') {
 			if (box490a.value + box490v.value !== '') {
 				if (box490s.value !== '') toolAdd490s();}
 		}
 	}
-	// if (box240a.value !== '') {
-		// var str240a = '譯自 : ' + box240a.value;
-		// if (box500a.value !== '') box500a.value = box500a.value + '\n';
-		// box500a.value = box500a.value + str240a;
-	// }
 	if (strGroup !== '') toolFill('Group',strGroup,strDate,false);
 }
 
