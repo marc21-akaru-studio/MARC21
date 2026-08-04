@@ -110,7 +110,7 @@ function toolGetBib(strTemp) {
 		}
 		if (strTemp === 'NBICMARC') {
 			//自NBInet C-MARC格式
-			strBibtext = strBibtext.replace(/\n\s\s\s\s\s\s\s/g,'');
+			strBibtext = strBibtext.replace(/NT\$/g,'');
 			var aryBibtext = strBibtext.split('\n');
 			var strNewBib = '';
 			var kmax = aryBibtext.length;
@@ -119,7 +119,7 @@ function toolGetBib(strTemp) {
 				if (intFind > 6 || intFind === 0-1) {
 					var strTemp1 = aryBibtext[k].substr(0,7);
 					var strTemp2 = aryBibtext[k].slice(7);
-					aryBibtext[k] = strTemp1 + '|a' + strTemp2;
+					// aryBibtext[k] = strTemp1 + '|a' + strTemp2;
 				}
 				if (strNewBib !== '') strNewBib = strNewBib + '\n';
 				strNewBib = strNewBib + aryBibtext[k];
@@ -129,7 +129,7 @@ function toolGetBib(strTemp) {
 		}
 		if (strTemp === 'NBIMARC21') {
 			//自NBInet MARC21格式
-			strBibtext = strBibtext.replace(/\n\s\s\s\s\s\s\s/g,'');
+			strBibtext = strBibtext.replace(/NT\$/g,'');
 			var aryBibtext = strBibtext.split('\n');
 			var strNewBib = '';
 			var kmax = aryBibtext.length;
@@ -138,7 +138,7 @@ function toolGetBib(strTemp) {
 				if (intFind > 6 || intFind === 0-1) {
 					var strTemp1 = aryBibtext[k].substr(0,7);
 					var strTemp2 = aryBibtext[k].slice(7);
-					aryBibtext[k] = strTemp1 + '|a' + strTemp2;
+					// aryBibtext[k] = strTemp1 + '|a' + strTemp2;
 				}
 				if (strNewBib !== '') strNewBib = strNewBib + '\n';
 				strNewBib = strNewBib + aryBibtext[k];
