@@ -2280,7 +2280,8 @@ ZD 貢寮
 ZG 瑞芳東和
 HH 三重借書站
 TT 總館借書站
-TK 市府借書站
+TK 市府閱讀小棧
+HJ 第二閱讀小棧
 ##BoxLibrary.End
 
 ##selNRRC653
